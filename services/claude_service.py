@@ -71,7 +71,7 @@ The statement must be a single, unambiguous factual claim that is CLEARLY true o
 
 Each choice text must start with "True — " or "False — " followed by a justification. The justification explains WHY the student believes the statement is true or false. Each choice must have its own explanation field explaining why it's right or wrong.
 
-CRITICAL — ANSWER LENGTH BALANCE: All four choice texts MUST be nearly identical in length (within ~10 characters of each other). Write ALL four justifications with the same level of specificity and detail. The incorrect choices must include equally detailed reasoning — cite specific concepts, use similar sentence structures, and match the word count of the correct answer. Students must NEVER be able to identify the correct answer by its length. COUNT THE CHARACTERS of each choice text and adjust until they are balanced.
+CRITICAL — LENGTH MUST NOT CORRELATE WITH CORRECTNESS: The length of a choice must have ZERO relationship to whether it is correct or incorrect. Do not systematically make the correct answer longer or shorter. Some wrong answers should be longer than the correct one. Some should be shorter. Vary naturally. The student must gain no information about correctness from the length of the text alone.
 
 CRITICAL — POSITION RANDOMIZATION: Do NOT always put the correct answer at index 0. Randomly place correctIndex at 0, 1, 2, or 3. Vary it across questions.
 
@@ -127,7 +127,7 @@ The question must be self-contained — NEVER reference "the learning content", 
 
 VALIDATION-CRITICAL RULES:
 - There must be exactly ONE correct answer. If two choices could both be justified, the question is bad.
-- CRITICAL — ANSWER LENGTH BALANCE: All four choice texts MUST be nearly identical in length (within ~10 characters of each other). Write ALL four options with the same level of specificity and detail. The incorrect choices must be equally detailed. Students must NEVER be able to identify the correct answer by its length. COUNT THE CHARACTERS and adjust until balanced.
+- CRITICAL — LENGTH MUST NOT CORRELATE WITH CORRECTNESS: The length of a choice must have ZERO relationship to whether it is correct or incorrect. Do not systematically make the correct answer longer or shorter. Some wrong answers should be longer than the correct one. Some should be shorter. Vary naturally. The student must gain no information about correctness from the length of the text alone.
 - CRITICAL — POSITION RANDOMIZATION: Do NOT always put the correct answer at index 0. Randomly place correctIndex at 0, 1, 2, or 3. Vary it across questions.
 - Distractors must be WRONG but PLAUSIBLE — they should sound like they could be right to someone who didn't study, but be clearly incorrect to someone who did.
 - Ask about concepts, definitions, relationships, or applications — not trivia like specific numbers or proper nouns unless they are central to the concept.

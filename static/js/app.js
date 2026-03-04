@@ -234,29 +234,18 @@ async function _buildBankForSkill(sid, onProgress) {
 
         if (allQuestions.length === 0) continue;
 
-        log(`${qtype} ${dokLabel}: validating ${allQuestions.length} questions...`);
-        const valRes = await _postJSON(`/skill/${sid}/validate-batch`, {
-          question_type: qtype,
-          dok_level: dok,
-          questions: allQuestions,
-        });
-        if (valRes.error) { log(`${qtype} ${dokLabel} validation failed: ${valRes.error}`); continue; }
+        const entries = allQuestions.map((q, i) => ({
+          id: `${sid}-${qtype.slice(0, 4)}-d${dok}-${i}`,
+          dok,
+          question_data: q,
+          valid: true,
+          validation_reason: "",
+          met: false,
+        }));
 
-        const validated = (valRes.results || [])
-          .filter(r => r.valid)
-          .map((r, i) => ({
-            id: `${sid}-${qtype.slice(0, 4)}-d${dok}-${i}`,
-            dok,
-            question_data: r.question_data,
-            valid: true,
-            validation_reason: r.validation_reason,
-            met: false,
-          }));
-
-        bankData[qtype].questions = bankData[qtype].questions.concat(validated);
-        totalSaved += validated.length;
-        const discarded = allQuestions.length - validated.length;
-        log(`${qtype} ${dokLabel}: ${validated.length} valid, ${discarded} discarded`);
+        bankData[qtype].questions = bankData[qtype].questions.concat(entries);
+        totalSaved += entries.length;
+        log(`${qtype} ${dokLabel}: ${entries.length} questions generated`);
       }
     }
 

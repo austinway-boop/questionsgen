@@ -194,8 +194,17 @@ async function _postJSON(url, body) {
 async function _buildBankForSkill(sid, onProgress) {
   const log = (msg) => onProgress && onProgress(sid, msg);
   let totalSaved = 0;
+  const BATCH_RETRIES = 2;
 
   try {
+    // Load existing bank to check what's already done
+    let existingBank = {};
+    try {
+      const bankRes = await fetch(`/skill/${sid}/question-bank`);
+      const bankJson = await bankRes.json();
+      existingBank = bankJson.bank || {};
+    } catch (e) { /* no existing bank */ }
+
     log("Detecting question types...");
     const detectRes = await _postJSON(`/skill/${sid}/detect-types`, {});
     if (detectRes.error) throw new Error(detectRes.error);
@@ -206,36 +215,60 @@ async function _buildBankForSkill(sid, onProgress) {
 
     const bankData = {};
     for (const qtype of typeKeys) {
-      bankData[qtype] = { concepts: [], questions: [] };
+      const existingTypeData = existingBank[qtype] || {};
+      const existingQuestions = existingTypeData.questions || [];
+      bankData[qtype] = { concepts: existingTypeData.concepts || [], questions: [...existingQuestions] };
 
       for (const dok of ["2", "3"]) {
         const dokLabel = `DOK ${dok}`;
-        let allQuestions = [];
-        let excludeSummaries = [];
-        const numBatches = Math.ceil(QUESTIONS_PER_DOK / BATCH_SIZE);
+        const existingForDok = existingQuestions.filter(q => q.dok === dok);
+        const needed = QUESTIONS_PER_DOK - existingForDok.length;
+
+        if (needed <= 0) {
+          log(`${qtype} ${dokLabel}: already has ${existingForDok.length}/${QUESTIONS_PER_DOK} — skipping`);
+          continue;
+        }
+
+        log(`${qtype} ${dokLabel}: need ${needed} more (have ${existingForDok.length})...`);
+
+        let newQuestions = [];
+        let excludeSummaries = existingForDok.map(q => JSON.stringify(q.question_data).slice(0, 80));
+        const numBatches = Math.ceil(needed / BATCH_SIZE);
 
         for (let b = 0; b < numBatches; b++) {
-          const remaining = QUESTIONS_PER_DOK - allQuestions.length;
+          const remaining = needed - newQuestions.length;
           const count = Math.min(BATCH_SIZE, remaining);
           if (count <= 0) break;
 
-          log(`${qtype} ${dokLabel}: generating batch ${b + 1}/${numBatches}...`);
-          const genRes = await _postJSON(`/skill/${sid}/generate-batch`, {
-            question_type: qtype,
-            dok_level: dok,
-            count,
-            exclude_summaries: excludeSummaries,
-          });
-          if (genRes.error) { log(`${qtype} ${dokLabel} batch failed: ${genRes.error}`); break; }
+          let batchOk = false;
+          for (let retry = 0; retry <= BATCH_RETRIES; retry++) {
+            if (retry > 0) log(`${qtype} ${dokLabel}: retrying batch ${b + 1} (attempt ${retry + 1})...`);
+            else log(`${qtype} ${dokLabel}: generating batch ${b + 1}/${numBatches}...`);
 
-          allQuestions = allQuestions.concat(genRes.questions || []);
-          excludeSummaries = excludeSummaries.concat(genRes.summaries || []);
+            try {
+              const genRes = await _postJSON(`/skill/${sid}/generate-batch`, {
+                question_type: qtype,
+                dok_level: dok,
+                count,
+                exclude_summaries: excludeSummaries,
+              });
+              if (genRes.error) throw new Error(genRes.error);
+
+              newQuestions = newQuestions.concat(genRes.questions || []);
+              excludeSummaries = excludeSummaries.concat(genRes.summaries || []);
+              batchOk = true;
+              break;
+            } catch (e) {
+              log(`${qtype} ${dokLabel} batch ${b + 1} error: ${e.message}`);
+            }
+          }
+
+          if (!batchOk) log(`${qtype} ${dokLabel}: batch ${b + 1} failed after ${BATCH_RETRIES + 1} attempts`);
         }
 
-        if (allQuestions.length === 0) continue;
-
-        const entries = allQuestions.map((q, i) => ({
-          id: `${sid}-${qtype.slice(0, 4)}-d${dok}-${i}`,
+        const baseIdx = existingForDok.length;
+        const entries = newQuestions.map((q, i) => ({
+          id: `${sid}-${qtype.slice(0, 4)}-d${dok}-${baseIdx + i}`,
           dok,
           question_data: q,
           valid: true,
@@ -245,7 +278,7 @@ async function _buildBankForSkill(sid, onProgress) {
 
         bankData[qtype].questions = bankData[qtype].questions.concat(entries);
         totalSaved += entries.length;
-        log(`${qtype} ${dokLabel}: ${entries.length} questions generated`);
+        log(`${qtype} ${dokLabel}: ${entries.length} new + ${existingForDok.length} existing = ${entries.length + existingForDok.length} total`);
       }
     }
 
@@ -253,7 +286,7 @@ async function _buildBankForSkill(sid, onProgress) {
     const saveRes = await _postJSON(`/skill/${sid}/save-bank`, { bank_data: bankData });
     if (saveRes.error) throw new Error(saveRes.error);
 
-    log(`Done. ${totalSaved} questions saved.`);
+    log(`Done. ${totalSaved} new questions saved.`);
     return { sid, ok: true, saved: totalSaved };
   } catch (e) {
     log(`FAILED: ${e.message}`);

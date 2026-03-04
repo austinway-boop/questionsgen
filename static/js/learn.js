@@ -424,7 +424,7 @@ async function startLearningSession(skillId) {
     : skillTextMap[skillId] || skillId;
   document.getElementById("learn-skill-name").textContent = headerText;
   document.getElementById("learn-skill-id").textContent = group.join(", ");
-  updateGroupMasteryBar(group);
+  renderGroupMasteryBars(group);
 
   // Fetch skill details + question banks for all skills in the group
   const fetches = group.map(sid => Promise.all([
@@ -509,10 +509,33 @@ function buildInterleavedQueue(group, bankMap, dok, countPerSkill) {
   return queue;
 }
 
-function updateGroupMasteryBar(group) {
+function renderGroupMasteryBars(group) {
+  const container = document.getElementById("learn-mastery-bars");
+  if (!container || !group || group.length === 0) return;
+  container.innerHTML = group.map(sid => {
+    const m = Math.round(getSkillState(sid).mastery);
+    const color = m >= 70 ? "var(--success)" : m >= 40 ? "var(--primary)" : m > 0 ? "var(--warning)" : "var(--border)";
+    return `
+      <div class="group-mastery-row" id="gm-${sid}">
+        <span class="group-mastery-id">${sid}</span>
+        <div class="group-mastery-bar"><div class="group-mastery-fill" style="width:${m}%;background:${color}"></div></div>
+        <span class="group-mastery-score">${m}</span>
+      </div>`;
+  }).join("");
+}
+
+function updateGroupMasteryBars(group) {
   if (!group || group.length === 0) return;
-  const avg = group.reduce((sum, sid) => sum + getSkillState(sid).mastery, 0) / group.length;
-  updateMasteryBar("learn", avg);
+  for (const sid of group) {
+    const row = document.getElementById(`gm-${sid}`);
+    if (!row) continue;
+    const m = Math.round(getSkillState(sid).mastery);
+    const color = m >= 70 ? "var(--success)" : m >= 40 ? "var(--primary)" : m > 0 ? "var(--warning)" : "var(--border)";
+    const fill = row.querySelector(".group-mastery-fill");
+    const score = row.querySelector(".group-mastery-score");
+    if (fill) { fill.style.width = m + "%"; fill.style.background = color; }
+    if (score) score.textContent = m;
+  }
 }
 
 function showContentPhase(learningContent, sources) {
@@ -552,7 +575,7 @@ function completeVideo() {
     s.mastery = clampMastery(s.mastery + 40);
   }
   saveState();
-  updateGroupMasteryBar(currentSession.group);
+  updateGroupMasteryBars(currentSession.group);
 
   currentSession.phase = "basic";
   currentSession.queueIndex = 0;
@@ -605,7 +628,7 @@ function onLearnAnswer(correct, answeredSkillId, dok) {
     : (correct ? 10 : -20);
   skillState.mastery = clampMastery(skillState.mastery + delta);
   saveState();
-  updateGroupMasteryBar(currentSession.group);
+  updateGroupMasteryBars(currentSession.group);
 
   currentSession.queueIndex++;
   if (!correct) currentSession.wrongCounts[answeredSkillId]++;

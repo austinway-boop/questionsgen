@@ -408,7 +408,50 @@
   color: var(--text-muted);
 }
 
-/* Mastery bar (in session) */
+/* Mastery bars (in session) */
+
+.session-mastery-bars {
+  padding: 0.5rem 2rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.group-mastery-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.group-mastery-id {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  min-width: 48px;
+}
+
+.group-mastery-bar {
+  flex: 1;
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.group-mastery-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease, background-color 0.3s;
+}
+
+.group-mastery-score {
+  font-size: 0.8rem;
+  font-weight: 700;
+  min-width: 28px;
+  text-align: right;
+}
 
 .session-mastery-bar-container {
   padding: 0.6rem 2rem;

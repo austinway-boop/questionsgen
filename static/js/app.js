@@ -205,19 +205,29 @@ async function _buildBankForSkill(sid, onProgress) {
       existingBank = bankJson.bank || {};
     } catch (e) { /* no existing bank */ }
 
-    log("Detecting question types...");
-    const detectRes = await _postJSON(`/skill/${sid}/detect-types`, {});
-    if (detectRes.error) throw new Error(detectRes.error);
-    const types = detectRes.relevant_question_types;
-    const typeKeys = typeof types === "object" && !Array.isArray(types) ? Object.keys(types) : (types || []);
-    if (typeKeys.length === 0) throw new Error("No question types detected");
-    log(`Detected ${typeKeys.length} types: ${typeKeys.join(", ")}`);
+    // Use existing types from the bank if available; only detect if none exist
+    let typeKeys = Object.keys(existingBank).filter(k => existingBank[k] && typeof existingBank[k] === "object");
+    if (typeKeys.length === 0) {
+      log("Detecting question types...");
+      const detectRes = await _postJSON(`/skill/${sid}/detect-types`, {});
+      if (detectRes.error) throw new Error(detectRes.error);
+      const types = detectRes.relevant_question_types;
+      typeKeys = typeof types === "object" && !Array.isArray(types) ? Object.keys(types) : (types || []);
+      if (typeKeys.length === 0) throw new Error("No question types detected");
+      log(`Detected ${typeKeys.length} types: ${typeKeys.join(", ")}`);
+    } else {
+      log(`Using ${typeKeys.length} existing types: ${typeKeys.join(", ")}`);
+    }
 
+    // Start with ALL existing bank data (preserves types not in typeKeys)
     const bankData = {};
+    for (const [k, v] of Object.entries(existingBank)) {
+      if (v && typeof v === "object") bankData[k] = { concepts: v.concepts || [], questions: [...(v.questions || [])] };
+    }
+
     for (const qtype of typeKeys) {
-      const existingTypeData = existingBank[qtype] || {};
-      const existingQuestions = existingTypeData.questions || [];
-      bankData[qtype] = { concepts: existingTypeData.concepts || [], questions: [...existingQuestions] };
+      if (!bankData[qtype]) bankData[qtype] = { concepts: [], questions: [] };
+      const existingQuestions = bankData[qtype].questions;
 
       for (const dok of ["2", "3"]) {
         const dokLabel = `DOK ${dok}`;

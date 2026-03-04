@@ -7,7 +7,7 @@ from typing import Optional
 from google import genai
 from google.genai import types
 
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyCMa89WoDUPoRPVMJW9qLuHPNbolI76IG4")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GENERATED_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "static", "generated")
 
 os.makedirs(GENERATED_DIR, exist_ok=True)

@@ -7,7 +7,7 @@ import json
 import sys
 from pathlib import Path
 
-TRANSCRIPTS_PATH = Path.home() / "Downloads" / "ap-human-geography-transcripts.json"
+TRANSCRIPTS_PATH = Path(__file__).resolve().parent / "data" / "transcripts.json"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from services.skill_store import save_learning_content
 

@@ -4,7 +4,7 @@
 
 let treeData = null;
 let questionTypeMeta = {};
-let contentStatus = {};
+let pipelineStatus = {};
 let currentSkillId = null;
 let genCounter = 0;
 
@@ -12,12 +12,20 @@ async function initTree() {
   const [treeRes, typesRes, statusRes] = await Promise.all([
     fetch("/skill-tree"),
     fetch("/question-types"),
-    fetch("/skill-content-status"),
+    fetch("/pipeline-status"),
   ]);
   treeData = await treeRes.json();
   questionTypeMeta = await typesRes.json();
-  contentStatus = await statusRes.json();
+  pipelineStatus = await statusRes.json();
   renderTree();
+}
+
+async function refreshPipelineStatus() {
+  try {
+    const res = await fetch("/pipeline-status");
+    pipelineStatus = await res.json();
+    renderTree();
+  } catch (e) { /* silent */ }
 }
 
 function renderTree() {
@@ -31,38 +39,162 @@ function renderTree() {
     section.className = "unit-section";
     section.id = `unit-${unit.id}`;
 
+    let redCount = 0, blueCount = 0, greenCount = 0;
+    for (const skill of unit.skills) {
+      const st = pipelineStatus[skill.id] || "none";
+      if (st === "complete") greenCount++;
+      else if (st === "content_only") blueCount++;
+      else redCount++;
+    }
+
+    const unitNum = unit.id.replace("U", "");
     const header = document.createElement("div");
-    header.className = "unit-header";
+    header.className = "unit-header" + (redCount > 0 ? " has-missing" : "");
     header.innerHTML = `
       <span class="unit-chevron">&#9654;</span>
       <span class="unit-label">${unit.title}</span>
+      <div class="unit-status-counts">
+        ${redCount  ? `<span class="count-dot cnt-red">${redCount}</span>` : ""}
+        ${blueCount ? `<span class="count-dot cnt-blue">${blueCount}</span>` : ""}
+        ${greenCount? `<span class="count-dot cnt-green">${greenCount}</span>` : ""}
+      </div>
+      <button class="unit-map-btn" onclick="event.stopPropagation(); mapUnitTranscripts(${unitNum}, this)" title="Map video transcripts to skills for this unit">Map Transcripts</button>
       <span class="unit-count">${unit.skills.length}</span>
     `;
     header.addEventListener("click", () => section.classList.toggle("open"));
 
+    const mapLog = document.createElement("div");
+    mapLog.className = "unit-map-log";
+    mapLog.id = `unit-map-log-${unitNum}`;
+
     const skillsDiv = document.createElement("div");
     skillsDiv.className = "unit-skills";
 
-    let unitHasMissing = false;
     for (const skill of unit.skills) {
+      const st = pipelineStatus[skill.id] || "none";
       const item = document.createElement("div");
-      const hasContent = contentStatus[skill.id] === true;
-      item.className = "skill-item" + (hasContent ? "" : " no-content");
-      if (!hasContent && skill.id in contentStatus) unitHasMissing = true;
+      item.className = "skill-item" + (st === "none" ? " status-none-item" : "");
       item.dataset.skillId = skill.id;
-      let dots = "";
-      if (hasContent) dots = '<span class="has-content-dot"></span>';
-      item.innerHTML = `<span class="skill-id-tag">${skill.id}</span>${skill.text}${dots}`;
+
+      const dotClass = st === "complete" ? "status-complete" : st === "content_only" ? "status-content" : "status-none";
+      item.innerHTML = `<span class="skill-id-tag">${skill.id}</span>${skill.text}<span class="status-dot ${dotClass}"></span>`;
       item.addEventListener("click", () => selectSkill(skill.id, skill.text));
       skillsDiv.appendChild(item);
     }
 
-    if (unitHasMissing) header.classList.add("has-missing");
-
     section.appendChild(header);
+    section.appendChild(mapLog);
     section.appendChild(skillsDiv);
     list.appendChild(section);
   }
+}
+
+
+/* ── Bulk actions ──────────────────────────────────────────────────── */
+
+function mapUnitTranscripts(unitNum, btn) {
+  btn.disabled = true;
+  const log = document.getElementById(`unit-map-log-${unitNum}`);
+  log.innerHTML = "";
+  log.style.display = "block";
+
+  const section = btn.closest(".unit-section");
+  if (section && !section.classList.contains("open")) {
+    section.classList.add("open");
+  }
+
+  const es = new EventSource(`/unit/${unitNum}/map-transcripts`);
+
+  es.onmessage = function(event) {
+    const data = JSON.parse(event.data);
+    const line = document.createElement("div");
+    line.className = "log-line" + (data.phase === "error" ? " log-error" : data.phase === "done" ? " log-done" : "");
+    line.textContent = data.message;
+    log.appendChild(line);
+    log.scrollTop = log.scrollHeight;
+
+    if (data.phase === "done" || data.phase === "error") {
+      es.close();
+      btn.disabled = false;
+      refreshPipelineStatus();
+    }
+  };
+
+  es.onerror = function() {
+    es.close();
+    btn.disabled = false;
+    const line = document.createElement("div");
+    line.className = "log-line log-error";
+    line.textContent = "Connection lost.";
+    log.appendChild(line);
+    refreshPipelineStatus();
+  };
+}
+
+async function buildAllBanks() {
+  const btn = document.getElementById("build-all-btn");
+  const spinner = document.getElementById("build-all-spinner");
+  const progress = document.getElementById("build-all-progress");
+
+  const skillsToBuild = [];
+  for (const [sid, st] of Object.entries(pipelineStatus)) {
+    if (st === "content_only") skillsToBuild.push(sid);
+  }
+
+  if (skillsToBuild.length === 0) {
+    progress.textContent = "No skills need building (all are either missing content or already complete).";
+    return;
+  }
+
+  btn.disabled = true;
+  spinner.classList.remove("hidden");
+  progress.textContent = `Building banks for ${skillsToBuild.length} skills...`;
+
+  let completed = 0;
+  let failed = 0;
+  const CONCURRENCY = 2;
+
+  async function processBatch(skills) {
+    for (const sid of skills) {
+      try {
+        const es = new EventSource(`/skill/${sid}/build-bank`);
+        await new Promise((resolve) => {
+          es.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            if (data.phase === "done" || data.phase === "error") {
+              es.close();
+              if (data.phase === "error") failed++;
+              else completed++;
+              progress.textContent = `Building banks: ${completed} done, ${failed} failed, ${skillsToBuild.length - completed - failed} remaining...`;
+              resolve();
+            }
+          };
+          es.onerror = function() {
+            es.close();
+            failed++;
+            progress.textContent = `Building banks: ${completed} done, ${failed} failed, ${skillsToBuild.length - completed - failed} remaining...`;
+            resolve();
+          };
+        });
+      } catch (e) {
+        failed++;
+      }
+    }
+  }
+
+  const chunks = [];
+  for (let i = 0; i < skillsToBuild.length; i += CONCURRENCY) {
+    chunks.push(skillsToBuild.slice(i, i + CONCURRENCY));
+  }
+
+  for (const chunk of chunks) {
+    await Promise.all(chunk.map(sid => processBatch([sid])));
+  }
+
+  btn.disabled = false;
+  spinner.classList.add("hidden");
+  progress.textContent = `Done. ${completed} banks built, ${failed} failed.`;
+  refreshPipelineStatus();
 }
 
 async function selectSkill(id, text) {
@@ -151,17 +283,7 @@ async function saveLearningContent() {
     status.textContent = "Saved";
     status.style.color = "var(--success)";
 
-    const item = document.querySelector(`.skill-item[data-skill-id="${currentSkillId}"]`);
-    if (item) {
-      const existing = item.querySelector(".has-content-dot");
-      if (content.trim() && !existing) {
-        const dot = document.createElement("span");
-        dot.className = "has-content-dot";
-        item.appendChild(dot);
-      } else if (!content.trim() && existing) {
-        existing.remove();
-      }
-    }
+    refreshPipelineStatus();
   } catch (e) {
     status.textContent = "Error saving";
     status.style.color = "var(--error)";
@@ -261,7 +383,7 @@ async function generateQuestion() {
     typesToGenerate.push(selectedType);
   }
 
-  for (const qtype of typesToGenerate) {
+  const results = await Promise.all(typesToGenerate.map(async (qtype) => {
     try {
       const res = await fetch(`/skill/${currentSkillId}/generate`, {
         method: "POST",
@@ -270,12 +392,20 @@ async function generateQuestion() {
       });
       const data = await res.json();
       if (data.error) throw new Error(data.error);
-      renderGeneratedQuestion(data.question_type, data.question, output, true);
+      return { qtype, data, error: null };
     } catch (e) {
+      return { qtype, data: null, error: e.message };
+    }
+  }));
+
+  for (const r of results) {
+    if (r.error) {
       const err = document.createElement("p");
       err.style.color = "var(--error)";
-      err.textContent = `${qtype}: ${e.message}`;
+      err.textContent = `${r.qtype}: ${r.error}`;
       output.appendChild(err);
+    } else {
+      renderGeneratedQuestion(r.data.question_type, r.data.question, output, true);
     }
   }
 

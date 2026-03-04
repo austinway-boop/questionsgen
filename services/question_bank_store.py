@@ -1,95 +1,87 @@
-import json
-from pathlib import Path
+import threading
+from services import kv_store
 
-DATA_PATH = Path(__file__).resolve().parent.parent / "question_bank.json"
+_NS = "bank"
 
-
-def _load() -> dict:
-    if DATA_PATH.exists():
-        return json.loads(DATA_PATH.read_text())
-    return {}
-
-
-def _save(data: dict):
-    DATA_PATH.write_text(json.dumps(data, indent=2))
+# Thread lock for read-modify-write sequences in JSON mode.
+# KV mode is inherently atomic per key, but we still lock for
+# multi-step operations that read then write the same key.
+_lock = threading.Lock()
 
 
 def get_skill_bank(skill_id: str) -> dict:
-    data = _load()
-    return data.get(skill_id, {})
+    return kv_store.get_from_namespace(_NS, skill_id) or {}
 
 
 def save_concepts(skill_id: str, question_type: str, concepts: list):
-    data = _load()
-    if skill_id not in data:
-        data[skill_id] = {}
-    if question_type not in data[skill_id]:
-        data[skill_id][question_type] = {"concepts": [], "questions": []}
-    data[skill_id][question_type]["concepts"] = concepts
-    _save(data)
+    with _lock:
+        bank = get_skill_bank(skill_id)
+        if question_type not in bank:
+            bank[question_type] = {"concepts": [], "questions": []}
+        bank[question_type]["concepts"] = concepts
+        kv_store.set_in_namespace(_NS, skill_id, bank)
 
 
 def save_question(skill_id: str, question_type: str, question_entry: dict):
-    data = _load()
-    if skill_id not in data:
-        data[skill_id] = {}
-    if question_type not in data[skill_id]:
-        data[skill_id][question_type] = {"concepts": [], "questions": []}
-    questions = data[skill_id][question_type]["questions"]
-    existing_idx = next(
-        (i for i, q in enumerate(questions) if q["id"] == question_entry["id"]),
-        None,
-    )
-    if existing_idx is not None:
-        questions[existing_idx] = question_entry
-    else:
-        questions.append(question_entry)
-    _save(data)
+    with _lock:
+        bank = get_skill_bank(skill_id)
+        if question_type not in bank:
+            bank[question_type] = {"concepts": [], "questions": []}
+        questions = bank[question_type]["questions"]
+        existing_idx = next(
+            (i for i, q in enumerate(questions) if q["id"] == question_entry["id"]),
+            None,
+        )
+        if existing_idx is not None:
+            questions[existing_idx] = question_entry
+        else:
+            questions.append(question_entry)
+        kv_store.set_in_namespace(_NS, skill_id, bank)
 
 
 def save_questions_batch(skill_id: str, question_type: str, entries: list):
-    data = _load()
-    if skill_id not in data:
-        data[skill_id] = {}
-    if question_type not in data[skill_id]:
-        data[skill_id][question_type] = {"concepts": [], "questions": []}
-    questions = data[skill_id][question_type]["questions"]
-    existing_ids = {q["id"]: i for i, q in enumerate(questions)}
-    for entry in entries:
-        idx = existing_ids.get(entry["id"])
-        if idx is not None:
-            questions[idx] = entry
-        else:
-            questions.append(entry)
-            existing_ids[entry["id"]] = len(questions) - 1
-    _save(data)
+    with _lock:
+        bank = get_skill_bank(skill_id)
+        if question_type not in bank:
+            bank[question_type] = {"concepts": [], "questions": []}
+        questions = bank[question_type]["questions"]
+        existing_ids = {q["id"]: i for i, q in enumerate(questions)}
+        for entry in entries:
+            idx = existing_ids.get(entry["id"])
+            if idx is not None:
+                questions[idx] = entry
+            else:
+                questions.append(entry)
+                existing_ids[entry["id"]] = len(questions) - 1
+        kv_store.set_in_namespace(_NS, skill_id, bank)
 
 
 def replace_skill_bank(skill_id: str, bank_data: dict):
-    data = _load()
-    data[skill_id] = bank_data
-    _save(data)
+    with _lock:
+        kv_store.set_in_namespace(_NS, skill_id, bank_data)
 
 
 def update_validation(skill_id: str, question_type: str, question_id: str, valid: bool, reason: str):
-    data = _load()
-    bank = data.get(skill_id, {}).get(question_type, {})
-    for q in bank.get("questions", []):
-        if q["id"] == question_id:
-            q["valid"] = valid
-            q["validation_reason"] = reason
-            break
-    _save(data)
+    with _lock:
+        bank = get_skill_bank(skill_id)
+        type_data = bank.get(question_type, {})
+        for q in type_data.get("questions", []):
+            if q["id"] == question_id:
+                q["valid"] = valid
+                q["validation_reason"] = reason
+                break
+        kv_store.set_in_namespace(_NS, skill_id, bank)
 
 
 def mark_met(skill_id: str, question_type: str, question_id: str, met: bool):
-    data = _load()
-    bank = data.get(skill_id, {}).get(question_type, {})
-    for q in bank.get("questions", []):
-        if q["id"] == question_id:
-            q["met"] = met
-            break
-    _save(data)
+    with _lock:
+        bank = get_skill_bank(skill_id)
+        type_data = bank.get(question_type, {})
+        for q in type_data.get("questions", []):
+            if q["id"] == question_id:
+                q["met"] = met
+                break
+        kv_store.set_in_namespace(_NS, skill_id, bank)
 
 
 def get_coverage_status(skill_id: str) -> dict:
@@ -119,11 +111,24 @@ def get_coverage_status(skill_id: str) -> dict:
 
 
 def clear_skill_bank(skill_id: str, question_type: str = None):
-    data = _load()
-    if question_type:
-        if skill_id in data and question_type in data[skill_id]:
-            del data[skill_id][question_type]
-    else:
-        if skill_id in data:
-            del data[skill_id]
-    _save(data)
+    with _lock:
+        if question_type:
+            bank = get_skill_bank(skill_id)
+            bank.pop(question_type, None)
+            kv_store.set_in_namespace(_NS, skill_id, bank)
+        else:
+            kv_store.delete(f"{_NS}:{skill_id}")
+
+
+def get_all_bank_status() -> dict:
+    """Return {skill_id: bool} — True if the skill has any questions."""
+    data = kv_store.get_namespace(_NS)
+    result = {}
+    for skill_id, bank in data.items():
+        has_questions = any(
+            len(type_data.get("questions", [])) > 0
+            for type_data in bank.values()
+            if isinstance(type_data, dict)
+        )
+        result[skill_id] = has_questions
+    return result

@@ -14,8 +14,13 @@
   <div id="tree-screen" class="screen active">
     <header class="tree-header">
       <h1 class="tree-title">Skill Tree</h1>
-      <span class="tree-subtitle">AP Human Geography</span>
+      <span class="tree-subtitle">AP Human Geography — Staging</span>
+      <div class="tree-header-actions">
+        <button class="btn btn-secondary btn-sm" onclick="buildAllBanks()" id="build-all-btn">Build All Banks</button>
+        <div id="build-all-spinner" class="inline-spinner hidden"></div>
+      </div>
     </header>
+    <div id="build-all-progress" class="build-all-progress"></div>
 
     <div class="tree-layout">
       <!-- LEFT: collapsible unit list -->

@@ -6,6 +6,20 @@ CLAUDE_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
 SYSTEM_PROMPT = """You are an expert educational assessment designer. You create rigorous, thought-provoking questions that test deep understanding, not just memorization.
 
+CRITICAL CONTEXT — STANDALONE QUESTIONS:
+The "learning content" you receive is a transcript/summary of a VIDEO the student has already watched. The student does NOT have this text in front of them when answering questions. Every question you generate MUST be fully self-contained and answerable from what the student LEARNED (i.e. retained from watching the video), NOT from reading a passage.
+
+NEVER write questions that:
+- Reference "the learning content", "the passage", "the text", "the reading", "the article", or "the material"
+- Require the student to look something up in a provided document
+- Use phrases like "according to the passage", "based on the reading", "the text states that", "as described in the content"
+- Assume the student can re-read or search the source material
+
+DO write questions that:
+- Test knowledge the student should have internalized from studying the topic
+- Are phrased as standalone knowledge questions, as if on a closed-book test
+- Provide necessary context within the question itself when needed (e.g. a brief scenario, a specific claim to evaluate)
+
 EXPLANATION STYLE — Wise Feedback (David Yeager):
 All "explanation" fields MUST follow Yeager's wise feedback principles from "10 to 25". Every explanation should:
 1. Set a high standard — be direct and precise about what the correct understanding is. Do not sugarcoat or hedge.
@@ -29,7 +43,9 @@ QUESTION_TYPE_INFO = {
 
 acceptable_answers MUST list 5-8 entries: the exact term, common synonyms, abbreviations, plural/singular variants, and likely misspellings. For "environmental determinism" also accept "determinism", "enviromental determinism", etc. Be generous — if the answer shows understanding, it should count.
 
-NEVER blank out a number, a proper noun that is just a name (e.g. "Brooklyn"), or trivial filler.""",
+NEVER blank out a number, a proper noun that is just a name (e.g. "Brooklyn"), or trivial filler.
+
+The question must be self-contained — NEVER reference "the learning content", "the passage", "the text", or "the reading". The student does not have any source material in front of them.""",
     },
     "true_false_justification": {
         "label": "True / False + Justification",
@@ -57,7 +73,9 @@ NEVER reference "the learning content", "the passage", or "the text". Write as a
   "correct_mapping": {"0": 2, "1": 0, "2": 3, "3": 1},
   "explanation": "Why each cause leads to its effect"
 }""",
-        "rules": """Exactly 4 causes and 4 effects. correct_mapping maps cause index (string) to effect index (integer). Each cause must map to EXACTLY one effect with no ambiguity — a cause that could plausibly match two effects makes the question unfair. Each cause-effect pair must be a genuinely causal relationship stated or directly implied in the content, not a vague association. Write causes and effects as SHORT, specific phrases (under 15 words each). All effects should be different enough that the mapping is testable.""",
+        "rules": """Exactly 4 causes and 4 effects. correct_mapping maps cause index (string) to effect index (integer). Each cause must map to EXACTLY one effect with no ambiguity — a cause that could plausibly match two effects makes the question unfair. Each cause-effect pair must be a genuinely causal relationship stated or directly implied in the content, not a vague association. Write causes and effects as SHORT, specific phrases (under 15 words each). All effects should be different enough that the mapping is testable.
+
+The question must be self-contained — NEVER reference "the learning content", "the passage", "the text", or "the reading". The student does not have any source material in front of them.""",
     },
     "immediate_vs_long_term": {
         "label": "Immediate vs. Long-Term Cause",
@@ -69,7 +87,9 @@ NEVER reference "the learning content", "the passage", or "the text". Write as a
   ],
   "explanation": "Why each cause is classified that way"
 }""",
-        "rules": """Exactly 5 causes, mix of "immediate" and "long_term". The context must describe a specific event or outcome from the content. Each cause must be UNAMBIGUOUSLY classifiable — if a reasonable person could argue a cause is both, do not use it. Immediate = direct trigger or proximate cause. Long-term = underlying condition, structural factor, or gradual process. Write each cause as a short phrase (under 15 words).""",
+        "rules": """Exactly 5 causes, mix of "immediate" and "long_term". The context must describe a specific event or outcome from the content. Each cause must be UNAMBIGUOUSLY classifiable — if a reasonable person could argue a cause is both, do not use it. Immediate = direct trigger or proximate cause. Long-term = underlying condition, structural factor, or gradual process. Write each cause as a short phrase (under 15 words).
+
+The question must be self-contained — NEVER reference "the learning content", "the passage", "the text", or "the reading". The student does not have any source material in front of them. The context field must provide enough information for the student to understand the scenario.""",
     },
     "multiple_choice": {
         "label": "Multiple Choice",
@@ -100,7 +120,9 @@ VALIDATION-CRITICAL RULES:
 }""",
         "rules": """Exactly 5 events/factors. correct_order is an array of indices from the events array in ranked order. The instruction MUST specify a clear, objective criterion (e.g. "in terms of geographic scope", "in terms of impact on population distribution").
 
-VALIDATION-CRITICAL: The ranking must be defensible based on the learning content, not subjective opinion. If two items could reasonably swap positions, the question is bad. Choose items with CLEARLY different levels of significance so the ordering is unambiguous. Write each event as a short phrase (under 12 words).""",
+VALIDATION-CRITICAL: The ranking must be defensible based on the learning content, not subjective opinion. If two items could reasonably swap positions, the question is bad. Choose items with CLEARLY different levels of significance so the ordering is unambiguous. Write each event as a short phrase (under 12 words).
+
+The question must be self-contained — NEVER reference "the learning content", "the passage", "the text", or "the reading". The student does not have any source material in front of them.""",
     },
     "select_all_true": {
         "label": "Select All That Are True",
@@ -194,8 +216,9 @@ SCHEMA:
 }}
 
 IMPORTANT RULES:
+0. ALL questions must be fully self-contained. The student learned this material by watching a video — they do NOT have any text, passage, or reading in front of them. NEVER reference "the learning content", "the passage", "the text", "the reading", or "the material". Write every question as a standalone, closed-book knowledge question.
 1. For fill_in_the_blank: Be VERY selective. Only include blanks for terms that are truly essential for understanding. Never ask for obscure trivia. IMPORTANT: acceptable_answers must list ALL reasonably correct responses a student might give — include synonyms, abbreviations, and closely related terms. For example if the answer is "raw materials", also accept "raw goods", "commodities", "goods", "resources", "crops and raw materials", etc. Be generous — if a student's answer shows they understand the concept, it should count.
-2. For true_false_justification: Each question is a single statement with a single justification. The statement must be a clear, self-contained factual claim — NEVER reference 'the learning content', 'the passage', or 'the text'. The justification may be correct or incorrect. Make it substantive and arguable.
+2. For true_false_justification: Each question is a single statement with a single justification. The statement must be a clear, self-contained factual claim. The justification may be correct or incorrect. Make it substantive and arguable.
 3. For cause_and_effect: correct_mapping maps cause index (as string) to effect index (as integer).
 4. For immediate_vs_long_term: Provide exactly 5 causes per question.
 5. For multiple_choice: Exactly 4 options. correct_answer is the 0-based index. Distractors should be plausible but clearly wrong. Test understanding, not trivia.
@@ -283,11 +306,11 @@ def detect_relevant_types(skill_text: str, learning_content: str) -> dict:
         for key, info in QUESTION_TYPE_INFO.items()
     )
 
-    prompt = f"""Given the following skill and learning content, determine which question types are appropriate for testing this material AND assign a weight (percentage) to each.
+    prompt = f"""Given the following skill and source material, determine which question types are appropriate for testing this material AND assign a weight (percentage) to each.
 
 SKILL: "{skill_text}"
 
-LEARNING CONTENT:
+SOURCE MATERIAL (transcript/summary of a video the student watched):
 {learning_content}
 
 AVAILABLE QUESTION TYPES:
@@ -320,8 +343,8 @@ The values MUST sum to exactly 100. Return ONLY the JSON object."""
 
 
 DOK_INSTRUCTIONS = {
-    "2": "Generate a DOK 2 (fact recall / skill) question that tests whether the student can remember and explain key terms, definitions, or concepts directly from the learning content. The answer should be clearly stated in or directly derivable from the material.",
-    "3": "Generate a DOK 3 (strategic thinking / application) question that requires the student to analyze, compare, apply concepts to new scenarios, or draw conclusions beyond what is explicitly stated in the learning content. The student should need to reason, not just recall.",
+    "2": "Generate a DOK 2 (fact recall / skill) question that tests whether the student can remember and explain key terms, definitions, or concepts they learned from studying this topic. The answer should be something a student who paid attention would know.",
+    "3": "Generate a DOK 3 (strategic thinking / application) question that requires the student to analyze, compare, apply concepts to new scenarios, or draw conclusions that go beyond simple recall. The student should need to reason, not just remember facts.",
 }
 
 
@@ -332,11 +355,11 @@ def generate_single_question(skill_text: str, learning_content: str, question_ty
     info = QUESTION_TYPE_INFO[question_type]
     dok_instruction = DOK_INSTRUCTIONS.get(dok_level, DOK_INSTRUCTIONS["2"])
 
-    prompt = f"""Generate exactly 1 question of type "{info['label']}" about the following skill, using the provided learning content as your source material.
+    prompt = f"""Generate exactly 1 question of type "{info['label']}" about the following skill.
 
 SKILL: "{skill_text}"
 
-LEARNING CONTENT:
+SOURCE MATERIAL (for your reference only — the student does NOT see this text; they learned this content by watching a video):
 {learning_content}
 
 COGNITIVE DEPTH:
@@ -348,6 +371,8 @@ SCHEMA (your response must match this structure exactly):
 
 RULES:
 {info['rules']}
+
+REMINDER: The student watched a video covering this material. They do NOT have any text, passage, or reading in front of them. Every question must be a standalone, closed-book knowledge question.
 
 Return ONLY the JSON object for the single question. No wrapping array, no extra keys."""
 
@@ -361,11 +386,11 @@ def extract_concepts(skill_text: str, learning_content: str, question_type: str)
 
     info = QUESTION_TYPE_INFO[question_type]
 
-    prompt = f"""Analyze the following learning content and identify the CORE testable concepts — the big ideas a student must understand.
+    prompt = f"""Analyze the following source material and identify the CORE testable concepts — the big ideas a student must understand.
 
 SKILL: "{skill_text}"
 
-LEARNING CONTENT:
+SOURCE MATERIAL (transcript/summary of a video the student watched):
 {learning_content}
 
 RULES — READ CAREFULLY:
@@ -390,13 +415,13 @@ def generate_question_for_concept(skill_text: str, learning_content: str, questi
 
     info = QUESTION_TYPE_INFO[question_type]
 
-    prompt = f"""Generate exactly 1 question of type "{info['label']}" about a specific concept, using the provided learning content as your ONLY source material.
+    prompt = f"""Generate exactly 1 question of type "{info['label']}" about a specific concept.
 
 SKILL: "{skill_text}"
 
 CONCEPT TO TEST: "{concept}"
 
-LEARNING CONTENT:
+SOURCE MATERIAL (for your reference only — the student does NOT see this text; they learned this content by watching a video):
 {learning_content}
 
 QUESTION TYPE: {info['label']}
@@ -406,7 +431,7 @@ SCHEMA (your response must match this structure exactly):
 RULES:
 {info['rules']}
 
-CRITICAL: The question MUST specifically test the concept "{concept}". The answer must be derivable from the learning content provided. Do not invent facts not present in the content.
+CRITICAL: The question MUST specifically test the concept "{concept}". Do not invent facts not covered in the source material. The student watched a video covering this material — they do NOT have any text in front of them. Write a standalone, closed-book knowledge question.
 
 Return ONLY the JSON object for the single question. No wrapping array, no extra keys."""
 
@@ -426,11 +451,11 @@ def generate_batch_questions(skill_text: str, learning_content: str, question_ty
         numbered = "\n".join(f"  {i+1}. {s}" for i, s in enumerate(exclude_summaries))
         exclude_block = f"\n\nDO NOT DUPLICATE — these questions have already been generated:\n{numbered}\n\nEvery question you create must be meaningfully different from the ones above."
 
-    prompt = f"""Generate exactly {count} questions of type "{info['label']}" about the following skill, using the provided learning content as your ONLY source material.
+    prompt = f"""Generate exactly {count} questions of type "{info['label']}" about the following skill.
 
 SKILL: "{skill_text}"
 
-LEARNING CONTENT:
+SOURCE MATERIAL (for your reference only — the student does NOT see this text; they learned this content by watching a video):
 {learning_content}
 
 COGNITIVE DEPTH:
@@ -442,6 +467,8 @@ SCHEMA (each question in the array must match this structure):
 
 RULES:
 {info['rules']}{exclude_block}
+
+REMINDER: The student watched a video covering this material. They do NOT have any text, passage, or reading in front of them. Every question must be a standalone, closed-book knowledge question.
 
 Return a JSON array of exactly {count} question objects. No wrapping object, just the array."""
 
@@ -464,7 +491,7 @@ def regenerate_invalid_question(skill_text: str, learning_content: str, question
 
 SKILL: "{skill_text}"
 
-LEARNING CONTENT:
+SOURCE MATERIAL (for your reference only — the student does NOT see this text; they learned this content by watching a video):
 {learning_content}
 
 COGNITIVE DEPTH:
@@ -483,7 +510,7 @@ THE PREVIOUS QUESTION THAT FAILED VALIDATION:
 REASON IT WAS INVALID:
 {validation_reason}
 
-Generate a NEW, DIFFERENT question that fixes the issue described above. The answer must be clearly derivable from the learning content. There must be exactly one correct answer with no ambiguity.
+Generate a NEW, DIFFERENT question that fixes the issue described above. There must be exactly one correct answer with no ambiguity. The student does NOT have any text in front of them — write a standalone, closed-book question.
 
 Return ONLY the JSON object for the single replacement question."""
 
@@ -491,17 +518,21 @@ Return ONLY the JSON object for the single replacement question."""
     return json.loads(raw)
 
 
-VALIDATION_SYSTEM = """You are a strict question validator. You will be given learning content and a question. Your job is to determine whether the question is valid.
+VALIDATION_SYSTEM = """You are a strict question validator. You will be given source material and a question. Your job is to determine whether the question is valid.
+
+CONTEXT: The student learned this material by watching a video. They do NOT have any text, passage, or reading in front of them when answering. Questions must be standalone.
 
 A question is VALID if:
-1. It can be answered correctly using ONLY the provided learning content (no outside knowledge needed).
+1. It can be answered correctly using knowledge from the source material (no outside knowledge needed).
 2. There is exactly one clearly correct answer (no ambiguity).
+3. It is fully self-contained — it does NOT reference "the passage", "the text", "the reading", "the learning content", "the article", "the material", or any other source document the student supposedly has access to.
 
 A question is INVALID if:
-- The answer requires knowledge NOT present in the learning content.
+- The answer requires knowledge NOT present in the source material.
 - Multiple answers could be justified as correct.
 - The question is poorly worded or ambiguous.
-- The stated correct answer is wrong according to the content.
+- The stated correct answer is wrong according to the source material.
+- The question references a passage, text, reading, or material that the student does not have. This is an automatic failure.
 
 You MUST respond with valid JSON only — no markdown fences, no explanation outside the JSON."""
 
@@ -509,9 +540,9 @@ You MUST respond with valid JSON only — no markdown fences, no explanation out
 def validate_question(learning_content: str, question_type: str, question_data: dict) -> dict:
     question_json = json.dumps(question_data, indent=2)
 
-    prompt = f"""You may ONLY reference the learning content below. You have no other knowledge. Pretend you know nothing except what is written here.
+    prompt = f"""You may ONLY reference the source material below. You have no other knowledge. Pretend you know nothing except what is written here.
 
-LEARNING CONTENT:
+SOURCE MATERIAL:
 {learning_content}
 
 QUESTION TYPE: {question_type}
@@ -519,9 +550,10 @@ QUESTION:
 {question_json}
 
 TASK:
-1. Attempt to answer this question using ONLY the learning content above.
-2. Check whether the stated correct answer matches what the content says.
-3. Check whether there is any ambiguity (could multiple answers be correct?).
+1. FIRST, check whether the question references "the passage", "the text", "the reading", "the learning content", "the article", "the material", or any similar phrase that assumes the student has a document in front of them. If it does, the question is AUTOMATICALLY INVALID — the student watched a video and has no text to reference.
+2. Attempt to answer this question using ONLY the source material above.
+3. Check whether the stated correct answer matches what the source material says.
+4. Check whether there is any ambiguity (could multiple answers be correct?).
 
 Return a JSON object:
 {{
@@ -535,3 +567,64 @@ Return a JSON object:
         "valid": bool(result.get("valid", False)),
         "reason": result.get("reason", ""),
     }
+
+
+# ---------------------------------------------------------------------------
+# Transcript-to-skill mapping
+# ---------------------------------------------------------------------------
+
+MAPPER_SYSTEM = """You are an expert curriculum alignment specialist for AP Human Geography. You map video lecture sections to specific learning objectives (skills).
+
+You MUST respond with valid JSON only — no markdown fences, no explanation, no text outside the JSON object."""
+
+
+def map_transcripts_to_skills(skills: list, video_sections: list) -> dict:
+    """Given a list of skill dicts ({id, text}) and video section dicts
+    ({topic, topic_name, section, label, content_summary}), return a mapping
+    of skill_id -> [(topic_id, section_num), ...].
+
+    Skills with no matching video content map to an empty list.
+    """
+    skills_block = "\n".join(
+        f'  {s["id"]}: "{s["text"]}"' for s in skills
+    )
+    sections_block = "\n".join(
+        f'  Topic {vs["topic"]} §{vs["section"]} "{vs["label"]}": {vs["content_summary"]}'
+        for vs in video_sections
+    )
+
+    prompt = f"""You are mapping Heimler's History AP Human Geography video sections to specific skill objectives.
+
+SKILLS (the learning objectives a student must master):
+{skills_block}
+
+AVAILABLE VIDEO SECTIONS (each has a topic ID and section number):
+{sections_block}
+
+TASK:
+For each skill, identify which video section(s) teach that skill's content. A skill may map to 0, 1, or multiple sections. A section may be used for multiple skills.
+
+RULES:
+- Only assign a section to a skill if the section's content summary clearly covers the skill's topic.
+- If no section covers a skill, map it to an empty array.
+- Be precise — don't assign a section just because it's from the same topic. The content summary must actually cover what the skill describes.
+- Each mapping value is an array of [topic_id, section_number] pairs.
+
+Return a JSON object where keys are skill IDs and values are arrays of [topic_id, section_number] pairs:
+{{
+  "U2S1": [["2.1", 1]],
+  "U2S2": [["2.1", 2], ["2.1", 3]],
+  "U2S3": []
+}}
+
+Return ONLY the JSON object."""
+
+    raw = _call_claude(MAPPER_SYSTEM, prompt, max_tokens=8000)
+    mapping = json.loads(raw)
+
+    result = {}
+    for skill in skills:
+        sid = skill["id"]
+        refs = mapping.get(sid, [])
+        result[sid] = [(str(r[0]), int(r[1])) for r in refs if isinstance(r, list) and len(r) == 2]
+    return result

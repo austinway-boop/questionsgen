@@ -569,11 +569,23 @@ function showContentPhase(learningContent, sources) {
 function completeVideo() {
   if (!currentSession || currentSession.type !== "learn") return;
 
-  // Award +40 mastery to ALL skills in the content group
-  for (const sid of currentSession.group) {
-    const s = getSkillState(sid);
-    s.mastery = clampMastery(s.mastery + 40);
+  const isRewatch = currentSession.hasWatchedOnce === true;
+
+  if (isRewatch) {
+    // Rewatching means they struggled -- penalize mastery
+    for (const sid of currentSession.group) {
+      const s = getSkillState(sid);
+      s.mastery = clampMastery(s.mastery - 10);
+    }
+  } else {
+    // First time reading content: +40 mastery
+    for (const sid of currentSession.group) {
+      const s = getSkillState(sid);
+      s.mastery = clampMastery(s.mastery + 40);
+    }
+    currentSession.hasWatchedOnce = true;
   }
+
   saveState();
   updateGroupMasteryBars(currentSession.group);
 

@@ -58,12 +58,12 @@ The question must be self-contained — NEVER reference "the learning content", 
         "schema": """{
   "statement": "A clear factual claim about the topic",
   "choices": [
-    {"text": "True — because [correct reasoning]", "isTrue": true, "isCorrectJustification": true, "explanation": "Why this is the right answer"},
-    {"text": "True — because [wrong reasoning]", "isTrue": true, "isCorrectJustification": false, "explanation": "The statement IS true, but this reasoning is wrong because..."},
-    {"text": "False — because [plausible but wrong]", "isTrue": false, "isCorrectJustification": false, "explanation": "The statement is actually true, so this is wrong..."},
-    {"text": "False — because [another wrong reason]", "isTrue": false, "isCorrectJustification": false, "explanation": "The statement is actually true, so this is wrong..."}
+    {"text": "True — because detailed plausible reasoning that sounds convincing but is wrong", "isTrue": true, "isCorrectJustification": false, "explanation": "The statement IS true, but this reasoning is wrong because..."},
+    {"text": "True — because detailed correct reasoning explaining exactly why this is true", "isTrue": true, "isCorrectJustification": true, "explanation": "This is correct because..."},
+    {"text": "False — because detailed plausible reasoning that a student might believe", "isTrue": false, "isCorrectJustification": false, "explanation": "The statement is actually true, so this is wrong..."},
+    {"text": "False — because another detailed wrong reasoning with equal specificity", "isTrue": false, "isCorrectJustification": false, "explanation": "The statement is actually true, so this is wrong..."}
   ],
-  "correctIndex": 0
+  "correctIndex": 1
 }""",
         "rules": """Exactly 4 choices — 2 with isTrue: true and 2 with isTrue: false. Exactly ONE choice has isCorrectJustification: true AND its isTrue value must match the actual truth of the statement. The correctIndex must point to that one choice.
 
@@ -71,7 +71,9 @@ The statement must be a single, unambiguous factual claim that is CLEARLY true o
 
 Each choice text must start with "True — " or "False — " followed by a justification. The justification explains WHY the student believes the statement is true or false. Each choice must have its own explanation field explaining why it's right or wrong.
 
-CRITICAL — ANSWER LENGTH BALANCE: All four choice texts MUST be similar in length (within ~20% of each other). Do NOT make the correct answer noticeably longer or shorter than the incorrect ones. If the correct justification naturally requires more detail, pad the incorrect choices with equally detailed (but wrong) reasoning. Students should never be able to guess the correct answer just because it is the longest option.
+CRITICAL — ANSWER LENGTH BALANCE: All four choice texts MUST be nearly identical in length (within ~10 characters of each other). Write ALL four justifications with the same level of specificity and detail. The incorrect choices must include equally detailed reasoning — cite specific concepts, use similar sentence structures, and match the word count of the correct answer. Students must NEVER be able to identify the correct answer by its length. COUNT THE CHARACTERS of each choice text and adjust until they are balanced.
+
+CRITICAL — POSITION RANDOMIZATION: Do NOT always put the correct answer at index 0. Randomly place correctIndex at 0, 1, 2, or 3. Vary it across questions.
 
 NEVER reference "the learning content", "the passage", or "the text". Write as a standalone claim.""",
     },
@@ -114,18 +116,19 @@ The question must be self-contained — NEVER reference "the learning content", 
         "schema": """{
   "questionText": "Which of the following best explains...?",
   "choices": [
-    {"text": "Answer A text", "explanation": "Why A is right/wrong"},
-    {"text": "Answer B text", "explanation": "Why B is right/wrong"},
-    {"text": "Answer C text", "explanation": "Why C is right/wrong"},
-    {"text": "Answer D text", "explanation": "Why D is right/wrong"}
+    {"text": "A detailed plausible-sounding answer with specific reasoning", "explanation": "Why A is right/wrong"},
+    {"text": "Another detailed answer option with equally specific detail", "explanation": "Why B is right/wrong"},
+    {"text": "A third detailed answer with the same level of specificity", "explanation": "Why C is right/wrong"},
+    {"text": "A fourth detailed answer matching the others in length", "explanation": "Why D is right/wrong"}
   ],
-  "correctIndex": 0
+  "correctIndex": 2
 }""",
         "rules": """Exactly 4 choices. Each choice has a "text" and "explanation" field. correctIndex is the 0-based index. The question MUST be self-contained — NEVER reference "the learning content", "the passage", or "the text".
 
 VALIDATION-CRITICAL RULES:
 - There must be exactly ONE correct answer. If two choices could both be justified, the question is bad.
-- All four choices MUST be similar in length (within ~20% of each other). Do NOT make the correct answer noticeably longer or shorter than the others. If the correct answer naturally requires more detail, pad the incorrect choices with equally detailed (but wrong) reasoning. Students should never be able to guess the correct answer just because it is the longest option.
+- CRITICAL — ANSWER LENGTH BALANCE: All four choice texts MUST be nearly identical in length (within ~10 characters of each other). Write ALL four options with the same level of specificity and detail. The incorrect choices must be equally detailed. Students must NEVER be able to identify the correct answer by its length. COUNT THE CHARACTERS and adjust until balanced.
+- CRITICAL — POSITION RANDOMIZATION: Do NOT always put the correct answer at index 0. Randomly place correctIndex at 0, 1, 2, or 3. Vary it across questions.
 - Distractors must be WRONG but PLAUSIBLE — they should sound like they could be right to someone who didn't study, but be clearly incorrect to someone who did.
 - Ask about concepts, definitions, relationships, or applications — not trivia like specific numbers or proper nouns unless they are central to the concept.
 - The correct answer must be directly supported by the source material.

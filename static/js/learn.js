@@ -369,13 +369,52 @@ function updateLearningPriority(val) {
    ─────────────────────────────────────────────── */
 
 function advanceDays(n) {
+  // Snapshot mastery before decay
+  const learned = getLearnedSkills();
+  const before = {};
+  for (const sid of learned) before[sid] = getSkillState(sid).mastery;
+
   applyDailyDecay(n);
+
+  // Cancel any active session and return to idle
+  currentSession = null;
+  showState("idle");
   refreshDashboard();
-  // Re-run decision display if idle
-  if (document.getElementById("state-idle").classList.contains("active")) {
-    const decision = selectNextContent();
-    if (decision) renderDecision(decision);
+
+  // Show decay summary + next algorithm decision
+  const container = document.getElementById("decision-display");
+  let html = `<div class="decision-type" style="color:var(--text)">Advanced ${n} day${n > 1 ? "s" : ""} — Decay Applied</div>`;
+
+  const decayed = learned.filter(sid => before[sid] > 0);
+  if (decayed.length > 0) {
+    html += '<div class="decision-scores">';
+    for (const sid of decayed) {
+      const after = Math.round(getSkillState(sid).mastery);
+      const b = Math.round(before[sid]);
+      if (b !== after) {
+        html += `<div class="decision-score-row"><span>${sid}</span><span>${b} &rarr; ${after} <span style="color:var(--error)">(-${b - after})</span></span></div>`;
+      }
+    }
+    html += '</div>';
+  } else {
+    html += '<div class="decision-detail" style="font-style:italic">No skills to decay yet.</div>';
   }
+
+  const decision = selectNextContent();
+  if (decision) {
+    html += '<div style="border-top:1px solid var(--border);margin-top:0.5rem;padding-top:0.5rem">';
+    if (decision.type === "learn") {
+      const group = getContentGroup(decision.skillId);
+      html += `<div class="decision-type decision-type-learn">Next: LEARNING</div>`;
+      html += `<div class="decision-detail">${group.length > 1 ? group.join(", ") : decision.skillId}</div>`;
+    } else {
+      html += `<div class="decision-type decision-type-cover">Next: REVIEW</div>`;
+      html += `<div class="decision-detail">${decision.skillId} (score: ${decision.coverScore.toFixed(2)})</div>`;
+    }
+    html += '</div>';
+  }
+
+  container.innerHTML = html;
 }
 
 /* ───────────────────────────────────────────────

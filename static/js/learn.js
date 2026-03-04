@@ -12,6 +12,7 @@ let readySkills = [];       // skills with complete content + bank
 let skillTextMap = {};       // skillId -> text
 let skillUnitMap = {};       // skillId -> unitIndex
 let skillOrderMap = {};      // skillId -> global ordering index
+let sourceGroups = {};       // skillId -> [sibling skillIds sharing same content]
 let studentState = null;
 let currentSession = null;   // active session state
 let learnQCounter = 50000;
@@ -187,12 +188,14 @@ function selectNextContent() {
    ─────────────────────────────────────────────── */
 
 async function init() {
-  const [treeRes, statusRes] = await Promise.all([
+  const [treeRes, statusRes, groupsRes] = await Promise.all([
     fetch("/skill-tree"),
     fetch("/pipeline-status"),
+    fetch("/skill-source-groups"),
   ]);
   treeData = await treeRes.json();
   const pipelineStatus = await statusRes.json();
+  sourceGroups = await groupsRes.json();
 
   let orderIdx = 0;
   for (const unit of treeData.units) {
@@ -219,6 +222,12 @@ async function init() {
   }
 
   refreshDashboard();
+}
+
+function getContentGroup(skillId) {
+  const siblings = (sourceGroups[skillId] || [skillId])
+    .filter(sid => readySkills.includes(sid));
+  return siblings.length > 0 ? siblings : [skillId];
 }
 
 /* ───────────────────────────────────────────────
@@ -311,8 +320,13 @@ function renderDecision(decision) {
 
   let html = "";
   if (decision.type === "learn") {
+    const group = getContentGroup(decision.skillId);
     html += `<div class="decision-type decision-type-learn">LEARNING — New Content</div>`;
-    html += `<div class="decision-detail">Skill: <strong>${decision.skillId}</strong></div>`;
+    if (group.length > 1) {
+      html += `<div class="decision-detail">Content group: <strong>${group.join(", ")}</strong> (${group.length} skills)</div>`;
+    } else {
+      html += `<div class="decision-detail">Skill: <strong>${decision.skillId}</strong></div>`;
+    }
     html += `<div class="decision-detail" style="font-size:0.76rem;margin-top:0.2rem">${skillTextMap[decision.skillId] || ""}</div>`;
   } else {
     html += `<div class="decision-type decision-type-cover">REVIEW — Cover Content</div>`;
@@ -389,36 +403,117 @@ async function startNextSession() {
 }
 
 /* ───────────────────────────────────────────────
-   LEARNING SESSION
+   LEARNING SESSION (content-group aware)
    ─────────────────────────────────────────────── */
 
 async function startLearningSession(skillId) {
   showState("learning");
 
-  const skillState = getSkillState(skillId);
-  document.getElementById("learn-skill-name").textContent = skillTextMap[skillId] || skillId;
-  document.getElementById("learn-skill-id").textContent = skillId;
-  updateMasteryBar("learn", skillState.mastery);
+  // Expand to full content group (sibling skills sharing the same source material)
+  const group = getContentGroup(skillId);
 
-  // Fetch skill detail + question bank in parallel
-  const [skillRes, bankRes] = await Promise.all([
-    fetch(`/skill/${skillId}`).then(r => r.json()),
-    fetch(`/skill/${skillId}/question-bank`).then(r => r.json()),
-  ]);
+  // Record start mastery for all skills in group
+  const startMasteries = {};
+  for (const sid of group) {
+    startMasteries[sid] = getSkillState(sid).mastery;
+  }
+
+  // Header shows the group
+  const headerText = group.length > 1
+    ? group.map(sid => skillTextMap[sid] || sid).join(" | ")
+    : skillTextMap[skillId] || skillId;
+  document.getElementById("learn-skill-name").textContent = headerText;
+  document.getElementById("learn-skill-id").textContent = group.join(", ");
+  updateGroupMasteryBar(group);
+
+  // Fetch skill details + question banks for all skills in the group
+  const fetches = group.map(sid => Promise.all([
+    fetch(`/skill/${sid}`).then(r => r.json()),
+    fetch(`/skill/${sid}/question-bank`).then(r => r.json()),
+  ]));
+  const results = await Promise.all(fetches);
+
+  const skillDataMap = {};
+  const bankMap = {};
+  let learningContent = "";
+  let sources = [];
+  for (let i = 0; i < group.length; i++) {
+    const sid = group[i];
+    skillDataMap[sid] = results[i][0];
+    bankMap[sid] = results[i][1].bank || {};
+    // Use the first skill's content (they share the same source material)
+    if (i === 0) {
+      learningContent = results[i][0].learning_content || "";
+      sources = results[i][0].sources || [];
+    }
+  }
+
+  // Build interleaved question queue: cycle through skills
+  // Basic: 4 per skill, interleaved. Advanced: 4 per skill, interleaved.
+  const basicQueue = buildInterleavedQueue(group, bankMap, "2", BASIC_Q_COUNT);
+  const advancedQueue = buildInterleavedQueue(group, bankMap, "3", ADVANCED_Q_COUNT);
 
   currentSession = {
     type: "learn",
-    skillId,
-    skillData: skillRes,
-    bank: bankRes.bank || {},
-    phase: "video",
-    wrongCount: 0,
-    questionsAnswered: 0,
-    startMastery: skillState.mastery,
+    group,
+    primarySkillId: skillId,
+    skillDataMap,
+    bankMap,
+    learningContent,
+    sources,
+    phase: "content",
+    basicQueue,
+    advancedQueue,
+    queueIndex: 0,
+    totalBasic: basicQueue.length,
+    totalAdvanced: advancedQueue.length,
+    wrongCounts: {},   // per-skill wrong count
+    totalAnswered: 0,
+    startMasteries,
     rewatchPrompted: false,
   };
+  for (const sid of group) currentSession.wrongCounts[sid] = 0;
 
-  showContentPhase(skillRes.learning_content || "", skillRes.sources || []);
+  showContentPhase(learningContent, sources);
+}
+
+function buildInterleavedQueue(group, bankMap, dok, countPerSkill) {
+  // For each skill, pick `countPerSkill` random questions of the given DOK
+  const perSkill = {};
+  for (const sid of group) {
+    const bank = bankMap[sid] || {};
+    const candidates = [];
+    for (const [qtype, typeData] of Object.entries(bank)) {
+      for (const q of (typeData.questions || [])) {
+        if (!q.question_data || q.valid === false) continue;
+        if (q.dok !== dok) continue;
+        candidates.push({ qtype, data: q.question_data });
+      }
+    }
+    // Shuffle and take up to countPerSkill
+    for (let i = candidates.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
+    }
+    perSkill[sid] = candidates.slice(0, countPerSkill);
+  }
+
+  // Interleave: round-robin across skills
+  const queue = [];
+  for (let round = 0; round < countPerSkill; round++) {
+    for (const sid of group) {
+      if (round < perSkill[sid].length) {
+        queue.push({ skillId: sid, ...perSkill[sid][round] });
+      }
+    }
+  }
+  return queue;
+}
+
+function updateGroupMasteryBar(group) {
+  if (!group || group.length === 0) return;
+  const avg = group.reduce((sum, sid) => sum + getSkillState(sid).mastery, 0) / group.length;
+  updateMasteryBar("learn", avg);
 }
 
 function showContentPhase(learningContent, sources) {
@@ -451,14 +546,17 @@ function showContentPhase(learningContent, sources) {
 
 function completeVideo() {
   if (!currentSession || currentSession.type !== "learn") return;
-  const skillState = getSkillState(currentSession.skillId);
-  skillState.mastery = clampMastery(skillState.mastery + 40);
+
+  // Award +40 mastery to ALL skills in the content group
+  for (const sid of currentSession.group) {
+    const s = getSkillState(sid);
+    s.mastery = clampMastery(s.mastery + 40);
+  }
   saveState();
-  updateMasteryBar("learn", skillState.mastery);
+  updateGroupMasteryBar(currentSession.group);
 
   currentSession.phase = "basic";
-  currentSession.wrongCount = 0;
-  currentSession.questionsAnswered = 0;
+  currentSession.queueIndex = 0;
   showQuestionsPhase();
 }
 
@@ -468,23 +566,22 @@ function showQuestionsPhase() {
   document.getElementById("learn-questions-phase").classList.remove("hidden");
 
   const isBasic = currentSession.phase === "basic";
+  const queue = isBasic ? currentSession.basicQueue : currentSession.advancedQueue;
   const label = isBasic ? "Basic Questions (DOK 2)" : "Advanced Questions (DOK 3)";
-  const total = isBasic ? BASIC_Q_COUNT : ADVANCED_Q_COUNT;
 
   document.getElementById("questions-phase-label").textContent = label;
-  document.getElementById("questions-progress-text").textContent = `0 / ${total}`;
+  document.getElementById("questions-progress-text").textContent = `0 / ${queue.length}`;
   document.getElementById("learn-question-container").innerHTML = "";
 
-  currentSession.questionsAnswered = 0;
-  currentSession.wrongCount = 0;
+  currentSession.queueIndex = 0;
   serveNextQuestion();
 }
 
 function serveNextQuestion() {
   const isBasic = currentSession.phase === "basic";
-  const total = isBasic ? BASIC_Q_COUNT : ADVANCED_Q_COUNT;
+  const queue = isBasic ? currentSession.basicQueue : currentSession.advancedQueue;
 
-  if (currentSession.questionsAnswered >= total) {
+  if (currentSession.queueIndex >= queue.length) {
     if (isBasic) {
       currentSession.phase = "advanced";
       showQuestionsPhase();
@@ -494,41 +591,33 @@ function serveNextQuestion() {
     return;
   }
 
-  const dok = isBasic ? "2" : "3";
-  const question = pickRandomQuestion(currentSession.bank, dok);
-  if (!question) {
-    // Not enough questions; skip ahead
-    if (isBasic) {
-      currentSession.phase = "advanced";
-      showQuestionsPhase();
-    } else {
-      completeLearningSession();
-    }
-    return;
-  }
+  const item = queue[currentSession.queueIndex];
+  const skillLabel = currentSession.group.length > 1 ? ` [${item.skillId}]` : "";
 
-  renderSessionQuestion(question.qtype, question.data, "learn-question-container", (correct) => {
-    onLearnAnswer(correct);
-  });
+  renderSessionQuestion(item.qtype, item.data, "learn-question-container", (correct) => {
+    onLearnAnswer(correct, item.skillId);
+  }, skillLabel);
 }
 
-function onLearnAnswer(correct) {
-  const skillState = getSkillState(currentSession.skillId);
+function onLearnAnswer(correct, answeredSkillId) {
+  // Apply mastery to the specific skill this question belongs to
+  const skillState = getSkillState(answeredSkillId);
   const delta = correct ? 10 : -20;
   skillState.mastery = clampMastery(skillState.mastery + delta);
   saveState();
-  updateMasteryBar("learn", skillState.mastery);
+  updateGroupMasteryBar(currentSession.group);
 
-  currentSession.questionsAnswered++;
-  if (!correct) currentSession.wrongCount++;
+  currentSession.queueIndex++;
+  if (!correct) currentSession.wrongCounts[answeredSkillId]++;
 
   const isBasic = currentSession.phase === "basic";
-  const total = isBasic ? BASIC_Q_COUNT : ADVANCED_Q_COUNT;
+  const queue = isBasic ? currentSession.basicQueue : currentSession.advancedQueue;
   document.getElementById("questions-progress-text").textContent =
-    `${currentSession.questionsAnswered} / ${total}`;
+    `${currentSession.queueIndex} / ${queue.length}`;
 
-  // Check rewatch threshold
-  if (currentSession.wrongCount >= WRONG_THRESHOLD && !currentSession.rewatchPrompted) {
+  // Check rewatch threshold (any skill hitting the threshold triggers it)
+  const totalWrong = Object.values(currentSession.wrongCounts).reduce((a, b) => a + b, 0);
+  if (totalWrong >= WRONG_THRESHOLD && !currentSession.rewatchPrompted) {
     currentSession.rewatchPrompted = true;
     document.getElementById("learn-questions-phase").classList.add("hidden");
     document.getElementById("rewatch-prompt").classList.remove("hidden");
@@ -537,11 +626,14 @@ function onLearnAnswer(correct) {
 }
 
 function rewatchVideo() {
-  currentSession.phase = "video";
-  currentSession.wrongCount = 0;
-  currentSession.questionsAnswered = 0;
+  currentSession.phase = "content";
+  for (const sid of currentSession.group) currentSession.wrongCounts[sid] = 0;
+  currentSession.queueIndex = 0;
   currentSession.rewatchPrompted = false;
-  showContentPhase(currentSession.skillData.learning_content || "", currentSession.skillData.sources || []);
+  // Rebuild question queues with fresh random picks
+  currentSession.basicQueue = buildInterleavedQueue(currentSession.group, currentSession.bankMap, "2", BASIC_Q_COUNT);
+  currentSession.advancedQueue = buildInterleavedQueue(currentSession.group, currentSession.bankMap, "3", ADVANCED_Q_COUNT);
+  showContentPhase(currentSession.learningContent, currentSession.sources);
 }
 
 function skipRewatch() {
@@ -550,13 +642,25 @@ function skipRewatch() {
 }
 
 function completeLearningSession() {
-  const skillState = getSkillState(currentSession.skillId);
-  skillState.learned = true;
-  skillState.lastLearned = simulatedTimestamp();
+  const ts = simulatedTimestamp();
+  // Mark ALL skills in the group as learned
+  for (const sid of currentSession.group) {
+    const s = getSkillState(sid);
+    s.learned = true;
+    s.lastLearned = ts;
+  }
   saveState();
 
-  const masteryDelta = skillState.mastery - currentSession.startMastery;
-  showSessionComplete("Learning Complete", currentSession.skillId, currentSession.startMastery, skillState.mastery, masteryDelta);
+  // Build summary across all skills
+  const group = currentSession.group;
+  const summarySkills = group.map(sid => {
+    const before = currentSession.startMasteries[sid];
+    const after = getSkillState(sid).mastery;
+    return { sid, before, after, delta: after - before };
+  });
+  const totalDelta = summarySkills.reduce((sum, s) => sum + s.delta, 0);
+
+  showGroupComplete("Learning Complete", summarySkills, totalDelta);
 }
 
 /* ───────────────────────────────────────────────
@@ -616,11 +720,15 @@ function onCoverAnswer(correct, skillId) {
    ─────────────────────────────────────────────── */
 
 function showSessionComplete(title, skillId, startMastery, endMastery, delta) {
+  showGroupComplete(title, [{ sid: skillId, before: startMastery, after: endMastery, delta }], delta);
+}
+
+function showGroupComplete(title, summarySkills, totalDelta) {
   showState("complete");
   document.getElementById("complete-title").textContent = title;
 
   const icon = document.getElementById("complete-icon");
-  if (delta >= 0) {
+  if (totalDelta >= 0) {
     icon.innerHTML = "&#10003;";
     icon.style.background = "var(--success-bg)";
     icon.style.color = "var(--success)";
@@ -630,14 +738,15 @@ function showSessionComplete(title, skillId, startMastery, endMastery, delta) {
     icon.style.color = "var(--warning)";
   }
 
-  const sign = delta >= 0 ? "+" : "";
-  document.getElementById("complete-summary").innerHTML = `
-    <div class="summary-line"><span>Skill</span><span>${skillId}</span></div>
-    <div class="summary-line"><span>Mastery Before</span><span>${Math.round(startMastery)}</span></div>
-    <div class="summary-line"><span>Mastery After</span><span>${Math.round(endMastery)}</span></div>
-    <div class="summary-line"><span>Change</span><span style="color:${delta >= 0 ? "var(--success)" : "var(--error)"}; font-weight:700">${sign}${Math.round(delta)}</span></div>
-    <div class="summary-line"><span>Day</span><span>${getCurrentDay()}</span></div>`;
+  let html = "";
+  for (const s of summarySkills) {
+    const sign = s.delta >= 0 ? "+" : "";
+    const color = s.delta >= 0 ? "var(--success)" : "var(--error)";
+    html += `<div class="summary-line"><span>${s.sid}</span><span>${Math.round(s.before)} &rarr; ${Math.round(s.after)} <span style="color:${color};font-weight:700">(${sign}${Math.round(s.delta)})</span></span></div>`;
+  }
+  html += `<div class="summary-line" style="border-top:2px solid var(--border);margin-top:0.3rem;padding-top:0.3rem"><span>Day</span><span>${getCurrentDay()}</span></div>`;
 
+  document.getElementById("complete-summary").innerHTML = html;
   refreshDashboard();
 }
 
@@ -664,7 +773,7 @@ function pickRandomQuestion(bank, dok) {
    RENDER A SESSION QUESTION
    ─────────────────────────────────────────────── */
 
-function renderSessionQuestion(qtype, questionData, containerId, onAnswer) {
+function renderSessionQuestion(qtype, questionData, containerId, onAnswer, skillLabel) {
   learnQCounter++;
   const num = learnQCounter;
   const container = document.getElementById(containerId);
@@ -680,12 +789,13 @@ function renderSessionQuestion(qtype, questionData, containerId, onAnswer) {
   q._num = num;
   q.explanation = q.explanation || "";
 
+  const skillTag = skillLabel ? `<span class="question-skill-tag">${skillLabel}</span>` : "";
   const card = document.createElement("div");
   card.className = "learn-question-card";
   card.id = `q-${num}`;
   card.innerHTML = `
     <div class="q-header">
-      <span class="question-type-badge ${meta.badge}">${meta.label}</span>
+      <span class="question-type-badge ${meta.badge}">${meta.label}</span>${skillTag}
     </div>
     <div class="q-body" id="q-body-${num}"></div>
     <div class="q-footer">

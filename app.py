@@ -20,7 +20,7 @@ from services.claude_service import (
     QUESTION_TYPE_INFO,
 )
 from services.mmd_parser import parse_skill_tree
-from services.skill_store import get_skill, get_all_content_status, save_learning_content, save_relevant_types
+from services.skill_store import get_skill, get_all_content_status, save_learning_content, save_relevant_types, get_source_groups
 from services.question_bank_store import (
     get_skill_bank,
     save_concepts,
@@ -69,6 +69,11 @@ def index():
 @app.route("/learn")
 def learn():
     return render_template("learn.html")
+
+
+@app.route("/skill-source-groups")
+def skill_source_groups():
+    return jsonify(get_source_groups())
 
 
 @app.route("/skill-tree")

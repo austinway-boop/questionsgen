@@ -42,6 +42,27 @@ def save_learning_content(skill_id: str, content: str, sources: list = None):
     kv_store.set_in_namespace(_NS, skill_id, entry)
 
 
+def get_source_groups() -> dict:
+    """Return {skillId: [list of sibling skillIds sharing the same source sections]}.
+
+    Groups skills by their sorted source fingerprint (topic:section keys).
+    Skills with no sources are singletons.
+    """
+    data = kv_store.get_namespace(_NS)
+    fingerprint_to_skills = {}
+    for sid, entry in data.items():
+        sources = entry.get("sources", [])
+        if not sources:
+            continue
+        fp = tuple(sorted(f"{s.get('topic', '')}:{s.get('section', '')}" for s in sources))
+        fingerprint_to_skills.setdefault(fp, []).append(sid)
+    result = {}
+    for fp, sids in fingerprint_to_skills.items():
+        for sid in sids:
+            result[sid] = sorted(sids)
+    return result
+
+
 def save_relevant_types(skill_id: str, types):
     entry = get_skill(skill_id)
     entry["relevant_question_types"] = types

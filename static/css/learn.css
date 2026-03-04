@@ -568,6 +568,18 @@
   color: #991b1b;
 }
 
+.question-skill-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  margin-left: 0.4rem;
+}
+
 .mastery-change {
   display: inline-block;
   font-weight: 700;

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Tree — Question Generator</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+  <!-- SKILL TREE SCREEN (primary) -->
+  <div id="tree-screen" class="screen active">
+    <header class="tree-header">
+      <h1 class="tree-title">Skill Tree</h1>
+      <span class="tree-subtitle">AP Human Geography</span>
+    </header>
+
+    <div class="tree-layout">
+      <!-- LEFT: collapsible unit list -->
+      <aside id="tree-sidebar" class="tree-sidebar">
+        <div id="tree-loading" class="tree-loading">Loading skill tree...</div>
+        <div id="tree-list"></div>
+      </aside>
+
+      <!-- RIGHT: detail panel -->
+      <main id="detail-panel" class="detail-panel">
+        <div id="detail-empty" class="detail-empty">
+          <div class="empty-icon">&#9776;</div>
+          <p>Select a skill from the tree to get started.</p>
+        </div>
+
+        <div id="detail-content" class="detail-content hidden">
+          <h2 id="detail-skill-text" class="detail-skill-text"></h2>
+          <span id="detail-skill-id" class="detail-skill-id"></span>
+
+          <!-- Video Sources -->
+          <section class="detail-section" id="sources-section">
+            <h3>Video Sources</h3>
+            <div id="sources-list"></div>
+          </section>
+
+          <!-- Learning Content -->
+          <section class="detail-section">
+            <h3>Learning Content</h3>
+            <textarea id="lc-textarea" class="lc-textarea" placeholder="Paste or type learning content for this skill..."></textarea>
+            <div class="lc-actions">
+              <button id="lc-save-btn" class="btn btn-primary" onclick="saveLearningContent()">Save</button>
+              <span id="lc-status" class="lc-status"></span>
+            </div>
+          </section>
+
+          <!-- Relevant Question Types -->
+          <section class="detail-section">
+            <h3>Relevant Question Types</h3>
+            <p class="section-hint">Auto-detect which of the 7 question types fit this skill's learning content.</p>
+            <button id="detect-btn" class="btn btn-secondary" onclick="detectTypes()">Detect Question Types</button>
+            <div id="detect-spinner" class="inline-spinner hidden"></div>
+            <div id="types-chips" class="types-chips"></div>
+          </section>
+
+          <!-- Generate Question -->
+          <section class="detail-section">
+            <h3>Generate Question</h3>
+            <div class="gen-row">
+              <select id="gen-type-select" class="gen-select">
+                <option value="">— pick a question type —</option>
+              </select>
+              <select id="gen-dok-select" class="gen-select gen-dok">
+                <option value="2">DOK 2 — Fact Recall</option>
+                <option value="3">DOK 3 — Application</option>
+              </select>
+              <button id="gen-btn" class="btn btn-primary" onclick="generateQuestion()">Generate</button>
+              <div id="gen-spinner" class="inline-spinner hidden"></div>
+            </div>
+            <div id="gen-output" class="gen-output"></div>
+          </section>
+
+          <!-- Question Bank -->
+          <section class="detail-section" id="qbank-section">
+            <h3>Question Bank</h3>
+            <p class="section-hint">One click: detect types, extract concepts, generate 20 DOK 2 + 20 DOK 3 questions per type, validate with retries.</p>
+            <div class="qbank-actions">
+              <button id="qbank-build-btn" class="btn btn-primary" onclick="buildQuestionBank()">Build Question Bank</button>
+              <div id="qbank-spinner" class="inline-spinner hidden"></div>
+            </div>
+            <div id="qbank-progress-log" class="qbank-progress-log"></div>
+            <div id="qbank-coverage" class="qbank-coverage"></div>
+            <div id="qbank-questions" class="qbank-questions"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- QUIZ SCREEN (existing, kept for the 21-question flow) -->
+  <div id="quiz-screen" class="screen">
+    <header class="quiz-header">
+      <div class="header-left">
+        <button class="back-btn" onclick="goBack()">&#8592; New Topic</button>
+        <h2 id="quiz-topic"></h2>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <span id="progress-text">0 / 18</span>
+      </div>
+    </header>
+
+    <div id="questions-container"></div>
+
+    <div id="score-summary" class="score-summary hidden">
+      <h2>Quiz Complete!</h2>
+      <div class="score-circle">
+        <span id="final-score">0</span>
+        <span class="score-label">/ <span id="total-possible">21</span></span>
+      </div>
+      <p id="score-message"></p>
+      <button class="primary-btn" onclick="goBack()">Try Another Topic</button>
+    </div>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

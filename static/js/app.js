@@ -1,0 +1,1242 @@
+/* ═══════════════════════════════════════════════
+   SKILL TREE BROWSER
+   ═══════════════════════════════════════════════ */
+
+let treeData = null;
+let questionTypeMeta = {};
+let contentStatus = {};
+let currentSkillId = null;
+let genCounter = 0;
+
+async function initTree() {
+  const [treeRes, typesRes, statusRes] = await Promise.all([
+    fetch("/skill-tree"),
+    fetch("/question-types"),
+    fetch("/skill-content-status"),
+  ]);
+  treeData = await treeRes.json();
+  questionTypeMeta = await typesRes.json();
+  contentStatus = await statusRes.json();
+  renderTree();
+}
+
+function renderTree() {
+  const list = document.getElementById("tree-list");
+  const loading = document.getElementById("tree-loading");
+  loading.classList.add("hidden");
+  list.innerHTML = "";
+
+  for (const unit of treeData.units) {
+    const section = document.createElement("div");
+    section.className = "unit-section";
+    section.id = `unit-${unit.id}`;
+
+    const header = document.createElement("div");
+    header.className = "unit-header";
+    header.innerHTML = `
+      <span class="unit-chevron">&#9654;</span>
+      <span class="unit-label">${unit.title}</span>
+      <span class="unit-count">${unit.skills.length}</span>
+    `;
+    header.addEventListener("click", () => section.classList.toggle("open"));
+
+    const skillsDiv = document.createElement("div");
+    skillsDiv.className = "unit-skills";
+
+    let unitHasMissing = false;
+    for (const skill of unit.skills) {
+      const item = document.createElement("div");
+      const hasContent = contentStatus[skill.id] === true;
+      item.className = "skill-item" + (hasContent ? "" : " no-content");
+      if (!hasContent && skill.id in contentStatus) unitHasMissing = true;
+      item.dataset.skillId = skill.id;
+      let dots = "";
+      if (hasContent) dots = '<span class="has-content-dot"></span>';
+      item.innerHTML = `<span class="skill-id-tag">${skill.id}</span>${skill.text}${dots}`;
+      item.addEventListener("click", () => selectSkill(skill.id, skill.text));
+      skillsDiv.appendChild(item);
+    }
+
+    if (unitHasMissing) header.classList.add("has-missing");
+
+    section.appendChild(header);
+    section.appendChild(skillsDiv);
+    list.appendChild(section);
+  }
+}
+
+async function selectSkill(id, text) {
+  currentSkillId = id;
+
+  document.querySelectorAll(".skill-item.active").forEach(el => el.classList.remove("active"));
+  const activeItem = document.querySelector(`.skill-item[data-skill-id="${id}"]`);
+  if (activeItem) activeItem.classList.add("active");
+
+  document.getElementById("detail-empty").classList.add("hidden");
+  document.getElementById("detail-content").classList.remove("hidden");
+  document.getElementById("detail-skill-text").textContent = text;
+  document.getElementById("detail-skill-id").textContent = id;
+
+  document.getElementById("lc-status").textContent = "";
+  document.getElementById("sources-list").innerHTML = "";
+  document.getElementById("types-chips").innerHTML = "";
+  document.getElementById("gen-output").innerHTML = "";
+  document.getElementById("qbank-progress-log").innerHTML = "";
+  document.getElementById("qbank-coverage").innerHTML = "";
+  document.getElementById("qbank-questions").innerHTML = "";
+  currentBankData = null;
+  populateTypeDropdown([]);
+
+  try {
+    const res = await fetch(`/skill/${id}`);
+    const data = await res.json();
+
+    document.getElementById("lc-textarea").value = data.learning_content || "";
+    renderSources(data.sources || []);
+
+    const rqt = data.relevant_question_types;
+    if (rqt && (Array.isArray(rqt) ? rqt.length > 0 : Object.keys(rqt).length > 0)) {
+      renderTypeChips(rqt);
+      populateTypeDropdown(rqt);
+    }
+
+    loadQuestionBank();
+  } catch (e) {
+    document.getElementById("lc-textarea").value = "";
+    document.getElementById("sources-list").innerHTML = "";
+  }
+}
+
+function renderSources(sources) {
+  const container = document.getElementById("sources-list");
+  const section = document.getElementById("sources-section");
+  container.innerHTML = "";
+  if (!sources || sources.length === 0) {
+    section.classList.add("hidden");
+    return;
+  }
+  section.classList.remove("hidden");
+  for (const src of sources) {
+    const card = document.createElement("div");
+    card.className = "source-card";
+    card.innerHTML = `
+      <div class="source-topic">Topic ${src.topic} — ${src.topic_name}</div>
+      <div class="source-section">Section ${src.section}: "${src.section_label}" <span class="source-time">(${src.start_timestamp}–${src.end_timestamp})</span></div>
+      <div class="source-summary">${src.summary}</div>
+      <div class="source-links">
+        <a href="${src.youtube_url}" target="_blank" class="source-link">Watch on YouTube</a>
+        ${src.clip ? `<span class="source-clip">Clip: ${src.clip}</span>` : ""}
+      </div>
+    `;
+    container.appendChild(card);
+  }
+}
+
+async function saveLearningContent() {
+  if (!currentSkillId) return;
+  const content = document.getElementById("lc-textarea").value;
+  const status = document.getElementById("lc-status");
+  const btn = document.getElementById("lc-save-btn");
+
+  btn.disabled = true;
+  status.textContent = "Saving...";
+  status.style.color = "var(--text-muted)";
+
+  try {
+    await fetch(`/skill/${currentSkillId}/learning-content`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ learning_content: content }),
+    });
+    status.textContent = "Saved";
+    status.style.color = "var(--success)";
+
+    const item = document.querySelector(`.skill-item[data-skill-id="${currentSkillId}"]`);
+    if (item) {
+      const existing = item.querySelector(".has-content-dot");
+      if (content.trim() && !existing) {
+        const dot = document.createElement("span");
+        dot.className = "has-content-dot";
+        item.appendChild(dot);
+      } else if (!content.trim() && existing) {
+        existing.remove();
+      }
+    }
+  } catch (e) {
+    status.textContent = "Error saving";
+    status.style.color = "var(--error)";
+  }
+  btn.disabled = false;
+}
+
+async function detectTypes() {
+  if (!currentSkillId) return;
+  const btn = document.getElementById("detect-btn");
+  const spinner = document.getElementById("detect-spinner");
+  const chips = document.getElementById("types-chips");
+
+  btn.disabled = true;
+  spinner.classList.remove("hidden");
+  chips.innerHTML = "";
+
+  try {
+    const res = await fetch(`/skill/${currentSkillId}/detect-types`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+
+    const rqt = data.relevant_question_types;
+    renderTypeChips(rqt);
+    populateTypeDropdown(rqt);
+  } catch (e) {
+    chips.innerHTML = `<span style="color:var(--error);font-size:0.85rem">${e.message}</span>`;
+  }
+
+  btn.disabled = false;
+  spinner.classList.add("hidden");
+}
+
+function _typeEntries(types) {
+  if (Array.isArray(types)) return types.map(t => [t, null]);
+  if (types && typeof types === "object") return Object.entries(types);
+  return [];
+}
+
+function renderTypeChips(types) {
+  const chips = document.getElementById("types-chips");
+  chips.innerHTML = "";
+  for (const [t, weight] of _typeEntries(types)) {
+    const label = questionTypeMeta[t] ? questionTypeMeta[t].label : t;
+    const chip = document.createElement("span");
+    chip.className = `type-chip chip-${t}`;
+    chip.innerHTML = weight != null
+      ? `${label} <span class="chip-weight">${weight}%</span>`
+      : label;
+    chips.appendChild(chip);
+  }
+}
+
+function populateTypeDropdown(types) {
+  const entries = _typeEntries(types);
+  const select = document.getElementById("gen-type-select");
+  select.innerHTML = '<option value="">-- pick a question type --</option>';
+  if (entries.length > 1) {
+    const allOpt = document.createElement("option");
+    allOpt.value = "__all__";
+    allOpt.textContent = "All relevant types";
+    select.appendChild(allOpt);
+  }
+  for (const [t, weight] of entries) {
+    const label = questionTypeMeta[t] ? questionTypeMeta[t].label : t;
+    const opt = document.createElement("option");
+    opt.value = t;
+    opt.textContent = weight != null ? `${label} (${weight}%)` : label;
+    select.appendChild(opt);
+  }
+}
+
+async function generateQuestion() {
+  if (!currentSkillId) return;
+  const select = document.getElementById("gen-type-select");
+  const selectedType = select.value;
+  if (!selectedType) return;
+
+  const dokLevel = document.getElementById("gen-dok-select").value;
+  const btn = document.getElementById("gen-btn");
+  const spinner = document.getElementById("gen-spinner");
+  const output = document.getElementById("gen-output");
+
+  btn.disabled = true;
+  spinner.classList.remove("hidden");
+  output.innerHTML = "";
+
+  const typesToGenerate = [];
+  if (selectedType === "__all__") {
+    for (const opt of select.options) {
+      if (opt.value && opt.value !== "__all__") typesToGenerate.push(opt.value);
+    }
+  } else {
+    typesToGenerate.push(selectedType);
+  }
+
+  for (const qtype of typesToGenerate) {
+    try {
+      const res = await fetch(`/skill/${currentSkillId}/generate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question_type: qtype, dok_level: dokLevel }),
+      });
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      renderGeneratedQuestion(data.question_type, data.question, output, true);
+    } catch (e) {
+      const err = document.createElement("p");
+      err.style.color = "var(--error)";
+      err.textContent = `${qtype}: ${e.message}`;
+      output.appendChild(err);
+    }
+  }
+
+  btn.disabled = false;
+  spinner.classList.add("hidden");
+}
+
+function renderGeneratedQuestion(qtype, q, container, append) {
+  genCounter++;
+  const num = 9000 + genCounter;
+
+  const typeMap = {
+    fill_in_the_blank: { badge: "badge-fill", label: "Fill in the Blank", renderer: renderFillBlank, checker: checkFillBlank },
+    true_false_justification: { badge: "badge-tf", label: "True / False + Justification", renderer: renderTrueFalse, checker: checkTrueFalse },
+    cause_and_effect: { badge: "badge-cause", label: "Cause & Effect Matching", renderer: renderCauseEffect, checker: checkCauseEffect },
+    immediate_vs_long_term: { badge: "badge-immediate", label: "Immediate vs. Long-Term Cause", renderer: renderImmediateLT, checker: checkImmediateLT },
+    multiple_choice: { badge: "badge-mcq", label: "Multiple Choice", renderer: renderMCQ, checker: checkMCQ },
+    rank_by_significance: { badge: "badge-rank", label: "Rank by Significance", renderer: renderRank, checker: checkRank },
+    select_all_true: { badge: "badge-select-all", label: "Select All That Are True", renderer: renderSelectAllTrue, checker: checkSelectAllTrue },
+  };
+
+  const meta = typeMap[qtype];
+  if (!meta) {
+    container.innerHTML += `<pre>${JSON.stringify(q, null, 2)}</pre>`;
+    return;
+  }
+
+  q._type = qtype;
+  q._badge = meta.badge;
+  q._label = meta.label;
+  q._num = num;
+  q._renderer = meta.renderer;
+  q._checker = meta.checker;
+  q.explanation = q.explanation || "";
+
+  const card = document.createElement("div");
+  card.className = "gen-question-card";
+  card.id = `q-${num}`;
+  card.innerHTML = `
+    <div class="q-header">
+      <span class="question-type-badge ${meta.badge}">${meta.label}</span>
+    </div>
+    <div class="q-body" id="q-body-${num}"></div>
+    <div class="q-footer">
+      <button class="check-btn" id="check-${num}" onclick="checkGenAnswer(${num})">Check Answer</button>
+    </div>
+    <div class="feedback" id="feedback-${num}"></div>
+  `;
+
+  if (!append) container.innerHTML = "";
+  container.appendChild(card);
+
+  generatedQuestions[num] = q;
+  meta.renderer(q, document.getElementById(`q-body-${num}`), num);
+}
+
+const generatedQuestions = {};
+
+function checkGenAnswer(num) {
+  const q = generatedQuestions[num];
+  if (!q) return;
+  const btn = document.getElementById(`check-${num}`);
+  if (btn.disabled) return;
+  btn.disabled = true;
+
+  const isCorrect = q._checker(q, num);
+
+  const fb = document.getElementById(`feedback-${num}`);
+  fb.classList.add("show", isCorrect ? "correct" : "incorrect");
+  fb.innerHTML = `<div class="answer-label">${isCorrect ? "Correct!" : "Incorrect"}</div><div>${q.explanation || ""}</div>`;
+}
+
+
+/* ═══════════════════════════════════════════════
+   EXISTING QUIZ RENDERERS & CHECKERS
+   (unchanged, used by both the old 21-q flow
+    and the new single-question generation)
+   ═══════════════════════════════════════════════ */
+
+let allQuestions = [];
+let answeredCount = 0;
+let correctCount = 0;
+const totalQuestions = 18;
+
+async function startGeneration() {
+  const skill = document.getElementById("skill-input").value.trim();
+  if (!skill) return;
+
+  const btn = document.getElementById("generate-btn");
+  const loading = document.getElementById("loading");
+  const errorMsg = document.getElementById("error-msg");
+
+  btn.disabled = true;
+  loading.classList.remove("hidden");
+  errorMsg.classList.add("hidden");
+
+  const phases = [
+    "Generating questions with Claude\u2026",
+    "Building fill-in-the-blank questions\u2026",
+    "Crafting true/false justifications\u2026",
+    "Designing cause & effect matching\u2026",
+    "Analyzing immediate vs. long-term causes\u2026",
+    "Creating map-based questions\u2026",
+    "Generating political cartoon images\u2026",
+    "Ranking events by significance\u2026",
+    "Finalizing your quiz\u2026"
+  ];
+  let phaseIdx = 0;
+  const phaseInterval = setInterval(() => {
+    phaseIdx = Math.min(phaseIdx + 1, phases.length - 1);
+    document.getElementById("loading-text").textContent = phases[phaseIdx];
+  }, 8000);
+
+  try {
+    const res = await fetch("/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ skill }),
+    });
+
+    clearInterval(phaseInterval);
+
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.error || "Server error");
+    }
+
+    const data = await res.json();
+    buildQuiz(data, skill);
+  } catch (e) {
+    clearInterval(phaseInterval);
+    errorMsg.textContent = e.message;
+    errorMsg.classList.remove("hidden");
+    btn.disabled = false;
+    loading.classList.add("hidden");
+  }
+}
+
+function buildQuiz(data, skill) {
+  allQuestions = [];
+  answeredCount = 0;
+  correctCount = 0;
+
+  const typeOrder = [
+    { key: "fill_in_the_blank", badge: "badge-fill", label: "Fill in the Blank", renderer: renderFillBlank, checker: checkFillBlank },
+    { key: "true_false_justification", badge: "badge-tf", label: "True / False + Justification", renderer: renderTrueFalse, checker: checkTrueFalse },
+    { key: "cause_and_effect", badge: "badge-cause", label: "Cause & Effect Matching", renderer: renderCauseEffect, checker: checkCauseEffect },
+    { key: "immediate_vs_long_term", badge: "badge-immediate", label: "Immediate vs. Long-Term Cause", renderer: renderImmediateLT, checker: checkImmediateLT },
+    { key: "multiple_choice", badge: "badge-mcq", label: "Multiple Choice", renderer: renderMCQ, checker: checkMCQ },
+    { key: "rank_by_significance", badge: "badge-rank", label: "Rank by Significance", renderer: renderRank, checker: checkRank },
+    { key: "select_all_true", badge: "badge-select-all", label: "Select All That Are True", renderer: renderSelectAllTrue, checker: checkSelectAllTrue },
+  ];
+
+  let qNum = 0;
+  for (const type of typeOrder) {
+    const questions = data[type.key] || [];
+    for (const q of questions) {
+      qNum++;
+      allQuestions.push({ ...q, _type: type.key, _badge: type.badge, _label: type.label, _num: qNum, _renderer: type.renderer, _checker: type.checker });
+    }
+  }
+
+  const container = document.getElementById("questions-container");
+  container.innerHTML = "";
+
+  for (const q of allQuestions) {
+    const card = document.createElement("div");
+    card.className = "question-card";
+    card.id = `q-${q._num}`;
+    card.innerHTML = `
+      <div class="q-header">
+        <span class="question-type-badge ${q._badge}">${q._label}</span>
+        <span class="q-number">Question ${q._num} of ${totalQuestions}</span>
+      </div>
+      <div class="q-body" id="q-body-${q._num}"></div>
+      <div class="q-footer">
+        <button class="check-btn" id="check-${q._num}" onclick="checkAnswer(${q._num})">Check Answer</button>
+      </div>
+      <div class="feedback" id="feedback-${q._num}"></div>
+    `;
+    container.appendChild(card);
+    q._renderer(q, document.getElementById(`q-body-${q._num}`), q._num);
+  }
+
+  document.getElementById("quiz-topic").textContent = skill;
+  document.getElementById("tree-screen").classList.remove("active");
+  document.getElementById("quiz-screen").classList.add("active");
+  updateProgress();
+}
+
+function goBack() {
+  document.getElementById("quiz-screen").classList.remove("active");
+  document.getElementById("tree-screen").classList.add("active");
+  document.getElementById("score-summary").classList.add("hidden");
+  document.getElementById("questions-container").innerHTML = "";
+}
+
+function updateProgress() {
+  const pct = (answeredCount / totalQuestions) * 100;
+  document.getElementById("progress-fill").style.width = pct + "%";
+  document.getElementById("progress-text").textContent = `${answeredCount} / ${totalQuestions}`;
+}
+
+function checkAnswer(num) {
+  const q = allQuestions[num - 1];
+  const btn = document.getElementById(`check-${num}`);
+  if (btn.disabled) return;
+  btn.disabled = true;
+
+  const isCorrect = q._checker(q, num);
+
+  answeredCount++;
+  if (isCorrect) correctCount++;
+  updateProgress();
+
+  const fb = document.getElementById(`feedback-${num}`);
+  fb.classList.add("show", isCorrect ? "correct" : "incorrect");
+  fb.innerHTML = `<div class="answer-label">${isCorrect ? "Correct!" : "Incorrect"}</div><div>${q.explanation || ""}</div>`;
+
+  if (answeredCount === totalQuestions) showSummary();
+}
+
+function showSummary() {
+  document.getElementById("final-score").textContent = correctCount;
+  document.getElementById("total-possible").textContent = totalQuestions;
+  const pct = Math.round((correctCount / totalQuestions) * 100);
+  let msg = "";
+  if (pct >= 90) msg = "Outstanding! You have mastered this material.";
+  else if (pct >= 70) msg = "Great job! You have a strong understanding.";
+  else if (pct >= 50) msg = "Good effort! Review the incorrect answers to strengthen your knowledge.";
+  else msg = "Keep studying! Review the explanations above and try again.";
+  document.getElementById("score-message").textContent = msg;
+  document.getElementById("score-summary").classList.remove("hidden");
+  document.getElementById("score-summary").scrollIntoView({ behavior: "smooth" });
+}
+
+
+/* ─── RENDERERS ─── */
+
+function renderFillBlank(q, body, num) {
+  const parts = q.question_text.split("_____");
+  let html = `<p class="question-text">`;
+  for (let i = 0; i < parts.length; i++) {
+    html += parts[i];
+    if (i < parts.length - 1) {
+      html += `<input type="text" class="blank-input" id="blank-${num}" placeholder="answer">`;
+    }
+  }
+  html += `</p>`;
+  body.innerHTML = html;
+}
+
+function renderTrueFalse(q, body, num) {
+  const stmt = q.statement || (q.options && q.options[0] ? q.options[0].statement : "");
+  const just = q.justification || (q.options && q.options[0] ? q.options[0].justification : "");
+
+  let html = `
+    <div class="tf-option-card" id="tf-card-${num}-0">
+      <div class="tf-statement">${stmt}</div>
+      <div class="tf-step">
+        <span class="tf-step-label">Is this statement true or false?</span>
+        <div class="tf-toggle" id="tf-toggle-${num}-0">
+          <button onclick="tfSelect(${num},0,'true',this)">True</button>
+          <button onclick="tfSelect(${num},0,'false',this)">False</button>
+        </div>
+      </div>
+      <div class="tf-justification"><span class="tf-just-label">Justification:</span> ${just}</div>
+      <div class="tf-step">
+        <span class="tf-step-label">Is this justification correct?</span>
+        <div class="tf-toggle" id="tf-just-toggle-${num}-0">
+          <button onclick="tfJustSelect(${num},0,'yes',this)">Yes</button>
+          <button onclick="tfJustSelect(${num},0,'no',this)">No</button>
+        </div>
+      </div>
+    </div>`;
+  body.innerHTML = html;
+}
+
+function tfSelect(num, optIdx, value, btn) {
+  const toggle = document.getElementById(`tf-toggle-${num}-${optIdx}`);
+  toggle.querySelectorAll("button").forEach(b => b.className = "");
+  btn.className = value === "true" ? "selected-true" : "selected-false";
+}
+
+function tfJustSelect(num, optIdx, value, btn) {
+  const toggle = document.getElementById(`tf-just-toggle-${num}-${optIdx}`);
+  toggle.querySelectorAll("button").forEach(b => b.className = "");
+  btn.className = value === "yes" ? "selected-true" : "selected-false";
+}
+
+function renderCauseEffect(q, body, num) {
+  let html = `<p class="question-text">${q.instruction}</p><div class="matching-grid">`;
+  const shuffledEffects = [...q.effects];
+  q.causes.forEach((cause, i) => {
+    html += `
+      <div class="matching-row">
+        <div class="cause-label">${cause}</div>
+        <span class="matching-arrow">&#8594;</span>
+        <select class="effect-select" id="ce-${num}-${i}">
+          <option value="">-- select effect --</option>`;
+    shuffledEffects.forEach((eff, j) => {
+      html += `<option value="${j}">${eff}</option>`;
+    });
+    html += `</select></div>`;
+  });
+  html += `</div>`;
+  body.innerHTML = html;
+}
+
+function renderImmediateLT(q, body, num) {
+  let html = `<p class="question-text">${q.context}</p><div class="cause-classification">`;
+  q.causes.forEach((c, i) => {
+    html += `
+      <div class="cause-item">
+        <span class="cause-text">${c.text}</span>
+        <div class="cause-toggle" id="ilt-${num}-${i}">
+          <button onclick="iltSelect(${num},${i},'immediate',this)">Immediate</button>
+          <button onclick="iltSelect(${num},${i},'long_term',this)">Long-Term</button>
+        </div>
+      </div>`;
+  });
+  html += `</div>`;
+  body.innerHTML = html;
+}
+
+function iltSelect(num, causeIdx, value, btn) {
+  const toggle = document.getElementById(`ilt-${num}-${causeIdx}`);
+  toggle.querySelectorAll("button").forEach(b => b.classList.remove("selected"));
+  btn.classList.add("selected");
+  btn.dataset.value = value;
+}
+
+function renderMapBased(q, body, num) {
+  let html = `<p class="question-text">${q.question_text}</p>`;
+  html += `<div class="map-container" id="map-${num}"></div>`;
+  html += `<div class="mcq-options">`;
+  q.options.forEach((opt, i) => {
+    html += `
+      <label class="mcq-option" onclick="mcqSelect(${num}, ${i}, this)">
+        <input type="radio" name="mcq-${num}" value="${i}">
+        <span class="mcq-label">${String.fromCharCode(65 + i)}. ${opt}</span>
+      </label>`;
+  });
+  html += `</div>`;
+  body.innerHTML = html;
+
+  setTimeout(() => {
+    const center = q.map_center || [20, 0];
+    const zoom = q.map_zoom || 4;
+    const map = L.map(`map-${num}`, { scrollWheelZoom: false }).setView(center, zoom);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; OpenStreetMap contributors',
+      maxZoom: 18,
+    }).addTo(map);
+
+    const colors = ["#dc2626", "#2563eb", "#16a34a", "#d97706"];
+    (q.markers || []).forEach((m, i) => {
+      const icon = L.divIcon({
+        className: "map-marker-icon",
+        html: `<div class="map-marker" style="background:${colors[i % 4]}">${m.label}</div>`,
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+      });
+      L.marker([m.lat, m.lng], { icon }).addTo(map);
+    });
+
+    setTimeout(() => map.invalidateSize(), 200);
+  }, 100);
+}
+
+function renderCartoon(q, body, num) {
+  let html = `<p class="question-text">${q.question_text}</p>`;
+  html += `<div class="cartoon-card">`;
+  if (q.scene_title) {
+    html += `<div class="cartoon-title">${q.scene_title}</div>`;
+  }
+  const desc = q.scene_description || q.image_prompt || "";
+  html += `<div class="cartoon-description">${desc}</div>`;
+  if (q.historical_context) {
+    html += `<div class="cartoon-context">${q.historical_context}</div>`;
+  }
+  html += `</div>`;
+  html += `<div class="mcq-options">`;
+  q.options.forEach((opt, i) => {
+    html += `
+      <label class="mcq-option" onclick="mcqSelect(${num}, ${i}, this)">
+        <input type="radio" name="mcq-${num}" value="${i}">
+        <span class="mcq-label">${String.fromCharCode(65 + i)}. ${opt}</span>
+      </label>`;
+  });
+  html += `</div>`;
+  body.innerHTML = html;
+}
+
+function renderMCQ(q, body, num) {
+  let html = `<p class="question-text">${q.question_text}</p>`;
+  html += `<div class="mcq-options">`;
+  q.options.forEach((opt, i) => {
+    html += `
+      <label class="mcq-option" onclick="mcqSelect(${num}, ${i}, this)">
+        <input type="radio" name="mcq-${num}" value="${i}">
+        <span class="mcq-label">${String.fromCharCode(65 + i)}. ${opt}</span>
+      </label>`;
+  });
+  html += `</div>`;
+  body.innerHTML = html;
+}
+
+function checkMCQ(q, num) {
+  const selected = document.querySelector(`input[name="mcq-${num}"]:checked`);
+  const userVal = selected ? parseInt(selected.value) : -1;
+  const isCorrect = userVal === q.correct_answer;
+
+  const body = document.getElementById(`q-body-${num}`);
+  body.querySelectorAll(".mcq-option").forEach((opt, i) => {
+    if (i === q.correct_answer) opt.style.borderColor = "var(--success)";
+    else if (i === userVal && !isCorrect) opt.style.borderColor = "var(--error)";
+  });
+  return isCorrect;
+}
+
+function mcqSelect(num, idx, label) {
+  const body = label.closest(".q-body");
+  body.querySelectorAll(".mcq-option").forEach(o => o.classList.remove("selected"));
+  label.classList.add("selected");
+}
+
+function renderRank(q, body, num) {
+  let html = `<p class="question-text">${q.instruction}</p>`;
+  html += `<ul class="rank-list" id="rank-list-${num}">`;
+  q.events.forEach((evt, i) => {
+    html += `
+      <li class="rank-item" draggable="true" data-idx="${i}">
+        <span class="rank-handle">&#9776;</span>
+        <span class="rank-number">${i + 1}</span>
+        <span class="rank-text">${evt}</span>
+      </li>`;
+  });
+  html += `</ul>`;
+  body.innerHTML = html;
+  initDragAndDrop(num);
+}
+
+function initDragAndDrop(num) {
+  const list = document.getElementById(`rank-list-${num}`);
+  let draggedItem = null;
+
+  list.querySelectorAll(".rank-item").forEach(item => {
+    item.addEventListener("dragstart", (e) => {
+      draggedItem = item;
+      item.classList.add("dragging");
+      e.dataTransfer.effectAllowed = "move";
+    });
+
+    item.addEventListener("dragend", () => {
+      item.classList.remove("dragging");
+      list.querySelectorAll(".rank-item").forEach(i => i.classList.remove("drag-over"));
+      updateRankNumbers(num);
+    });
+
+    item.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = "move";
+      item.classList.add("drag-over");
+    });
+
+    item.addEventListener("dragleave", () => {
+      item.classList.remove("drag-over");
+    });
+
+    item.addEventListener("drop", (e) => {
+      e.preventDefault();
+      if (draggedItem && draggedItem !== item) {
+        const allItems = [...list.querySelectorAll(".rank-item")];
+        const dragIdx = allItems.indexOf(draggedItem);
+        const dropIdx = allItems.indexOf(item);
+        if (dragIdx < dropIdx) {
+          list.insertBefore(draggedItem, item.nextSibling);
+        } else {
+          list.insertBefore(draggedItem, item);
+        }
+      }
+      item.classList.remove("drag-over");
+      updateRankNumbers(num);
+    });
+  });
+}
+
+function updateRankNumbers(num) {
+  const list = document.getElementById(`rank-list-${num}`);
+  list.querySelectorAll(".rank-item").forEach((item, i) => {
+    item.querySelector(".rank-number").textContent = i + 1;
+  });
+}
+
+
+/* ─── CHECKERS ─── */
+
+function normalize(s) {
+  return s.toLowerCase().replace(/[^a-z0-9 ]/g, "").replace(/\s+/g, " ").trim();
+}
+
+function checkFillBlank(q, num) {
+  const input = document.getElementById(`blank-${num}`);
+  const userRaw = input ? input.value.trim() : "";
+  const userNorm = normalize(userRaw);
+
+  const validAnswers = q.acceptable_answers || [q.answer || ""];
+  const isCorrect = validAnswers.some(ans => {
+    const normAns = normalize(ans);
+    return userNorm === normAns
+      || normAns.includes(userNorm) && userNorm.length > 2
+      || userNorm.includes(normAns) && normAns.length > 2;
+  });
+
+  input.style.borderColor = isCorrect ? "var(--success)" : "var(--error)";
+  input.style.borderStyle = "solid";
+  if (!isCorrect) {
+    q.explanation = `Acceptable answers: <strong>${validAnswers.join(", ")}</strong>. ${q.explanation}`;
+  }
+  return isCorrect;
+}
+
+function checkTrueFalse(q, num) {
+  const isTrue = q.is_true !== undefined ? q.is_true : (q.options && q.options[0] ? q.options[0].is_true : null);
+  const justCorr = q.justification_correct !== undefined ? q.justification_correct : (q.options && q.options[0] ? q.options[0].justification_correct : null);
+
+  const tfToggle = document.getElementById(`tf-toggle-${num}-0`);
+  const tfBtn = tfToggle.querySelector(".selected-true, .selected-false");
+  const userTF = tfBtn ? tfBtn.classList.contains("selected-true") : null;
+
+  const justToggle = document.getElementById(`tf-just-toggle-${num}-0`);
+  const justBtn = justToggle.querySelector(".selected-true, .selected-false");
+  const userJust = justBtn ? justBtn.classList.contains("selected-true") : null;
+
+  const tfCorrect = userTF === isTrue;
+  const justCorrect = userJust === justCorr;
+
+  const card = document.getElementById(`tf-card-${num}-0`);
+  if (tfCorrect && justCorrect) {
+    card.style.borderColor = "var(--success)";
+  } else {
+    card.style.borderColor = "var(--error)";
+  }
+  return tfCorrect && justCorrect;
+}
+
+function checkCauseEffect(q, num) {
+  let allCorrect = true;
+  q.causes.forEach((_, i) => {
+    const select = document.getElementById(`ce-${num}-${i}`);
+    const userVal = select.value;
+    const correctVal = q.correct_mapping[String(i)];
+    if (parseInt(userVal) === correctVal) {
+      select.style.borderColor = "var(--success)";
+    } else {
+      select.style.borderColor = "var(--error)";
+      allCorrect = false;
+    }
+  });
+  return allCorrect;
+}
+
+function checkImmediateLT(q, num) {
+  let allCorrect = true;
+  q.causes.forEach((c, i) => {
+    const toggle = document.getElementById(`ilt-${num}-${i}`);
+    const selected = toggle.querySelector(".selected");
+    const userVal = selected ? selected.dataset.value : null;
+    const item = toggle.closest(".cause-item");
+    if (userVal === c.type) {
+      item.style.borderColor = "var(--success)";
+    } else {
+      item.style.borderColor = "var(--error)";
+      allCorrect = false;
+    }
+  });
+  return allCorrect;
+}
+
+function checkMapBased(q, num) {
+  const selected = document.querySelector(`input[name="mcq-${num}"]:checked`);
+  const userVal = selected ? parseInt(selected.value) : -1;
+  const isCorrect = userVal === q.correct_answer;
+
+  const body = document.getElementById(`q-body-${num}`);
+  body.querySelectorAll(".mcq-option").forEach((opt, i) => {
+    if (i === q.correct_answer) opt.style.borderColor = "var(--success)";
+    else if (i === userVal && !isCorrect) opt.style.borderColor = "var(--error)";
+  });
+  return isCorrect;
+}
+
+function checkCartoon(q, num) {
+  const selected = document.querySelector(`input[name="mcq-${num}"]:checked`);
+  const userVal = selected ? parseInt(selected.value) : -1;
+  const isCorrect = userVal === q.correct_answer;
+
+  const body = document.getElementById(`q-body-${num}`);
+  body.querySelectorAll(".mcq-option").forEach((opt, i) => {
+    if (i === q.correct_answer) opt.style.borderColor = "var(--success)";
+    else if (i === userVal && !isCorrect) opt.style.borderColor = "var(--error)";
+  });
+  return isCorrect;
+}
+
+function checkRank(q, num) {
+  const list = document.getElementById(`rank-list-${num}`);
+  const items = list.querySelectorAll(".rank-item");
+  const userOrder = [...items].map(item => parseInt(item.dataset.idx));
+
+  const isCorrect = JSON.stringify(userOrder) === JSON.stringify(q.correct_order);
+
+  items.forEach((item, i) => {
+    if (parseInt(item.dataset.idx) === q.correct_order[i]) {
+      item.style.borderColor = "var(--success)";
+    } else {
+      item.style.borderColor = "var(--error)";
+    }
+  });
+
+  if (!isCorrect) {
+    const correctNames = q.correct_order.map((idx, rank) => `${rank + 1}. ${q.events[idx]}`);
+    q.explanation = `Correct order:<br>${correctNames.join("<br>")}<br><br>${q.explanation}`;
+  }
+  return isCorrect;
+}
+
+
+/* ─── SELECT ALL TRUE RENDERER & CHECKER ─── */
+
+function renderSelectAllTrue(q, body, num) {
+  let html = `<p class="question-text">Select all that are true about the following statement:</p>`;
+  html += `<div class="sat-statement">${q.statement}</div>`;
+  html += `<div class="sat-options">`;
+  q.options.forEach((opt, i) => {
+    html += `
+      <label class="sat-option" id="sat-opt-${num}-${i}">
+        <input type="checkbox" name="sat-${num}" value="${i}" id="sat-cb-${num}-${i}">
+        <span class="sat-label">${opt.text}</span>
+      </label>`;
+  });
+  html += `</div>`;
+  body.innerHTML = html;
+}
+
+function checkSelectAllTrue(q, num) {
+  let allCorrect = true;
+  q.options.forEach((opt, i) => {
+    const cb = document.getElementById(`sat-cb-${num}-${i}`);
+    const label = document.getElementById(`sat-opt-${num}-${i}`);
+    const isChecked = cb ? cb.checked : false;
+    const shouldBeChecked = opt.is_true;
+    if (isChecked === shouldBeChecked) {
+      label.style.borderColor = "var(--success)";
+    } else {
+      label.style.borderColor = "var(--error)";
+      allCorrect = false;
+    }
+  });
+  return allCorrect;
+}
+
+
+/* ═══════════════════════════════════════════════
+   QUESTION BANK UI (Single-button SSE pipeline)
+   ═══════════════════════════════════════════════ */
+
+let currentBankData = null;
+let bankEventSource = null;
+
+function buildQuestionBank() {
+  if (!currentSkillId) return;
+  const btn = document.getElementById("qbank-build-btn");
+  const spinner = document.getElementById("qbank-spinner");
+  const log = document.getElementById("qbank-progress-log");
+
+  if (bankEventSource) {
+    bankEventSource.close();
+    bankEventSource = null;
+  }
+
+  btn.disabled = true;
+  spinner.classList.remove("hidden");
+  log.innerHTML = "";
+  document.getElementById("qbank-coverage").innerHTML = "";
+  document.getElementById("qbank-questions").innerHTML = "";
+
+  appendLog(log, "Starting question bank build...");
+
+  bankEventSource = new EventSource(`/skill/${currentSkillId}/build-bank`);
+
+  bankEventSource.onmessage = function(event) {
+    const data = JSON.parse(event.data);
+
+    if (data.phase === "error") {
+      appendLog(log, data.message, "error");
+      finish();
+      return;
+    }
+
+    if (data.phase === "detect_types" && data.types) {
+      appendLog(log, data.message, "ok");
+    } else if (data.phase === "extract_concepts" && data.done) {
+      appendLog(log, data.message, "ok");
+    } else if (data.phase === "extract_concepts" && data.qtype) {
+      updateOrAppendLog(log, `concepts-${data.qtype}`, data.message, data.error ? "error" : "");
+    } else if (data.phase === "generate") {
+      updateOrAppendLog(log, `gen-${data.qtype}-${data.dok}`, data.message, data.error ? "error" : "");
+    } else if (data.phase === "validate" && data.done) {
+      updateOrAppendLog(log, `val-${data.qtype}-${data.dok}`, data.message, "ok");
+    } else if (data.phase === "validate") {
+      updateOrAppendLog(log, `val-${data.qtype}-${data.dok}`, data.message, "");
+    } else if (data.phase === "retry") {
+      updateOrAppendLog(log, `retry-${data.qtype}-${data.dok}`, data.message, "warn");
+    } else if (data.phase === "done") {
+      appendLog(log, data.message, "done");
+      finish();
+      loadQuestionBank();
+    } else if (data.message) {
+      appendLog(log, data.message);
+    }
+
+    log.scrollTop = log.scrollHeight;
+  };
+
+  bankEventSource.onerror = function() {
+    bankEventSource.close();
+    bankEventSource = null;
+    appendLog(log, "Connection lost. Check if the build completed.", "error");
+    finish();
+    loadQuestionBank();
+  };
+
+  function finish() {
+    btn.disabled = false;
+    spinner.classList.add("hidden");
+    if (bankEventSource) {
+      bankEventSource.close();
+      bankEventSource = null;
+    }
+  }
+}
+
+function appendLog(container, text, cls) {
+  const line = document.createElement("div");
+  line.className = "log-line" + (cls ? ` log-${cls}` : "");
+  line.textContent = text;
+  container.appendChild(line);
+}
+
+function updateOrAppendLog(container, key, text, cls) {
+  let line = container.querySelector(`[data-log-key="${key}"]`);
+  if (!line) {
+    line = document.createElement("div");
+    line.className = "log-line";
+    line.dataset.logKey = key;
+    container.appendChild(line);
+  }
+  line.className = "log-line" + (cls ? ` log-${cls}` : "");
+  line.textContent = text;
+}
+
+async function loadQuestionBank() {
+  if (!currentSkillId) return;
+  try {
+    const res = await fetch(`/skill/${currentSkillId}/question-bank`);
+    const data = await res.json();
+    currentBankData = data;
+    renderCoverage(data.coverage);
+    renderBankQuestions(data.bank);
+  } catch (e) {
+    // no bank yet
+  }
+}
+
+function renderCoverage(coverage) {
+  const container = document.getElementById("qbank-coverage");
+  container.innerHTML = "";
+  if (!coverage || Object.keys(coverage).length === 0) return;
+
+  for (const [qtype, dokStats] of Object.entries(coverage)) {
+    const label = questionTypeMeta[qtype] ? questionTypeMeta[qtype].label : qtype;
+    const row = document.createElement("div");
+    row.className = "coverage-row";
+
+    let html = `<div class="coverage-type-label"><span class="type-chip chip-${qtype}">${label}</span></div>`;
+
+    for (const [dokKey, dokLabel] of [["dok2", "DOK 2"], ["dok3", "DOK 3"]]) {
+      const stats = dokStats[dokKey] || { total: 0, met: 0, valid: 0, invalid: 0 };
+      if (stats.total === 0) continue;
+      const pct = Math.round((stats.met / stats.total) * 100);
+      html += `
+        <div class="coverage-dok-row">
+          <span class="coverage-dok-label">${dokLabel}</span>
+          <span class="coverage-stats">${stats.met}/${stats.total} met</span>
+          <div class="coverage-bar"><div class="coverage-fill" style="width:${pct}%"></div></div>
+        </div>`;
+    }
+    row.innerHTML = html;
+    container.appendChild(row);
+  }
+}
+
+let bankQuestionCounter = 20000;
+
+const rendererMap = {
+  fill_in_the_blank: renderFillBlank,
+  true_false_justification: renderTrueFalse,
+  cause_and_effect: renderCauseEffect,
+  immediate_vs_long_term: renderImmediateLT,
+  multiple_choice: renderMCQ,
+  rank_by_significance: renderRank,
+  select_all_true: renderSelectAllTrue,
+};
+
+function renderBankQuestions(bank) {
+  const container = document.getElementById("qbank-questions");
+  container.innerHTML = "";
+  if (!bank || Object.keys(bank).length === 0) return;
+
+  for (const [qtype, typeData] of Object.entries(bank)) {
+    const questions = typeData.questions || [];
+    if (questions.length === 0) continue;
+
+    const label = questionTypeMeta[qtype] ? questionTypeMeta[qtype].label : qtype;
+    const section = document.createElement("div");
+    section.className = "bank-type-section";
+
+    const header = document.createElement("div");
+    header.className = "bank-type-header";
+    header.innerHTML = `<span class="type-chip chip-${qtype}">${label}</span> <span class="bank-type-count">${questions.length} questions</span>`;
+    header.addEventListener("click", () => section.classList.toggle("open"));
+    section.appendChild(header);
+
+    const body = document.createElement("div");
+    body.className = "bank-type-body";
+
+    const dok2 = questions.filter(q => q.dok === "2");
+    const dok3 = questions.filter(q => q.dok === "3");
+    const other = questions.filter(q => q.dok !== "2" && q.dok !== "3");
+
+    for (const [dokQuestions, dokLabel] of [[dok2, "DOK 2 — Fact Recall"], [dok3, "DOK 3 — Application"], [other, "Other"]]) {
+      if (dokQuestions.length === 0) continue;
+
+      const dokHeader = document.createElement("div");
+      dokHeader.className = "bank-dok-header";
+      const metCount = dokQuestions.filter(q => q.met).length;
+      dokHeader.textContent = `${dokLabel} (${metCount}/${dokQuestions.length} met)`;
+      body.appendChild(dokHeader);
+
+      for (const entry of dokQuestions) {
+        renderBankQuestionCard(entry, qtype, body);
+      }
+    }
+
+    section.appendChild(body);
+    container.appendChild(section);
+  }
+}
+
+function renderBankQuestionCard(entry, qtype, container) {
+  const qCard = document.createElement("div");
+  qCard.className = "bank-q-card" + (entry.met ? " met" : "");
+
+  const qHeader = document.createElement("div");
+  qHeader.className = "bank-q-header";
+
+  const metBadge = entry.met
+    ? '<span class="met-badge met">Met</span>'
+    : '<span class="met-badge unmet">Not Met</span>';
+
+  const dokTag = entry.dok ? `<span class="dok-tag dok-${entry.dok}">DOK ${entry.dok}</span>` : "";
+
+  qHeader.innerHTML = `
+    <div class="bank-q-badges">${dokTag}${metBadge}</div>`;
+  qCard.appendChild(qHeader);
+
+  if (entry.question_data) {
+    bankQuestionCounter++;
+    const num = bankQuestionCounter;
+    const qBody = document.createElement("div");
+    qBody.className = "bank-q-body";
+    qBody.id = `q-body-${num}`;
+    qCard.appendChild(qBody);
+
+    const qFooter = document.createElement("div");
+    qFooter.className = "bank-q-footer";
+    qFooter.innerHTML = `<button class="check-btn" id="check-${num}" onclick="checkBankAnswer(${num}, '${qtype}', '${entry.id}')">Check Answer</button>`;
+    qCard.appendChild(qFooter);
+
+    const feedback = document.createElement("div");
+    feedback.className = "feedback";
+    feedback.id = `feedback-${num}`;
+    qCard.appendChild(feedback);
+
+    const q = { ...entry.question_data };
+    q._type = qtype;
+    q._num = num;
+    q.explanation = q.explanation || "";
+    generatedQuestions[num] = q;
+
+    container.appendChild(qCard);
+
+    const renderer = rendererMap[qtype];
+    if (renderer) {
+      setTimeout(() => renderer(q, document.getElementById(`q-body-${num}`), num), 0);
+    }
+  } else {
+    container.appendChild(qCard);
+  }
+}
+
+const checkerMap = {
+  fill_in_the_blank: checkFillBlank,
+  true_false_justification: checkTrueFalse,
+  cause_and_effect: checkCauseEffect,
+  immediate_vs_long_term: checkImmediateLT,
+  multiple_choice: checkMCQ,
+  rank_by_significance: checkRank,
+  select_all_true: checkSelectAllTrue,
+};
+
+async function checkBankAnswer(num, qtype, questionId) {
+  const q = generatedQuestions[num];
+  if (!q) return;
+  const btn = document.getElementById(`check-${num}`);
+  if (btn.disabled) return;
+  btn.disabled = true;
+
+  const checker = checkerMap[qtype];
+  const isCorrect = checker ? checker(q, num) : false;
+
+  const fb = document.getElementById(`feedback-${num}`);
+  fb.classList.add("show", isCorrect ? "correct" : "incorrect");
+  fb.innerHTML = `<div class="answer-label">${isCorrect ? "Correct!" : "Incorrect"}</div><div>${q.explanation || ""}</div>`;
+
+  if (isCorrect && currentSkillId) {
+    try {
+      await fetch(`/skill/${currentSkillId}/question-bank/mark`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question_type: qtype, question_id: questionId, met: true }),
+      });
+      const card = btn.closest(".bank-q-card");
+      if (card) card.classList.add("met");
+      const metBadge = card ? card.querySelector(".met-badge") : null;
+      if (metBadge) {
+        metBadge.className = "met-badge met";
+        metBadge.textContent = "Met";
+      }
+      loadQuestionBank();
+    } catch (e) {
+      // silent
+    }
+  }
+}
+
+
+/* ─── INIT ─── */
+
+document.addEventListener("DOMContentLoaded", () => {
+  initTree();
+});

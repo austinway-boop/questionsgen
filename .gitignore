@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+question_bank.json
+.DS_Store
+*.egg-info/
+dist/
+build/

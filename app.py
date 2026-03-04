@@ -565,6 +565,76 @@ def build_bank_stream(skill_id):
     return Response(stream_with_context(generate()), mimetype="text/event-stream")
 
 
+@app.route("/regenerate-tf-questions")
+def regenerate_tf_questions():
+    """SSE stream: regenerate all true_false_justification questions with updated prompt."""
+    tree = _get_tree()
+    all_bank_data = get_all_bank_status()
+
+    # Collect skills that have T/F questions
+    skills_with_tf = []
+    for sid, has_bank in all_bank_data.items():
+        if not has_bank:
+            continue
+        bank = get_skill_bank(sid)
+        if "true_false_justification" in bank:
+            tf_data = bank["true_false_justification"]
+            if tf_data.get("questions"):
+                skills_with_tf.append(sid)
+
+    def stream():
+        yield _sse_event({"phase": "start", "message": f"Regenerating T/F questions for {len(skills_with_tf)} skills..."})
+
+        total_regenerated = 0
+        total_failed = 0
+
+        for idx, sid in enumerate(sorted(skills_with_tf)):
+            skill_data = get_skill(sid)
+            lc = skill_data.get("learning_content", "")
+            skill_text = _find_skill_text(sid)
+            bank = get_skill_bank(sid)
+            tf_questions = bank.get("true_false_justification", {}).get("questions", [])
+
+            yield _sse_event({
+                "phase": "regenerating",
+                "message": f"[{idx + 1}/{len(skills_with_tf)}] {sid}: regenerating {len(tf_questions)} T/F questions...",
+                "skill": sid,
+            })
+
+            for q_idx, entry in enumerate(tf_questions):
+                dok_level = entry.get("dok", "2")
+                try:
+                    new_q = generate_single_question(skill_text, lc, "true_false_justification", dok_level=dok_level)
+                    entry["question_data"] = new_q
+                    entry["valid"] = True
+                    entry["validation_reason"] = "Regenerated with balanced-length prompt"
+                    total_regenerated += 1
+                except Exception as e:
+                    total_failed += 1
+                    yield _sse_event({
+                        "phase": "regenerating",
+                        "message": f"  {sid} Q{q_idx + 1} failed: {e}",
+                        "error": True,
+                    })
+
+            replace_skill_bank(sid, bank)
+            yield _sse_event({
+                "phase": "regenerating",
+                "message": f"  {sid}: saved {len(tf_questions)} questions",
+                "skill": sid,
+                "done_skill": True,
+            })
+
+        yield _sse_event({
+            "phase": "done",
+            "message": f"Done. {total_regenerated} questions regenerated, {total_failed} failed.",
+            "total_regenerated": total_regenerated,
+            "total_failed": total_failed,
+        })
+
+    return Response(stream_with_context(stream()), mimetype="text/event-stream")
+
+
 @app.route("/generate", methods=["POST"])
 def generate():
     data = request.get_json()

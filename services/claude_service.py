@@ -71,6 +71,8 @@ The statement must be a single, unambiguous factual claim that is CLEARLY true o
 
 Each choice text must start with "True — " or "False — " followed by a justification. The justification explains WHY the student believes the statement is true or false. Each choice must have its own explanation field explaining why it's right or wrong.
 
+CRITICAL — ANSWER LENGTH BALANCE: All four choice texts MUST be similar in length (within ~20% of each other). Do NOT make the correct answer noticeably longer or shorter than the incorrect ones. If the correct justification naturally requires more detail, pad the incorrect choices with equally detailed (but wrong) reasoning. Students should never be able to guess the correct answer just because it is the longest option.
+
 NEVER reference "the learning content", "the passage", or "the text". Write as a standalone claim.""",
     },
     "cause_and_effect": {

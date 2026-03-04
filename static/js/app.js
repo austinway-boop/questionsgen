@@ -109,6 +109,8 @@ function renderTree() {
 function _setGlobalButtons(disabled) {
   document.getElementById("map-all-btn").disabled = disabled;
   document.getElementById("build-all-btn").disabled = disabled;
+  const regenBtn = document.getElementById("regen-tf-btn");
+  if (regenBtn) regenBtn.disabled = disabled;
   const spinner = document.getElementById("global-spinner");
   if (disabled) spinner.classList.remove("hidden");
   else spinner.classList.add("hidden");
@@ -350,6 +352,38 @@ async function buildAllBanks() {
   _setGlobalButtons(false);
   progress.innerHTML = `<strong>Done.</strong> ${completed} banks built, ${failed} failed, ${totalSaved} total questions saved.`;
   refreshPipelineStatus();
+}
+
+async function regenTFQuestions() {
+  const progress = document.getElementById("build-all-progress");
+  _setGlobalButtons(true);
+  const btn = document.getElementById("regen-tf-btn");
+  if (btn) btn.disabled = true;
+
+  progress.innerHTML = "<strong>Regenerating T/F questions...</strong> Connecting...";
+
+  const es = new EventSource("/regenerate-tf-questions");
+
+  es.onmessage = function(event) {
+    const data = JSON.parse(event.data);
+    progress.innerHTML = `<strong>Regen T/F:</strong> ${data.message}`;
+
+    if (data.phase === "done" || data.phase === "error") {
+      es.close();
+      _setGlobalButtons(false);
+      if (btn) btn.disabled = false;
+      refreshPipelineStatus();
+      if (currentSkillId) loadQuestionBank();
+    }
+  };
+
+  es.onerror = function() {
+    es.close();
+    _setGlobalButtons(false);
+    if (btn) btn.disabled = false;
+    progress.innerHTML = "<strong>Regen T/F:</strong> Connection lost.";
+    refreshPipelineStatus();
+  };
 }
 
 async function buildUnitBanks(unitNum, btn) {

@@ -3,8 +3,8 @@
    ═══════════════════════════════════════════════ */
 
 const STORAGE_KEY = "learnSimState";
-const BASIC_Q_COUNT = 4;
-const ADVANCED_Q_COUNT = 4;
+const MAX_DOK2_TOTAL = 16;
+const DOK3_PER_SKILL = 2;
 const WRONG_THRESHOLD = 3;
 
 let treeData = null;
@@ -448,10 +448,9 @@ async function startLearningSession(skillId) {
     }
   }
 
-  // Build interleaved question queue: cycle through skills
-  // Basic: 4 per skill, interleaved. Advanced: 4 per skill, interleaved.
-  const basicQueue = buildInterleavedQueue(group, bankMap, "2", BASIC_Q_COUNT);
-  const advancedQueue = buildInterleavedQueue(group, bankMap, "3", ADVANCED_Q_COUNT);
+  const basicPerSkill = Math.max(1, Math.floor(MAX_DOK2_TOTAL / group.length));
+  const basicQueue = buildInterleavedQueue(group, bankMap, "2", basicPerSkill);
+  const advancedQueue = buildInterleavedQueue(group, bankMap, "3", DOK3_PER_SKILL);
 
   currentSession = {
     type: "learn",
@@ -487,7 +486,7 @@ function buildInterleavedQueue(group, bankMap, dok, countPerSkill) {
       for (const q of (typeData.questions || [])) {
         if (!q.question_data || q.valid === false) continue;
         if (q.dok !== dok) continue;
-        candidates.push({ qtype, data: q.question_data });
+        candidates.push({ qtype, data: q.question_data, dok });
       }
     }
     // Shuffle and take up to countPerSkill
@@ -595,14 +594,15 @@ function serveNextQuestion() {
   const skillLabel = currentSession.group.length > 1 ? ` [${item.skillId}]` : "";
 
   renderSessionQuestion(item.qtype, item.data, "learn-question-container", (correct) => {
-    onLearnAnswer(correct, item.skillId);
-  }, skillLabel);
+    onLearnAnswer(correct, item.skillId, item.dok);
+  }, skillLabel, item.dok);
 }
 
-function onLearnAnswer(correct, answeredSkillId) {
-  // Apply mastery to the specific skill this question belongs to
+function onLearnAnswer(correct, answeredSkillId, dok) {
   const skillState = getSkillState(answeredSkillId);
-  const delta = correct ? 10 : -20;
+  const delta = dok === "3"
+    ? (correct ? 20 : -25)
+    : (correct ? 10 : -20);
   skillState.mastery = clampMastery(skillState.mastery + delta);
   saveState();
   updateGroupMasteryBar(currentSession.group);
@@ -630,9 +630,9 @@ function rewatchVideo() {
   for (const sid of currentSession.group) currentSession.wrongCounts[sid] = 0;
   currentSession.queueIndex = 0;
   currentSession.rewatchPrompted = false;
-  // Rebuild question queues with fresh random picks
-  currentSession.basicQueue = buildInterleavedQueue(currentSession.group, currentSession.bankMap, "2", BASIC_Q_COUNT);
-  currentSession.advancedQueue = buildInterleavedQueue(currentSession.group, currentSession.bankMap, "3", ADVANCED_Q_COUNT);
+  const basicPerSkill = Math.max(1, Math.floor(MAX_DOK2_TOTAL / currentSession.group.length));
+  currentSession.basicQueue = buildInterleavedQueue(currentSession.group, currentSession.bankMap, "2", basicPerSkill);
+  currentSession.advancedQueue = buildInterleavedQueue(currentSession.group, currentSession.bankMap, "3", DOK3_PER_SKILL);
   showContentPhase(currentSession.learningContent, currentSession.sources);
 }
 
@@ -773,7 +773,7 @@ function pickRandomQuestion(bank, dok) {
    RENDER A SESSION QUESTION
    ─────────────────────────────────────────────── */
 
-function renderSessionQuestion(qtype, questionData, containerId, onAnswer, skillLabel) {
+function renderSessionQuestion(qtype, questionData, containerId, onAnswer, skillLabel, dok) {
   learnQCounter++;
   const num = learnQCounter;
   const container = document.getElementById(containerId);
@@ -820,9 +820,11 @@ function renderSessionQuestion(qtype, questionData, containerId, onAnswer, skill
 
     let fbHtml = `<div class="answer-label">${isCorrect ? "Correct!" : "Incorrect"}</div>`;
     fbHtml += `<div>${q.explanation || ""}</div>`;
-    const delta = isCorrect ? 10 : -20;
-    const sign = delta > 0 ? "+" : "";
-    fbHtml += `<span class="mastery-change ${delta > 0 ? "positive" : "negative"}">${sign}${delta} mastery</span>`;
+    const fbDelta = dok === "3"
+      ? (isCorrect ? 20 : -25)
+      : (isCorrect ? 10 : -20);
+    const sign = fbDelta > 0 ? "+" : "";
+    fbHtml += `<span class="mastery-change ${fbDelta > 0 ? "positive" : "negative"}">${sign}${fbDelta} mastery</span>`;
     fb.innerHTML = fbHtml;
 
     onAnswer(isCorrect);

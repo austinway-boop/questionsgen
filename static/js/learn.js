@@ -418,32 +418,35 @@ async function startLearningSession(skillId) {
     rewatchPrompted: false,
   };
 
-  // Show video
-  showVideoPhase(skillRes.sources || []);
+  showContentPhase(skillRes.learning_content || "", skillRes.sources || []);
 }
 
-function showVideoPhase(sources) {
+function showContentPhase(learningContent, sources) {
   document.getElementById("learn-video-phase").classList.remove("hidden");
   document.getElementById("learn-questions-phase").classList.add("hidden");
   document.getElementById("rewatch-prompt").classList.add("hidden");
 
   const container = document.getElementById("video-container");
-  if (sources.length > 0) {
-    const src = sources[0];
-    const embedUrl = youtubeEmbedUrl(src.youtube_url);
-    container.innerHTML = `<iframe src="${embedUrl}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-  } else {
-    container.innerHTML = `<div class="no-video">No video available for this skill. Click below to continue.</div>`;
-  }
-}
+  let html = "";
 
-function youtubeEmbedUrl(url) {
-  if (!url) return "";
-  const match = url.match(/[?&]v=([^&]+)/);
-  const videoId = match ? match[1] : "";
-  const timeMatch = url.match(/[?&]t=(\d+)/);
-  const start = timeMatch ? `&start=${timeMatch[1]}` : "";
-  return `https://www.youtube.com/embed/${videoId}?rel=0${start}`;
+  if (learningContent.trim()) {
+    const paragraphs = learningContent.split(/\n\n+/).filter(p => p.trim());
+    html += '<div class="learning-text-content">';
+    for (const p of paragraphs) {
+      html += `<p>${p.trim()}</p>`;
+    }
+    html += "</div>";
+  } else {
+    html += '<div class="no-video">No learning content available for this skill.</div>';
+  }
+
+  if (sources.length > 0) {
+    html += '<div class="content-sources-hint">';
+    html += `<span>Source: ${sources.map(s => `Topic ${s.topic} — ${s.section_label}`).join(", ")}</span>`;
+    html += "</div>";
+  }
+
+  container.innerHTML = html;
 }
 
 function completeVideo() {
@@ -538,7 +541,7 @@ function rewatchVideo() {
   currentSession.wrongCount = 0;
   currentSession.questionsAnswered = 0;
   currentSession.rewatchPrompted = false;
-  showVideoPhase(currentSession.skillData.sources || []);
+  showContentPhase(currentSession.skillData.learning_content || "", currentSession.skillData.sources || []);
 }
 
 function skipRewatch() {

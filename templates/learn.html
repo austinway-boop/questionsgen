@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Simulation — AP Human Geography</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="/static/css/learn.css">
+</head>
+<body>
+
+  <div id="learn-app">
+    <!-- TOP BAR -->
+    <header class="learn-topbar">
+      <div class="topbar-left">
+        <a href="/" class="topbar-back">&larr; Skill Tree</a>
+        <h1 class="topbar-title">Learning Simulation</h1>
+        <span class="topbar-subtitle">AP Human Geography</span>
+      </div>
+      <div class="topbar-stats">
+        <div class="stat-pill">
+          <span class="stat-label">Day</span>
+          <span class="stat-value" id="stat-day">0</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-label">Learned</span>
+          <span class="stat-value" id="stat-learned">0 / 0</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-label">Avg Mastery</span>
+          <span class="stat-value" id="stat-avg-mastery">0</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-label">Sessions</span>
+          <span class="stat-value" id="stat-sessions">0</span>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn btn-sm btn-secondary" onclick="advanceDays(1)">+1 Day</button>
+        <button class="btn btn-sm btn-secondary" onclick="advanceDays(7)">+7 Days</button>
+        <button class="btn btn-sm btn-secondary" onclick="advanceDays(30)">+30 Days</button>
+        <button class="btn btn-sm btn-danger" onclick="resetSimulation()">Reset</button>
+      </div>
+    </header>
+
+    <div class="learn-layout">
+      <!-- LEFT SIDEBAR: Algorithm Dashboard -->
+      <aside id="learn-sidebar" class="learn-sidebar">
+        <div class="sidebar-section">
+          <h3 class="sidebar-heading">Algorithm Config</h3>
+          <div class="config-row">
+            <label for="learning-priority-input">Learning Priority</label>
+            <div class="config-input-row">
+              <input type="range" id="learning-priority-slider" min="0.5" max="5" step="0.1" value="2.0" oninput="updateLearningPriority(this.value)">
+              <input type="number" id="learning-priority-input" value="2.0" step="0.1" min="0.5" max="5" class="config-number" oninput="updateLearningPriority(this.value)">
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3 class="sidebar-heading">Algorithm Decision</h3>
+          <div id="decision-display" class="decision-display">
+            <div class="decision-placeholder">Press "Next Session" to see the algorithm's decision</div>
+          </div>
+        </div>
+
+        <div class="sidebar-section sidebar-section-grow">
+          <h3 class="sidebar-heading">Learned Skills <span id="learned-count-badge" class="count-badge">0</span></h3>
+          <div id="mastery-list" class="mastery-list">
+            <div class="mastery-list-empty">No skills learned yet</div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT AREA -->
+      <main id="learn-main" class="learn-main">
+        <!-- IDLE / DASHBOARD STATE -->
+        <div id="state-idle" class="learn-state active">
+          <div class="idle-hero">
+            <div class="idle-icon">&#9881;</div>
+            <h2>Learning Algorithm Simulation</h2>
+            <p>This simulation demonstrates the spaced repetition learning algorithm. It selects between new learning content and review sessions based on cover priority scores and learning priority weighting.</p>
+            <div id="loading-indicator" class="loading-indicator">
+              <div class="inline-spinner"></div>
+              <span>Loading skill data...</span>
+            </div>
+            <button id="start-btn" class="btn btn-primary btn-lg" onclick="startNextSession()" disabled>Next Session</button>
+          </div>
+        </div>
+
+        <!-- LEARNING SESSION -->
+        <div id="state-learning" class="learn-state">
+          <div class="session-header">
+            <span class="session-type-badge session-badge-learn">Learning</span>
+            <h2 id="learn-skill-name" class="session-skill-name"></h2>
+            <span id="learn-skill-id" class="session-skill-id"></span>
+          </div>
+
+          <div id="learn-mastery-bar-container" class="session-mastery-bar-container">
+            <div class="mastery-bar-label">Mastery: <span id="learn-mastery-value">0</span></div>
+            <div class="mastery-bar"><div id="learn-mastery-fill" class="mastery-fill" style="width:0%"></div></div>
+          </div>
+
+          <!-- Video Phase -->
+          <div id="learn-video-phase" class="learn-phase">
+            <h3>Watch the Video</h3>
+            <div id="video-container" class="video-container"></div>
+            <div class="video-actions">
+              <button class="btn btn-primary" onclick="completeVideo()">I've Watched the Video</button>
+            </div>
+          </div>
+
+          <!-- Questions Phase -->
+          <div id="learn-questions-phase" class="learn-phase hidden">
+            <div class="questions-progress">
+              <h3 id="questions-phase-label">Basic Questions</h3>
+              <span id="questions-progress-text" class="questions-progress-text">0 / 4</span>
+            </div>
+            <div id="learn-question-container" class="learn-question-container"></div>
+          </div>
+
+          <!-- Rewatch Prompt -->
+          <div id="rewatch-prompt" class="rewatch-prompt hidden">
+            <div class="rewatch-content">
+              <h3>Struggling with this skill?</h3>
+              <p>You've gotten several questions wrong. Would you like to rewatch the video?</p>
+              <div class="rewatch-actions">
+                <button class="btn btn-primary" onclick="rewatchVideo()">Rewatch Video</button>
+                <button class="btn btn-secondary" onclick="skipRewatch()">Continue Questions</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COVER SESSION -->
+        <div id="state-cover" class="learn-state">
+          <div class="session-header">
+            <span class="session-type-badge session-badge-cover">Review</span>
+            <h2 id="cover-skill-name" class="session-skill-name"></h2>
+            <span id="cover-skill-id" class="session-skill-id"></span>
+          </div>
+
+          <div class="cover-reason" id="cover-reason"></div>
+
+          <div id="cover-mastery-bar-container" class="session-mastery-bar-container">
+            <div class="mastery-bar-label">Mastery: <span id="cover-mastery-value">0</span></div>
+            <div class="mastery-bar"><div id="cover-mastery-fill" class="mastery-fill" style="width:0%"></div></div>
+          </div>
+
+          <div id="cover-question-container" class="learn-question-container"></div>
+        </div>
+
+        <!-- SESSION COMPLETE -->
+        <div id="state-complete" class="learn-state">
+          <div class="complete-card">
+            <div class="complete-icon" id="complete-icon">&#10003;</div>
+            <h2 id="complete-title">Session Complete</h2>
+            <div id="complete-summary" class="complete-summary"></div>
+            <button class="btn btn-primary btn-lg" onclick="startNextSession()">Next Session</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="/static/js/learn.js"></script>
+</body>
+</html>

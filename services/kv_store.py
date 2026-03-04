@@ -1,5 +1,5 @@
 """
-Storage abstraction: Upstash Redis (Vercel KV) when KV_REST_API_URL is set,
+Storage abstraction: Neon Postgres when DATABASE_URL is set,
 local JSON file fallback for development.
 """
 
@@ -10,54 +10,110 @@ from pathlib import Path
 
 _ROOT = Path(__file__).resolve().parent.parent
 
-USE_KV = bool(os.environ.get("KV_REST_API_URL"))
+USE_DB = bool(os.environ.get("DATABASE_URL"))
 
 # ---------------------------------------------------------------------------
-# Upstash Redis backend
+# Postgres backend (Neon)
 # ---------------------------------------------------------------------------
 
-_redis = None
+_pool = None
+_db_init_lock = threading.Lock()
 
 
-def _get_redis():
-    global _redis
-    if _redis is None:
-        from upstash_redis import Redis
-        _redis = Redis(
-            url=os.environ["KV_REST_API_URL"],
-            token=os.environ["KV_REST_API_TOKEN"],
-        )
-    return _redis
+def _get_pool():
+    global _pool
+    if _pool is None:
+        with _db_init_lock:
+            if _pool is None:
+                import psycopg2.pool
+                _pool = psycopg2.pool.ThreadedConnectionPool(
+                    1, 10,
+                    os.environ["DATABASE_URL"],
+                )
+                _init_table()
+    return _pool
 
 
-def _kv_get(key: str):
-    val = _get_redis().get(key)
-    if val is None:
-        return None
-    if isinstance(val, str):
-        return json.loads(val)
-    return val
+def _init_table():
+    conn = _pool.getconn()
+    try:
+        with conn.cursor() as cur:
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS kv_store (
+                    key TEXT PRIMARY KEY,
+                    value JSONB NOT NULL
+                )
+            """)
+        conn.commit()
+    finally:
+        _pool.putconn(conn)
 
 
-def _kv_set(key: str, value):
-    _get_redis().set(key, json.dumps(value))
+def _db_get(key: str):
+    pool = _get_pool()
+    conn = pool.getconn()
+    try:
+        with conn.cursor() as cur:
+            cur.execute("SELECT value FROM kv_store WHERE key = %s", (key,))
+            row = cur.fetchone()
+            return row[0] if row else None
+    finally:
+        pool.putconn(conn)
 
 
-def _kv_delete(key: str):
-    _get_redis().delete(key)
+def _db_set(key: str, value):
+    pool = _get_pool()
+    conn = pool.getconn()
+    try:
+        with conn.cursor() as cur:
+            cur.execute(
+                """INSERT INTO kv_store (key, value) VALUES (%s, %s)
+                   ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value""",
+                (key, json.dumps(value)),
+            )
+        conn.commit()
+    finally:
+        pool.putconn(conn)
 
 
-def _kv_keys(prefix: str) -> list:
-    """Return all keys matching prefix*. Uses SCAN to avoid blocking."""
-    r = _get_redis()
-    cursor = 0
-    result = []
-    while True:
-        cursor, keys = r.scan(cursor, match=f"{prefix}*", count=500)
-        result.extend(keys)
-        if cursor == 0:
-            break
-    return result
+def _db_delete(key: str):
+    pool = _get_pool()
+    conn = pool.getconn()
+    try:
+        with conn.cursor() as cur:
+            cur.execute("DELETE FROM kv_store WHERE key = %s", (key,))
+        conn.commit()
+    finally:
+        pool.putconn(conn)
+
+
+def _db_keys(prefix: str) -> list:
+    pool = _get_pool()
+    conn = pool.getconn()
+    try:
+        with conn.cursor() as cur:
+            cur.execute("SELECT key FROM kv_store WHERE key LIKE %s", (prefix + "%",))
+            return [row[0] for row in cur.fetchall()]
+    finally:
+        pool.putconn(conn)
+
+
+def _db_get_namespace(namespace: str) -> dict:
+    pool = _get_pool()
+    conn = pool.getconn()
+    try:
+        with conn.cursor() as cur:
+            cur.execute(
+                "SELECT key, value FROM kv_store WHERE key LIKE %s",
+                (namespace + ":%",),
+            )
+            result = {}
+            for key, value in cur.fetchall():
+                sub = key.split(":", 1)[1] if ":" in key else key
+                result[sub] = value
+            return result
+    finally:
+        pool.putconn(conn)
 
 
 # ---------------------------------------------------------------------------
@@ -124,15 +180,8 @@ def _json_keys(prefix: str) -> list:
 
 
 def _json_get_all(namespace: str) -> dict:
-    """Get the entire namespace dict (JSON-only convenience)."""
     with _lock_for(namespace):
         return _json_load(namespace)
-
-
-def _json_set_all(namespace: str, data: dict):
-    """Set the entire namespace dict (JSON-only convenience)."""
-    with _lock_for(namespace):
-        _json_save(namespace, data)
 
 
 # ---------------------------------------------------------------------------
@@ -141,45 +190,38 @@ def _json_set_all(namespace: str, data: dict):
 
 def get(key: str):
     """Get a value by key (e.g. 'skill:U1S1')."""
-    if USE_KV:
-        return _kv_get(key)
+    if USE_DB:
+        return _db_get(key)
     return _json_get(key)
 
 
 def set(key: str, value):  # noqa: A001
     """Set a value by key."""
-    if USE_KV:
-        _kv_set(key, value)
+    if USE_DB:
+        _db_set(key, value)
     else:
         _json_set(key, value)
 
 
 def delete(key: str):
     """Delete a key."""
-    if USE_KV:
-        _kv_delete(key)
+    if USE_DB:
+        _db_delete(key)
     else:
         _json_delete(key)
 
 
 def keys(prefix: str) -> list:
     """List all keys with a given prefix (e.g. 'skill:')."""
-    if USE_KV:
-        return _kv_keys(prefix)
+    if USE_DB:
+        return _db_keys(prefix)
     return _json_keys(prefix)
 
 
 def get_namespace(namespace: str) -> dict:
-    """Get all entries in a namespace as {sub_key: value}.
-    For KV, scans all keys with the namespace prefix.
-    For JSON, returns the full file dict.
-    """
-    if USE_KV:
-        result = {}
-        for key in _kv_keys(f"{namespace}:"):
-            sub = key.split(":", 1)[1] if ":" in key else key
-            result[sub] = _kv_get(key)
-        return result
+    """Get all entries in a namespace as {sub_key: value}."""
+    if USE_DB:
+        return _db_get_namespace(namespace)
     return _json_get_all(namespace)
 
 

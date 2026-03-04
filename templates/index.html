@@ -18,7 +18,8 @@
       <div class="tree-header-actions">
         <button class="btn btn-secondary btn-sm" onclick="mapAllUnits()" id="map-all-btn">Map All Transcripts</button>
         <button class="btn btn-secondary btn-sm" onclick="buildAllBanks()" id="build-all-btn">Build All Banks</button>
-        <button class="btn btn-secondary btn-sm" onclick="regenTFQuestions()" id="regen-tf-btn" style="background:var(--warning);color:#fff;border-color:var(--warning)">Regen T/F Questions</button>
+        <button class="btn btn-secondary btn-sm" onclick="regenQuestionsByType('true_false_justification', this)" style="background:var(--warning);color:#fff;border-color:var(--warning)">Regen T/F</button>
+        <button class="btn btn-secondary btn-sm" onclick="regenQuestionsByType('multiple_choice', this)" style="background:var(--warning);color:#fff;border-color:var(--warning)">Regen MCQ</button>
         <div id="global-spinner" class="inline-spinner hidden"></div>
       </div>
     </header>

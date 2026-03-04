@@ -125,7 +125,7 @@ The question must be self-contained — NEVER reference "the learning content", 
 
 VALIDATION-CRITICAL RULES:
 - There must be exactly ONE correct answer. If two choices could both be justified, the question is bad.
-- All four choices MUST be approximately the same length and level of detail.
+- All four choices MUST be similar in length (within ~20% of each other). Do NOT make the correct answer noticeably longer or shorter than the others. If the correct answer naturally requires more detail, pad the incorrect choices with equally detailed (but wrong) reasoning. Students should never be able to guess the correct answer just because it is the longest option.
 - Distractors must be WRONG but PLAUSIBLE — they should sound like they could be right to someone who didn't study, but be clearly incorrect to someone who did.
 - Ask about concepts, definitions, relationships, or applications — not trivia like specific numbers or proper nouns unless they are central to the concept.
 - The correct answer must be directly supported by the source material.

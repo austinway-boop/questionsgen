@@ -565,46 +565,47 @@ def build_bank_stream(skill_id):
     return Response(stream_with_context(generate()), mimetype="text/event-stream")
 
 
-@app.route("/regenerate-tf-questions")
-def regenerate_tf_questions():
-    """SSE stream: regenerate all true_false_justification questions with updated prompt."""
-    tree = _get_tree()
+@app.route("/regenerate-questions-by-type")
+def regenerate_questions_by_type():
+    """SSE stream: regenerate all questions of a given type with updated prompt."""
+    qtype = request.args.get("qtype", "true_false_justification")
+    if qtype not in QUESTION_TYPE_INFO:
+        return jsonify({"error": f"Unknown question type: {qtype}"}), 400
+
+    type_label = QUESTION_TYPE_INFO[qtype]["label"]
     all_bank_data = get_all_bank_status()
 
-    # Collect skills that have T/F questions
-    skills_with_tf = []
+    skills_with_type = []
     for sid, has_bank in all_bank_data.items():
         if not has_bank:
             continue
         bank = get_skill_bank(sid)
-        if "true_false_justification" in bank:
-            tf_data = bank["true_false_justification"]
-            if tf_data.get("questions"):
-                skills_with_tf.append(sid)
+        if qtype in bank and bank[qtype].get("questions"):
+            skills_with_type.append(sid)
 
     def stream():
-        yield _sse_event({"phase": "start", "message": f"Regenerating T/F questions for {len(skills_with_tf)} skills..."})
+        yield _sse_event({"phase": "start", "message": f"Regenerating {type_label} for {len(skills_with_type)} skills..."})
 
         total_regenerated = 0
         total_failed = 0
 
-        for idx, sid in enumerate(sorted(skills_with_tf)):
+        for idx, sid in enumerate(sorted(skills_with_type)):
             skill_data = get_skill(sid)
             lc = skill_data.get("learning_content", "")
             skill_text = _find_skill_text(sid)
             bank = get_skill_bank(sid)
-            tf_questions = bank.get("true_false_justification", {}).get("questions", [])
+            questions = bank.get(qtype, {}).get("questions", [])
 
             yield _sse_event({
                 "phase": "regenerating",
-                "message": f"[{idx + 1}/{len(skills_with_tf)}] {sid}: regenerating {len(tf_questions)} T/F questions...",
+                "message": f"[{idx + 1}/{len(skills_with_type)}] {sid}: regenerating {len(questions)} {type_label}...",
                 "skill": sid,
             })
 
-            for q_idx, entry in enumerate(tf_questions):
+            for q_idx, entry in enumerate(questions):
                 dok_level = entry.get("dok", "2")
                 try:
-                    new_q = generate_single_question(skill_text, lc, "true_false_justification", dok_level=dok_level)
+                    new_q = generate_single_question(skill_text, lc, qtype, dok_level=dok_level)
                     entry["question_data"] = new_q
                     entry["valid"] = True
                     entry["validation_reason"] = "Regenerated with balanced-length prompt"
@@ -620,14 +621,14 @@ def regenerate_tf_questions():
             replace_skill_bank(sid, bank)
             yield _sse_event({
                 "phase": "regenerating",
-                "message": f"  {sid}: saved {len(tf_questions)} questions",
+                "message": f"  {sid}: saved {len(questions)} questions",
                 "skill": sid,
                 "done_skill": True,
             })
 
         yield _sse_event({
             "phase": "done",
-            "message": f"Done. {total_regenerated} questions regenerated, {total_failed} failed.",
+            "message": f"Done. {total_regenerated} {type_label} regenerated, {total_failed} failed.",
             "total_regenerated": total_regenerated,
             "total_failed": total_failed,
         })

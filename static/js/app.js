@@ -109,8 +109,7 @@ function renderTree() {
 function _setGlobalButtons(disabled) {
   document.getElementById("map-all-btn").disabled = disabled;
   document.getElementById("build-all-btn").disabled = disabled;
-  const regenBtn = document.getElementById("regen-tf-btn");
-  if (regenBtn) regenBtn.disabled = disabled;
+  document.querySelectorAll(".tree-header-actions .btn").forEach(b => b.disabled = disabled);
   const spinner = document.getElementById("global-spinner");
   if (disabled) spinner.classList.remove("hidden");
   else spinner.classList.add("hidden");
@@ -354,24 +353,22 @@ async function buildAllBanks() {
   refreshPipelineStatus();
 }
 
-async function regenTFQuestions() {
+function regenQuestionsByType(qtype, triggerBtn) {
   const progress = document.getElementById("build-all-progress");
   _setGlobalButtons(true);
-  const btn = document.getElementById("regen-tf-btn");
-  if (btn) btn.disabled = true;
 
-  progress.innerHTML = "<strong>Regenerating T/F questions...</strong> Connecting...";
+  const label = qtype.replace(/_/g, " ");
+  progress.innerHTML = `<strong>Regenerating ${label}...</strong> Connecting...`;
 
-  const es = new EventSource("/regenerate-tf-questions");
+  const es = new EventSource(`/regenerate-questions-by-type?qtype=${encodeURIComponent(qtype)}`);
 
   es.onmessage = function(event) {
     const data = JSON.parse(event.data);
-    progress.innerHTML = `<strong>Regen T/F:</strong> ${data.message}`;
+    progress.innerHTML = `<strong>Regen ${label}:</strong> ${data.message}`;
 
     if (data.phase === "done" || data.phase === "error") {
       es.close();
       _setGlobalButtons(false);
-      if (btn) btn.disabled = false;
       refreshPipelineStatus();
       if (currentSkillId) loadQuestionBank();
     }
@@ -380,8 +377,7 @@ async function regenTFQuestions() {
   es.onerror = function() {
     es.close();
     _setGlobalButtons(false);
-    if (btn) btn.disabled = false;
-    progress.innerHTML = "<strong>Regen T/F:</strong> Connection lost.";
+    progress.innerHTML = `<strong>Regen ${label}:</strong> Connection lost.`;
     refreshPipelineStatus();
   };
 }

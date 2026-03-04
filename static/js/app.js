@@ -178,25 +178,97 @@ async function mapAllUnits() {
   refreshPipelineStatus();
 }
 
-function _buildBankForSkill(sid) {
-  return new Promise((resolve) => {
-    const es = new EventSource(`/skill/${sid}/build-bank`);
-    let lastMessage = "";
+const QUESTIONS_PER_DOK = 10;
+const BATCH_SIZE = 5;
 
-    es.onmessage = function(event) {
-      const data = JSON.parse(event.data);
-      lastMessage = data.message || "";
-      if (data.phase === "done" || data.phase === "error") {
-        es.close();
-        resolve({ sid, ok: data.phase === "done", saved: data.total_saved || 0, message: lastMessage });
-      }
-    };
-
-    es.onerror = function() {
-      es.close();
-      resolve({ sid, ok: false, saved: 0, message: "Connection lost" });
-    };
+async function _postJSON(url, body) {
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
   });
+  return res.json();
+}
+
+async function _buildBankForSkill(sid, onProgress) {
+  const log = (msg) => onProgress && onProgress(sid, msg);
+  let totalSaved = 0;
+
+  try {
+    log("Detecting question types...");
+    const detectRes = await _postJSON(`/skill/${sid}/detect-types`, {});
+    if (detectRes.error) throw new Error(detectRes.error);
+    const types = detectRes.relevant_question_types;
+    const typeKeys = typeof types === "object" && !Array.isArray(types) ? Object.keys(types) : (types || []);
+    if (typeKeys.length === 0) throw new Error("No question types detected");
+    log(`Detected ${typeKeys.length} types: ${typeKeys.join(", ")}`);
+
+    const bankData = {};
+    for (const qtype of typeKeys) {
+      bankData[qtype] = { concepts: [], questions: [] };
+
+      for (const dok of ["2", "3"]) {
+        const dokLabel = `DOK ${dok}`;
+        let allQuestions = [];
+        let excludeSummaries = [];
+        const numBatches = Math.ceil(QUESTIONS_PER_DOK / BATCH_SIZE);
+
+        for (let b = 0; b < numBatches; b++) {
+          const remaining = QUESTIONS_PER_DOK - allQuestions.length;
+          const count = Math.min(BATCH_SIZE, remaining);
+          if (count <= 0) break;
+
+          log(`${qtype} ${dokLabel}: generating batch ${b + 1}/${numBatches}...`);
+          const genRes = await _postJSON(`/skill/${sid}/generate-batch`, {
+            question_type: qtype,
+            dok_level: dok,
+            count,
+            exclude_summaries: excludeSummaries,
+          });
+          if (genRes.error) { log(`${qtype} ${dokLabel} batch failed: ${genRes.error}`); break; }
+
+          allQuestions = allQuestions.concat(genRes.questions || []);
+          excludeSummaries = excludeSummaries.concat(genRes.summaries || []);
+        }
+
+        if (allQuestions.length === 0) continue;
+
+        log(`${qtype} ${dokLabel}: validating ${allQuestions.length} questions...`);
+        const valRes = await _postJSON(`/skill/${sid}/validate-batch`, {
+          question_type: qtype,
+          dok_level: dok,
+          questions: allQuestions,
+        });
+        if (valRes.error) { log(`${qtype} ${dokLabel} validation failed: ${valRes.error}`); continue; }
+
+        const validated = (valRes.results || [])
+          .filter(r => r.valid)
+          .map((r, i) => ({
+            id: `${sid}-${qtype.slice(0, 4)}-d${dok}-${i}`,
+            dok,
+            question_data: r.question_data,
+            valid: true,
+            validation_reason: r.validation_reason,
+            met: false,
+          }));
+
+        bankData[qtype].questions = bankData[qtype].questions.concat(validated);
+        totalSaved += validated.length;
+        const discarded = allQuestions.length - validated.length;
+        log(`${qtype} ${dokLabel}: ${validated.length} valid, ${discarded} discarded`);
+      }
+    }
+
+    log("Saving bank...");
+    const saveRes = await _postJSON(`/skill/${sid}/save-bank`, { bank_data: bankData });
+    if (saveRes.error) throw new Error(saveRes.error);
+
+    log(`Done. ${totalSaved} questions saved.`);
+    return { sid, ok: true, saved: totalSaved };
+  } catch (e) {
+    log(`FAILED: ${e.message}`);
+    return { sid, ok: false, saved: totalSaved, message: e.message };
+  }
 }
 
 async function buildAllBanks() {
@@ -220,38 +292,27 @@ async function buildAllBanks() {
 
   progress.innerHTML = `<strong>Building banks: 0/${skillsToBuild.length}</strong> — starting...`;
 
-  const CONCURRENCY = 2;
-  let idx = 0;
+  function onProgress(sid, msg) {
+    progress.innerHTML = `<strong>Building banks: ${completed}/${skillsToBuild.length}</strong> — ${sid}: ${msg} (${failed} failed, ${totalSaved} Qs saved)`;
+  }
 
-  async function runNext() {
-    while (idx < skillsToBuild.length) {
-      const sid = skillsToBuild[idx++];
+  for (const sid of skillsToBuild) {
+    const skillItem = document.querySelector(`.skill-item[data-skill-id="${sid}"]`);
+    if (skillItem) skillItem.style.outline = "2px solid var(--primary)";
 
-      const skillItem = document.querySelector(`.skill-item[data-skill-id="${sid}"]`);
-      if (skillItem) skillItem.style.outline = "2px solid var(--primary)";
+    const result = await _buildBankForSkill(sid, onProgress);
 
-      progress.innerHTML = `<strong>Building banks: ${completed}/${skillsToBuild.length}</strong> — processing ${sid}... (${failed} failed, ${totalSaved} questions saved)`;
+    if (skillItem) skillItem.style.outline = "";
 
-      const result = await _buildBankForSkill(sid);
-
-      if (skillItem) skillItem.style.outline = "";
-
-      if (result.ok) {
-        completed++;
-        totalSaved += result.saved;
-      } else {
-        failed++;
-      }
-
-      progress.innerHTML = `<strong>Building banks: ${completed}/${skillsToBuild.length}</strong> — ${result.sid} ${result.ok ? "done" : "FAILED"} (${failed} failed, ${totalSaved} questions saved)`;
+    if (result.ok) {
+      completed++;
+      totalSaved += result.saved;
+    } else {
+      failed++;
     }
-  }
 
-  const workers = [];
-  for (let i = 0; i < CONCURRENCY; i++) {
-    workers.push(runNext());
+    progress.innerHTML = `<strong>Building banks: ${completed}/${skillsToBuild.length}</strong> — ${result.sid} ${result.ok ? "done" : "FAILED"} (${failed} failed, ${totalSaved} Qs saved)`;
   }
-  await Promise.all(workers);
 
   _setGlobalButtons(false);
   progress.innerHTML = `<strong>Done.</strong> ${completed} banks built, ${failed} failed, ${totalSaved} total questions saved.`;
@@ -1114,18 +1175,13 @@ function checkRank(q, num) {
    ═══════════════════════════════════════════════ */
 
 let currentBankData = null;
-let bankEventSource = null;
 
-function buildQuestionBank() {
+
+async function buildQuestionBank() {
   if (!currentSkillId) return;
   const btn = document.getElementById("qbank-build-btn");
   const spinner = document.getElementById("qbank-spinner");
   const log = document.getElementById("qbank-progress-log");
-
-  if (bankEventSource) {
-    bankEventSource.close();
-    bankEventSource = null;
-  }
 
   btn.disabled = true;
   spinner.classList.remove("hidden");
@@ -1135,58 +1191,23 @@ function buildQuestionBank() {
 
   appendLog(log, "Starting question bank build...");
 
-  bankEventSource = new EventSource(`/skill/${currentSkillId}/build-bank`);
-
-  bankEventSource.onmessage = function(event) {
-    const data = JSON.parse(event.data);
-
-    if (data.phase === "error") {
-      appendLog(log, data.message, "error");
-      finish();
-      return;
-    }
-
-    if (data.phase === "detect_types" && data.types) {
-      appendLog(log, data.message, "ok");
-    } else if (data.phase === "extract_concepts" && data.done) {
-      appendLog(log, data.message, "ok");
-    } else if (data.phase === "extract_concepts" && data.qtype) {
-      updateOrAppendLog(log, `concepts-${data.qtype}`, data.message, data.error ? "error" : "");
-    } else if (data.phase === "generate") {
-      updateOrAppendLog(log, `gen-${data.qtype}-${data.dok}`, data.message, data.error ? "error" : "");
-    } else if (data.phase === "validate" && data.done) {
-      updateOrAppendLog(log, `val-${data.qtype}-${data.dok}`, data.message, "ok");
-    } else if (data.phase === "validate") {
-      updateOrAppendLog(log, `val-${data.qtype}-${data.dok}`, data.message, "");
-    } else if (data.phase === "retry") {
-      updateOrAppendLog(log, `retry-${data.qtype}-${data.dok}`, data.message, "warn");
-    } else if (data.phase === "done") {
-      appendLog(log, data.message, "done");
-      finish();
-      loadQuestionBank();
-    } else if (data.message) {
-      appendLog(log, data.message);
-    }
-
+  function logProgress(sid, msg) {
+    appendLog(log, msg);
     log.scrollTop = log.scrollHeight;
-  };
-
-  bankEventSource.onerror = function() {
-    bankEventSource.close();
-    bankEventSource = null;
-    appendLog(log, "Connection lost. Check if the build completed.", "error");
-    finish();
-    loadQuestionBank();
-  };
-
-  function finish() {
-    btn.disabled = false;
-    spinner.classList.add("hidden");
-    if (bankEventSource) {
-      bankEventSource.close();
-      bankEventSource = null;
-    }
   }
+
+  const result = await _buildBankForSkill(currentSkillId, logProgress);
+
+  if (result.ok) {
+    appendLog(log, `Done. ${result.saved} questions saved.`, "done");
+  } else {
+    appendLog(log, `Build failed: ${result.message || "unknown error"}`, "error");
+  }
+
+  btn.disabled = false;
+  spinner.classList.add("hidden");
+  loadQuestionBank();
+  refreshPipelineStatus();
 }
 
 function appendLog(container, text, cls) {

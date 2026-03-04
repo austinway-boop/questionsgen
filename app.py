@@ -266,6 +266,98 @@ def _summarize_question(qtype, q):
     return str(q)[:80]
 
 
+# ── Step-based bank building (Vercel-compatible) ─────────────────────
+
+@app.route("/skill/<skill_id>/generate-batch", methods=["POST"])
+def generate_batch_endpoint(skill_id):
+    data = request.get_json()
+    qtype = data.get("question_type", "").strip()
+    dok_level = data.get("dok_level", "2")
+    exclude_summaries = data.get("exclude_summaries", [])
+    count = min(int(data.get("count", BATCH_SIZE)), BATCH_SIZE)
+
+    if not qtype:
+        return jsonify({"error": "question_type is required"}), 400
+
+    skill_data = get_skill(skill_id)
+    lc = skill_data.get("learning_content", "")
+    if not lc.strip():
+        return jsonify({"error": "No learning content"}), 400
+
+    skill_text = _find_skill_text(skill_id)
+    try:
+        questions = generate_batch_questions(
+            skill_text, lc, qtype, dok_level,
+            count=count, exclude_summaries=exclude_summaries,
+        )
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+    summaries = [_summarize_question(qtype, q) for q in questions]
+    return jsonify({"questions": questions, "summaries": summaries})
+
+
+@app.route("/skill/<skill_id>/validate-batch", methods=["POST"])
+def validate_batch_endpoint(skill_id):
+    data = request.get_json()
+    qtype = data.get("question_type", "").strip()
+    dok_level = data.get("dok_level", "2")
+    questions = data.get("questions", [])
+
+    if not qtype or not questions:
+        return jsonify({"error": "question_type and questions are required"}), 400
+
+    skill_data = get_skill(skill_id)
+    lc = skill_data.get("learning_content", "")
+    skill_text = _find_skill_text(skill_id)
+
+    results = []
+    for q_data in questions:
+        current_q = q_data
+        is_valid = False
+        val_reason = ""
+
+        for attempt in range(1 + MAX_RETRIES):
+            try:
+                val = validate_question(lc, qtype, current_q)
+                is_valid = val["valid"]
+                val_reason = val["reason"]
+            except Exception as e:
+                is_valid = False
+                val_reason = f"Validation call failed: {e}"
+
+            if is_valid:
+                break
+
+            if attempt < MAX_RETRIES:
+                try:
+                    current_q = regenerate_invalid_question(
+                        skill_text, lc, qtype, dok_level, current_q, val_reason,
+                    )
+                except Exception:
+                    pass
+
+        results.append({
+            "question_data": current_q,
+            "valid": is_valid,
+            "validation_reason": val_reason,
+        })
+
+    return jsonify({"results": results})
+
+
+@app.route("/skill/<skill_id>/save-bank", methods=["POST"])
+def save_bank_endpoint(skill_id):
+    data = request.get_json()
+    bank_data = data.get("bank_data")
+    if not bank_data:
+        return jsonify({"error": "bank_data is required"}), 400
+    replace_skill_bank(skill_id, bank_data)
+    return jsonify({"ok": True})
+
+
+# ── SSE-based bank building (local dev) ──────────────────────────────
+
 @app.route("/skill/<skill_id>/build-bank")
 def build_bank_stream(skill_id):
     skill_data = get_skill(skill_id)

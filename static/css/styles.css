@@ -175,9 +175,10 @@ body {
   flex-shrink: 0;
 }
 
-.skill-item .status-dot.status-none     { background: var(--error); }
-.skill-item .status-dot.status-content  { background: #3b82f6; }
-.skill-item .status-dot.status-complete { background: var(--success); }
+.skill-item .status-dot.status-none           { background: var(--error); }
+.skill-item .status-dot.status-manual-content { background: var(--warning); }
+.skill-item .status-dot.status-content        { background: #3b82f6; }
+.skill-item .status-dot.status-complete       { background: var(--success); }
 
 .skill-item.status-none-item {
   color: var(--error);
@@ -186,6 +187,14 @@ body {
 
 .skill-item.status-none-item .skill-id-tag {
   color: var(--error);
+}
+
+.skill-item.status-manual-item {
+  color: #b45309;
+}
+
+.skill-item.status-manual-item .skill-id-tag {
+  color: #b45309;
 }
 
 .unit-header.has-missing .unit-label {
@@ -213,6 +222,7 @@ body {
 }
 
 .count-dot.cnt-red    { background: #fee2e2; color: var(--error); }
+.count-dot.cnt-orange { background: var(--warning-bg); color: #b45309; }
 .count-dot.cnt-blue   { background: #dbeafe; color: #2563eb; }
 .count-dot.cnt-green  { background: #dcfce7; color: var(--success); }
 

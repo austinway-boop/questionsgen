@@ -553,10 +553,14 @@ def pipeline_status():
     for unit in tree["units"]:
         for skill in unit["skills"]:
             sid = skill["id"]
-            has_content = content_status.get(sid, False)
+            cs = content_status.get(sid, {"has_content": False, "content_source": ""})
+            has_content = cs["has_content"]
+            content_source = cs["content_source"]
             has_bank = bank_status.get(sid, False)
             if has_content and has_bank:
                 result[sid] = "complete"
+            elif has_content and content_source == "manual":
+                result[sid] = "manual_content"
             elif has_content:
                 result[sid] = "content_only"
             else:

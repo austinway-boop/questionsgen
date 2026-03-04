@@ -28,6 +28,19 @@ async function refreshPipelineStatus() {
   } catch (e) { /* silent */ }
 }
 
+function _statusDotClass(st) {
+  if (st === "complete") return "status-complete";
+  if (st === "content_only") return "status-content";
+  if (st === "manual_content") return "status-manual-content";
+  return "status-none";
+}
+
+function _statusItemClass(st) {
+  if (st === "none") return " status-none-item";
+  if (st === "manual_content") return " status-manual-item";
+  return "";
+}
+
 function renderTree() {
   const list = document.getElementById("tree-list");
   const loading = document.getElementById("tree-loading");
@@ -39,11 +52,12 @@ function renderTree() {
     section.className = "unit-section";
     section.id = `unit-${unit.id}`;
 
-    let redCount = 0, blueCount = 0, greenCount = 0;
+    let redCount = 0, orangeCount = 0, blueCount = 0, greenCount = 0;
     for (const skill of unit.skills) {
       const st = pipelineStatus[skill.id] || "none";
       if (st === "complete") greenCount++;
       else if (st === "content_only") blueCount++;
+      else if (st === "manual_content") orangeCount++;
       else redCount++;
     }
 
@@ -54,9 +68,10 @@ function renderTree() {
       <span class="unit-chevron">&#9654;</span>
       <span class="unit-label">${unit.title}</span>
       <div class="unit-status-counts">
-        ${redCount  ? `<span class="count-dot cnt-red">${redCount}</span>` : ""}
-        ${blueCount ? `<span class="count-dot cnt-blue">${blueCount}</span>` : ""}
-        ${greenCount? `<span class="count-dot cnt-green">${greenCount}</span>` : ""}
+        ${redCount    ? `<span class="count-dot cnt-red" title="No content">${redCount}</span>` : ""}
+        ${orangeCount ? `<span class="count-dot cnt-orange" title="Manual content (flagged)">${orangeCount}</span>` : ""}
+        ${blueCount   ? `<span class="count-dot cnt-blue" title="Has content, needs questions">${blueCount}</span>` : ""}
+        ${greenCount  ? `<span class="count-dot cnt-green" title="Complete">${greenCount}</span>` : ""}
       </div>
       <button class="unit-map-btn" onclick="event.stopPropagation(); mapUnitTranscripts(${unitNum}, this)" title="Map video transcripts to skills for this unit">Map Transcripts</button>
       <span class="unit-count">${unit.skills.length}</span>
@@ -73,11 +88,9 @@ function renderTree() {
     for (const skill of unit.skills) {
       const st = pipelineStatus[skill.id] || "none";
       const item = document.createElement("div");
-      item.className = "skill-item" + (st === "none" ? " status-none-item" : "");
+      item.className = "skill-item" + _statusItemClass(st);
       item.dataset.skillId = skill.id;
-
-      const dotClass = st === "complete" ? "status-complete" : st === "content_only" ? "status-content" : "status-none";
-      item.innerHTML = `<span class="skill-id-tag">${skill.id}</span>${skill.text}<span class="status-dot ${dotClass}"></span>`;
+      item.innerHTML = `<span class="skill-id-tag">${skill.id}</span>${skill.text}<span class="status-dot ${_statusDotClass(st)}"></span>`;
       item.addEventListener("click", () => selectSkill(skill.id, skill.text));
       skillsDiv.appendChild(item);
     }
@@ -92,6 +105,14 @@ function renderTree() {
 
 /* ── Bulk actions ──────────────────────────────────────────────────── */
 
+function _setGlobalButtons(disabled) {
+  document.getElementById("map-all-btn").disabled = disabled;
+  document.getElementById("build-all-btn").disabled = disabled;
+  const spinner = document.getElementById("global-spinner");
+  if (disabled) spinner.classList.remove("hidden");
+  else spinner.classList.add("hidden");
+}
+
 function mapUnitTranscripts(unitNum, btn) {
   btn.disabled = true;
   const log = document.getElementById(`unit-map-log-${unitNum}`);
@@ -103,97 +124,137 @@ function mapUnitTranscripts(unitNum, btn) {
     section.classList.add("open");
   }
 
-  const es = new EventSource(`/unit/${unitNum}/map-transcripts`);
+  return new Promise((resolve) => {
+    const es = new EventSource(`/unit/${unitNum}/map-transcripts`);
 
-  es.onmessage = function(event) {
-    const data = JSON.parse(event.data);
-    const line = document.createElement("div");
-    line.className = "log-line" + (data.phase === "error" ? " log-error" : data.phase === "done" ? " log-done" : "");
-    line.textContent = data.message;
-    log.appendChild(line);
-    log.scrollTop = log.scrollHeight;
+    es.onmessage = function(event) {
+      const data = JSON.parse(event.data);
+      const line = document.createElement("div");
+      line.className = "log-line" + (data.phase === "error" ? " log-error" : data.phase === "done" ? " log-done" : "");
+      line.textContent = data.message;
+      log.appendChild(line);
+      log.scrollTop = log.scrollHeight;
 
-    if (data.phase === "done" || data.phase === "error") {
+      if (data.phase === "done" || data.phase === "error") {
+        es.close();
+        btn.disabled = false;
+        refreshPipelineStatus();
+        resolve(data.phase === "done");
+      }
+    };
+
+    es.onerror = function() {
       es.close();
       btn.disabled = false;
+      const line = document.createElement("div");
+      line.className = "log-line log-error";
+      line.textContent = "Connection lost.";
+      log.appendChild(line);
       refreshPipelineStatus();
-    }
-  };
+      resolve(false);
+    };
+  });
+}
 
-  es.onerror = function() {
-    es.close();
-    btn.disabled = false;
-    const line = document.createElement("div");
-    line.className = "log-line log-error";
-    line.textContent = "Connection lost.";
-    log.appendChild(line);
-    refreshPipelineStatus();
-  };
+async function mapAllUnits() {
+  const progress = document.getElementById("build-all-progress");
+  _setGlobalButtons(true);
+
+  const unitNums = treeData.units.map(u => parseInt(u.id.replace("U", "")));
+  progress.textContent = `Mapping transcripts for ${unitNums.length} units...`;
+
+  for (let i = 0; i < unitNums.length; i++) {
+    const unitNum = unitNums[i];
+    progress.textContent = `Mapping Unit ${unitNum} (${i + 1}/${unitNums.length})...`;
+
+    const btn = document.querySelector(`#unit-U${unitNum} .unit-map-btn`);
+    if (btn) {
+      await mapUnitTranscripts(unitNum, btn);
+    }
+  }
+
+  _setGlobalButtons(false);
+  progress.textContent = `Done. All ${unitNums.length} units mapped. Check orange flags for skills that need manual content.`;
+  refreshPipelineStatus();
+}
+
+function _buildBankForSkill(sid) {
+  return new Promise((resolve) => {
+    const es = new EventSource(`/skill/${sid}/build-bank`);
+    let lastMessage = "";
+
+    es.onmessage = function(event) {
+      const data = JSON.parse(event.data);
+      lastMessage = data.message || "";
+      if (data.phase === "done" || data.phase === "error") {
+        es.close();
+        resolve({ sid, ok: data.phase === "done", saved: data.total_saved || 0, message: lastMessage });
+      }
+    };
+
+    es.onerror = function() {
+      es.close();
+      resolve({ sid, ok: false, saved: 0, message: "Connection lost" });
+    };
+  });
 }
 
 async function buildAllBanks() {
-  const btn = document.getElementById("build-all-btn");
-  const spinner = document.getElementById("build-all-spinner");
   const progress = document.getElementById("build-all-progress");
+  _setGlobalButtons(true);
 
   const skillsToBuild = [];
   for (const [sid, st] of Object.entries(pipelineStatus)) {
-    if (st === "content_only") skillsToBuild.push(sid);
+    if (st === "content_only" || st === "manual_content") skillsToBuild.push(sid);
   }
 
   if (skillsToBuild.length === 0) {
-    progress.textContent = "No skills need building (all are either missing content or already complete).";
+    progress.textContent = "Nothing to build. All skills with content already have question banks.";
+    _setGlobalButtons(false);
     return;
   }
 
-  btn.disabled = true;
-  spinner.classList.remove("hidden");
-  progress.textContent = `Building banks for ${skillsToBuild.length} skills...`;
-
   let completed = 0;
   let failed = 0;
-  const CONCURRENCY = 2;
+  let totalSaved = 0;
 
-  async function processBatch(skills) {
-    for (const sid of skills) {
-      try {
-        const es = new EventSource(`/skill/${sid}/build-bank`);
-        await new Promise((resolve) => {
-          es.onmessage = function(event) {
-            const data = JSON.parse(event.data);
-            if (data.phase === "done" || data.phase === "error") {
-              es.close();
-              if (data.phase === "error") failed++;
-              else completed++;
-              progress.textContent = `Building banks: ${completed} done, ${failed} failed, ${skillsToBuild.length - completed - failed} remaining...`;
-              resolve();
-            }
-          };
-          es.onerror = function() {
-            es.close();
-            failed++;
-            progress.textContent = `Building banks: ${completed} done, ${failed} failed, ${skillsToBuild.length - completed - failed} remaining...`;
-            resolve();
-          };
-        });
-      } catch (e) {
+  progress.innerHTML = `<strong>Building banks: 0/${skillsToBuild.length}</strong> — starting...`;
+
+  const CONCURRENCY = 2;
+  let idx = 0;
+
+  async function runNext() {
+    while (idx < skillsToBuild.length) {
+      const sid = skillsToBuild[idx++];
+
+      const skillItem = document.querySelector(`.skill-item[data-skill-id="${sid}"]`);
+      if (skillItem) skillItem.style.outline = "2px solid var(--primary)";
+
+      progress.innerHTML = `<strong>Building banks: ${completed}/${skillsToBuild.length}</strong> — processing ${sid}... (${failed} failed, ${totalSaved} questions saved)`;
+
+      const result = await _buildBankForSkill(sid);
+
+      if (skillItem) skillItem.style.outline = "";
+
+      if (result.ok) {
+        completed++;
+        totalSaved += result.saved;
+      } else {
         failed++;
       }
+
+      progress.innerHTML = `<strong>Building banks: ${completed}/${skillsToBuild.length}</strong> — ${result.sid} ${result.ok ? "done" : "FAILED"} (${failed} failed, ${totalSaved} questions saved)`;
     }
   }
 
-  const chunks = [];
-  for (let i = 0; i < skillsToBuild.length; i += CONCURRENCY) {
-    chunks.push(skillsToBuild.slice(i, i + CONCURRENCY));
+  const workers = [];
+  for (let i = 0; i < CONCURRENCY; i++) {
+    workers.push(runNext());
   }
+  await Promise.all(workers);
 
-  for (const chunk of chunks) {
-    await Promise.all(chunk.map(sid => processBatch([sid])));
-  }
-
-  btn.disabled = false;
-  spinner.classList.add("hidden");
-  progress.textContent = `Done. ${completed} banks built, ${failed} failed.`;
+  _setGlobalButtons(false);
+  progress.innerHTML = `<strong>Done.</strong> ${completed} banks built, ${failed} failed, ${totalSaved} total questions saved.`;
   refreshPipelineStatus();
 }
 

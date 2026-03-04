@@ -360,7 +360,7 @@ async function buildUnitBanks(unitNum, btn) {
     .map(s => s.id)
     .filter(sid => {
       const st = pipelineStatus[sid];
-      return st === "content_only" || st === "manual_content";
+      return st === "content_only" || st === "manual_content" || st === "complete";
     });
 
   if (skillsToBuild.length === 0) {

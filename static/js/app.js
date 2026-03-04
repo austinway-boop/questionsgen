@@ -74,6 +74,7 @@ function renderTree() {
         ${greenCount  ? `<span class="count-dot cnt-green" title="Complete">${greenCount}</span>` : ""}
       </div>
       <button class="unit-map-btn" onclick="event.stopPropagation(); mapUnitTranscripts(${unitNum}, this)" title="Map video transcripts to skills for this unit">Map Transcripts</button>
+      <button class="unit-map-btn" onclick="event.stopPropagation(); buildUnitBanks(${unitNum}, this)" title="Build question banks for all skills with content in this unit">Build Unit</button>
       <span class="unit-count">${unit.skills.length}</span>
     `;
     header.addEventListener("click", () => section.classList.toggle("open"));
@@ -316,6 +317,71 @@ async function buildAllBanks() {
 
   _setGlobalButtons(false);
   progress.innerHTML = `<strong>Done.</strong> ${completed} banks built, ${failed} failed, ${totalSaved} total questions saved.`;
+  refreshPipelineStatus();
+}
+
+async function buildUnitBanks(unitNum, btn) {
+  const unit = treeData.units.find(u => u.id === `U${unitNum}`);
+  if (!unit) return;
+
+  btn.disabled = true;
+  const log = document.getElementById(`unit-map-log-${unitNum}`);
+  log.innerHTML = "";
+  log.style.display = "block";
+
+  const section = btn.closest(".unit-section");
+  if (section && !section.classList.contains("open")) {
+    section.classList.add("open");
+  }
+
+  const skillsToBuild = unit.skills
+    .map(s => s.id)
+    .filter(sid => {
+      const st = pipelineStatus[sid];
+      return st === "content_only" || st === "manual_content";
+    });
+
+  if (skillsToBuild.length === 0) {
+    appendLog(log, "No skills need building in this unit.", "done");
+    btn.disabled = false;
+    return;
+  }
+
+  appendLog(log, `Building banks for ${skillsToBuild.length} skills concurrently...`);
+
+  let completed = 0;
+  let failed = 0;
+  let totalSaved = 0;
+
+  function onProgress(sid, msg) {
+    updateOrAppendLog(log, `build-${sid}`, `${sid}: ${msg}`);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  const promises = skillsToBuild.map(async (sid) => {
+    const skillItem = document.querySelector(`.skill-item[data-skill-id="${sid}"]`);
+    if (skillItem) skillItem.style.outline = "2px solid var(--primary)";
+
+    const result = await _buildBankForSkill(sid, onProgress);
+
+    if (skillItem) skillItem.style.outline = "";
+
+    if (result.ok) {
+      completed++;
+      totalSaved += result.saved;
+      updateOrAppendLog(log, `build-${sid}`, `${sid}: done (${result.saved} Qs)`, "ok");
+    } else {
+      failed++;
+      updateOrAppendLog(log, `build-${sid}`, `${sid}: FAILED — ${result.message || "unknown"}`, "error");
+    }
+    appendLog(log, `Progress: ${completed + failed}/${skillsToBuild.length} (${completed} done, ${failed} failed, ${totalSaved} Qs)`);
+    log.scrollTop = log.scrollHeight;
+  });
+
+  await Promise.all(promises);
+
+  appendLog(log, `Unit ${unitNum} complete. ${completed} banks built, ${failed} failed, ${totalSaved} total questions.`, "done");
+  btn.disabled = false;
   refreshPipelineStatus();
 }
 

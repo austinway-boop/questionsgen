@@ -33,119 +33,119 @@ You MUST respond with valid JSON only — no markdown fences, no explanation, no
 QUESTION_TYPE_INFO = {
     "fill_in_the_blank": {
         "label": "Fill in the Blank",
-        "description": "A sentence with a key term blanked out. Tests recall of essential vocabulary and concepts.",
+        "description": "A sentence with key terms blanked out. Tests recall of essential vocabulary and concepts.",
         "schema": """{
-  "question_text": "Sentence with _____ for the blank",
-  "acceptable_answers": ["best answer", "also valid", "another synonym"],
+  "prompt": "The {blank} Purchase of {blank} doubled the size of the United States.",
+  "blanks": [
+    {"answer": "Louisiana", "alternates": ["louisiana"]},
+    {"answer": "1803", "alternates": []}
+  ],
   "explanation": "Why this matters for understanding"
 }""",
-        "rules": """ONLY blank out a single proper term or key vocabulary word — never blank a common word like "the", "is", "are", etc. The blanked term must be a specific concept name, defined term, or technical phrase from the content (e.g. "spatial patterns", "absolute distance", "choropleth map"). The sentence around the blank must give enough context that there is exactly ONE correct term. If a reasonable student could fill in two different terms and both be right, the question is bad — rewrite it.
+        "rules": """Use {blank} tokens in the prompt — each {blank} maps 1-to-1 to an entry in the blanks array. You may use 1 or 2 blanks per question.
 
-acceptable_answers MUST list 5-8 entries: the exact term, common synonyms, abbreviations, plural/singular variants, and likely misspellings. For "environmental determinism" also accept "determinism", "enviromental determinism", etc. Be generous — if the answer shows understanding, it should count.
+ONLY blank out proper terms or key vocabulary words — never blank a common word like "the", "is", "are", etc. The blanked term must be a specific concept name, defined term, or technical phrase (e.g. "spatial patterns", "absolute distance", "choropleth map"). The sentence around the blank must give enough context that there is exactly ONE correct term per blank.
 
-NEVER blank out a number, a proper noun that is just a name (e.g. "Brooklyn"), or trivial filler.
+Each blank's "alternates" array MUST list 3-6 entries: common synonyms, abbreviations, plural/singular variants, and likely misspellings. Be generous — if the answer shows understanding, it should count.
+
+NEVER blank out a proper noun that is just a name (e.g. "Brooklyn"), or trivial filler.
 
 The question must be self-contained — NEVER reference "the learning content", "the passage", "the text", or "the reading". The student does not have any source material in front of them.""",
     },
     "true_false_justification": {
         "label": "True / False + Justification",
-        "description": "A single statement the student must judge as true or false, plus a justification they must evaluate. Tests critical reasoning.",
+        "description": "A statement with four justification choices — students pick the one with the correct truth value AND correct reasoning.",
         "schema": """{
   "statement": "A clear factual claim about the topic",
-  "is_true": true or false,
-  "justification": "A reasoning given for why the statement is true or false",
-  "justification_correct": true or false,
-  "explanation": "Full explanation of whether the statement is true/false and whether the justification is correct or flawed"
+  "choices": [
+    {"text": "True — because [correct reasoning]", "isTrue": true, "isCorrectJustification": true, "explanation": "Why this is the right answer"},
+    {"text": "True — because [wrong reasoning]", "isTrue": true, "isCorrectJustification": false, "explanation": "The statement IS true, but this reasoning is wrong because..."},
+    {"text": "False — because [plausible but wrong]", "isTrue": false, "isCorrectJustification": false, "explanation": "The statement is actually true, so this is wrong..."},
+    {"text": "False — because [another wrong reason]", "isTrue": false, "isCorrectJustification": false, "explanation": "The statement is actually true, so this is wrong..."}
+  ],
+  "correctIndex": 0
 }""",
-        "rules": """The statement must be a single, unambiguous factual claim that is CLEARLY true or CLEARLY false based on the learning content. Do NOT write statements that are debatable or partially true. A student who read the material should be able to judge it with confidence.
+        "rules": """Exactly 4 choices — 2 with isTrue: true and 2 with isTrue: false. Exactly ONE choice has isCorrectJustification: true AND its isTrue value must match the actual truth of the statement. The correctIndex must point to that one choice.
 
-The justification is a separate piece of reasoning that attempts to explain why the statement is true/false. It can be correct or incorrect REGARDLESS of the statement's truth value. The four possible combos: true statement + correct justification, true statement + wrong justification, false statement + correct justification (explaining why it's false), false statement + wrong justification.
+The statement must be a single, unambiguous factual claim that is CLEARLY true or CLEARLY false. Do NOT write statements that are debatable or partially true.
 
-NEVER reference "the learning content", "the passage", or "the text". Write as a standalone claim. Keep the statement to one sentence. Keep the justification to one sentence.""",
+Each choice text must start with "True — " or "False — " followed by a justification. The justification explains WHY the student believes the statement is true or false. Each choice must have its own explanation field explaining why it's right or wrong.
+
+NEVER reference "the learning content", "the passage", or "the text". Write as a standalone claim.""",
     },
     "cause_and_effect": {
         "label": "Cause & Effect Matching",
-        "description": "Students match causes to their effects. Tests understanding of causal relationships.",
+        "description": "Students match causes to their effects by dragging effect chips. Tests understanding of causal relationships.",
         "schema": """{
-  "instruction": "Match each cause to its effect",
-  "causes": ["cause1", "cause2", "cause3", "cause4"],
-  "effects": ["effect1", "effect2", "effect3", "effect4"],
-  "correct_mapping": {"0": 2, "1": 0, "2": 3, "3": 1},
-  "explanation": "Why each cause leads to its effect"
+  "prompt": "Match each cause to its effect",
+  "pairs": [
+    {"cause": "Introduction of maize to Europe", "effect": "Significant European population growth"},
+    {"cause": "Introduction of European diseases", "effect": "Catastrophic decline of indigenous populations"}
+  ],
+  "distractors": ["Immediate industrialization of European economies", "Unification of all Native American groups"]
 }""",
-        "rules": """Exactly 4 causes and 4 effects. correct_mapping maps cause index (string) to effect index (integer). Each cause must map to EXACTLY one effect with no ambiguity — a cause that could plausibly match two effects makes the question unfair. Each cause-effect pair must be a genuinely causal relationship stated or directly implied in the content, not a vague association. Write causes and effects as SHORT, specific phrases (under 15 words each). All effects should be different enough that the mapping is testable.
+        "rules": """Exactly 4 pairs. Each pair has a "cause" and its correct "effect". Correct matching is determined by array index — pairs[0].cause matches pairs[0].effect, etc. Include 1-2 distractors (extra wrong effects that don't match any cause).
 
-The question must be self-contained — NEVER reference "the learning content", "the passage", "the text", or "the reading". The student does not have any source material in front of them.""",
+Each cause must map to EXACTLY one effect with no ambiguity. Each cause-effect pair must be a genuinely causal relationship stated or directly implied in the content. Write causes and effects as SHORT, specific phrases (under 15 words each). All effects (including distractors) should be plausible enough that the student needs real knowledge to match correctly.
+
+The question must be self-contained — NEVER reference "the learning content", "the passage", "the text", or "the reading".""",
     },
     "immediate_vs_long_term": {
         "label": "Immediate vs. Long-Term Cause",
         "description": "Students classify causes as immediate or long-term. Tests temporal reasoning about events.",
         "schema": """{
-  "context": "A scenario or event description",
+  "prompt": "Classify each cause of European exploration and colonization:",
   "causes": [
-    {"text": "A cause", "type": "immediate" or "long_term"}
-  ],
-  "explanation": "Why each cause is classified that way"
+    {"text": "Columbus's 1492 voyage proved westward travel could reach new lands", "type": "immediate", "explanation": "This is an immediate cause because..."},
+    {"text": "Centuries of trade with Asia created European demand for spices", "type": "long-term", "explanation": "This is a long-term cause because..."}
+  ]
 }""",
-        "rules": """Exactly 5 causes, mix of "immediate" and "long_term". The context must describe a specific event or outcome from the content. Each cause must be UNAMBIGUOUSLY classifiable — if a reasonable person could argue a cause is both, do not use it. Immediate = direct trigger or proximate cause. Long-term = underlying condition, structural factor, or gradual process. Write each cause as a short phrase (under 15 words).
+        "rules": """Exactly 5 causes, mix of "immediate" and "long-term" (use a hyphen, NOT underscore). Each cause must have a "text", "type", and "explanation" field.
 
-The question must be self-contained — NEVER reference "the learning content", "the passage", "the text", or "the reading". The student does not have any source material in front of them. The context field must provide enough information for the student to understand the scenario.""",
+The prompt must describe a specific event or outcome. Each cause must be UNAMBIGUOUSLY classifiable — if a reasonable person could argue a cause is both, do not use it. Immediate = direct trigger or proximate cause. Long-term = underlying condition, structural factor, or gradual process. Write each cause as a short phrase (under 15 words).
+
+The question must be self-contained — NEVER reference "the learning content", "the passage", "the text", or "the reading". The prompt must provide enough information for the student to understand the scenario.""",
     },
     "multiple_choice": {
         "label": "Multiple Choice",
         "description": "A standard 4-option multiple choice question. Tests comprehension and application of concepts.",
         "schema": """{
-  "question_text": "The question being asked",
-  "options": ["Option A", "Option B", "Option C", "Option D"],
-  "correct_answer": 0,
-  "explanation": "Why the correct answer is right and why the distractors are wrong"
+  "questionText": "Which of the following best explains...?",
+  "choices": [
+    {"text": "Answer A text", "explanation": "Why A is right/wrong"},
+    {"text": "Answer B text", "explanation": "Why B is right/wrong"},
+    {"text": "Answer C text", "explanation": "Why C is right/wrong"},
+    {"text": "Answer D text", "explanation": "Why D is right/wrong"}
+  ],
+  "correctIndex": 0
 }""",
-        "rules": """Exactly 4 options. correct_answer is the 0-based index. The question MUST be self-contained — NEVER reference "the learning content", "the passage", or "the text".
+        "rules": """Exactly 4 choices. Each choice has a "text" and "explanation" field. correctIndex is the 0-based index. The question MUST be self-contained — NEVER reference "the learning content", "the passage", or "the text".
 
 VALIDATION-CRITICAL RULES:
-- There must be exactly ONE correct answer. If two options could both be justified, the question is bad.
-- All four options MUST be approximately the same length and level of detail.
+- There must be exactly ONE correct answer. If two choices could both be justified, the question is bad.
+- All four choices MUST be approximately the same length and level of detail.
 - Distractors must be WRONG but PLAUSIBLE — they should sound like they could be right to someone who didn't study, but be clearly incorrect to someone who did.
 - Ask about concepts, definitions, relationships, or applications — not trivia like specific numbers or proper nouns unless they are central to the concept.
-- The correct answer must be directly supported by the learning content.""",
+- The correct answer must be directly supported by the source material.
+- Each choice's explanation must explain why that specific choice is right or wrong.""",
     },
     "rank_by_significance": {
         "label": "Rank by Significance",
         "description": "Students rank events/factors by significance according to a specified criterion. Tests evaluative thinking.",
         "schema": """{
-  "instruction": "Rank these events from most to least significant in terms of [specific criterion]",
-  "events": ["Event 1", "Event 2", "Event 3", "Event 4", "Event 5"],
-  "correct_order": [2, 0, 4, 1, 3],
-  "explanation": "Why this ranking reflects their relative significance"
+  "prompt": "Rank these consequences by impact on global population, from greatest (#1) to least (#4).",
+  "events": [
+    {"id": "r1", "text": "Spread of European diseases to the Americas", "correctRank": 1, "explanation": "Ranked #1 because..."},
+    {"id": "r2", "text": "Transfer of nutrient-rich crops to Europe", "correctRank": 2, "explanation": "Ranked #2 because..."},
+    {"id": "r3", "text": "Forced migration through the slave trade", "correctRank": 3, "explanation": "Ranked #3 because..."},
+    {"id": "r4", "text": "Introduction of European livestock", "correctRank": 4, "explanation": "Ranked #4 because..."}
+  ]
 }""",
-        "rules": """Exactly 5 events/factors. correct_order is an array of indices from the events array in ranked order. The instruction MUST specify a clear, objective criterion (e.g. "in terms of geographic scope", "in terms of impact on population distribution").
+        "rules": """Exactly 4 or 5 events. Each event has "id" (short unique string like "r1"), "text", "correctRank" (1-indexed), and "explanation". The prompt MUST specify a clear, objective criterion.
 
-VALIDATION-CRITICAL: The ranking must be defensible based on the learning content, not subjective opinion. If two items could reasonably swap positions, the question is bad. Choose items with CLEARLY different levels of significance so the ordering is unambiguous. Write each event as a short phrase (under 12 words).
+VALIDATION-CRITICAL: The ranking must be defensible, not subjective opinion. If two items could reasonably swap positions, the question is bad. Choose items with CLEARLY different levels of significance so the ordering is unambiguous. Write each event as a short phrase (under 12 words).
 
-The question must be self-contained — NEVER reference "the learning content", "the passage", "the text", or "the reading". The student does not have any source material in front of them.""",
-    },
-    "select_all_true": {
-        "label": "Select All That Are True",
-        "description": "A statement or concept is presented, followed by 5-6 options. The student must select every option that is true about the statement.",
-        "schema": """{
-  "statement": "The statement or concept to evaluate",
-  "options": [
-    {"text": "Option A text", "is_true": true},
-    {"text": "Option B text", "is_true": false},
-    {"text": "Option C text", "is_true": true},
-    {"text": "Option D text", "is_true": false},
-    {"text": "Option E text", "is_true": true}
-  ],
-  "explanation": "Why each option is true or false"
-}""",
-        "rules": """Exactly 5 options. At least 2 must be true and at least 1 must be false. The statement must be self-contained — NEVER reference "the learning content" or "the passage".
-
-VALIDATION-CRITICAL:
-- Each option must be UNAMBIGUOUSLY true or false based on the content. If there is any room for debate, do not include that option.
-- False options must be clearly wrong but plausible — they should use real terminology from the content but make an incorrect claim.
-- True options must be directly supported by the content, not inferred.
-- All options should be approximately the same length.
-- The statement should name a specific concept, term, or topic from the content (e.g. "relative distance" not "types of distance").""",
+The question must be self-contained — NEVER reference "the learning content", "the passage", "the text", or "the reading".""",
     },
 }
 
@@ -159,70 +159,77 @@ SCHEMA:
 {{
   "fill_in_the_blank": [
     {{
-      "question_text": "Sentence with _____ for the blank",
-      "acceptable_answers": ["best answer", "also valid", "another synonym"],
-      "explanation": "Why this matters for understanding"
+      "prompt": "The {{blank}} is the study of spatial patterns on Earth's surface.",
+      "blanks": [{{"answer": "geography", "alternates": ["Geography", "human geography"]}}],
+      "explanation": "Why this matters"
     }}
   ],
 
   "true_false_justification": [
     {{
-      "statement": "A clear factual claim about the topic",
-      "is_true": true or false,
-      "justification": "A reasoning given for why the statement is true or false",
-      "justification_correct": true or false,
-      "explanation": "Full explanation of whether the statement is true/false and whether the justification is correct or flawed"
+      "statement": "A clear factual claim",
+      "choices": [
+        {{"text": "True — because [reasoning]", "isTrue": true, "isCorrectJustification": true, "explanation": "Why correct"}},
+        {{"text": "True — because [wrong reasoning]", "isTrue": true, "isCorrectJustification": false, "explanation": "Why wrong"}},
+        {{"text": "False — because [reasoning]", "isTrue": false, "isCorrectJustification": false, "explanation": "Why wrong"}},
+        {{"text": "False — because [reasoning]", "isTrue": false, "isCorrectJustification": false, "explanation": "Why wrong"}}
+      ],
+      "correctIndex": 0
     }}
   ],
 
   "cause_and_effect": [
     {{
-      "instruction": "Match each cause to its effect",
-      "causes": ["cause1", "cause2", "cause3", "cause4"],
-      "effects": ["effect1", "effect2", "effect3", "effect4"],
-      "correct_mapping": {{"0": 2, "1": 0, "2": 3, "3": 1}},
-      "explanation": "Why each cause leads to its effect"
+      "prompt": "Match each cause to its effect",
+      "pairs": [
+        {{"cause": "cause text", "effect": "effect text"}}
+      ],
+      "distractors": ["wrong effect 1", "wrong effect 2"]
     }}
   ],
 
   "immediate_vs_long_term": [
     {{
-      "context": "A scenario or event description",
+      "prompt": "Classify each cause:",
       "causes": [
-        {{"text": "A cause", "type": "immediate" or "long_term"}},
-        ... (exactly 5 causes per question, mix of immediate and long_term)
-      ],
-      "explanation": "Why each cause is classified that way"
+        {{"text": "A cause", "type": "immediate", "explanation": "Why immediate"}},
+        {{"text": "Another cause", "type": "long-term", "explanation": "Why long-term"}}
+      ]
     }}
   ],
 
   "multiple_choice": [
     {{
-      "question_text": "The question being asked",
-      "options": ["Option A", "Option B", "Option C", "Option D"],
-      "correct_answer": 0,
-      "explanation": "Why the correct answer is right and why the distractors are wrong"
+      "questionText": "Which of the following best explains...?",
+      "choices": [
+        {{"text": "Answer A", "explanation": "Why A is right/wrong"}},
+        {{"text": "Answer B", "explanation": "Why B is right/wrong"}},
+        {{"text": "Answer C", "explanation": "Why C is right/wrong"}},
+        {{"text": "Answer D", "explanation": "Why D is right/wrong"}}
+      ],
+      "correctIndex": 0
     }}
   ],
 
   "rank_by_significance": [
     {{
-      "instruction": "Rank these events from most to least significant in terms of [specific criterion]",
-      "events": ["Event 1", "Event 2", "Event 3", "Event 4", "Event 5"],
-      "correct_order": [2, 0, 4, 1, 3],
-      "explanation": "Why this ranking reflects their relative significance"
+      "prompt": "Rank from most to least significant in terms of [criterion]",
+      "events": [
+        {{"id": "r1", "text": "Event 1", "correctRank": 1, "explanation": "Why #1"}},
+        {{"id": "r2", "text": "Event 2", "correctRank": 2, "explanation": "Why #2"}}
+      ]
     }}
   ]
 }}
 
 IMPORTANT RULES:
 0. ALL questions must be fully self-contained. The student learned this material by watching a video — they do NOT have any text, passage, or reading in front of them. NEVER reference "the learning content", "the passage", "the text", "the reading", or "the material". Write every question as a standalone, closed-book knowledge question.
-1. For fill_in_the_blank: Be VERY selective. Only include blanks for terms that are truly essential for understanding. Never ask for obscure trivia. IMPORTANT: acceptable_answers must list ALL reasonably correct responses a student might give — include synonyms, abbreviations, and closely related terms. For example if the answer is "raw materials", also accept "raw goods", "commodities", "goods", "resources", "crops and raw materials", etc. Be generous — if a student's answer shows they understand the concept, it should count.
-2. For true_false_justification: Each question is a single statement with a single justification. The statement must be a clear, self-contained factual claim. The justification may be correct or incorrect. Make it substantive and arguable.
-3. For cause_and_effect: correct_mapping maps cause index (as string) to effect index (as integer).
-4. For immediate_vs_long_term: Provide exactly 5 causes per question.
-5. For multiple_choice: Exactly 4 options. correct_answer is the 0-based index. Distractors should be plausible but clearly wrong. Test understanding, not trivia.
-6. For rank_by_significance: correct_order is an array of indices from the events array in the correct ranked order. The instruction must specify the criterion for ranking.
+1. For fill_in_the_blank: Use {{blank}} tokens in the prompt. Each blank's alternates must list synonyms, misspellings, and variants. Be generous.
+2. For true_false_justification: Exactly 4 choices — 2 True, 2 False. Exactly 1 has isCorrectJustification: true. correctIndex points to it.
+3. For cause_and_effect: Exactly 4 pairs + 1-2 distractors. Correct matching is by array index.
+4. For immediate_vs_long_term: Exactly 5 causes, mix of "immediate" and "long-term" (hyphen). Each cause has its own explanation.
+5. For multiple_choice: Exactly 4 choices with per-choice explanations. correctIndex is 0-based.
+6. For rank_by_significance: 4-5 events, each with id, text, correctRank (1-indexed), and explanation.
 
 Respond with ONLY the JSON object. No other text."""
 

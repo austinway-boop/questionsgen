@@ -808,6 +808,21 @@ body {
 .badge-mcq { background: #fce7f3; color: #a21caf; }
 .badge-rank { background: #e0e7ff; color: #4338ca; }
 
+.tf-badge {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+
+.tf-badge-true  { background: #dbeafe; color: #1d4ed8; }
+.tf-badge-false { background: #fef3c7; color: #b45309; }
+
 .q-header {
   padding: 1.25rem 1.5rem;
   border-bottom: 1px solid var(--border);
@@ -1265,52 +1280,7 @@ body {
    SELECT ALL TRUE
    ───────────────────────────────────────────── */
 
-.badge-select-all { background: #fef9c3; color: #854d0e; }
-.chip-select_all_true { background: #fef9c3; color: #854d0e; }
 
-.sat-statement {
-  font-size: 1.05rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  padding: 0.75rem 1rem;
-  background: var(--bg);
-  border-left: 3px solid var(--primary);
-  border-radius: 6px;
-  line-height: 1.5;
-}
-
-.sat-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.sat-option {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  border: 2px solid var(--border);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.sat-option:hover {
-  border-color: var(--primary);
-  background: var(--primary-light);
-}
-
-.sat-option input[type="checkbox"] {
-  accent-color: var(--primary);
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
-
-.sat-label {
-  font-size: 0.95rem;
-}
 
 
 /* ─────────────────────────────────────────────

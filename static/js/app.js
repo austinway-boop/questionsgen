@@ -485,7 +485,6 @@ function renderGeneratedQuestion(qtype, q, container, append) {
     immediate_vs_long_term: { badge: "badge-immediate", label: "Immediate vs. Long-Term Cause", renderer: renderImmediateLT, checker: checkImmediateLT },
     multiple_choice: { badge: "badge-mcq", label: "Multiple Choice", renderer: renderMCQ, checker: checkMCQ },
     rank_by_significance: { badge: "badge-rank", label: "Rank by Significance", renderer: renderRank, checker: checkRank },
-    select_all_true: { badge: "badge-select-all", label: "Select All That Are True", renderer: renderSelectAllTrue, checker: checkSelectAllTrue },
   };
 
   const meta = typeMap[qtype];
@@ -617,7 +616,6 @@ function buildQuiz(data, skill) {
     { key: "immediate_vs_long_term", badge: "badge-immediate", label: "Immediate vs. Long-Term Cause", renderer: renderImmediateLT, checker: checkImmediateLT },
     { key: "multiple_choice", badge: "badge-mcq", label: "Multiple Choice", renderer: renderMCQ, checker: checkMCQ },
     { key: "rank_by_significance", badge: "badge-rank", label: "Rank by Significance", renderer: renderRank, checker: checkRank },
-    { key: "select_all_true", badge: "badge-select-all", label: "Select All That Are True", renderer: renderSelectAllTrue, checker: checkSelectAllTrue },
   ];
 
   let qNum = 0;
@@ -707,12 +705,13 @@ function showSummary() {
 /* ─── RENDERERS ─── */
 
 function renderFillBlank(q, body, num) {
-  const parts = q.question_text.split("_____");
+  const prompt = q.prompt || "";
+  const parts = prompt.split(/\{blank\}/i);
   let html = `<p class="question-text">`;
   for (let i = 0; i < parts.length; i++) {
     html += parts[i];
     if (i < parts.length - 1) {
-      html += `<input type="text" class="blank-input" id="blank-${num}" placeholder="answer">`;
+      html += `<input type="text" class="blank-input" id="blank-${num}-${i}" placeholder="answer">`;
     }
   }
   html += `</p>`;
@@ -720,71 +719,59 @@ function renderFillBlank(q, body, num) {
 }
 
 function renderTrueFalse(q, body, num) {
-  const stmt = q.statement || (q.options && q.options[0] ? q.options[0].statement : "");
-  const just = q.justification || (q.options && q.options[0] ? q.options[0].justification : "");
-
-  let html = `
-    <div class="tf-option-card" id="tf-card-${num}-0">
-      <div class="tf-statement">${stmt}</div>
-      <div class="tf-step">
-        <span class="tf-step-label">Is this statement true or false?</span>
-        <div class="tf-toggle" id="tf-toggle-${num}-0">
-          <button onclick="tfSelect(${num},0,'true',this)">True</button>
-          <button onclick="tfSelect(${num},0,'false',this)">False</button>
-        </div>
-      </div>
-      <div class="tf-justification"><span class="tf-just-label">Justification:</span> ${just}</div>
-      <div class="tf-step">
-        <span class="tf-step-label">Is this justification correct?</span>
-        <div class="tf-toggle" id="tf-just-toggle-${num}-0">
-          <button onclick="tfJustSelect(${num},0,'yes',this)">Yes</button>
-          <button onclick="tfJustSelect(${num},0,'no',this)">No</button>
-        </div>
-      </div>
-    </div>`;
-  body.innerHTML = html;
-}
-
-function tfSelect(num, optIdx, value, btn) {
-  const toggle = document.getElementById(`tf-toggle-${num}-${optIdx}`);
-  toggle.querySelectorAll("button").forEach(b => b.className = "");
-  btn.className = value === "true" ? "selected-true" : "selected-false";
-}
-
-function tfJustSelect(num, optIdx, value, btn) {
-  const toggle = document.getElementById(`tf-just-toggle-${num}-${optIdx}`);
-  toggle.querySelectorAll("button").forEach(b => b.className = "");
-  btn.className = value === "yes" ? "selected-true" : "selected-false";
-}
-
-function renderCauseEffect(q, body, num) {
-  let html = `<p class="question-text">${q.instruction}</p><div class="matching-grid">`;
-  const shuffledEffects = [...q.effects];
-  q.causes.forEach((cause, i) => {
+  let html = `<div class="tf-statement">${q.statement}</div>`;
+  html += `<div class="mcq-options">`;
+  (q.choices || []).forEach((choice, i) => {
+    const badge = choice.isTrue
+      ? '<span class="tf-badge tf-badge-true">True</span>'
+      : '<span class="tf-badge tf-badge-false">False</span>';
     html += `
-      <div class="matching-row">
-        <div class="cause-label">${cause}</div>
-        <span class="matching-arrow">&#8594;</span>
-        <select class="effect-select" id="ce-${num}-${i}">
-          <option value="">-- select effect --</option>`;
-    shuffledEffects.forEach((eff, j) => {
-      html += `<option value="${j}">${eff}</option>`;
-    });
-    html += `</select></div>`;
+      <label class="mcq-option" onclick="mcqSelect(${num}, ${i}, this)">
+        <input type="radio" name="mcq-${num}" value="${i}">
+        <span class="mcq-label">${badge} ${choice.text.replace(/^(True|False)\s*—?\s*/i, '')}</span>
+      </label>`;
   });
   html += `</div>`;
   body.innerHTML = html;
 }
 
+function renderCauseEffect(q, body, num) {
+  const pairs = q.pairs || [];
+  const distractors = q.distractors || [];
+  const allEffects = pairs.map(p => p.effect).concat(distractors);
+  const shuffled = allEffects.map((e, i) => ({ text: e, origIdx: i }));
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  let html = `<p class="question-text">${q.prompt}</p><div class="matching-grid">`;
+  pairs.forEach((pair, i) => {
+    html += `
+      <div class="matching-row">
+        <div class="cause-label">${pair.cause}</div>
+        <span class="matching-arrow">&#8594;</span>
+        <select class="effect-select" id="ce-${num}-${i}">
+          <option value="">-- select effect --</option>`;
+    shuffled.forEach((eff, j) => {
+      html += `<option value="${j}">${eff.text}</option>`;
+    });
+    html += `</select></div>`;
+  });
+  html += `</div>`;
+  body.innerHTML = html;
+  body._ceShuffled = shuffled;
+}
+
 function renderImmediateLT(q, body, num) {
-  let html = `<p class="question-text">${q.context}</p><div class="cause-classification">`;
+  let html = `<p class="question-text">${q.prompt}</p><div class="cause-classification">`;
   q.causes.forEach((c, i) => {
     html += `
       <div class="cause-item">
         <span class="cause-text">${c.text}</span>
         <div class="cause-toggle" id="ilt-${num}-${i}">
           <button onclick="iltSelect(${num},${i},'immediate',this)">Immediate</button>
-          <button onclick="iltSelect(${num},${i},'long_term',this)">Long-Term</button>
+          <button onclick="iltSelect(${num},${i},'long-term',this)">Long-Term</button>
         </div>
       </div>`;
   });
@@ -862,13 +849,14 @@ function renderCartoon(q, body, num) {
 }
 
 function renderMCQ(q, body, num) {
-  let html = `<p class="question-text">${q.question_text}</p>`;
+  const choices = q.choices || [];
+  let html = `<p class="question-text">${q.questionText}</p>`;
   html += `<div class="mcq-options">`;
-  q.options.forEach((opt, i) => {
+  choices.forEach((choice, i) => {
     html += `
       <label class="mcq-option" onclick="mcqSelect(${num}, ${i}, this)">
         <input type="radio" name="mcq-${num}" value="${i}">
-        <span class="mcq-label">${String.fromCharCode(65 + i)}. ${opt}</span>
+        <span class="mcq-label">${String.fromCharCode(65 + i)}. ${choice.text}</span>
       </label>`;
   });
   html += `</div>`;
@@ -878,13 +866,19 @@ function renderMCQ(q, body, num) {
 function checkMCQ(q, num) {
   const selected = document.querySelector(`input[name="mcq-${num}"]:checked`);
   const userVal = selected ? parseInt(selected.value) : -1;
-  const isCorrect = userVal === q.correct_answer;
+  const correctIdx = q.correctIndex;
+  const isCorrect = userVal === correctIdx;
 
   const body = document.getElementById(`q-body-${num}`);
   body.querySelectorAll(".mcq-option").forEach((opt, i) => {
-    if (i === q.correct_answer) opt.style.borderColor = "var(--success)";
+    if (i === correctIdx) opt.style.borderColor = "var(--success)";
     else if (i === userVal && !isCorrect) opt.style.borderColor = "var(--error)";
   });
+
+  const choices = q.choices || [];
+  if (choices[userVal] && choices[userVal].explanation) {
+    q.explanation = choices[userVal].explanation;
+  }
   return isCorrect;
 }
 
@@ -895,14 +889,14 @@ function mcqSelect(num, idx, label) {
 }
 
 function renderRank(q, body, num) {
-  let html = `<p class="question-text">${q.instruction}</p>`;
+  let html = `<p class="question-text">${q.prompt}</p>`;
   html += `<ul class="rank-list" id="rank-list-${num}">`;
-  q.events.forEach((evt, i) => {
+  (q.events || []).forEach((evt, i) => {
     html += `
       <li class="rank-item" draggable="true" data-idx="${i}">
         <span class="rank-handle">&#9776;</span>
         <span class="rank-number">${i + 1}</span>
-        <span class="rank-text">${evt}</span>
+        <span class="rank-text">${evt.text}</span>
       </li>`;
   });
   html += `</ul>`;
@@ -970,57 +964,68 @@ function normalize(s) {
 }
 
 function checkFillBlank(q, num) {
-  const input = document.getElementById(`blank-${num}`);
-  const userRaw = input ? input.value.trim() : "";
-  const userNorm = normalize(userRaw);
+  const blanks = q.blanks || [];
+  let allCorrect = true;
 
-  const validAnswers = q.acceptable_answers || [q.answer || ""];
-  const isCorrect = validAnswers.some(ans => {
-    const normAns = normalize(ans);
-    return userNorm === normAns
-      || normAns.includes(userNorm) && userNorm.length > 2
-      || userNorm.includes(normAns) && normAns.length > 2;
+  blanks.forEach((blank, i) => {
+    const input = document.getElementById(`blank-${num}-${i}`);
+    if (!input) { allCorrect = false; return; }
+    const userRaw = input.value.trim();
+    const userNorm = normalize(userRaw);
+
+    const validAnswers = [blank.answer, ...(blank.alternates || [])];
+    const isCorrect = validAnswers.some(ans => {
+      const normAns = normalize(ans);
+      return userNorm === normAns
+        || (normAns.includes(userNorm) && userNorm.length > 2)
+        || (userNorm.includes(normAns) && normAns.length > 2);
+    });
+
+    input.style.borderColor = isCorrect ? "var(--success)" : "var(--error)";
+    input.style.borderStyle = "solid";
+    if (!isCorrect) allCorrect = false;
   });
 
-  input.style.borderColor = isCorrect ? "var(--success)" : "var(--error)";
-  input.style.borderStyle = "solid";
-  if (!isCorrect) {
-    q.explanation = `Acceptable answers: <strong>${validAnswers.join(", ")}</strong>. ${q.explanation}`;
+  if (!allCorrect) {
+    const answers = blanks.map(b => b.answer).join(", ");
+    q.explanation = `Acceptable answers: <strong>${answers}</strong>. ${q.explanation || ""}`;
+  }
+  return allCorrect;
+}
+
+function checkTrueFalse(q, num) {
+  const selected = document.querySelector(`input[name="mcq-${num}"]:checked`);
+  const userVal = selected ? parseInt(selected.value) : -1;
+  const correctIdx = q.correctIndex;
+  const isCorrect = userVal === correctIdx;
+
+  const body = document.getElementById(`q-body-${num}`);
+  body.querySelectorAll(".mcq-option").forEach((opt, i) => {
+    if (i === correctIdx) opt.style.borderColor = "var(--success)";
+    else if (i === userVal && !isCorrect) opt.style.borderColor = "var(--error)";
+  });
+
+  const choices = q.choices || [];
+  if (choices[userVal] && choices[userVal].explanation) {
+    q.explanation = choices[userVal].explanation;
+  } else if (choices[correctIdx]) {
+    q.explanation = choices[correctIdx].explanation;
   }
   return isCorrect;
 }
 
-function checkTrueFalse(q, num) {
-  const isTrue = q.is_true !== undefined ? q.is_true : (q.options && q.options[0] ? q.options[0].is_true : null);
-  const justCorr = q.justification_correct !== undefined ? q.justification_correct : (q.options && q.options[0] ? q.options[0].justification_correct : null);
-
-  const tfToggle = document.getElementById(`tf-toggle-${num}-0`);
-  const tfBtn = tfToggle.querySelector(".selected-true, .selected-false");
-  const userTF = tfBtn ? tfBtn.classList.contains("selected-true") : null;
-
-  const justToggle = document.getElementById(`tf-just-toggle-${num}-0`);
-  const justBtn = justToggle.querySelector(".selected-true, .selected-false");
-  const userJust = justBtn ? justBtn.classList.contains("selected-true") : null;
-
-  const tfCorrect = userTF === isTrue;
-  const justCorrect = userJust === justCorr;
-
-  const card = document.getElementById(`tf-card-${num}-0`);
-  if (tfCorrect && justCorrect) {
-    card.style.borderColor = "var(--success)";
-  } else {
-    card.style.borderColor = "var(--error)";
-  }
-  return tfCorrect && justCorrect;
-}
-
 function checkCauseEffect(q, num) {
+  const pairs = q.pairs || [];
+  const body = document.getElementById(`q-body-${num}`);
+  const shuffled = body._ceShuffled || [];
   let allCorrect = true;
-  q.causes.forEach((_, i) => {
+
+  pairs.forEach((pair, i) => {
     const select = document.getElementById(`ce-${num}-${i}`);
     const userVal = select.value;
-    const correctVal = q.correct_mapping[String(i)];
-    if (parseInt(userVal) === correctVal) {
+    const selectedEffect = userVal !== "" ? shuffled[parseInt(userVal)] : null;
+    const correct = selectedEffect && selectedEffect.origIdx === i;
+    if (correct) {
       select.style.borderColor = "var(--success)";
     } else {
       select.style.borderColor = "var(--error)";
@@ -1032,6 +1037,7 @@ function checkCauseEffect(q, num) {
 
 function checkImmediateLT(q, num) {
   let allCorrect = true;
+  const explanations = [];
   q.causes.forEach((c, i) => {
     const toggle = document.getElementById(`ilt-${num}-${i}`);
     const selected = toggle.querySelector(".selected");
@@ -1043,7 +1049,9 @@ function checkImmediateLT(q, num) {
       item.style.borderColor = "var(--error)";
       allCorrect = false;
     }
+    if (c.explanation) explanations.push(c.explanation);
   });
+  if (explanations.length) q.explanation = explanations.join("<br><br>");
   return allCorrect;
 }
 
@@ -1076,57 +1084,27 @@ function checkCartoon(q, num) {
 function checkRank(q, num) {
   const list = document.getElementById(`rank-list-${num}`);
   const items = list.querySelectorAll(".rank-item");
-  const userOrder = [...items].map(item => parseInt(item.dataset.idx));
+  const events = q.events || [];
 
-  const isCorrect = JSON.stringify(userOrder) === JSON.stringify(q.correct_order);
-
-  items.forEach((item, i) => {
-    if (parseInt(item.dataset.idx) === q.correct_order[i]) {
+  let allCorrect = true;
+  items.forEach((item, position) => {
+    const evtIdx = parseInt(item.dataset.idx);
+    const evt = events[evtIdx];
+    const correctRank = evt ? evt.correctRank : -1;
+    const userRank = position + 1;
+    if (userRank === correctRank) {
       item.style.borderColor = "var(--success)";
     } else {
       item.style.borderColor = "var(--error)";
-    }
-  });
-
-  if (!isCorrect) {
-    const correctNames = q.correct_order.map((idx, rank) => `${rank + 1}. ${q.events[idx]}`);
-    q.explanation = `Correct order:<br>${correctNames.join("<br>")}<br><br>${q.explanation}`;
-  }
-  return isCorrect;
-}
-
-
-/* ─── SELECT ALL TRUE RENDERER & CHECKER ─── */
-
-function renderSelectAllTrue(q, body, num) {
-  let html = `<p class="question-text">Select all that are true about the following statement:</p>`;
-  html += `<div class="sat-statement">${q.statement}</div>`;
-  html += `<div class="sat-options">`;
-  q.options.forEach((opt, i) => {
-    html += `
-      <label class="sat-option" id="sat-opt-${num}-${i}">
-        <input type="checkbox" name="sat-${num}" value="${i}" id="sat-cb-${num}-${i}">
-        <span class="sat-label">${opt.text}</span>
-      </label>`;
-  });
-  html += `</div>`;
-  body.innerHTML = html;
-}
-
-function checkSelectAllTrue(q, num) {
-  let allCorrect = true;
-  q.options.forEach((opt, i) => {
-    const cb = document.getElementById(`sat-cb-${num}-${i}`);
-    const label = document.getElementById(`sat-opt-${num}-${i}`);
-    const isChecked = cb ? cb.checked : false;
-    const shouldBeChecked = opt.is_true;
-    if (isChecked === shouldBeChecked) {
-      label.style.borderColor = "var(--success)";
-    } else {
-      label.style.borderColor = "var(--error)";
       allCorrect = false;
     }
   });
+
+  if (!allCorrect) {
+    const sorted = [...events].sort((a, b) => a.correctRank - b.correctRank);
+    const lines = sorted.map(e => `${e.correctRank}. ${e.text}${e.explanation ? " — " + e.explanation : ""}`);
+    q.explanation = `Correct order:<br>${lines.join("<br>")}`;
+  }
   return allCorrect;
 }
 
@@ -1280,7 +1258,6 @@ const rendererMap = {
   immediate_vs_long_term: renderImmediateLT,
   multiple_choice: renderMCQ,
   rank_by_significance: renderRank,
-  select_all_true: renderSelectAllTrue,
 };
 
 function renderBankQuestions(bank) {
@@ -1387,7 +1364,6 @@ const checkerMap = {
   immediate_vs_long_term: checkImmediateLT,
   multiple_choice: checkMCQ,
   rank_by_significance: checkRank,
-  select_all_true: checkSelectAllTrue,
 };
 
 async function checkBankAnswer(num, qtype, questionId) {

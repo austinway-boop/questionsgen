@@ -252,19 +252,17 @@ def _sse_event(data: dict) -> str:
 
 def _summarize_question(qtype, q):
     if qtype == "fill_in_the_blank":
-        return q.get("question_text", "")[:80]
+        return q.get("prompt", "")[:80]
     if qtype == "multiple_choice":
-        return q.get("question_text", "")[:80]
+        return q.get("questionText", "")[:80]
     if qtype == "true_false_justification":
         return q.get("statement", "")[:80]
     if qtype == "cause_and_effect":
-        return q.get("instruction", "")[:80]
+        return q.get("prompt", "")[:80]
     if qtype == "immediate_vs_long_term":
-        return q.get("context", "")[:80]
+        return q.get("prompt", "")[:80]
     if qtype == "rank_by_significance":
-        return q.get("instruction", "")[:80]
-    if qtype == "select_all_true":
-        return q.get("statement", "")[:80]
+        return q.get("prompt", "")[:80]
     return str(q)[:80]
 
 

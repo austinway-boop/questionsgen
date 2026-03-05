@@ -225,7 +225,7 @@
 
     async function loadGraph() {
       document.getElementById("loading").style.display = "block";
-      const params = compactMode ? "?compact=1&dir=TD" : "?dir=LR";
+      const params = compactMode ? "?compact=1" : "";
       const res = await fetch("/graph-data" + params);
       const data = await res.json();
       const mmdText = data.mermaid;
@@ -298,6 +298,21 @@
       });
       document.querySelectorAll("marker path").forEach(p => {
         p.style.fill = "#cbd5e1";
+      });
+
+      // Style subgraph containers - very subtle
+      document.querySelectorAll(".cluster rect").forEach(r => {
+        r.style.fill = "#fafafa";
+        r.style.stroke = "#e2e8f0";
+        r.style.strokeWidth = "1px";
+        r.style.rx = "12";
+        r.style.ry = "12";
+      });
+      document.querySelectorAll(".cluster .nodeLabel, .cluster-label .nodeLabel").forEach(l => {
+        l.style.fontSize = "11px";
+        l.style.fontWeight = "700";
+        l.style.fill = "#94a3b8";
+        l.style.color = "#94a3b8";
       });
     }
 

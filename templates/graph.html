@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Graph — AP Human Geography</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0a0a0f;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    .graph-topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .graph-topbar a {
+      color: #818cf8;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .graph-topbar a:hover { text-decoration: underline; }
+
+    .graph-topbar h1 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+
+    .graph-topbar .subtitle {
+      font-size: 0.78rem;
+      color: #64748b;
+    }
+
+    .graph-stats {
+      margin-left: auto;
+      display: flex;
+      gap: 1rem;
+      font-size: 0.78rem;
+      color: #94a3b8;
+    }
+
+    .graph-stats strong { color: #e2e8f0; }
+
+    .graph-controls {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .graph-controls button {
+      padding: 0.3rem 0.7rem;
+      font-size: 0.78rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      color: #e2e8f0;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .graph-controls button:hover { background: rgba(255,255,255,0.12); }
+
+    #graph-container {
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      padding-top: 50px;
+      cursor: grab;
+    }
+    #graph-container:active { cursor: grabbing; }
+
+    #graph-container .mermaid {
+      padding: 2rem;
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    #loading {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 50;
+    }
+
+    #loading .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: #818cf8;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      margin: 0 auto 0.75rem;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #loading p {
+      color: #94a3b8;
+      font-size: 0.88rem;
+    }
+
+    /* Mermaid dark theme overrides */
+    .mermaid svg {
+      max-width: none !important;
+    }
+
+    .node rect, .node polygon, .node circle {
+      fill: #1e1b4b !important;
+      stroke: #4338ca !important;
+      stroke-width: 1.5px !important;
+      rx: 8px;
+      ry: 8px;
+    }
+
+    .node .label {
+      color: #e0e7ff !important;
+      fill: #e0e7ff !important;
+      font-size: 11px !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    }
+
+    .edgePath path {
+      stroke: #4338ca !important;
+      stroke-width: 1.5px !important;
+      opacity: 0.5;
+    }
+
+    marker path {
+      fill: #4338ca !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="graph-topbar">
+    <a href="/">&larr; Skill Tree</a>
+    <h1>Skill Graph</h1>
+    <span class="subtitle">AP Human Geography</span>
+    <div class="graph-stats">
+      <span><strong id="node-count">0</strong> skills</span>
+      <span><strong id="edge-count">0</strong> connections</span>
+      <span><strong id="unit-count">0</strong> units</span>
+    </div>
+    <div class="graph-controls">
+      <button onclick="zoomIn()">+</button>
+      <button onclick="zoomOut()">&minus;</button>
+      <button onclick="resetZoom()">Reset</button>
+    </div>
+  </div>
+
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>Rendering skill graph...</p>
+  </div>
+
+  <div id="graph-container">
+    <div class="mermaid" id="mermaid-target"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    let currentScale = 1;
+
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: "dark",
+      themeVariables: {
+        darkMode: true,
+        background: "#0a0a0f",
+        primaryColor: "#1e1b4b",
+        primaryBorderColor: "#4338ca",
+        primaryTextColor: "#e0e7ff",
+        lineColor: "#4338ca",
+        fontSize: "11px",
+      },
+      flowchart: {
+        curve: "basis",
+        nodeSpacing: 30,
+        rankSpacing: 50,
+        useMaxWidth: false,
+      },
+      securityLevel: "loose",
+    });
+
+    async function loadGraph() {
+      const res = await fetch("/graph-data");
+      const mmdText = await res.text();
+
+      const lines = mmdText.split("\n");
+      const nodes = lines.filter(l => l.includes('["')).length;
+      const edges = lines.filter(l => l.includes("-->")).length;
+
+      document.getElementById("node-count").textContent = nodes;
+      document.getElementById("edge-count").textContent = edges;
+
+      const treeRes = await fetch("/skill-tree");
+      const tree = await treeRes.json();
+      document.getElementById("unit-count").textContent = tree.units.length;
+
+      const target = document.getElementById("mermaid-target");
+      target.textContent = mmdText;
+
+      try {
+        const { svg } = await mermaid.render("graph-svg", mmdText);
+        target.innerHTML = svg;
+      } catch (e) {
+        target.innerHTML = `<pre style="color:#f87171;padding:2rem;">Render error: ${e.message}</pre>`;
+      }
+
+      document.getElementById("loading").style.display = "none";
+    }
+
+    function zoomIn() {
+      currentScale = Math.min(currentScale * 1.3, 5);
+      applyZoom();
+    }
+
+    function zoomOut() {
+      currentScale = Math.max(currentScale / 1.3, 0.1);
+      applyZoom();
+    }
+
+    function resetZoom() {
+      currentScale = 1;
+      applyZoom();
+    }
+
+    function applyZoom() {
+      const target = document.getElementById("mermaid-target");
+      target.style.transform = `scale(${currentScale})`;
+      target.style.transformOrigin = "top center";
+    }
+
+    loadGraph();
+  </script>
+</body>
+</html>

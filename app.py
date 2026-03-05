@@ -71,6 +71,28 @@ def learn():
     return render_template("learn.html")
 
 
+@app.route("/graph")
+def graph():
+    return render_template("graph.html")
+
+
+@app.route("/graph-data")
+def graph_data():
+    """Return the skill tree as a flat mermaid graph (no subgraph boxes)."""
+    tree = _get_tree()
+    lines = ["graph TD"]
+    for unit in tree["units"]:
+        for skill in unit["skills"]:
+            sid = skill["id"]
+            label = skill["text"].replace('"', "'")
+            lines.append(f'    {sid}["{sid}: {label}"]')
+        for edge in unit["edges"]:
+            lines.append(f"    {edge[0]} --> {edge[1]}")
+    for edge in tree.get("cross_unit_edges", []):
+        lines.append(f"    {edge[0]} --> {edge[1]}")
+    return "\n".join(lines), 200, {"Content-Type": "text/plain"}
+
+
 @app.route("/skill-source-groups")
 def skill_source_groups():
     return jsonify(get_source_groups())

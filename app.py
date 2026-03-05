@@ -78,19 +78,29 @@ def graph():
 
 @app.route("/graph-data")
 def graph_data():
-    """Return the skill tree as a flat mermaid graph (no subgraph boxes)."""
+    """Return the skill tree as a flat mermaid graph with unit class assignments."""
     tree = _get_tree()
     lines = ["graph LR"]
+    unit_skills = {}
     for unit in tree["units"]:
+        uid = unit["id"]
+        unit_skills[uid] = {"title": unit["title"], "skills": []}
         for skill in unit["skills"]:
             sid = skill["id"]
             label = skill["text"].replace('"', "'")
-            lines.append(f'    {sid}["{sid}: {label}"]')
+            lines.append(f'    {sid}["{sid}"]')
+            unit_skills[uid]["skills"].append(sid)
         for edge in unit["edges"]:
             lines.append(f"    {edge[0]} --> {edge[1]}")
     for edge in tree.get("cross_unit_edges", []):
         lines.append(f"    {edge[0]} --> {edge[1]}")
-    return "\n".join(lines), 200, {"Content-Type": "text/plain"}
+    # Assign CSS classes per unit
+    for uid, data in unit_skills.items():
+        if data["skills"]:
+            sids = " & ".join(data["skills"])
+            lines.append(f"    class {sids} {uid.lower()}")
+    mmd = "\n".join(lines)
+    return jsonify({"mermaid": mmd, "units": unit_skills})
 
 
 @app.route("/skill-source-groups")

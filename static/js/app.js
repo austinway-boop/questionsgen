@@ -383,6 +383,67 @@ async function buildAllBanks() {
   refreshPipelineStatus();
 }
 
+async function fillGaps() {
+  const progress = document.getElementById("build-all-progress");
+  _setGlobalButtons(true);
+
+  progress.innerHTML = "<strong>Scanning for incomplete banks...</strong>";
+
+  // Find all "complete" skills and check which have gaps
+  const skillsWithGaps = [];
+  for (const [sid, st] of Object.entries(pipelineStatus)) {
+    if (st !== "complete") continue;
+    try {
+      const bankRes = await fetch(cq(`/skill/${sid}/question-bank`));
+      const bankJson = await bankRes.json();
+      const bank = bankJson.bank || {};
+      let hasGap = false;
+      for (const [qtype, typeData] of Object.entries(bank)) {
+        if (!typeData || typeof typeData !== "object") continue;
+        const questions = typeData.questions || [];
+        const dok2 = questions.filter(q => q.dok === "2").length;
+        const dok3 = questions.filter(q => q.dok === "3").length;
+        if (dok2 < QUESTIONS_PER_DOK || dok3 < QUESTIONS_PER_DOK) {
+          hasGap = true;
+          break;
+        }
+      }
+      if (hasGap) skillsWithGaps.push(sid);
+    } catch (e) { /* skip */ }
+  }
+
+  if (skillsWithGaps.length === 0) {
+    progress.innerHTML = "<strong>No gaps found.</strong> All banks are complete.";
+    _setGlobalButtons(false);
+    return;
+  }
+
+  progress.innerHTML = `<strong>Filling gaps for ${skillsWithGaps.length} skills...</strong>`;
+
+  let completed = 0;
+  let failed = 0;
+  let totalSaved = 0;
+
+  for (const sid of skillsWithGaps) {
+    progress.innerHTML = `<strong>Fill Gaps: ${completed}/${skillsWithGaps.length}</strong> — ${sid}... (${totalSaved} Qs added)`;
+
+    const result = await _buildBankForSkill(sid, (s, msg) => {
+      progress.innerHTML = `<strong>Fill Gaps: ${completed}/${skillsWithGaps.length}</strong> — ${s}: ${msg} (${totalSaved} Qs added)`;
+    });
+
+    if (result.ok) {
+      completed++;
+      totalSaved += result.saved;
+    } else {
+      failed++;
+    }
+  }
+
+  _setGlobalButtons(false);
+  progress.innerHTML = `<strong>Fill Gaps done.</strong> ${completed} skills patched, ${failed} failed, ${totalSaved} questions added.`;
+  refreshPipelineStatus();
+}
+
 function regenQuestionsByType(qtype, triggerBtn) {
   const progress = document.getElementById("build-all-progress");
   _setGlobalButtons(true);

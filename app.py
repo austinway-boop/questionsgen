@@ -111,6 +111,63 @@ def list_courses():
     return jsonify(result)
 
 
+# ── Export ────────────────────────────────────────────────────────────────
+
+@app.route("/api/export")
+def export_course():
+    cid = _course_id()
+    info = COURSES.get(cid, COURSES["APHG"])
+    tree = _get_tree(cid)
+    content_status = get_all_content_status(cid)
+
+    units = []
+    for unit in tree["units"]:
+        unit_out = {"id": unit["id"], "title": unit["title"], "skills": []}
+        for skill in unit["skills"]:
+            sid = skill["id"]
+            cs = content_status.get(sid, {})
+            if not cs.get("has_content"):
+                continue
+            skill_data = get_skill(sid, cid)
+            bank = get_skill_bank(sid, cid)
+            questions = []
+            for qtype, type_data in bank.items():
+                for q in type_data.get("questions", []):
+                    if not q.get("question_data"):
+                        continue
+                    questions.append({
+                        "id": q["id"],
+                        "type": qtype,
+                        "dok": q.get("dok", ""),
+                        "question_data": q["question_data"],
+                    })
+            unit_out["skills"].append({
+                "id": sid,
+                "description": skill["text"],
+                "learning_content": skill_data.get("learning_content", ""),
+                "sources": skill_data.get("sources", []),
+                "question_count": len(questions),
+                "questions": questions,
+            })
+        if unit_out["skills"]:
+            units.append(unit_out)
+
+    total_skills = sum(len(u["skills"]) for u in units)
+    total_questions = sum(s["question_count"] for u in units for s in u["skills"])
+
+    export = {
+        "course_id": cid,
+        "course_name": info["name"],
+        "total_skills": total_skills,
+        "total_questions": total_questions,
+        "units": units,
+    }
+
+    response = jsonify(export)
+    response.headers["Content-Disposition"] = f"attachment; filename={cid.lower()}-export.json"
+    return response
+
+
 # ── Skill tree & status ──────────────────────────────────────────────────
 
 @app.route("/skill-tree")

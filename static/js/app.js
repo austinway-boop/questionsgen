@@ -444,6 +444,10 @@ async function fillGaps() {
   refreshPipelineStatus();
 }
 
+function exportCourse() {
+  window.open(cq("/api/export"), "_blank");
+}
+
 function regenQuestionsByType(qtype, triggerBtn) {
   const progress = document.getElementById("build-all-progress");
   _setGlobalButtons(true);

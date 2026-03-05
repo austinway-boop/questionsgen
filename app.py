@@ -94,11 +94,10 @@ def graph_data():
             lines.append(f"    {edge[0]} --> {edge[1]}")
     for edge in tree.get("cross_unit_edges", []):
         lines.append(f"    {edge[0]} --> {edge[1]}")
-    # Assign CSS classes per unit
+    # Assign CSS classes per unit (one statement per skill to avoid parser issues)
     for uid, data in unit_skills.items():
-        if data["skills"]:
-            sids = " & ".join(data["skills"])
-            lines.append(f"    class {sids} {uid.lower()}")
+        for sid in data["skills"]:
+            lines.append(f"    class {sid} {uid.lower()}")
     mmd = "\n".join(lines)
     return jsonify({"mermaid": mmd, "units": unit_skills})
 

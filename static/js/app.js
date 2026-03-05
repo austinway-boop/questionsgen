@@ -387,32 +387,10 @@ async function fillGaps() {
   const progress = document.getElementById("build-all-progress");
   _setGlobalButtons(true);
 
-  progress.innerHTML = "<strong>Scanning for incomplete banks...</strong>";
-
-  // Find skills with content but incomplete/missing banks (blue + orange + green with gaps)
   const skillsWithGaps = [];
   for (const [sid, st] of Object.entries(pipelineStatus)) {
-    if (st === "none") continue;
     if (st === "content_only" || st === "manual_content") {
       skillsWithGaps.push(sid);
-      continue;
-    }
-    if (st === "complete") {
-      try {
-        const bankRes = await fetch(cq(`/skill/${sid}/question-bank`));
-        const bankJson = await bankRes.json();
-        const bank = bankJson.bank || {};
-        for (const [qtype, typeData] of Object.entries(bank)) {
-          if (!typeData || typeof typeData !== "object") continue;
-          const questions = typeData.questions || [];
-          const dok2 = questions.filter(q => q.dok === "2").length;
-          const dok3 = questions.filter(q => q.dok === "3").length;
-          if (dok2 < QUESTIONS_PER_DOK || dok3 < QUESTIONS_PER_DOK) {
-            skillsWithGaps.push(sid);
-            break;
-          }
-        }
-      } catch (e) { /* skip */ }
     }
   }
 

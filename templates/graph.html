@@ -160,6 +160,9 @@
       <span><strong id="unit-count">0</strong> units</span>
     </div>
     <div class="graph-controls">
+      <select id="course-select" onchange="loadGraph()" style="padding:0.25rem 0.4rem;font-size:0.72rem;border:1px solid #e2e8f0;border-radius:6px;">
+        <option value="">All Courses</option>
+      </select>
       <button onclick="zoomIn()" title="Zoom in">+</button>
       <button onclick="zoomOut()" title="Zoom out">&minus;</button>
       <button onclick="fitToScreen()" title="Fit to screen" style="font-size:0.7rem;width:auto;padding:0 8px;">Fit</button>
@@ -181,13 +184,16 @@
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
     const UNIT_COLORS = {
-      u1: { fill: "#dbeafe", stroke: "#3b82f6", text: "#1e40af", label: "#3b82f6" },
-      u2: { fill: "#dcfce7", stroke: "#22c55e", text: "#166534", label: "#22c55e" },
-      u3: { fill: "#fef3c7", stroke: "#f59e0b", text: "#92400e", label: "#f59e0b" },
-      u4: { fill: "#fce7f3", stroke: "#ec4899", text: "#9d174d", label: "#ec4899" },
-      u5: { fill: "#e0e7ff", stroke: "#6366f1", text: "#3730a3", label: "#6366f1" },
-      u6: { fill: "#ffedd5", stroke: "#f97316", text: "#9a3412", label: "#f97316" },
-      u7: { fill: "#f3e8ff", stroke: "#a855f7", text: "#6b21a8", label: "#a855f7" },
+      u1:  { fill: "#dbeafe", stroke: "#3b82f6", text: "#1e40af", label: "#3b82f6" },
+      u2:  { fill: "#dcfce7", stroke: "#22c55e", text: "#166534", label: "#22c55e" },
+      u3:  { fill: "#fef3c7", stroke: "#f59e0b", text: "#92400e", label: "#f59e0b" },
+      u4:  { fill: "#fce7f3", stroke: "#ec4899", text: "#9d174d", label: "#ec4899" },
+      u5:  { fill: "#e0e7ff", stroke: "#6366f1", text: "#3730a3", label: "#6366f1" },
+      u6:  { fill: "#ffedd5", stroke: "#f97316", text: "#9a3412", label: "#f97316" },
+      u7:  { fill: "#f3e8ff", stroke: "#a855f7", text: "#6b21a8", label: "#a855f7" },
+      u8:  { fill: "#ccfbf1", stroke: "#14b8a6", text: "#115e59", label: "#14b8a6" },
+      u9:  { fill: "#fee2e2", stroke: "#ef4444", text: "#991b1b", label: "#ef4444" },
+      u10: { fill: "#e2e8f0", stroke: "#64748b", text: "#334155", label: "#64748b" },
     };
 
     let scale = 1, panX = 0, panY = 0;
@@ -223,10 +229,25 @@
 
     initMermaid(true);
 
+    async function loadCourses() {
+      const res = await fetch("/courses");
+      const courses = await res.json();
+      const select = document.getElementById("course-select");
+      for (const [cid, info] of Object.entries(courses)) {
+        const opt = document.createElement("option");
+        opt.value = cid;
+        opt.textContent = `${info.name} (${info.skills})`;
+        select.appendChild(opt);
+      }
+    }
+
     async function loadGraph() {
       document.getElementById("loading").style.display = "block";
-      const params = compactMode ? "?compact=1" : "";
-      const res = await fetch("/graph-data" + params);
+      const course = document.getElementById("course-select").value;
+      const params = new URLSearchParams();
+      if (compactMode) params.set("compact", "1");
+      if (course) params.set("course", course);
+      const res = await fetch("/graph-data?" + params.toString());
       const data = await res.json();
       const mmdText = data.mermaid;
       const units = data.units;
@@ -406,7 +427,7 @@
       loadGraph();
     }
 
-    loadGraph();
+    loadCourses().then(() => loadGraph());
   </script>
 </body>
 </html>

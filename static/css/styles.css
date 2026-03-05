@@ -57,6 +57,17 @@ body {
   color: var(--text-muted);
 }
 
+.course-select {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
 .tree-layout {
   display: flex;
   flex: 1;

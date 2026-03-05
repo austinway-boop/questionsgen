@@ -1,30 +1,30 @@
 import threading
 from services import kv_store
 
-_NS = "bank"
 
-# Thread lock for read-modify-write sequences in JSON mode.
-# KV mode is inherently atomic per key, but we still lock for
-# multi-step operations that read then write the same key.
+def _ns(course_id="APHG"):
+    return "bank" if course_id == "APHG" else f"bank_{course_id}"
+
+
 _lock = threading.Lock()
 
 
-def get_skill_bank(skill_id: str) -> dict:
-    return kv_store.get_from_namespace(_NS, skill_id) or {}
+def get_skill_bank(skill_id: str, course_id="APHG") -> dict:
+    return kv_store.get_from_namespace(_ns(course_id), skill_id) or {}
 
 
-def save_concepts(skill_id: str, question_type: str, concepts: list):
+def save_concepts(skill_id: str, question_type: str, concepts: list, course_id="APHG"):
     with _lock:
-        bank = get_skill_bank(skill_id)
+        bank = get_skill_bank(skill_id, course_id)
         if question_type not in bank:
             bank[question_type] = {"concepts": [], "questions": []}
         bank[question_type]["concepts"] = concepts
-        kv_store.set_in_namespace(_NS, skill_id, bank)
+        kv_store.set_in_namespace(_ns(course_id), skill_id, bank)
 
 
-def save_question(skill_id: str, question_type: str, question_entry: dict):
+def save_question(skill_id: str, question_type: str, question_entry: dict, course_id="APHG"):
     with _lock:
-        bank = get_skill_bank(skill_id)
+        bank = get_skill_bank(skill_id, course_id)
         if question_type not in bank:
             bank[question_type] = {"concepts": [], "questions": []}
         questions = bank[question_type]["questions"]
@@ -36,12 +36,12 @@ def save_question(skill_id: str, question_type: str, question_entry: dict):
             questions[existing_idx] = question_entry
         else:
             questions.append(question_entry)
-        kv_store.set_in_namespace(_NS, skill_id, bank)
+        kv_store.set_in_namespace(_ns(course_id), skill_id, bank)
 
 
-def save_questions_batch(skill_id: str, question_type: str, entries: list):
+def save_questions_batch(skill_id: str, question_type: str, entries: list, course_id="APHG"):
     with _lock:
-        bank = get_skill_bank(skill_id)
+        bank = get_skill_bank(skill_id, course_id)
         if question_type not in bank:
             bank[question_type] = {"concepts": [], "questions": []}
         questions = bank[question_type]["questions"]
@@ -53,39 +53,39 @@ def save_questions_batch(skill_id: str, question_type: str, entries: list):
             else:
                 questions.append(entry)
                 existing_ids[entry["id"]] = len(questions) - 1
-        kv_store.set_in_namespace(_NS, skill_id, bank)
+        kv_store.set_in_namespace(_ns(course_id), skill_id, bank)
 
 
-def replace_skill_bank(skill_id: str, bank_data: dict):
+def replace_skill_bank(skill_id: str, bank_data: dict, course_id="APHG"):
     with _lock:
-        kv_store.set_in_namespace(_NS, skill_id, bank_data)
+        kv_store.set_in_namespace(_ns(course_id), skill_id, bank_data)
 
 
-def update_validation(skill_id: str, question_type: str, question_id: str, valid: bool, reason: str):
+def update_validation(skill_id: str, question_type: str, question_id: str, valid: bool, reason: str, course_id="APHG"):
     with _lock:
-        bank = get_skill_bank(skill_id)
+        bank = get_skill_bank(skill_id, course_id)
         type_data = bank.get(question_type, {})
         for q in type_data.get("questions", []):
             if q["id"] == question_id:
                 q["valid"] = valid
                 q["validation_reason"] = reason
                 break
-        kv_store.set_in_namespace(_NS, skill_id, bank)
+        kv_store.set_in_namespace(_ns(course_id), skill_id, bank)
 
 
-def mark_met(skill_id: str, question_type: str, question_id: str, met: bool):
+def mark_met(skill_id: str, question_type: str, question_id: str, met: bool, course_id="APHG"):
     with _lock:
-        bank = get_skill_bank(skill_id)
+        bank = get_skill_bank(skill_id, course_id)
         type_data = bank.get(question_type, {})
         for q in type_data.get("questions", []):
             if q["id"] == question_id:
                 q["met"] = met
                 break
-        kv_store.set_in_namespace(_NS, skill_id, bank)
+        kv_store.set_in_namespace(_ns(course_id), skill_id, bank)
 
 
-def get_coverage_status(skill_id: str) -> dict:
-    bank = get_skill_bank(skill_id)
+def get_coverage_status(skill_id: str, course_id="APHG") -> dict:
+    bank = get_skill_bank(skill_id, course_id)
     result = {}
     for qtype, type_data in bank.items():
         questions = type_data.get("questions", [])
@@ -110,19 +110,19 @@ def get_coverage_status(skill_id: str) -> dict:
     return result
 
 
-def clear_skill_bank(skill_id: str, question_type: str = None):
+def clear_skill_bank(skill_id: str, question_type: str = None, course_id="APHG"):
     with _lock:
         if question_type:
-            bank = get_skill_bank(skill_id)
+            bank = get_skill_bank(skill_id, course_id)
             bank.pop(question_type, None)
-            kv_store.set_in_namespace(_NS, skill_id, bank)
+            kv_store.set_in_namespace(_ns(course_id), skill_id, bank)
         else:
-            kv_store.delete(f"{_NS}:{skill_id}")
+            kv_store.delete(f"{_ns(course_id)}:{skill_id}")
 
 
-def get_all_bank_status() -> dict:
-    """Return {skill_id: bool} — True if the skill has any questions."""
-    data = kv_store.get_namespace(_NS)
+def get_all_bank_status(course_id="APHG") -> dict:
+    """Return {skill_id: bool} -- True if the skill has any questions."""
+    data = kv_store.get_namespace(_ns(course_id))
     result = {}
     for skill_id, bank in data.items():
         has_questions = any(

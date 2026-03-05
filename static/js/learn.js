@@ -2,20 +2,29 @@
    LEARNING ALGORITHM SIMULATION
    ═══════════════════════════════════════════════ */
 
-const STORAGE_KEY = "learnSimState";
 const MAX_DOK2_TOTAL = 16;
 const DOK3_PER_SKILL = 2;
 const WRONG_THRESHOLD = 3;
 
+let currentCourse = "APHG";
 let treeData = null;
-let readySkills = [];       // skills with complete content + bank
-let skillTextMap = {};       // skillId -> text
-let skillUnitMap = {};       // skillId -> unitIndex
-let skillOrderMap = {};      // skillId -> global ordering index
-let sourceGroups = {};       // skillId -> [sibling skillIds sharing same content]
+let readySkills = [];
+let skillTextMap = {};
+let skillUnitMap = {};
+let skillOrderMap = {};
+let sourceGroups = {};
 let studentState = null;
-let currentSession = null;   // active session state
+let currentSession = null;
 let learnQCounter = 50000;
+
+function storageKey() {
+  return `learnSimState_${currentCourse}`;
+}
+
+function lcq(url) {
+  const sep = url.includes("?") ? "&" : "?";
+  return `${url}${sep}course=${currentCourse}`;
+}
 
 /* ───────────────────────────────────────────────
    STATE MANAGEMENT (localStorage)
@@ -33,14 +42,14 @@ function defaultState() {
 
 function loadState() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(storageKey());
     if (raw) return JSON.parse(raw);
   } catch (e) { /* corrupt data */ }
   return null;
 }
 
 function saveState() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(studentState));
+  localStorage.setItem(storageKey(), JSON.stringify(studentState));
 }
 
 function getSkillState(skillId) {
@@ -188,10 +197,32 @@ function selectNextContent() {
    ─────────────────────────────────────────────── */
 
 async function init() {
+  // Load course list for selector
+  try {
+    const coursesRes = await fetch("/api/courses");
+    const courses = await coursesRes.json();
+    const select = document.getElementById("learn-course-select");
+    if (select) {
+      select.innerHTML = "";
+      for (const [cid, info] of Object.entries(courses)) {
+        const opt = document.createElement("option");
+        opt.value = cid;
+        opt.textContent = info.name;
+        if (cid === currentCourse) opt.selected = true;
+        select.appendChild(opt);
+      }
+    }
+  } catch (e) { /* silent */ }
+
+  readySkills = [];
+  skillTextMap = {};
+  skillUnitMap = {};
+  skillOrderMap = {};
+
   const [treeRes, statusRes, groupsRes] = await Promise.all([
-    fetch("/skill-tree"),
-    fetch("/pipeline-status"),
-    fetch("/skill-source-groups"),
+    fetch(lcq("/skill-tree")),
+    fetch(lcq("/pipeline-status")),
+    fetch(lcq("/skill-source-groups")),
   ]);
   treeData = await treeRes.json();
   const pipelineStatus = await statusRes.json();
@@ -219,9 +250,19 @@ async function init() {
   if (readySkills.length === 0) {
     btn.textContent = "No completed skills available";
     btn.disabled = true;
+  } else {
+    btn.textContent = "Next Session";
   }
 
+  currentSession = null;
+  showState("idle");
   refreshDashboard();
+}
+
+function switchLearnCourse(courseId) {
+  currentCourse = courseId;
+  currentSession = null;
+  init();
 }
 
 function getContentGroup(skillId) {
@@ -467,8 +508,8 @@ async function startLearningSession(skillId) {
 
   // Fetch skill details + question banks for all skills in the group
   const fetches = group.map(sid => Promise.all([
-    fetch(`/skill/${sid}`).then(r => r.json()),
-    fetch(`/skill/${sid}/question-bank`).then(r => r.json()),
+    fetch(lcq(`/skill/${sid}`)).then(r => r.json()),
+    fetch(lcq(`/skill/${sid}/question-bank`)).then(r => r.json()),
   ]));
   const results = await Promise.all(fetches);
 
@@ -753,7 +794,7 @@ async function startCoverSession(skillId, score) {
   document.getElementById("cover-reason").innerHTML =
     `<strong>Why this skill?</strong> Cover priority = sqrt(${days.toFixed(1)} days) &times; (100 - ${Math.round(skillState.mastery)}) / 100 = <strong>${score.toFixed(2)}</strong> (threshold: ${studentState.learningPriority.toFixed(1)})`;
 
-  const bankRes = await fetch(`/skill/${skillId}/question-bank`).then(r => r.json());
+  const bankRes = await fetch(lcq(`/skill/${skillId}/question-bank`)).then(r => r.json());
   const bank = bankRes.bank || {};
 
   currentSession = {

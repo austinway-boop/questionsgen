@@ -14,7 +14,10 @@
   <div id="tree-screen" class="screen active">
     <header class="tree-header">
       <h1 class="tree-title">Skill Tree</h1>
-      <span class="tree-subtitle">AP Human Geography — Staging</span>
+      <select id="course-select" class="course-select" onchange="switchCourse(this.value)">
+        <option value="APHG">Loading...</option>
+      </select>
+      <span class="tree-subtitle">Staging</span>
       <div class="tree-header-actions">
         <button class="btn btn-secondary btn-sm" onclick="mapAllUnits()" id="map-all-btn">Map All Transcripts</button>
         <button class="btn btn-secondary btn-sm" onclick="buildAllBanks()" id="build-all-btn">Build All Banks</button>

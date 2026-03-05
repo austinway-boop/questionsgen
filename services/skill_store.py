@@ -1,6 +1,9 @@
 from services import kv_store
 
-_NS = "skill"
+
+def _ns(course_id="APHG"):
+    return "skill" if course_id == "APHG" else f"skill_{course_id}"
+
 
 _DEFAULT = {
     "learning_content": "",
@@ -10,8 +13,8 @@ _DEFAULT = {
 }
 
 
-def get_skill(skill_id: str) -> dict:
-    entry = kv_store.get_from_namespace(_NS, skill_id)
+def get_skill(skill_id: str, course_id="APHG") -> dict:
+    entry = kv_store.get_from_namespace(_ns(course_id), skill_id)
     if entry is None:
         entry = dict(_DEFAULT)
     for k, v in _DEFAULT.items():
@@ -20,9 +23,9 @@ def get_skill(skill_id: str) -> dict:
     return entry
 
 
-def get_all_content_status() -> dict:
+def get_all_content_status(course_id="APHG") -> dict:
     """Return {skill_id: {has_content: bool, content_source: str}}."""
-    data = kv_store.get_namespace(_NS)
+    data = kv_store.get_namespace(_ns(course_id))
     result = {}
     for sid, entry in data.items():
         has = bool(entry.get("learning_content", "").strip())
@@ -31,24 +34,20 @@ def get_all_content_status() -> dict:
     return result
 
 
-def save_learning_content(skill_id: str, content: str, sources: list = None):
-    entry = get_skill(skill_id)
+def save_learning_content(skill_id: str, content: str, sources: list = None, course_id="APHG"):
+    entry = get_skill(skill_id, course_id)
     entry["learning_content"] = content
     if sources is not None:
         entry["sources"] = sources
         entry["content_source"] = "transcript" if sources else ""
     else:
         entry["content_source"] = "manual" if content.strip() else ""
-    kv_store.set_in_namespace(_NS, skill_id, entry)
+    kv_store.set_in_namespace(_ns(course_id), skill_id, entry)
 
 
-def get_source_groups() -> dict:
-    """Return {skillId: [list of sibling skillIds sharing the same source sections]}.
-
-    Groups skills by their sorted source fingerprint (topic:section keys).
-    Skills with no sources are singletons.
-    """
-    data = kv_store.get_namespace(_NS)
+def get_source_groups(course_id="APHG") -> dict:
+    """Return {skillId: [list of sibling skillIds sharing the same source sections]}."""
+    data = kv_store.get_namespace(_ns(course_id))
     fingerprint_to_skills = {}
     for sid, entry in data.items():
         sources = entry.get("sources", [])
@@ -63,7 +62,7 @@ def get_source_groups() -> dict:
     return result
 
 
-def save_relevant_types(skill_id: str, types):
-    entry = get_skill(skill_id)
+def save_relevant_types(skill_id: str, types, course_id="APHG"):
+    entry = get_skill(skill_id, course_id)
     entry["relevant_question_types"] = types
-    kv_store.set_in_namespace(_NS, skill_id, entry)
+    kv_store.set_in_namespace(_ns(course_id), skill_id, entry)

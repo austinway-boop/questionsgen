@@ -34,14 +34,40 @@ from services.question_bank_store import (
 
 app = Flask(__name__)
 
-_skill_tree_cache = None
+_APP_ROOT = Path(__file__).resolve().parent
+
+# ── Course configuration ─────────────────────────────────────────────────
+
+COURSES = {
+    "APHG": {"name": "AP Human Geography", "mmd": "skill_tree.mmd", "transcripts": "data/transcripts.json"},
+    "APGOV": {"name": "AP Government", "mmd": "data/apgov-skill-tree.mmd", "transcripts": "data/ap-government-transcripts.json"},
+    "APUSH": {"name": "AP US History", "mmd": "data/apush-skill-tree.mmd", "transcripts": "data/ap-us-history-transcripts.json"},
+    "APWH": {"name": "AP World History", "mmd": "data/apwh-skill-tree.mmd", "transcripts": "data/ap-world-history-transcripts.json"},
+}
+
+_tree_cache = {}
+_transcripts_cache = {}
 
 
-def _get_tree():
-    global _skill_tree_cache
-    if _skill_tree_cache is None:
-        _skill_tree_cache = parse_skill_tree()
-    return _skill_tree_cache
+def _course_id():
+    return request.args.get("course", "APHG")
+
+
+def _get_tree(course_id=None):
+    cid = course_id or _course_id()
+    if cid not in _tree_cache:
+        info = COURSES.get(cid, COURSES["APHG"])
+        _tree_cache[cid] = parse_skill_tree(_APP_ROOT / info["mmd"])
+    return _tree_cache[cid]
+
+
+def _load_transcripts(course_id=None) -> dict:
+    cid = course_id or _course_id()
+    if cid not in _transcripts_cache:
+        info = COURSES.get(cid, COURSES["APHG"])
+        path = _APP_ROOT / info["transcripts"]
+        _transcripts_cache[cid] = json.loads(path.read_text())
+    return _transcripts_cache[cid]
 
 
 def _type_keys(types_data) -> list:
@@ -52,14 +78,16 @@ def _type_keys(types_data) -> list:
     return []
 
 
-def _find_skill_text(skill_id: str) -> str:
-    tree = _get_tree()
+def _find_skill_text(skill_id: str, course_id=None) -> str:
+    tree = _get_tree(course_id)
     for unit in tree["units"]:
         for s in unit["skills"]:
             if s["id"] == skill_id:
                 return s["text"]
     return skill_id
 
+
+# ── Pages ────────────────────────────────────────────────────────────────
 
 @app.route("/")
 def index():
@@ -71,11 +99,19 @@ def learn():
     return render_template("learn.html")
 
 
+# ── Course listing ───────────────────────────────────────────────────────
 
-@app.route("/skill-source-groups")
-def skill_source_groups():
-    return jsonify(get_source_groups())
+@app.route("/api/courses")
+def list_courses():
+    result = {}
+    for cid, info in COURSES.items():
+        tree = _get_tree(cid)
+        total_skills = sum(len(u["skills"]) for u in tree["units"])
+        result[cid] = {"name": info["name"], "units": len(tree["units"]), "skills": total_skills}
+    return jsonify(result)
 
+
+# ── Skill tree & status ──────────────────────────────────────────────────
 
 @app.route("/skill-tree")
 def skill_tree():
@@ -92,53 +128,62 @@ def question_types():
 
 @app.route("/skill-content-status")
 def skill_content_status():
-    return jsonify(get_all_content_status())
+    return jsonify(get_all_content_status(_course_id()))
 
+
+@app.route("/skill-source-groups")
+def skill_source_groups():
+    return jsonify(get_source_groups(_course_id()))
+
+
+# ── Skill CRUD ───────────────────────────────────────────────────────────
 
 @app.route("/skill/<skill_id>")
 def skill_detail(skill_id):
-    return jsonify(get_skill(skill_id))
+    return jsonify(get_skill(skill_id, _course_id()))
 
 
 @app.route("/skill/<skill_id>/learning-content", methods=["POST"])
 def update_learning_content(skill_id):
     data = request.get_json()
     content = data.get("learning_content", "")
-    save_learning_content(skill_id, content)
+    save_learning_content(skill_id, content, course_id=_course_id())
     return jsonify({"ok": True})
 
 
 @app.route("/skill/<skill_id>/detect-types", methods=["POST"])
 def detect_types(skill_id):
-    skill_data = get_skill(skill_id)
+    cid = _course_id()
+    skill_data = get_skill(skill_id, cid)
     lc = skill_data.get("learning_content", "")
     if not lc.strip():
         return jsonify({"error": "No learning content saved for this skill"}), 400
 
-    skill_text = _find_skill_text(skill_id)
+    skill_text = _find_skill_text(skill_id, cid)
     try:
         types = detect_relevant_types(skill_text, lc)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-    save_relevant_types(skill_id, types)
+    save_relevant_types(skill_id, types, course_id=cid)
     return jsonify({"relevant_question_types": types})
 
 
 @app.route("/skill/<skill_id>/generate", methods=["POST"])
 def generate_skill_question(skill_id):
+    cid = _course_id()
     data = request.get_json()
     qtype = data.get("question_type", "").strip()
     if not qtype:
         return jsonify({"error": "question_type is required"}), 400
 
-    skill_data = get_skill(skill_id)
+    skill_data = get_skill(skill_id, cid)
     lc = skill_data.get("learning_content", "")
     if not lc.strip():
         return jsonify({"error": "No learning content saved for this skill"}), 400
 
     dok_level = data.get("dok_level", "2")
-    skill_text = _find_skill_text(skill_id)
+    skill_text = _find_skill_text(skill_id, cid)
     try:
         question = generate_single_question(skill_text, lc, qtype, dok_level=dok_level)
     except Exception as e:
@@ -149,7 +194,8 @@ def generate_skill_question(skill_id):
 
 @app.route("/skill/<skill_id>/extract-concepts", methods=["POST"])
 def extract_skill_concepts(skill_id):
-    skill_data = get_skill(skill_id)
+    cid = _course_id()
+    skill_data = get_skill(skill_id, cid)
     lc = skill_data.get("learning_content", "")
     if not lc.strip():
         return jsonify({"error": "No learning content saved for this skill"}), 400
@@ -159,7 +205,7 @@ def extract_skill_concepts(skill_id):
     if not type_keys:
         return jsonify({"error": "No relevant question types detected yet"}), 400
 
-    skill_text = _find_skill_text(skill_id)
+    skill_text = _find_skill_text(skill_id, cid)
     result = {}
 
     with ThreadPoolExecutor(max_workers=min(len(type_keys), 4)) as pool:
@@ -168,7 +214,7 @@ def extract_skill_concepts(skill_id):
             qtype = fmap[future]
             try:
                 concepts = future.result()
-                save_concepts(skill_id, qtype, concepts)
+                save_concepts(skill_id, qtype, concepts, course_id=cid)
                 result[qtype] = concepts
             except Exception as e:
                 result[qtype] = {"error": str(e)}
@@ -178,16 +224,17 @@ def extract_skill_concepts(skill_id):
 
 @app.route("/skill/<skill_id>/generate-question-bank", methods=["POST"])
 def generate_skill_question_bank(skill_id):
-    skill_data = get_skill(skill_id)
+    cid = _course_id()
+    skill_data = get_skill(skill_id, cid)
     lc = skill_data.get("learning_content", "")
     if not lc.strip():
         return jsonify({"error": "No learning content saved for this skill"}), 400
 
-    bank = get_skill_bank(skill_id)
+    bank = get_skill_bank(skill_id, cid)
     if not bank:
         return jsonify({"error": "No concepts extracted yet. Run extract-concepts first."}), 400
 
-    skill_text = _find_skill_text(skill_id)
+    skill_text = _find_skill_text(skill_id, cid)
     result = {}
 
     tasks = []
@@ -219,7 +266,7 @@ def generate_skill_question_bank(skill_id):
                 "validation_reason": f"Generation failed: {str(e)}",
                 "met": False,
             }
-        save_question(skill_id, qtype, entry)
+        save_question(skill_id, qtype, entry, course_id=cid)
         return qtype, entry
 
     with ThreadPoolExecutor(max_workers=min(len(tasks), 6)) as pool:
@@ -233,13 +280,15 @@ def generate_skill_question_bank(skill_id):
 
 @app.route("/skill/<skill_id>/question-bank")
 def get_skill_question_bank(skill_id):
-    bank = get_skill_bank(skill_id)
-    coverage = get_coverage_status(skill_id)
+    cid = _course_id()
+    bank = get_skill_bank(skill_id, cid)
+    coverage = get_coverage_status(skill_id, cid)
     return jsonify({"bank": bank, "coverage": coverage})
 
 
 @app.route("/skill/<skill_id>/question-bank/mark", methods=["POST"])
 def mark_question_met(skill_id):
+    cid = _course_id()
     data = request.get_json()
     qtype = data.get("question_type", "")
     q_id = data.get("question_id", "")
@@ -248,7 +297,7 @@ def mark_question_met(skill_id):
     if not qtype or not q_id:
         return jsonify({"error": "question_type and question_id are required"}), 400
 
-    mark_met(skill_id, qtype, q_id, met)
+    mark_met(skill_id, qtype, q_id, met, course_id=cid)
     return jsonify({"ok": True})
 
 
@@ -281,6 +330,7 @@ def _summarize_question(qtype, q):
 
 @app.route("/skill/<skill_id>/generate-batch", methods=["POST"])
 def generate_batch_endpoint(skill_id):
+    cid = _course_id()
     data = request.get_json()
     qtype = data.get("question_type", "").strip()
     dok_level = data.get("dok_level", "2")
@@ -290,12 +340,12 @@ def generate_batch_endpoint(skill_id):
     if not qtype:
         return jsonify({"error": "question_type is required"}), 400
 
-    skill_data = get_skill(skill_id)
+    skill_data = get_skill(skill_id, cid)
     lc = skill_data.get("learning_content", "")
     if not lc.strip():
         return jsonify({"error": "No learning content"}), 400
 
-    skill_text = _find_skill_text(skill_id)
+    skill_text = _find_skill_text(skill_id, cid)
     try:
         questions = generate_batch_questions(
             skill_text, lc, qtype, dok_level,
@@ -310,6 +360,7 @@ def generate_batch_endpoint(skill_id):
 
 @app.route("/skill/<skill_id>/validate-batch", methods=["POST"])
 def validate_batch_endpoint(skill_id):
+    cid = _course_id()
     data = request.get_json()
     qtype = data.get("question_type", "").strip()
     dok_level = data.get("dok_level", "2")
@@ -318,9 +369,9 @@ def validate_batch_endpoint(skill_id):
     if not qtype or not questions:
         return jsonify({"error": "question_type and questions are required"}), 400
 
-    skill_data = get_skill(skill_id)
+    skill_data = get_skill(skill_id, cid)
     lc = skill_data.get("learning_content", "")
-    skill_text = _find_skill_text(skill_id)
+    skill_text = _find_skill_text(skill_id, cid)
 
     results = []
     for q_data in questions:
@@ -359,11 +410,12 @@ def validate_batch_endpoint(skill_id):
 
 @app.route("/skill/<skill_id>/save-bank", methods=["POST"])
 def save_bank_endpoint(skill_id):
+    cid = _course_id()
     data = request.get_json()
     bank_data = data.get("bank_data")
     if not bank_data:
         return jsonify({"error": "bank_data is required"}), 400
-    replace_skill_bank(skill_id, bank_data)
+    replace_skill_bank(skill_id, bank_data, course_id=cid)
     return jsonify({"ok": True})
 
 
@@ -371,21 +423,21 @@ def save_bank_endpoint(skill_id):
 
 @app.route("/skill/<skill_id>/build-bank")
 def build_bank_stream(skill_id):
-    skill_data = get_skill(skill_id)
+    cid = _course_id()
+    skill_data = get_skill(skill_id, cid)
     lc = skill_data.get("learning_content", "")
     if not lc.strip():
         return jsonify({"error": "No learning content saved for this skill"}), 400
 
-    skill_text = _find_skill_text(skill_id)
+    skill_text = _find_skill_text(skill_id, cid)
 
     def generate():
         yield _sse_event({"phase": "start", "message": "Starting question bank build..."})
 
-        # Phase 1: Detect types (single call)
         yield _sse_event({"phase": "detect_types", "message": "Detecting relevant question types..."})
         try:
             type_weights = detect_relevant_types(skill_text, lc)
-            save_relevant_types(skill_id, type_weights)
+            save_relevant_types(skill_id, type_weights, course_id=cid)
         except Exception as e:
             yield _sse_event({"phase": "error", "message": f"Type detection failed: {e}"})
             return
@@ -393,7 +445,6 @@ def build_bank_stream(skill_id):
         weight_summary = ", ".join(f"{k} ({v}%)" for k, v in type_weights.items())
         yield _sse_event({"phase": "detect_types", "message": f"Detected {len(types)} types: {weight_summary}", "types": types, "weights": type_weights})
 
-        # Phase 2: Extract concepts (parallel across types)
         yield _sse_event({"phase": "extract_concepts", "message": "Extracting concepts (parallel)..."})
         all_concepts = {}
         total_concepts = 0
@@ -403,7 +454,7 @@ def build_bank_stream(skill_id):
                 qtype = fmap[future]
                 try:
                     concepts = future.result()
-                    save_concepts(skill_id, qtype, concepts)
+                    save_concepts(skill_id, qtype, concepts, course_id=cid)
                     all_concepts[qtype] = concepts
                     total_concepts += len(concepts)
                     yield _sse_event({"phase": "extract_concepts", "message": f"Extracted {len(concepts)} concepts for {qtype}", "qtype": qtype, "count": len(concepts)})
@@ -412,7 +463,6 @@ def build_bank_stream(skill_id):
                     yield _sse_event({"phase": "extract_concepts", "message": f"Concept extraction failed for {qtype}: {e}", "qtype": qtype, "error": True})
         yield _sse_event({"phase": "extract_concepts", "message": f"Total: {total_concepts} concepts across {len(types)} types", "done": True})
 
-        # Phase 3: Generate + Validate + Retry (parallel across all qtype/dok combos)
         bank_data = {}
         for qtype in types:
             bank_data[qtype] = {"concepts": all_concepts.get(qtype, []), "questions": []}
@@ -488,7 +538,6 @@ def build_bank_stream(skill_id):
 
                 return q_idx, q_id, current_q, is_valid, val_reason
 
-            # Parallel validation within this combo
             validated = []
             local_discarded = 0
             with ThreadPoolExecutor(max_workers=min(len(generated), 5)) as val_pool:
@@ -530,7 +579,6 @@ def build_bank_stream(skill_id):
                 "saved": len(validated), "discarded": len(generated) - len(validated),
             }))
 
-        # Launch all (qtype, dok) combos in parallel
         combo_count = len(types) * 2
         with ThreadPoolExecutor(max_workers=min(combo_count, 6)) as pool:
             futures = []
@@ -554,7 +602,7 @@ def build_bank_stream(skill_id):
                 except Exception:
                     pass
 
-        replace_skill_bank(skill_id, bank_data)
+        replace_skill_bank(skill_id, bank_data, course_id=cid)
 
         yield _sse_event({
             "phase": "done",
@@ -566,21 +614,23 @@ def build_bank_stream(skill_id):
     return Response(stream_with_context(generate()), mimetype="text/event-stream")
 
 
+# ── Question regeneration ────────────────────────────────────────────────
+
 @app.route("/regenerate-questions-by-type")
 def regenerate_questions_by_type():
-    """SSE stream: regenerate all questions of a given type with updated prompt."""
+    cid = _course_id()
     qtype = request.args.get("qtype", "true_false_justification")
     if qtype not in QUESTION_TYPE_INFO:
         return jsonify({"error": f"Unknown question type: {qtype}"}), 400
 
     type_label = QUESTION_TYPE_INFO[qtype]["label"]
-    all_bank_data = get_all_bank_status()
+    all_bank_data = get_all_bank_status(cid)
 
     skills_with_type = []
     for sid, has_bank in all_bank_data.items():
         if not has_bank:
             continue
-        bank = get_skill_bank(sid)
+        bank = get_skill_bank(sid, cid)
         if qtype in bank and bank[qtype].get("questions"):
             skills_with_type.append(sid)
 
@@ -591,10 +641,10 @@ def regenerate_questions_by_type():
         total_failed = 0
 
         for idx, sid in enumerate(sorted(skills_with_type)):
-            skill_data = get_skill(sid)
+            skill_data = get_skill(sid, cid)
             lc = skill_data.get("learning_content", "")
-            skill_text = _find_skill_text(sid)
-            bank = get_skill_bank(sid)
+            skill_text = _find_skill_text(sid, cid)
+            bank = get_skill_bank(sid, cid)
             questions = bank.get(qtype, {}).get("questions", [])
 
             yield _sse_event({
@@ -619,7 +669,7 @@ def regenerate_questions_by_type():
                         "error": True,
                     })
 
-            replace_skill_bank(sid, bank)
+            replace_skill_bank(sid, bank, course_id=cid)
             yield _sse_event({
                 "phase": "regenerating",
                 "message": f"  {sid}: saved {len(questions)} questions",
@@ -654,20 +704,8 @@ def generate():
 
 # ── Transcript data helpers ──────────────────────────────────────────────
 
-_TRANSCRIPTS_PATH = Path(__file__).resolve().parent / "data" / "transcripts.json"
-_transcripts_cache = None
-
-
-def _load_transcripts() -> dict:
-    global _transcripts_cache
-    if _transcripts_cache is None:
-        _transcripts_cache = json.loads(_TRANSCRIPTS_PATH.read_text())
-    return _transcripts_cache
-
-
-def _get_unit_videos(unit_num: int) -> dict:
-    """Return {topic_id: video_dict} for a unit, excluding reviews."""
-    data = _load_transcripts()
+def _get_unit_videos(unit_num: int, course_id=None) -> dict:
+    data = _load_transcripts(course_id)
     videos = {}
     for v in data["videos"]:
         if v["unit"] == unit_num and "Review" not in str(v.get("topic", "")):
@@ -717,10 +755,11 @@ def _build_source_object(video: dict, section_num: int):
 
 @app.route("/pipeline-status")
 def pipeline_status():
-    content_status = get_all_content_status()
-    bank_status = get_all_bank_status()
+    cid = _course_id()
+    content_status = get_all_content_status(cid)
+    bank_status = get_all_bank_status(cid)
 
-    tree = _get_tree()
+    tree = _get_tree(cid)
     result = {}
     for unit in tree["units"]:
         for skill in unit["skills"]:
@@ -744,7 +783,8 @@ def pipeline_status():
 
 @app.route("/unit/<int:unit_num>/map-transcripts")
 def map_transcripts_stream(unit_num):
-    tree = _get_tree()
+    cid = _course_id()
+    tree = _get_tree(cid)
     unit_data = None
     for u in tree["units"]:
         if u["id"] == f"U{unit_num}":
@@ -754,7 +794,7 @@ def map_transcripts_stream(unit_num):
         return jsonify({"error": f"Unit {unit_num} not found"}), 404
 
     skills = unit_data["skills"]
-    videos = _get_unit_videos(unit_num)
+    videos = _get_unit_videos(unit_num, cid)
 
     if not videos:
         return jsonify({"error": f"No transcript videos found for unit {unit_num}"}), 404
@@ -792,7 +832,7 @@ def map_transcripts_stream(unit_num):
             sid = skill["id"]
             refs = mapping.get(sid, [])
             if not refs:
-                save_learning_content(sid, "", sources=[])
+                save_learning_content(sid, "", sources=[], course_id=cid)
                 skipped += 1
                 continue
 
@@ -809,7 +849,7 @@ def map_transcripts_stream(unit_num):
                     transcripts.append(transcript)
 
             content = "\n\n".join(transcripts)
-            save_learning_content(sid, content, sources=sources)
+            save_learning_content(sid, content, sources=sources, course_id=cid)
             saved += 1
 
             if saved % 5 == 0:

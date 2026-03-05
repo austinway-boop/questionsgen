@@ -1,0 +1,5968 @@
+{
+  "meta": {
+    "generatedAt": "2026-03-03T00:00:00.000Z",
+    "sourceFile": "content/apwh/skill-tree.mmd",
+    "totalSkills": 524,
+    "totalEdges": 560,
+    "units": [
+      {
+        "id": "u1",
+        "name": "Unit 1: The Global Tapestry c.1200-1450",
+        "skillCount": 100
+      },
+      {
+        "id": "u2",
+        "name": "Unit 2: Networks of Exchange c.1200-1450",
+        "skillCount": 51
+      },
+      {
+        "id": "u3",
+        "name": "Unit 3: Land-Based Empires c.1450-1750",
+        "skillCount": 51
+      },
+      {
+        "id": "u4",
+        "name": "Unit 4: Transoceanic Interconnections c.1450-1750",
+        "skillCount": 61
+      },
+      {
+        "id": "u5",
+        "name": "Unit 5: Revolutions c.1750-1900",
+        "skillCount": 59
+      },
+      {
+        "id": "u6",
+        "name": "Unit 6: Consequences of Industrialization c.1750-1900",
+        "skillCount": 56
+      },
+      {
+        "id": "u7",
+        "name": "Unit 7: Global Conflict c.1900-present",
+        "skillCount": 56
+      },
+      {
+        "id": "u8",
+        "name": "Unit 8: Cold War and Decolonization c.1900-present",
+        "skillCount": 44
+      },
+      {
+        "id": "u9",
+        "name": "Unit 9: Globalization c.1900-present",
+        "skillCount": 46
+      }
+    ],
+    "maxLayerDepth": 17
+  },
+  "skills": [
+    {
+      "id": "APWH-U1S1",
+      "description": "The Song Dynasty \u2014 a major Chinese state 960-1279",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U1S2",
+      "description": "Song Dynasty innovations - gunpowder, compass, movable type printing",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S3",
+      "description": "The role of the Grand Canal in Chinese internal trade",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S4",
+      "description": "The adoption of champa rice and its agricultural impact",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S5",
+      "description": "How increased rice production led to Song population growth",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S6",
+      "description": "The growth of cities and the expansion of the merchant class in Song China",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U1S7",
+      "description": "The use of paper money and letters of credit in Song commerce",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U1S8",
+      "description": "Neo-Confucianism as a blending of Confucian, Buddhist, and Daoist ideas",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S9",
+      "description": "How Neo-Confucianism reinforced respect for parents and elders and social class systems",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S10",
+      "description": "The status of women in Song China including the practice of foot binding",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U1S11",
+      "description": "The civil service examination system and its role in government based on merit",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S12",
+      "description": "The government structure of Song China",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S13",
+      "description": "The Chinese tribute system and its role in East Asian diplomacy",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S14",
+      "description": "Japanese selective adaptation of Chinese culture",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S15",
+      "description": "Japanese feudalism - emperor, shogun, daimyo, samurai",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U1S16",
+      "description": "The code of bushido and its role in Japanese warrior culture",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U1S17",
+      "description": "Shintoism as a native Japanese belief system",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U1S18",
+      "description": "The role of Buddhism and Zen Buddhism in Japanese culture",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U1S19",
+      "description": "Korean adoption of Chinese practices including civil service exams",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S20",
+      "description": "Vietnamese adaptation of Chinese practices while maintaining distinct identity",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S21",
+      "description": "The major Islamic states and empires from 1200-1450",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U1S22",
+      "description": "The Abbasid Caliphate and its fragmentation",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S23",
+      "description": "The political structure of the Delhi Sultanate in South Asia",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S24",
+      "description": "Al-Andalus as an Islamic state in the Iberian Peninsula",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S25",
+      "description": "The Seljuk Turks and their role in the Islamic world",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S26",
+      "description": "The role of ulama - Islamic scholars - in governance and law",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S27",
+      "description": "The development and application of sharia law in Islamic states",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S28",
+      "description": "The Sunni-Shia split and its political implications",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S29",
+      "description": "The role of Sufism as a mystical tradition in Islam",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S30",
+      "description": "How Sufis facilitated the spread of Islam through blending and adapting local beliefs",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S31",
+      "description": "Achievements in Islamic scholarship in math, science, and medicine",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S32",
+      "description": "The House of Wisdom in Baghdad as a center of learning",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S33",
+      "description": "How Islamic scholars preserved and transmitted Greek and Roman knowledge",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S34",
+      "description": "The influence of scholars like Ibn Sina and al-Khwarizmi",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U1S35",
+      "description": "How trade facilitated the spread of Islam across Afro-Eurasia",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S36",
+      "description": "The growth of trade cities like Baghdad, Cairo, and Cordoba",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S37",
+      "description": "The role of mosques, madrasas, and caravanserais in Islamic civilization",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S38",
+      "description": "Major South Asian states and empires 1200-1450",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U1S39",
+      "description": "The Rajput kingdoms and their Hindu warrior traditions",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S40",
+      "description": "The Vijayanagara Empire as a Hindu state in southern India",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S41",
+      "description": "The Delhi Sultanate as Muslim rule over northern India",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S42",
+      "description": "Hindu-Muslim interactions in South Asia including conflict and coexistence",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S43",
+      "description": "The bhakti movement as devotional Hinduism appealing to lower castes",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U1S44",
+      "description": "The Hindu caste system and jati as organizing social principles",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S45",
+      "description": "How Islam offered an alternative social structure to the caste system",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S46",
+      "description": "Major Southeast Asian states - Khmer, Srivijaya, Majapahit",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S47",
+      "description": "The spread of Hinduism and Buddhism to Southeast Asia via trade",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S48",
+      "description": "Angkor Wat as evidence of Hindu-Buddhist influence in Southeast Asia",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U1S49",
+      "description": "The spread of Islam to Southeast Asian port cities via Indian Ocean trade",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S50",
+      "description": "Major American civilizations 1200-1450",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U1S51",
+      "description": "The Aztec-Mexica Empire and its capital Tenochtitlan",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S52",
+      "description": "The Aztec tribute system as a means of controlling conquered peoples",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S53",
+      "description": "Aztec religious practices including human sacrifice and sun worship",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S54",
+      "description": "Chinampa agriculture as a floating garden system",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S55",
+      "description": "The Inca Empire and its capital Cusco",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S56",
+      "description": "The mit'a system as a mandatory labor obligation in the Inca state",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S57",
+      "description": "The Inca road system and chasqui messenger network",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S58",
+      "description": "The quipu as an Inca record-keeping device",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S59",
+      "description": "Inca terrace farming and freeze-drying techniques",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S60",
+      "description": "The Maya city-states and their continued presence in the period",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S61",
+      "description": "Maya achievements in astronomy, mathematics including zero, and calendars",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S62",
+      "description": "The Mississippian culture and its center at Cahokia",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S63",
+      "description": "Mound-building and maize-based agriculture in Mississippian societies",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S64",
+      "description": "Pueblo peoples and their architectural and agricultural adaptations",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S65",
+      "description": "Major African states and societies 1200-1450",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U1S66",
+      "description": "The Kingdom of Great Zimbabwe and its stone enclosures",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S67",
+      "description": "Great Zimbabwe's role in gold trade and Indian Ocean commerce",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S68",
+      "description": "The Mali Empire as a powerful West African state",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S69",
+      "description": "The significance of Mansa Musa's pilgrimage to Mecca",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S70",
+      "description": "Timbuktu as a center of Islamic learning and trans-Saharan trade",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S71",
+      "description": "The Songhai Empire as a successor state to Mali",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S72",
+      "description": "The Ethiopian Kingdom and its Coptic Christian tradition",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S73",
+      "description": "The Swahili city-states along the East African coast",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S74",
+      "description": "The Swahili language as a blend of Bantu and Arabic",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S75",
+      "description": "The role of Swahili cities like Kilwa and Mogadishu in Indian Ocean trade",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S76",
+      "description": "Hausa city-states in West Africa",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S77",
+      "description": "How Islam spread to sub-Saharan Africa through trade networks",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S78",
+      "description": "The blending of different beliefs of Islam with native African religious practices",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S79",
+      "description": "Kinship networks and age-grade systems as forms of social organization in Africa",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S80",
+      "description": "The Bantu migrations and their long-term impact on sub-Saharan Africa",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S81",
+      "description": "Major developments in Europe 1200-1450",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U1S82",
+      "description": "European feudalism as a decentralized political system",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S83",
+      "description": "The manorial system and the role of serfs in agricultural production",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S84",
+      "description": "The three-field system and the heavy plow as agricultural innovations",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U1S85",
+      "description": "The political and spiritual power of the Roman Catholic Church",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S86",
+      "description": "The authority of the papacy in medieval European politics",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S87",
+      "description": "The Crusades as a series of religious wars from 1095-1291",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S88",
+      "description": "How the Crusades stimulated European demand for Asian goods",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U1S89",
+      "description": "The growth of European universities and scholasticism",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S90",
+      "description": "Thomas Aquinas's synthesis of Christian theology and Aristotelian philosophy",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S91",
+      "description": "The early Italian Renaissance and revival of classical learning",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S92",
+      "description": "How Renaissance humanism shifted focus to individual achievement",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S93",
+      "description": "The rise of centralized monarchies in England, France, and Spain",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S94",
+      "description": "The Hundred Years War and its role in European state-building",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U1S95",
+      "description": "The impact of the Black Death on European society and economy",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U1S96",
+      "description": "How labor shortages after the plague weakened feudal obligations",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U1S97",
+      "description": "How state-building approaches differed across regions in the period 1200-1450",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U1S98",
+      "description": "How systems of forced labor differed across regions - serfdom, mit'a, slavery",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S99",
+      "description": "How the role of religion in justifying a ruler's power differed across civilizations",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U1S100",
+      "description": "How trade-based economies vs agricultural-based economies differed across regions",
+      "unitId": "u1",
+      "unitName": "Unit 1: The Global Tapestry c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U2S1",
+      "description": "The Silk Roads \u2014 overland trade routes connecting East Asia to the Mediterranean",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U2S2",
+      "description": "Key goods traded on the Silk Roads - silk, porcelain, spices, precious metals",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U2S3",
+      "description": "The role of caravanserais as rest stops facilitating Silk Road trade",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U2S4",
+      "description": "How luxury goods were traded along the Silk Roads in relay fashion",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U2S5",
+      "description": "The spread of religions - Islam, Buddhism, Christianity - along the Silk Roads",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U2S6",
+      "description": "The spread of technologies - papermaking, gunpowder, compass - along the Silk Roads",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U2S7",
+      "description": "The role of pastoral nomads - Turks, Mongols - in facilitating Silk Road trade",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U2S8",
+      "description": "The Mongol Empire \u2014 the largest contiguous land empire in history",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U2S9",
+      "description": "Genghis Khan's unification of Mongol tribes and initial conquests",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U2S10",
+      "description": "Mongol military strategies including mounted cavalry and psychological warfare",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U2S11",
+      "description": "The extent of Mongol conquests across Eurasia",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U2S12",
+      "description": "The four Mongol khanates after the empire's division",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U2S13",
+      "description": "The Yuan Dynasty in China under Kublai Khan",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U2S14",
+      "description": "The Golden Horde and Mongol rule in Russia",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U2S15",
+      "description": "The Chagatai Khanate in Central Asia",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U2S16",
+      "description": "The Ilkhanate in Persia and the Middle East",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U2S17",
+      "description": "What Pax Mongolica and its impact on trade means",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U2S18",
+      "description": "How Mongol rule facilitated safe passage for merchants across Eurasia",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U2S19",
+      "description": "The significance of Marco Polo's travels during Pax Mongolica",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U2S20",
+      "description": "Ibn Battuta's travels across the Islamic world and beyond",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U2S21",
+      "description": "Mongol administrative practices - religious tolerance, use of local bureaucrats",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U2S22",
+      "description": "The Mongol policy of employing foreigners in administration in China",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U2S23",
+      "description": "The decline and fragmentation of the Mongol Empire",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U2S24",
+      "description": "How the Black Death spread along Mongol trade routes",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U2S25",
+      "description": "The Indian Ocean \u2014 a major maritime trade network",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U2S26",
+      "description": "How monsoon winds shaped seasonal Indian Ocean trade patterns",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U2S27",
+      "description": "Key goods traded in the Indian Ocean - spices, textiles, porcelain, gold",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U2S28",
+      "description": "The role of dhow ships and junk ships in Indian Ocean navigation",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U2S29",
+      "description": "Scattered/displaced communities of merchants in Indian Ocean port cities",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U2S30",
+      "description": "The role of Arab, Indian, and Chinese merchant communities in trade",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U2S31",
+      "description": "Major Indian Ocean trading ports - Calicut, Malacca, Hormuz, Aden",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U2S32",
+      "description": "The spread of Islam through Indian Ocean trade networks",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U2S33",
+      "description": "The role of the Swahili coast in connecting African interior to Indian Ocean trade",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U2S34",
+      "description": "The trans-Saharan trade routes connecting West and North Africa",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U2S35",
+      "description": "The importance of the camel and the camel saddle in trans-Saharan trade",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U2S36",
+      "description": "The gold-salt trade as the foundation of trans-Saharan commerce",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U2S37",
+      "description": "How trans-Saharan trade facilitated the spread of Islam to West Africa",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U2S38",
+      "description": "The role of trading cities like Timbuktu, Gao, and Djenne",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U2S39",
+      "description": "Cultural consequences of increased connectivity in 1200-1450",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U2S40",
+      "description": "The spread of Islam across Afro-Eurasia through trade and Sufism",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U2S41",
+      "description": "The spread of Buddhism from South Asia to East and Southeast Asia",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U2S42",
+      "description": "The spread of printing and literacy across Eurasia",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U2S43",
+      "description": "How travelers like Ibn Battuta and Marco Polo recorded cultural exchanges",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U2S44",
+      "description": "The adoption of neoConfucianism in Korea, Japan, and Vietnam",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U2S45",
+      "description": "The development of new literary and artistic forms through cross-cultural exchange",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U2S46",
+      "description": "Environmental consequences of connectivity in 1200-1450",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U2S47",
+      "description": "The spread of the Black Death along trade routes from Central Asia to Europe",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U2S48",
+      "description": "The population, economic, and social impact of the Black Death",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U2S49",
+      "description": "How labor shortages from plague shifted economic structures",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U2S50",
+      "description": "The diffusion of crops - bananas, citrus, rice - along trade routes",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U2S51",
+      "description": "How the transfer of agricultural knowledge improved food production",
+      "unitId": "u2",
+      "unitName": "Unit 2: Networks of Exchange c.1200-1450",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U3S1",
+      "description": "The major land-based empires of 1450-1750",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U3S2",
+      "description": "The Ottoman Empire and its expansion from Anatolia",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U3S3",
+      "description": "The Ottoman conquest of Constantinople in 1453",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S4",
+      "description": "Ottoman expansion into the Balkans, Middle East, and North Africa",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S5",
+      "description": "The devshirme system - recruiting Christian boys for military and administration",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S6",
+      "description": "The Janissaries as an elite Ottoman military force",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U3S7",
+      "description": "The role of the Sultan as political and religious leader",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S8",
+      "description": "The millet system for governing non-Muslim communities",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S9",
+      "description": "The Ottomans \u2014 a gunpowder empire using cannons and firearms",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U3S10",
+      "description": "The Safavid Empire in Persia and its Shia Islamic identity",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U3S11",
+      "description": "How Shah Ismail established Twelver Shia Islam as the state religion",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S12",
+      "description": "The qizilbash warrior elite in the Safavid military",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S13",
+      "description": "The Safavid conflict with the Sunni Ottoman Empire",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S14",
+      "description": "The cultural achievements under Shah Abbas I",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S15",
+      "description": "The Safavids \u2014 a gunpowder empire",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U3S16",
+      "description": "The Mughal Empire in South Asia",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U3S17",
+      "description": "Babur's founding of the Mughal Empire",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S18",
+      "description": "Akbar's policies of religious tolerance including the Divine Faith",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S19",
+      "description": "The role of the zamindari system in Mughal tax collection",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U3S20",
+      "description": "The Mughal promotion of syncretic culture blending Hindu and Islamic traditions",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S21",
+      "description": "Aurangzeb's reimposition of the jizya tax and less tolerant policies",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S22",
+      "description": "The Mughals \u2014 a gunpowder empire",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U3S23",
+      "description": "The Qing Dynasty in China established by the Manchu",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U3S24",
+      "description": "The Manchu conquest of Ming Dynasty China",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S25",
+      "description": "Qing policies to maintain Manchu identity - queue hairstyle, banner system",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S26",
+      "description": "Qing use of Confucian civil service exams to legitimize rule",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S27",
+      "description": "Qing expansion into Central Asia, Tibet, and Taiwan",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S28",
+      "description": "The Russian Empire and its expansion",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U3S29",
+      "description": "Russian expansion into Siberia and use of Cossacks",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S30",
+      "description": "Peter the Great's westernization and modernization reforms",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S31",
+      "description": "The continuation of serfdom in the Russian Empire",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S32",
+      "description": "The Songhai Empire in West Africa",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U3S33",
+      "description": "The role of Askia Muhammad in strengthening Islam in Songhai",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S34",
+      "description": "The Tokugawa Shogunate in Japan",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U3S35",
+      "description": "The Tokugawa policy of isolationism and restrictions on foreign trade",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S36",
+      "description": "The rigid social hierarchy in Tokugawa Japan",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U3S37",
+      "description": "How empires used bureaucratic and administrative systems",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U3S38",
+      "description": "The use of tax-farming and tribute systems to fund empires",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U3S39",
+      "description": "The use of legal codes to maintain order across diverse populations",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U3S40",
+      "description": "The role of court rituals and monumental architecture in projecting power",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U3S41",
+      "description": "Examples of monumental architecture - Taj Mahal, Topkapi Palace, Forbidden City",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U3S42",
+      "description": "How rulers used religion to legitimize authority 1450-1750",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U3S43",
+      "description": "The concept of divine right of kings in European states",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U3S44",
+      "description": "The mandate of heaven in Chinese political tradition",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U3S45",
+      "description": "The role of the caliph or sultan as defender of Islam",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U3S46",
+      "description": "The Aztec use of religious ritual to justify political power",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U3S47",
+      "description": "The role of Confucianism in legitimizing the Chinese imperial state",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U3S48",
+      "description": "How administrative strategies of land-based empires compared",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U3S49",
+      "description": "The differences between the Ottoman devshirme and Mughal mansabdari system",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U3S50",
+      "description": "How qing and Ottoman treatment of ethnic and religious minorities compared",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U3S51",
+      "description": "How the use of gunpowder technology differed across the Ottoman, Safavid, and Mughal empires",
+      "unitId": "u3",
+      "unitName": "Unit 3: Land-Based Empires c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S1",
+      "description": "Key maritime technologies enabling cross-ocean exploration",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U4S2",
+      "description": "The magnetic compass and its role in navigation",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 8
+    },
+    {
+      "id": "APWH-U4S3",
+      "description": "The astrolabe and its role in determining latitude",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 8
+    },
+    {
+      "id": "APWH-U4S4",
+      "description": "The lateen sail and the caravel as advances in ship design",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 8
+    },
+    {
+      "id": "APWH-U4S5",
+      "description": "European improvements in cartography and mapmaking",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 8
+    },
+    {
+      "id": "APWH-U4S6",
+      "description": "The causes of European cross-ocean exploration",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U4S7",
+      "description": "The desire to find new trade routes to Asia after Ottoman control of overland routes",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U4S8",
+      "description": "The role of Christianity in motivating exploration - spread of the faith",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S9",
+      "description": "The role of state sponsorship and competition among European monarchies",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S10",
+      "description": "The development of joint-stock companies to fund exploration",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S11",
+      "description": "Portuguese exploration of the African coast under Prince Henry the Navigator",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S12",
+      "description": "The establishment of Portuguese trading posts in Africa, India, and Southeast Asia",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U4S13",
+      "description": "Columbus's 1492 voyage and the Spanish colonization of the Americas",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S14",
+      "description": "The Treaty of Tordesillas dividing the New World between Spain and Portugal",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U4S15",
+      "description": "The Columbian Exchange as the transfer of plants, animals, and diseases",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U4S16",
+      "description": "The transfer of crops from Americas to Afro-Eurasia - potatoes, maize, tomatoes, cacao",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S17",
+      "description": "The transfer of crops and animals from Afro-Eurasia to Americas - wheat, horses, cattle, pigs",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S18",
+      "description": "The devastating impact of Old World diseases on native American populations",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S19",
+      "description": "Smallpox, measles, and influenza as major killers of native peoples",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U4S20",
+      "description": "How New World crops increased food production and population growth in Afro-Eurasia",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U4S21",
+      "description": "The environmental impact of introducing new species to ecosystems",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S22",
+      "description": "How silver from the Americas transformed global trade networks",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S23",
+      "description": "The development of maritime empires from 1450-1750",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U4S24",
+      "description": "The Spanish Empire in the Americas including viceroyalties",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U4S25",
+      "description": "The encomienda system as a form of forced native labor",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 8
+    },
+    {
+      "id": "APWH-U4S26",
+      "description": "The hacienda system as large landed estates in Spanish colonies",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 8
+    },
+    {
+      "id": "APWH-U4S27",
+      "description": "The mita system adapted by the Spanish from the Inca mit'a for silver mining",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 8
+    },
+    {
+      "id": "APWH-U4S28",
+      "description": "The Portuguese trading-post empire in the Indian Ocean",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U4S29",
+      "description": "Dutch commercial dominance through the Dutch East India Company - VOC",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U4S30",
+      "description": "British colonial settlements in North America and the Caribbean",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U4S31",
+      "description": "French colonial territories in North America and the Caribbean",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U4S32",
+      "description": "The Atlantic slave trade and its development",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U4S33",
+      "description": "The Middle Passage and conditions of the transatlantic voyage",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U4S34",
+      "description": "The triangular trade connecting Europe, Africa, and the Americas",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U4S35",
+      "description": "How demand for plantation labor drove the Atlantic slave trade",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U4S36",
+      "description": "The plantation system for sugar, tobacco, and cotton production",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U4S37",
+      "description": "The role of African kingdoms in supplying enslaved people",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U4S38",
+      "description": "The population impact of the slave trade on West and Central Africa",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U4S39",
+      "description": "The development of chattel slavery in the Americas",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U4S40",
+      "description": "How maritime empires were maintained and administered",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U4S41",
+      "description": "Mercantilism as an economic theory favoring exports over imports",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S42",
+      "description": "How mercantilist policies benefited European mother countries at colonial expense",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U4S43",
+      "description": "The role of joint-stock companies - VOC, British East India Company - in colonial trade",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S44",
+      "description": "The Manila Galleon trade connecting Asia and the Americas via the Pacific",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S45",
+      "description": "How Spanish silver flowed through Manila to China",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U4S46",
+      "description": "The global silver trade connecting the Americas, Europe, and Asia",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U4S47",
+      "description": "Internal and external challenges to state power 1450-1750",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U4S48",
+      "description": "The Protestant Reformation and its challenge to Catholic authority",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U4S49",
+      "description": "Martin Luther's 95 Theses and the origins of Protestantism",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 8
+    },
+    {
+      "id": "APWH-U4S50",
+      "description": "The Counter-Reformation and the Catholic Church's response",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 8
+    },
+    {
+      "id": "APWH-U4S51",
+      "description": "The English Civil War and challenges to royal authority",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U4S52",
+      "description": "The Fronde in France as a noble challenge to absolutism",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U4S53",
+      "description": "The decline of the Mughal Empire due to internal divisions",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U4S54",
+      "description": "Native resistance to colonial rule - Pueblo Revolt, Metacom's War",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U4S55",
+      "description": "Slave resistance including Maroon communities and the Stono Rebellion",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U4S56",
+      "description": "Changes in social class systems from 1450-1750",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U4S57",
+      "description": "The casta system in Spanish colonies classifying people by racial mixture",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S58",
+      "description": "Social categories - peninsulares, creoles, mestizos, mulattos, native, enslaved",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U4S59",
+      "description": "How the Atlantic slave trade created racial hierarchies in the Americas",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S60",
+      "description": "The rise of a new merchant class in Europe due to Atlantic trade",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U4S61",
+      "description": "How forced labor systems - slavery, serfdom, indentured servitude - shaped social structures",
+      "unitId": "u4",
+      "unitName": "Unit 4: Transoceanic Interconnections c.1450-1750",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U5S1",
+      "description": "The Enlightenment \u2014 an intellectual movement emphasizing reason",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 8
+    },
+    {
+      "id": "APWH-U5S2",
+      "description": "John Locke's ideas on natural rights - life, liberty, property",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U5S3",
+      "description": "Voltaire's advocacy for freedom of speech and religious tolerance",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U5S4",
+      "description": "Montesquieu's theory of separation of powers",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U5S5",
+      "description": "Rousseau's concept of the social contract and popular sovereignty",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U5S6",
+      "description": "Adam Smith's ideas on free-market economics in The Wealth of Nations",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U5S7",
+      "description": "How Enlightenment ideas challenged absolute monarchy and divine right",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U5S8",
+      "description": "How Enlightenment ideas influenced revolutionary movements",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 10
+    },
+    {
+      "id": "APWH-U5S9",
+      "description": "The causes and outcomes of the American Revolution",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U5S10",
+      "description": "The influence of Locke and Enlightenment thought on the Declaration of Independence",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U5S11",
+      "description": "The establishment of a constitutional republic with separation of powers",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U5S12",
+      "description": "Limitations on revolutionary ideals - slavery, restricted suffrage",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U5S13",
+      "description": "The causes and phases of the French Revolution",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U5S14",
+      "description": "The role of Enlightenment ideas, financial crisis, and social inequality in causing the revolution",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U5S15",
+      "description": "The Declaration of the Rights of Man and Citizen",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U5S16",
+      "description": "The Reign of Terror and radical phase of the revolution",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U5S17",
+      "description": "The rise of Napoleon Bonaparte and his impact on Europe",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U5S18",
+      "description": "The Napoleonic Code and its influence on legal systems",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 13
+    },
+    {
+      "id": "APWH-U5S19",
+      "description": "How Napoleonic invasions stimulated nationalist movements",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 13
+    },
+    {
+      "id": "APWH-U5S20",
+      "description": "The Haitian Revolution as the only successful slave revolution",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U5S21",
+      "description": "Toussaint Louverture's leadership in the Haitian Revolution",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U5S22",
+      "description": "How Enlightenment ideals and French Revolution inspired Haitian revolutionaries",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U5S23",
+      "description": "The establishment of Haiti as the first free Black republic in 1804",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U5S24",
+      "description": "The causes of Latin American independence movements",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U5S25",
+      "description": "The role of Simon Bolivar in South American independence",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U5S26",
+      "description": "The role of creole elites in leading independence movements",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U5S27",
+      "description": "The influence of American, French, and Haitian Revolutions on Latin America",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U5S28",
+      "description": "How Napoleon's invasion of Spain weakened colonial control",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U5S29",
+      "description": "The development of nationalism as a political ideology",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 14
+    },
+    {
+      "id": "APWH-U5S30",
+      "description": "How nationalism unified peoples with shared language, culture, and history",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 15
+    },
+    {
+      "id": "APWH-U5S31",
+      "description": "The unification of Italy under Garibaldi and Cavour",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 15
+    },
+    {
+      "id": "APWH-U5S32",
+      "description": "The unification of Germany under Bismarck through blood and iron",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 15
+    },
+    {
+      "id": "APWH-U5S33",
+      "description": "Nationalist movements in the Balkans challenging Ottoman rule",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 15
+    },
+    {
+      "id": "APWH-U5S34",
+      "description": "How nationalism could both unify and fragment multi-ethnic empires",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 15
+    },
+    {
+      "id": "APWH-U5S35",
+      "description": "The Industrial Revolution \u2014 beginning in Britain in the late 1700s",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U5S36",
+      "description": "The preconditions for industrialization in Britain - resources, capital, labor, geography",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U5S37",
+      "description": "Access to coal and iron as key natural resources for British industrialization",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U5S38",
+      "description": "The role of the enclosure movement in creating a labor supply",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U5S39",
+      "description": "The significance of the steam engine in powering factories and transportation",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U5S40",
+      "description": "The development of the factory system replacing cottage industry",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U5S41",
+      "description": "The development of railroads and steamships in transforming transportation",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U5S42",
+      "description": "The textile industry as the leading sector of early industrialization",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U5S43",
+      "description": "Key inventions - spinning jenny, water frame, power loom",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U5S44",
+      "description": "The spread of industrialization beyond Britain",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U5S45",
+      "description": "The industrialization of Western Europe - France, Belgium, Germany",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U5S46",
+      "description": "The industrialization of the United States",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U5S47",
+      "description": "Japan's industrialization during the Meiji Restoration",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U5S48",
+      "description": "The Meiji government's deliberate adoption of Western technology and institutions",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U5S49",
+      "description": "The industrialization of Russia under the tsarist government",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U5S50",
+      "description": "How governments promoted industrialization through infrastructure and tariffs",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U5S51",
+      "description": "Social effects of the Industrial Revolution",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U5S52",
+      "description": "The growth of cities and the rise of industrial centers",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U5S53",
+      "description": "Poor working conditions, long hours, and child labor in factories",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U5S54",
+      "description": "The emergence of the industrial working class and middle class",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U5S55",
+      "description": "The development of labor unions and the labor movement",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U5S56",
+      "description": "The development of socialism as a response to industrial inequality",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U5S57",
+      "description": "Karl Marx's critique of capitalism and theory of class struggle",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U5S58",
+      "description": "The Communist Manifesto and the concept of proletarian revolution",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U5S59",
+      "description": "The emergence of feminist movements demanding women's rights",
+      "unitId": "u5",
+      "unitName": "Unit 5: Revolutions c.1750-1900",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U6S1",
+      "description": "Rationales used to justify imperialism",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U6S2",
+      "description": "Social Darwinism as a justification for European racial superiority",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U6S3",
+      "description": "The civilizing mission and white man's burden ideologies",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U6S4",
+      "description": "The role of Christian missionaries in justifying imperial expansion",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U6S5",
+      "description": "How economic motives - raw materials, markets - drove imperialism",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U6S6",
+      "description": "How nationalism and competition among European states fueled imperialism",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 15
+    },
+    {
+      "id": "APWH-U6S7",
+      "description": "State-sponsored expansion and imperialism from 1750-1900",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 8
+    },
+    {
+      "id": "APWH-U6S8",
+      "description": "The Scramble for Africa and the Berlin Conference of 1884-1885",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U6S9",
+      "description": "How the Berlin Conference partitioned Africa among European powers",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 10
+    },
+    {
+      "id": "APWH-U6S10",
+      "description": "British imperialism in India and the establishment of the British Raj",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U6S11",
+      "description": "French colonization of Indochina and North Africa",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U6S12",
+      "description": "Dutch imperialism in Southeast Asia - Indonesia",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U6S13",
+      "description": "The Opium Wars between Britain and China",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U6S14",
+      "description": "The Treaty of Nanjing and unequal treaties imposed on China",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 10
+    },
+    {
+      "id": "APWH-U6S15",
+      "description": "What spheres of influence in China means",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U6S16",
+      "description": "Japanese imperial expansion into Korea and Taiwan",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U6S17",
+      "description": "US imperialism - Philippines, Hawaii, Latin America",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U6S18",
+      "description": "Russian expansion into Central Asia and the Caucasus",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U6S19",
+      "description": "Settler colonialism in South Africa, Australia, and New Zealand",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U6S20",
+      "description": "Native responses to state expansion from 1750-1900",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 10
+    },
+    {
+      "id": "APWH-U6S21",
+      "description": "The Sepoy Mutiny of 1857 in India",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U6S22",
+      "description": "The Boxer Rebellion in China against foreign influence",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U6S23",
+      "description": "The Ghost Dance movement among Native Americans",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U6S24",
+      "description": "The Xhosa Cattle Killing movement in South Africa",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U6S25",
+      "description": "The Taiping Rebellion as a massive anti-Qing movement",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U6S26",
+      "description": "The role of Hong Xiuquan and pseudo-Christian ideology in the Taiping Rebellion",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U6S27",
+      "description": "The self-strengthening movement in China",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U6S28",
+      "description": "The Mahdist revolt in Sudan against British-Egyptian rule",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U6S29",
+      "description": "The Zulu resistance to British imperialism in southern Africa",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U6S30",
+      "description": "The Cherokee resistance and Trail of Tears in the United States",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U6S31",
+      "description": "How the Tokugawa responded to Western pressure by initially isolating Japan",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U6S32",
+      "description": "The Meiji Restoration as a response to Western imperialism through modernization",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 12
+    },
+    {
+      "id": "APWH-U6S33",
+      "description": "Global economic developments from 1750-1900",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 9
+    },
+    {
+      "id": "APWH-U6S34",
+      "description": "How industrialized nations dominated the global economy",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 10
+    },
+    {
+      "id": "APWH-U6S35",
+      "description": "How raw materials flowed from colonies to industrialized nations",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 10
+    },
+    {
+      "id": "APWH-U6S36",
+      "description": "Economic imperialism including the export of capital and infrastructure investment",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 10
+    },
+    {
+      "id": "APWH-U6S37",
+      "description": "The building of railroads and telegraph lines in colonized regions",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U6S38",
+      "description": "The transformation of agricultural economies into export-oriented economies",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 10
+    },
+    {
+      "id": "APWH-U6S39",
+      "description": "The role of the Suez and Panama Canals in global trade",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 10
+    },
+    {
+      "id": "APWH-U6S40",
+      "description": "The growth of free trade ideology and its limits",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 10
+    },
+    {
+      "id": "APWH-U6S41",
+      "description": "New conceptualizations of the global economy 1750-1900",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U6S42",
+      "description": "The development of transnational businesses and banking",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U6S43",
+      "description": "The gold standard and its role in international trade",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U6S44",
+      "description": "The formation of monopolies and cartels in industrialized nations",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U6S45",
+      "description": "Causes of migration in an interconnected world from 1750-1900",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U6S46",
+      "description": "Voluntary migration patterns - European emigration to the Americas and Oceania",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U6S47",
+      "description": "Indentured servitude of Asian laborers - Chinese, Indian - as a new labor system",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U6S48",
+      "description": "Internal migrations due to industrialization and the growth of cities",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U6S49",
+      "description": "The forced migration of enslaved Africans until abolition",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U6S50",
+      "description": "The role of railroads and steamships in facilitating mass migration",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U6S51",
+      "description": "Effects of migration from 1750-1900",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U6S52",
+      "description": "The formation of ethnic enclaves in receiving societies",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U6S53",
+      "description": "The development of anti-immigration sentiment and exclusion policies",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U6S54",
+      "description": "The Chinese Exclusion Act and White Australia Policy",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U6S55",
+      "description": "How migration transformed both sending and receiving societies",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U6S56",
+      "description": "The creation of diaspora communities maintaining cultural ties",
+      "unitId": "u6",
+      "unitName": "Unit 6: Consequences of Industrialization c.1750-1900",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U7S1",
+      "description": "Shifting global power dynamics after 1900",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U7S2",
+      "description": "The decline of the Qing Dynasty and the Chinese Revolution of 1911",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U7S3",
+      "description": "The decline of the Ottoman Empire and the Young Turk movement",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S4",
+      "description": "The decline of the Russian Empire and the Revolution of 1905",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S5",
+      "description": "The rise of Japan as an imperial power after the Meiji Restoration",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 13
+    },
+    {
+      "id": "APWH-U7S6",
+      "description": "Japan's victory in the Russo-Japanese War of 1905",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 14
+    },
+    {
+      "id": "APWH-U7S7",
+      "description": "The rise of the United States as a global power",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S8",
+      "description": "The causes of World War I",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 10
+    },
+    {
+      "id": "APWH-U7S9",
+      "description": "Militarism and the arms race among European powers",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U7S10",
+      "description": "The alliance system - Triple Alliance and Triple Entente",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U7S11",
+      "description": "Imperial rivalries and competition for colonies",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U7S12",
+      "description": "The role of nationalism - especially in the Balkans - in causing tension",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 16
+    },
+    {
+      "id": "APWH-U7S13",
+      "description": "The assassination of Archduke Franz Ferdinand as the immediate trigger",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 17
+    },
+    {
+      "id": "APWH-U7S14",
+      "description": "The conduct of World War I",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U7S15",
+      "description": "Trench warfare on the Western Front",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S16",
+      "description": "The use of new military technologies - machine guns, poison gas, tanks, aircraft",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S17",
+      "description": "Total war and the mobilization of entire national economies",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S18",
+      "description": "The role of women in the workforce during WWI",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U7S19",
+      "description": "The global scope of WWI including colonial soldiers from Africa and Asia",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S20",
+      "description": "The entry of the United States into the war in 1917",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S21",
+      "description": "The Russian Revolution of 1917 and Russia's withdrawal from WWI",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S22",
+      "description": "The Bolshevik Revolution and the establishment of the Soviet Union",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U7S23",
+      "description": "The Treaty of Versailles and its punitive terms for Germany",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S24",
+      "description": "The mandate system placing former Ottoman and German territories under Allied control",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U7S25",
+      "description": "The creation of the League of Nations",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U7S26",
+      "description": "The global economy in the interwar period",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U7S27",
+      "description": "The Great Depression starting with the US stock market crash of 1929",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S28",
+      "description": "The global spread of economic depression through trade and financial connections",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U7S29",
+      "description": "Government responses to the depression including the New Deal and deficit spending",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S30",
+      "description": "Unresolved tensions after World War I",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U7S31",
+      "description": "The rise of fascism in Italy under Mussolini",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U7S32",
+      "description": "The rise of Nazism in Germany under Adolf Hitler",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U7S33",
+      "description": "Nazi ideology including racial supremacy, anti-Semitism, and expansionism",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U7S34",
+      "description": "Japanese militarism and expansion into Manchuria and China",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U7S35",
+      "description": "The failure of the League of Nations to prevent aggression",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U7S36",
+      "description": "How economic instability and war guilt contributed to extremist movements",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U7S37",
+      "description": "The influence of Stalinist totalitarianism in the Soviet Union",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U7S38",
+      "description": "Soviet collectivization and the Five-Year Plans",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U7S39",
+      "description": "The causes of World War II",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U7S40",
+      "description": "German aggression - rearmament, Rhineland, Anschluss, Sudetenland",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U7S41",
+      "description": "The policy of appeasement and the Munich Agreement",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U7S42",
+      "description": "Japanese imperial expansion and the invasion of China",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U7S43",
+      "description": "The Nazi-Soviet Non-Aggression Pact",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U7S44",
+      "description": "The conduct of World War II",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U7S45",
+      "description": "The European theater - blitzkrieg, Battle of Britain, Eastern Front, D-Day",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S46",
+      "description": "The Pacific theater - Pearl Harbor, island-hopping, atomic bombs",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S47",
+      "description": "Total war mobilization including rationing and propaganda",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S48",
+      "description": "The role of technology in WWII - radar, aircraft carriers, nuclear weapons",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S49",
+      "description": "The war's global scope involving colonies and dominions",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S50",
+      "description": "Mass atrocities in the 20th century",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U7S51",
+      "description": "The Holocaust and the systematic murder of six million Jews",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S52",
+      "description": "The Armenian Genocide during World War I",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S53",
+      "description": "The Rape of Nanjing by Japanese forces",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S54",
+      "description": "The Holodomor famine in Ukraine under Soviet policies",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S55",
+      "description": "The Rwandan Genocide of 1994",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U7S56",
+      "description": "The Cambodian Genocide under the Khmer Rouge",
+      "unitId": "u7",
+      "unitName": "Unit 7: Global Conflict c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U8S1",
+      "description": "The origins and setting of the Cold War",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U8S2",
+      "description": "Ideological differences between US capitalism-democracy and Soviet communism",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U8S3",
+      "description": "The division of Europe into Western and Eastern blocs",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U8S4",
+      "description": "The Iron Curtain and the division of Germany",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 8
+    },
+    {
+      "id": "APWH-U8S5",
+      "description": "The formation of NATO and the Warsaw Pact",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U8S6",
+      "description": "The Truman Doctrine and the policy of containment",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U8S7",
+      "description": "The Marshall Plan and US economic aid to rebuild Western Europe",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U8S8",
+      "description": "Key events and dynamics of the Cold War",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U8S9",
+      "description": "The nuclear arms race and the concept of mutually assured destruction",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U8S10",
+      "description": "The Korean War as a Cold War proxy conflict",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U8S11",
+      "description": "The Vietnam War as a Cold War proxy conflict",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U8S12",
+      "description": "The Cuban Missile Crisis of 1962",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U8S13",
+      "description": "The Soviet-Afghan War and its consequences",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U8S14",
+      "description": "The space race as a competition between superpowers",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U8S15",
+      "description": "Cold War interventions in Latin America, Africa, and the Middle East",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U8S16",
+      "description": "The effects of the Cold War",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 0
+    },
+    {
+      "id": "APWH-U8S17",
+      "description": "The Non-Aligned Movement led by Nehru, Nasser, and Tito",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U8S18",
+      "description": "How the Cold War influenced decolonization and newly independent states",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U8S19",
+      "description": "The Helsinki Accords and detente",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U8S20",
+      "description": "The reforms of Gorbachev - glasnost and perestroika",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APWH-U8S21",
+      "description": "The fall of the Berlin Wall in 1989 and the collapse of the Soviet Union in 1991",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U8S22",
+      "description": "The spread of communism after 1900",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U8S23",
+      "description": "The Chinese Communist Revolution and Mao Zedong's victory in 1949",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U8S24",
+      "description": "Mao's policies - Great Leap Forward, Cultural Revolution",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 8
+    },
+    {
+      "id": "APWH-U8S25",
+      "description": "The Cuban Revolution and Castro's establishment of a communist state",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U8S26",
+      "description": "The spread of communism in Southeast Asia - Vietnam, Cambodia, Laos",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U8S27",
+      "description": "Communist movements in Latin America and Africa",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U8S28",
+      "description": "Decolonization movements after 1900",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U8S29",
+      "description": "Indian independence under Gandhi using nonviolent resistance",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U8S30",
+      "description": "The partition of India and Pakistan in 1947",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U8S31",
+      "description": "The decolonization of Africa - Ghana, Algeria, Congo, Kenya",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U8S32",
+      "description": "The role of Kwame Nkrumah in Ghanaian independence",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U8S33",
+      "description": "The Algerian War of Independence against France",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U8S34",
+      "description": "Decolonization in Southeast Asia - Indonesia, Vietnam",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U8S35",
+      "description": "The role of Pan-Africanism and negritude in inspiring independence movements",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U8S36",
+      "description": "How two world wars weakened European imperial powers",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U8S37",
+      "description": "How Cold War rivalries influenced the process of decolonization",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U8S38",
+      "description": "Challenges faced by newly independent states",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U8S39",
+      "description": "Ethnic and religious conflicts in post-colonial states",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U8S40",
+      "description": "How arbitrary colonial borders contributed to post-independence conflicts",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U8S41",
+      "description": "Challenges of economic development and neocolonialism",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U8S42",
+      "description": "Authoritarian rule in many newly independent states",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U8S43",
+      "description": "The apartheid system in South Africa and resistance led by Nelson Mandela",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U8S44",
+      "description": "The Israeli-Palestinian conflict in the context of decolonization",
+      "unitId": "u8",
+      "unitName": "Unit 8: Cold War and Decolonization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U9S1",
+      "description": "Advances in technology and exchange after 1900",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 2
+    },
+    {
+      "id": "APWH-U9S2",
+      "description": "The Green Revolution and its impact on global food production",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U9S3",
+      "description": "The development of the internet and digital communications",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U9S4",
+      "description": "Advances in transportation - commercial aviation, container shipping",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 11
+    },
+    {
+      "id": "APWH-U9S5",
+      "description": "How new communication technologies facilitated global cultural exchange",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U9S6",
+      "description": "The role of cell phones and social media in connecting global populations",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U9S7",
+      "description": "Technological advances and limitations related to disease after 1900",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U9S8",
+      "description": "The development of antibiotics and vaccines in the 20th century",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U9S9",
+      "description": "The global impact of the HIV-AIDS pandemic",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U9S10",
+      "description": "The persistence of malaria and other infectious diseases in developing nations",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U9S11",
+      "description": "How global travel facilitated the spread of diseases - SARS, Ebola, influenza",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U9S12",
+      "description": "Disparities in access to healthcare between developed and developing nations",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U9S13",
+      "description": "Economic globalization after 1900",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 3
+    },
+    {
+      "id": "APWH-U9S14",
+      "description": "The role of multinational corporations in the global economy",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U9S15",
+      "description": "Free-trade agreements and their impact - NAFTA, EU single market",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U9S16",
+      "description": "The growth of knowledge economies and the service sector",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U9S17",
+      "description": "How global supply chains connect production across multiple countries",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U9S18",
+      "description": "The role of international financial institutions - World Bank, IMF",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U9S19",
+      "description": "How structural adjustment programs affected developing nations",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U9S20",
+      "description": "China's economic reforms under Deng Xiaoping and integration into the global economy",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 8
+    },
+    {
+      "id": "APWH-U9S21",
+      "description": "The growth of regional trade blocs - EU, ASEAN, Mercosur",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U9S22",
+      "description": "Widening income inequality within and between nations",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U9S23",
+      "description": "Resistance to globalization after 1900",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U9S24",
+      "description": "Anti-globalization movements and protests",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U9S25",
+      "description": "Religious fundamentalism as a response to secularization and globalization",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U9S26",
+      "description": "The Iranian Revolution of 1979 as a rejection of Western influence",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U9S27",
+      "description": "Environmental movements as resistance to industrial globalization",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U9S28",
+      "description": "Concerns about climate change, deforestation, and pollution",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U9S29",
+      "description": "How some movements promoted local culture and identity against global homogeneity",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U9S30",
+      "description": "The development of international institutions after 1900",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 4
+    },
+    {
+      "id": "APWH-U9S31",
+      "description": "The United Nations and its role in international peacekeeping and cooperation",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U9S32",
+      "description": "The Universal Declaration of Human Rights of 1948",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U9S33",
+      "description": "The World Trade Organization and its role in managing global trade",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U9S34",
+      "description": "The role of non-governmental organizations - NGOs - in global issues",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U9S35",
+      "description": "International tribunals and courts for prosecuting human rights violations",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U9S36",
+      "description": "The Kyoto Protocol and Paris Agreement on climate change",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U9S37",
+      "description": "Changes in global social structures after 1900",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 5
+    },
+    {
+      "id": "APWH-U9S38",
+      "description": "Global feminist movements and changes in women's rights",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U9S39",
+      "description": "The expansion of women's suffrage and workplace participation globally",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U9S40",
+      "description": "Global migration patterns - refugees, economic migrants, brain drain",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U9S41",
+      "description": "The global spread of popular culture through media and entertainment",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U9S42",
+      "description": "Cultural homogenization and the spread of Western consumer culture",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U9S43",
+      "description": "How local cultures adapted and transformed global cultural influences",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 7
+    },
+    {
+      "id": "APWH-U9S44",
+      "description": "The persistence and evolution of ethnic and religious identity in a globalized world",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U9S45",
+      "description": "Population transitions - declining birth rates, aging populations in developed nations",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 6
+    },
+    {
+      "id": "APWH-U9S46",
+      "description": "The rise of global cities as centers of economic and cultural exchange",
+      "unitId": "u9",
+      "unitName": "Unit 9: Globalization c.1900-present",
+      "layerDepth": 6
+    }
+  ],
+  "edges": [
+    {
+      "from": "APWH-U1S1",
+      "to": "APWH-U1S2"
+    },
+    {
+      "from": "APWH-U1S1",
+      "to": "APWH-U1S3"
+    },
+    {
+      "from": "APWH-U1S1",
+      "to": "APWH-U1S4"
+    },
+    {
+      "from": "APWH-U1S4",
+      "to": "APWH-U1S5"
+    },
+    {
+      "from": "APWH-U1S5",
+      "to": "APWH-U1S6"
+    },
+    {
+      "from": "APWH-U1S6",
+      "to": "APWH-U1S7"
+    },
+    {
+      "from": "APWH-U1S1",
+      "to": "APWH-U1S8"
+    },
+    {
+      "from": "APWH-U1S8",
+      "to": "APWH-U1S9"
+    },
+    {
+      "from": "APWH-U1S9",
+      "to": "APWH-U1S10"
+    },
+    {
+      "from": "APWH-U1S1",
+      "to": "APWH-U1S11"
+    },
+    {
+      "from": "APWH-U1S11",
+      "to": "APWH-U1S12"
+    },
+    {
+      "from": "APWH-U1S1",
+      "to": "APWH-U1S13"
+    },
+    {
+      "from": "APWH-U1S13",
+      "to": "APWH-U1S14"
+    },
+    {
+      "from": "APWH-U1S14",
+      "to": "APWH-U1S15"
+    },
+    {
+      "from": "APWH-U1S15",
+      "to": "APWH-U1S16"
+    },
+    {
+      "from": "APWH-U1S14",
+      "to": "APWH-U1S17"
+    },
+    {
+      "from": "APWH-U1S14",
+      "to": "APWH-U1S18"
+    },
+    {
+      "from": "APWH-U1S13",
+      "to": "APWH-U1S19"
+    },
+    {
+      "from": "APWH-U1S13",
+      "to": "APWH-U1S20"
+    },
+    {
+      "from": "APWH-U1S21",
+      "to": "APWH-U1S22"
+    },
+    {
+      "from": "APWH-U1S21",
+      "to": "APWH-U1S23"
+    },
+    {
+      "from": "APWH-U1S21",
+      "to": "APWH-U1S24"
+    },
+    {
+      "from": "APWH-U1S21",
+      "to": "APWH-U1S25"
+    },
+    {
+      "from": "APWH-U1S21",
+      "to": "APWH-U1S26"
+    },
+    {
+      "from": "APWH-U1S26",
+      "to": "APWH-U1S27"
+    },
+    {
+      "from": "APWH-U1S21",
+      "to": "APWH-U1S28"
+    },
+    {
+      "from": "APWH-U1S21",
+      "to": "APWH-U1S29"
+    },
+    {
+      "from": "APWH-U1S29",
+      "to": "APWH-U1S30"
+    },
+    {
+      "from": "APWH-U1S21",
+      "to": "APWH-U1S31"
+    },
+    {
+      "from": "APWH-U1S31",
+      "to": "APWH-U1S32"
+    },
+    {
+      "from": "APWH-U1S31",
+      "to": "APWH-U1S33"
+    },
+    {
+      "from": "APWH-U1S33",
+      "to": "APWH-U1S34"
+    },
+    {
+      "from": "APWH-U1S21",
+      "to": "APWH-U1S35"
+    },
+    {
+      "from": "APWH-U1S35",
+      "to": "APWH-U1S36"
+    },
+    {
+      "from": "APWH-U1S21",
+      "to": "APWH-U1S37"
+    },
+    {
+      "from": "APWH-U1S38",
+      "to": "APWH-U1S39"
+    },
+    {
+      "from": "APWH-U1S38",
+      "to": "APWH-U1S40"
+    },
+    {
+      "from": "APWH-U1S38",
+      "to": "APWH-U1S41"
+    },
+    {
+      "from": "APWH-U1S41",
+      "to": "APWH-U1S42"
+    },
+    {
+      "from": "APWH-U1S42",
+      "to": "APWH-U1S43"
+    },
+    {
+      "from": "APWH-U1S38",
+      "to": "APWH-U1S44"
+    },
+    {
+      "from": "APWH-U1S44",
+      "to": "APWH-U1S45"
+    },
+    {
+      "from": "APWH-U1S38",
+      "to": "APWH-U1S46"
+    },
+    {
+      "from": "APWH-U1S46",
+      "to": "APWH-U1S47"
+    },
+    {
+      "from": "APWH-U1S47",
+      "to": "APWH-U1S48"
+    },
+    {
+      "from": "APWH-U1S46",
+      "to": "APWH-U1S49"
+    },
+    {
+      "from": "APWH-U1S50",
+      "to": "APWH-U1S51"
+    },
+    {
+      "from": "APWH-U1S51",
+      "to": "APWH-U1S52"
+    },
+    {
+      "from": "APWH-U1S51",
+      "to": "APWH-U1S53"
+    },
+    {
+      "from": "APWH-U1S51",
+      "to": "APWH-U1S54"
+    },
+    {
+      "from": "APWH-U1S50",
+      "to": "APWH-U1S55"
+    },
+    {
+      "from": "APWH-U1S55",
+      "to": "APWH-U1S56"
+    },
+    {
+      "from": "APWH-U1S55",
+      "to": "APWH-U1S57"
+    },
+    {
+      "from": "APWH-U1S55",
+      "to": "APWH-U1S58"
+    },
+    {
+      "from": "APWH-U1S55",
+      "to": "APWH-U1S59"
+    },
+    {
+      "from": "APWH-U1S50",
+      "to": "APWH-U1S60"
+    },
+    {
+      "from": "APWH-U1S60",
+      "to": "APWH-U1S61"
+    },
+    {
+      "from": "APWH-U1S50",
+      "to": "APWH-U1S62"
+    },
+    {
+      "from": "APWH-U1S62",
+      "to": "APWH-U1S63"
+    },
+    {
+      "from": "APWH-U1S50",
+      "to": "APWH-U1S64"
+    },
+    {
+      "from": "APWH-U1S65",
+      "to": "APWH-U1S66"
+    },
+    {
+      "from": "APWH-U1S66",
+      "to": "APWH-U1S67"
+    },
+    {
+      "from": "APWH-U1S65",
+      "to": "APWH-U1S68"
+    },
+    {
+      "from": "APWH-U1S68",
+      "to": "APWH-U1S69"
+    },
+    {
+      "from": "APWH-U1S68",
+      "to": "APWH-U1S70"
+    },
+    {
+      "from": "APWH-U1S65",
+      "to": "APWH-U1S71"
+    },
+    {
+      "from": "APWH-U1S65",
+      "to": "APWH-U1S72"
+    },
+    {
+      "from": "APWH-U1S65",
+      "to": "APWH-U1S73"
+    },
+    {
+      "from": "APWH-U1S73",
+      "to": "APWH-U1S74"
+    },
+    {
+      "from": "APWH-U1S73",
+      "to": "APWH-U1S75"
+    },
+    {
+      "from": "APWH-U1S65",
+      "to": "APWH-U1S76"
+    },
+    {
+      "from": "APWH-U1S65",
+      "to": "APWH-U1S77"
+    },
+    {
+      "from": "APWH-U1S77",
+      "to": "APWH-U1S78"
+    },
+    {
+      "from": "APWH-U1S65",
+      "to": "APWH-U1S79"
+    },
+    {
+      "from": "APWH-U1S65",
+      "to": "APWH-U1S80"
+    },
+    {
+      "from": "APWH-U1S81",
+      "to": "APWH-U1S82"
+    },
+    {
+      "from": "APWH-U1S82",
+      "to": "APWH-U1S83"
+    },
+    {
+      "from": "APWH-U1S83",
+      "to": "APWH-U1S84"
+    },
+    {
+      "from": "APWH-U1S81",
+      "to": "APWH-U1S85"
+    },
+    {
+      "from": "APWH-U1S85",
+      "to": "APWH-U1S86"
+    },
+    {
+      "from": "APWH-U1S85",
+      "to": "APWH-U1S87"
+    },
+    {
+      "from": "APWH-U1S87",
+      "to": "APWH-U1S88"
+    },
+    {
+      "from": "APWH-U1S81",
+      "to": "APWH-U1S89"
+    },
+    {
+      "from": "APWH-U1S89",
+      "to": "APWH-U1S90"
+    },
+    {
+      "from": "APWH-U1S81",
+      "to": "APWH-U1S91"
+    },
+    {
+      "from": "APWH-U1S91",
+      "to": "APWH-U1S92"
+    },
+    {
+      "from": "APWH-U1S81",
+      "to": "APWH-U1S93"
+    },
+    {
+      "from": "APWH-U1S93",
+      "to": "APWH-U1S94"
+    },
+    {
+      "from": "APWH-U1S81",
+      "to": "APWH-U1S95"
+    },
+    {
+      "from": "APWH-U1S95",
+      "to": "APWH-U1S96"
+    },
+    {
+      "from": "APWH-U1S97",
+      "to": "APWH-U1S98"
+    },
+    {
+      "from": "APWH-U1S97",
+      "to": "APWH-U1S99"
+    },
+    {
+      "from": "APWH-U1S97",
+      "to": "APWH-U1S100"
+    },
+    {
+      "from": "APWH-U2S1",
+      "to": "APWH-U2S2"
+    },
+    {
+      "from": "APWH-U2S1",
+      "to": "APWH-U2S3"
+    },
+    {
+      "from": "APWH-U2S1",
+      "to": "APWH-U2S4"
+    },
+    {
+      "from": "APWH-U2S1",
+      "to": "APWH-U2S5"
+    },
+    {
+      "from": "APWH-U2S1",
+      "to": "APWH-U2S6"
+    },
+    {
+      "from": "APWH-U2S1",
+      "to": "APWH-U2S7"
+    },
+    {
+      "from": "APWH-U2S8",
+      "to": "APWH-U2S9"
+    },
+    {
+      "from": "APWH-U2S9",
+      "to": "APWH-U2S10"
+    },
+    {
+      "from": "APWH-U2S9",
+      "to": "APWH-U2S11"
+    },
+    {
+      "from": "APWH-U2S11",
+      "to": "APWH-U2S12"
+    },
+    {
+      "from": "APWH-U2S12",
+      "to": "APWH-U2S13"
+    },
+    {
+      "from": "APWH-U2S12",
+      "to": "APWH-U2S14"
+    },
+    {
+      "from": "APWH-U2S12",
+      "to": "APWH-U2S15"
+    },
+    {
+      "from": "APWH-U2S12",
+      "to": "APWH-U2S16"
+    },
+    {
+      "from": "APWH-U2S8",
+      "to": "APWH-U2S17"
+    },
+    {
+      "from": "APWH-U2S17",
+      "to": "APWH-U2S18"
+    },
+    {
+      "from": "APWH-U2S17",
+      "to": "APWH-U2S19"
+    },
+    {
+      "from": "APWH-U2S17",
+      "to": "APWH-U2S20"
+    },
+    {
+      "from": "APWH-U2S8",
+      "to": "APWH-U2S21"
+    },
+    {
+      "from": "APWH-U2S21",
+      "to": "APWH-U2S22"
+    },
+    {
+      "from": "APWH-U2S8",
+      "to": "APWH-U2S23"
+    },
+    {
+      "from": "APWH-U2S23",
+      "to": "APWH-U2S24"
+    },
+    {
+      "from": "APWH-U2S25",
+      "to": "APWH-U2S26"
+    },
+    {
+      "from": "APWH-U2S25",
+      "to": "APWH-U2S27"
+    },
+    {
+      "from": "APWH-U2S25",
+      "to": "APWH-U2S28"
+    },
+    {
+      "from": "APWH-U2S25",
+      "to": "APWH-U2S29"
+    },
+    {
+      "from": "APWH-U2S29",
+      "to": "APWH-U2S30"
+    },
+    {
+      "from": "APWH-U2S25",
+      "to": "APWH-U2S31"
+    },
+    {
+      "from": "APWH-U2S25",
+      "to": "APWH-U2S32"
+    },
+    {
+      "from": "APWH-U2S25",
+      "to": "APWH-U2S33"
+    },
+    {
+      "from": "APWH-U2S34",
+      "to": "APWH-U2S35"
+    },
+    {
+      "from": "APWH-U2S34",
+      "to": "APWH-U2S36"
+    },
+    {
+      "from": "APWH-U2S34",
+      "to": "APWH-U2S37"
+    },
+    {
+      "from": "APWH-U2S34",
+      "to": "APWH-U2S38"
+    },
+    {
+      "from": "APWH-U2S39",
+      "to": "APWH-U2S40"
+    },
+    {
+      "from": "APWH-U2S39",
+      "to": "APWH-U2S41"
+    },
+    {
+      "from": "APWH-U2S39",
+      "to": "APWH-U2S42"
+    },
+    {
+      "from": "APWH-U2S39",
+      "to": "APWH-U2S43"
+    },
+    {
+      "from": "APWH-U2S39",
+      "to": "APWH-U2S44"
+    },
+    {
+      "from": "APWH-U2S39",
+      "to": "APWH-U2S45"
+    },
+    {
+      "from": "APWH-U2S46",
+      "to": "APWH-U2S47"
+    },
+    {
+      "from": "APWH-U2S47",
+      "to": "APWH-U2S48"
+    },
+    {
+      "from": "APWH-U2S48",
+      "to": "APWH-U2S49"
+    },
+    {
+      "from": "APWH-U2S46",
+      "to": "APWH-U2S50"
+    },
+    {
+      "from": "APWH-U2S46",
+      "to": "APWH-U2S51"
+    },
+    {
+      "from": "APWH-U3S1",
+      "to": "APWH-U3S2"
+    },
+    {
+      "from": "APWH-U3S2",
+      "to": "APWH-U3S3"
+    },
+    {
+      "from": "APWH-U3S2",
+      "to": "APWH-U3S4"
+    },
+    {
+      "from": "APWH-U3S2",
+      "to": "APWH-U3S5"
+    },
+    {
+      "from": "APWH-U3S5",
+      "to": "APWH-U3S6"
+    },
+    {
+      "from": "APWH-U3S2",
+      "to": "APWH-U3S7"
+    },
+    {
+      "from": "APWH-U3S2",
+      "to": "APWH-U3S8"
+    },
+    {
+      "from": "APWH-U3S2",
+      "to": "APWH-U3S9"
+    },
+    {
+      "from": "APWH-U3S1",
+      "to": "APWH-U3S10"
+    },
+    {
+      "from": "APWH-U3S10",
+      "to": "APWH-U3S11"
+    },
+    {
+      "from": "APWH-U3S10",
+      "to": "APWH-U3S12"
+    },
+    {
+      "from": "APWH-U3S10",
+      "to": "APWH-U3S13"
+    },
+    {
+      "from": "APWH-U3S10",
+      "to": "APWH-U3S14"
+    },
+    {
+      "from": "APWH-U3S10",
+      "to": "APWH-U3S15"
+    },
+    {
+      "from": "APWH-U3S1",
+      "to": "APWH-U3S16"
+    },
+    {
+      "from": "APWH-U3S16",
+      "to": "APWH-U3S17"
+    },
+    {
+      "from": "APWH-U3S16",
+      "to": "APWH-U3S18"
+    },
+    {
+      "from": "APWH-U3S18",
+      "to": "APWH-U3S19"
+    },
+    {
+      "from": "APWH-U3S16",
+      "to": "APWH-U3S20"
+    },
+    {
+      "from": "APWH-U3S16",
+      "to": "APWH-U3S21"
+    },
+    {
+      "from": "APWH-U3S16",
+      "to": "APWH-U3S22"
+    },
+    {
+      "from": "APWH-U3S1",
+      "to": "APWH-U3S23"
+    },
+    {
+      "from": "APWH-U3S23",
+      "to": "APWH-U3S24"
+    },
+    {
+      "from": "APWH-U3S23",
+      "to": "APWH-U3S25"
+    },
+    {
+      "from": "APWH-U3S23",
+      "to": "APWH-U3S26"
+    },
+    {
+      "from": "APWH-U3S23",
+      "to": "APWH-U3S27"
+    },
+    {
+      "from": "APWH-U3S1",
+      "to": "APWH-U3S28"
+    },
+    {
+      "from": "APWH-U3S28",
+      "to": "APWH-U3S29"
+    },
+    {
+      "from": "APWH-U3S28",
+      "to": "APWH-U3S30"
+    },
+    {
+      "from": "APWH-U3S28",
+      "to": "APWH-U3S31"
+    },
+    {
+      "from": "APWH-U3S1",
+      "to": "APWH-U3S32"
+    },
+    {
+      "from": "APWH-U3S32",
+      "to": "APWH-U3S33"
+    },
+    {
+      "from": "APWH-U3S1",
+      "to": "APWH-U3S34"
+    },
+    {
+      "from": "APWH-U3S34",
+      "to": "APWH-U3S35"
+    },
+    {
+      "from": "APWH-U3S34",
+      "to": "APWH-U3S36"
+    },
+    {
+      "from": "APWH-U3S37",
+      "to": "APWH-U3S38"
+    },
+    {
+      "from": "APWH-U3S37",
+      "to": "APWH-U3S39"
+    },
+    {
+      "from": "APWH-U3S37",
+      "to": "APWH-U3S40"
+    },
+    {
+      "from": "APWH-U3S40",
+      "to": "APWH-U3S41"
+    },
+    {
+      "from": "APWH-U3S42",
+      "to": "APWH-U3S43"
+    },
+    {
+      "from": "APWH-U3S42",
+      "to": "APWH-U3S44"
+    },
+    {
+      "from": "APWH-U3S42",
+      "to": "APWH-U3S45"
+    },
+    {
+      "from": "APWH-U3S42",
+      "to": "APWH-U3S46"
+    },
+    {
+      "from": "APWH-U3S42",
+      "to": "APWH-U3S47"
+    },
+    {
+      "from": "APWH-U3S48",
+      "to": "APWH-U3S49"
+    },
+    {
+      "from": "APWH-U3S48",
+      "to": "APWH-U3S50"
+    },
+    {
+      "from": "APWH-U3S48",
+      "to": "APWH-U3S51"
+    },
+    {
+      "from": "APWH-U4S1",
+      "to": "APWH-U4S2"
+    },
+    {
+      "from": "APWH-U4S1",
+      "to": "APWH-U4S3"
+    },
+    {
+      "from": "APWH-U4S1",
+      "to": "APWH-U4S4"
+    },
+    {
+      "from": "APWH-U4S1",
+      "to": "APWH-U4S5"
+    },
+    {
+      "from": "APWH-U4S6",
+      "to": "APWH-U4S7"
+    },
+    {
+      "from": "APWH-U4S6",
+      "to": "APWH-U4S8"
+    },
+    {
+      "from": "APWH-U4S6",
+      "to": "APWH-U4S9"
+    },
+    {
+      "from": "APWH-U4S6",
+      "to": "APWH-U4S10"
+    },
+    {
+      "from": "APWH-U4S6",
+      "to": "APWH-U4S11"
+    },
+    {
+      "from": "APWH-U4S11",
+      "to": "APWH-U4S12"
+    },
+    {
+      "from": "APWH-U4S6",
+      "to": "APWH-U4S13"
+    },
+    {
+      "from": "APWH-U4S13",
+      "to": "APWH-U4S14"
+    },
+    {
+      "from": "APWH-U4S15",
+      "to": "APWH-U4S16"
+    },
+    {
+      "from": "APWH-U4S15",
+      "to": "APWH-U4S17"
+    },
+    {
+      "from": "APWH-U4S15",
+      "to": "APWH-U4S18"
+    },
+    {
+      "from": "APWH-U4S18",
+      "to": "APWH-U4S19"
+    },
+    {
+      "from": "APWH-U4S16",
+      "to": "APWH-U4S20"
+    },
+    {
+      "from": "APWH-U4S15",
+      "to": "APWH-U4S21"
+    },
+    {
+      "from": "APWH-U4S15",
+      "to": "APWH-U4S22"
+    },
+    {
+      "from": "APWH-U4S23",
+      "to": "APWH-U4S24"
+    },
+    {
+      "from": "APWH-U4S24",
+      "to": "APWH-U4S25"
+    },
+    {
+      "from": "APWH-U4S24",
+      "to": "APWH-U4S26"
+    },
+    {
+      "from": "APWH-U4S24",
+      "to": "APWH-U4S27"
+    },
+    {
+      "from": "APWH-U4S23",
+      "to": "APWH-U4S28"
+    },
+    {
+      "from": "APWH-U4S23",
+      "to": "APWH-U4S29"
+    },
+    {
+      "from": "APWH-U4S23",
+      "to": "APWH-U4S30"
+    },
+    {
+      "from": "APWH-U4S23",
+      "to": "APWH-U4S31"
+    },
+    {
+      "from": "APWH-U4S32",
+      "to": "APWH-U4S33"
+    },
+    {
+      "from": "APWH-U4S32",
+      "to": "APWH-U4S34"
+    },
+    {
+      "from": "APWH-U4S32",
+      "to": "APWH-U4S35"
+    },
+    {
+      "from": "APWH-U4S35",
+      "to": "APWH-U4S36"
+    },
+    {
+      "from": "APWH-U4S32",
+      "to": "APWH-U4S37"
+    },
+    {
+      "from": "APWH-U4S32",
+      "to": "APWH-U4S38"
+    },
+    {
+      "from": "APWH-U4S32",
+      "to": "APWH-U4S39"
+    },
+    {
+      "from": "APWH-U4S40",
+      "to": "APWH-U4S41"
+    },
+    {
+      "from": "APWH-U4S41",
+      "to": "APWH-U4S42"
+    },
+    {
+      "from": "APWH-U4S40",
+      "to": "APWH-U4S43"
+    },
+    {
+      "from": "APWH-U4S40",
+      "to": "APWH-U4S44"
+    },
+    {
+      "from": "APWH-U4S22",
+      "to": "APWH-U4S45"
+    },
+    {
+      "from": "APWH-U4S45",
+      "to": "APWH-U4S46"
+    },
+    {
+      "from": "APWH-U4S47",
+      "to": "APWH-U4S48"
+    },
+    {
+      "from": "APWH-U4S48",
+      "to": "APWH-U4S49"
+    },
+    {
+      "from": "APWH-U4S48",
+      "to": "APWH-U4S50"
+    },
+    {
+      "from": "APWH-U4S47",
+      "to": "APWH-U4S51"
+    },
+    {
+      "from": "APWH-U4S47",
+      "to": "APWH-U4S52"
+    },
+    {
+      "from": "APWH-U4S47",
+      "to": "APWH-U4S53"
+    },
+    {
+      "from": "APWH-U4S47",
+      "to": "APWH-U4S54"
+    },
+    {
+      "from": "APWH-U4S47",
+      "to": "APWH-U4S55"
+    },
+    {
+      "from": "APWH-U4S56",
+      "to": "APWH-U4S57"
+    },
+    {
+      "from": "APWH-U4S57",
+      "to": "APWH-U4S58"
+    },
+    {
+      "from": "APWH-U4S56",
+      "to": "APWH-U4S59"
+    },
+    {
+      "from": "APWH-U4S56",
+      "to": "APWH-U4S60"
+    },
+    {
+      "from": "APWH-U4S56",
+      "to": "APWH-U4S61"
+    },
+    {
+      "from": "APWH-U5S1",
+      "to": "APWH-U5S2"
+    },
+    {
+      "from": "APWH-U5S1",
+      "to": "APWH-U5S3"
+    },
+    {
+      "from": "APWH-U5S1",
+      "to": "APWH-U5S4"
+    },
+    {
+      "from": "APWH-U5S1",
+      "to": "APWH-U5S5"
+    },
+    {
+      "from": "APWH-U5S1",
+      "to": "APWH-U5S6"
+    },
+    {
+      "from": "APWH-U5S1",
+      "to": "APWH-U5S7"
+    },
+    {
+      "from": "APWH-U5S7",
+      "to": "APWH-U5S8"
+    },
+    {
+      "from": "APWH-U5S8",
+      "to": "APWH-U5S9"
+    },
+    {
+      "from": "APWH-U5S9",
+      "to": "APWH-U5S10"
+    },
+    {
+      "from": "APWH-U5S9",
+      "to": "APWH-U5S11"
+    },
+    {
+      "from": "APWH-U5S9",
+      "to": "APWH-U5S12"
+    },
+    {
+      "from": "APWH-U5S8",
+      "to": "APWH-U5S13"
+    },
+    {
+      "from": "APWH-U5S13",
+      "to": "APWH-U5S14"
+    },
+    {
+      "from": "APWH-U5S13",
+      "to": "APWH-U5S15"
+    },
+    {
+      "from": "APWH-U5S13",
+      "to": "APWH-U5S16"
+    },
+    {
+      "from": "APWH-U5S13",
+      "to": "APWH-U5S17"
+    },
+    {
+      "from": "APWH-U5S17",
+      "to": "APWH-U5S18"
+    },
+    {
+      "from": "APWH-U5S17",
+      "to": "APWH-U5S19"
+    },
+    {
+      "from": "APWH-U5S8",
+      "to": "APWH-U5S20"
+    },
+    {
+      "from": "APWH-U5S20",
+      "to": "APWH-U5S21"
+    },
+    {
+      "from": "APWH-U5S20",
+      "to": "APWH-U5S22"
+    },
+    {
+      "from": "APWH-U5S20",
+      "to": "APWH-U5S23"
+    },
+    {
+      "from": "APWH-U5S8",
+      "to": "APWH-U5S24"
+    },
+    {
+      "from": "APWH-U5S24",
+      "to": "APWH-U5S25"
+    },
+    {
+      "from": "APWH-U5S24",
+      "to": "APWH-U5S26"
+    },
+    {
+      "from": "APWH-U5S24",
+      "to": "APWH-U5S27"
+    },
+    {
+      "from": "APWH-U5S24",
+      "to": "APWH-U5S28"
+    },
+    {
+      "from": "APWH-U5S29",
+      "to": "APWH-U5S30"
+    },
+    {
+      "from": "APWH-U5S29",
+      "to": "APWH-U5S31"
+    },
+    {
+      "from": "APWH-U5S29",
+      "to": "APWH-U5S32"
+    },
+    {
+      "from": "APWH-U5S29",
+      "to": "APWH-U5S33"
+    },
+    {
+      "from": "APWH-U5S29",
+      "to": "APWH-U5S34"
+    },
+    {
+      "from": "APWH-U5S35",
+      "to": "APWH-U5S36"
+    },
+    {
+      "from": "APWH-U5S36",
+      "to": "APWH-U5S37"
+    },
+    {
+      "from": "APWH-U5S36",
+      "to": "APWH-U5S38"
+    },
+    {
+      "from": "APWH-U5S36",
+      "to": "APWH-U5S39"
+    },
+    {
+      "from": "APWH-U5S39",
+      "to": "APWH-U5S40"
+    },
+    {
+      "from": "APWH-U5S39",
+      "to": "APWH-U5S41"
+    },
+    {
+      "from": "APWH-U5S35",
+      "to": "APWH-U5S42"
+    },
+    {
+      "from": "APWH-U5S42",
+      "to": "APWH-U5S43"
+    },
+    {
+      "from": "APWH-U5S44",
+      "to": "APWH-U5S45"
+    },
+    {
+      "from": "APWH-U5S44",
+      "to": "APWH-U5S46"
+    },
+    {
+      "from": "APWH-U5S44",
+      "to": "APWH-U5S47"
+    },
+    {
+      "from": "APWH-U5S47",
+      "to": "APWH-U5S48"
+    },
+    {
+      "from": "APWH-U5S44",
+      "to": "APWH-U5S49"
+    },
+    {
+      "from": "APWH-U5S44",
+      "to": "APWH-U5S50"
+    },
+    {
+      "from": "APWH-U5S51",
+      "to": "APWH-U5S52"
+    },
+    {
+      "from": "APWH-U5S52",
+      "to": "APWH-U5S53"
+    },
+    {
+      "from": "APWH-U5S51",
+      "to": "APWH-U5S54"
+    },
+    {
+      "from": "APWH-U5S51",
+      "to": "APWH-U5S55"
+    },
+    {
+      "from": "APWH-U5S51",
+      "to": "APWH-U5S56"
+    },
+    {
+      "from": "APWH-U5S56",
+      "to": "APWH-U5S57"
+    },
+    {
+      "from": "APWH-U5S57",
+      "to": "APWH-U5S58"
+    },
+    {
+      "from": "APWH-U5S51",
+      "to": "APWH-U5S59"
+    },
+    {
+      "from": "APWH-U6S1",
+      "to": "APWH-U6S2"
+    },
+    {
+      "from": "APWH-U6S1",
+      "to": "APWH-U6S3"
+    },
+    {
+      "from": "APWH-U6S1",
+      "to": "APWH-U6S4"
+    },
+    {
+      "from": "APWH-U6S1",
+      "to": "APWH-U6S5"
+    },
+    {
+      "from": "APWH-U6S1",
+      "to": "APWH-U6S6"
+    },
+    {
+      "from": "APWH-U6S7",
+      "to": "APWH-U6S8"
+    },
+    {
+      "from": "APWH-U6S8",
+      "to": "APWH-U6S9"
+    },
+    {
+      "from": "APWH-U6S7",
+      "to": "APWH-U6S10"
+    },
+    {
+      "from": "APWH-U6S7",
+      "to": "APWH-U6S11"
+    },
+    {
+      "from": "APWH-U6S7",
+      "to": "APWH-U6S12"
+    },
+    {
+      "from": "APWH-U6S7",
+      "to": "APWH-U6S13"
+    },
+    {
+      "from": "APWH-U6S13",
+      "to": "APWH-U6S14"
+    },
+    {
+      "from": "APWH-U6S14",
+      "to": "APWH-U6S15"
+    },
+    {
+      "from": "APWH-U6S7",
+      "to": "APWH-U6S16"
+    },
+    {
+      "from": "APWH-U6S7",
+      "to": "APWH-U6S17"
+    },
+    {
+      "from": "APWH-U6S7",
+      "to": "APWH-U6S18"
+    },
+    {
+      "from": "APWH-U6S7",
+      "to": "APWH-U6S19"
+    },
+    {
+      "from": "APWH-U6S20",
+      "to": "APWH-U6S21"
+    },
+    {
+      "from": "APWH-U6S20",
+      "to": "APWH-U6S22"
+    },
+    {
+      "from": "APWH-U6S20",
+      "to": "APWH-U6S23"
+    },
+    {
+      "from": "APWH-U6S20",
+      "to": "APWH-U6S24"
+    },
+    {
+      "from": "APWH-U6S20",
+      "to": "APWH-U6S25"
+    },
+    {
+      "from": "APWH-U6S25",
+      "to": "APWH-U6S26"
+    },
+    {
+      "from": "APWH-U6S20",
+      "to": "APWH-U6S27"
+    },
+    {
+      "from": "APWH-U6S20",
+      "to": "APWH-U6S28"
+    },
+    {
+      "from": "APWH-U6S20",
+      "to": "APWH-U6S29"
+    },
+    {
+      "from": "APWH-U6S20",
+      "to": "APWH-U6S30"
+    },
+    {
+      "from": "APWH-U6S20",
+      "to": "APWH-U6S31"
+    },
+    {
+      "from": "APWH-U6S31",
+      "to": "APWH-U6S32"
+    },
+    {
+      "from": "APWH-U6S33",
+      "to": "APWH-U6S34"
+    },
+    {
+      "from": "APWH-U6S33",
+      "to": "APWH-U6S35"
+    },
+    {
+      "from": "APWH-U6S33",
+      "to": "APWH-U6S36"
+    },
+    {
+      "from": "APWH-U6S36",
+      "to": "APWH-U6S37"
+    },
+    {
+      "from": "APWH-U6S33",
+      "to": "APWH-U6S38"
+    },
+    {
+      "from": "APWH-U6S33",
+      "to": "APWH-U6S39"
+    },
+    {
+      "from": "APWH-U6S33",
+      "to": "APWH-U6S40"
+    },
+    {
+      "from": "APWH-U6S41",
+      "to": "APWH-U6S42"
+    },
+    {
+      "from": "APWH-U6S41",
+      "to": "APWH-U6S43"
+    },
+    {
+      "from": "APWH-U6S41",
+      "to": "APWH-U6S44"
+    },
+    {
+      "from": "APWH-U6S45",
+      "to": "APWH-U6S46"
+    },
+    {
+      "from": "APWH-U6S45",
+      "to": "APWH-U6S47"
+    },
+    {
+      "from": "APWH-U6S45",
+      "to": "APWH-U6S48"
+    },
+    {
+      "from": "APWH-U6S45",
+      "to": "APWH-U6S49"
+    },
+    {
+      "from": "APWH-U6S45",
+      "to": "APWH-U6S50"
+    },
+    {
+      "from": "APWH-U6S51",
+      "to": "APWH-U6S52"
+    },
+    {
+      "from": "APWH-U6S51",
+      "to": "APWH-U6S53"
+    },
+    {
+      "from": "APWH-U6S53",
+      "to": "APWH-U6S54"
+    },
+    {
+      "from": "APWH-U6S51",
+      "to": "APWH-U6S55"
+    },
+    {
+      "from": "APWH-U6S51",
+      "to": "APWH-U6S56"
+    },
+    {
+      "from": "APWH-U7S1",
+      "to": "APWH-U7S2"
+    },
+    {
+      "from": "APWH-U7S1",
+      "to": "APWH-U7S3"
+    },
+    {
+      "from": "APWH-U7S1",
+      "to": "APWH-U7S4"
+    },
+    {
+      "from": "APWH-U7S1",
+      "to": "APWH-U7S5"
+    },
+    {
+      "from": "APWH-U7S5",
+      "to": "APWH-U7S6"
+    },
+    {
+      "from": "APWH-U7S1",
+      "to": "APWH-U7S7"
+    },
+    {
+      "from": "APWH-U7S8",
+      "to": "APWH-U7S9"
+    },
+    {
+      "from": "APWH-U7S8",
+      "to": "APWH-U7S10"
+    },
+    {
+      "from": "APWH-U7S8",
+      "to": "APWH-U7S11"
+    },
+    {
+      "from": "APWH-U7S8",
+      "to": "APWH-U7S12"
+    },
+    {
+      "from": "APWH-U7S12",
+      "to": "APWH-U7S13"
+    },
+    {
+      "from": "APWH-U7S14",
+      "to": "APWH-U7S15"
+    },
+    {
+      "from": "APWH-U7S14",
+      "to": "APWH-U7S16"
+    },
+    {
+      "from": "APWH-U7S14",
+      "to": "APWH-U7S17"
+    },
+    {
+      "from": "APWH-U7S17",
+      "to": "APWH-U7S18"
+    },
+    {
+      "from": "APWH-U7S14",
+      "to": "APWH-U7S19"
+    },
+    {
+      "from": "APWH-U7S14",
+      "to": "APWH-U7S20"
+    },
+    {
+      "from": "APWH-U7S14",
+      "to": "APWH-U7S21"
+    },
+    {
+      "from": "APWH-U7S21",
+      "to": "APWH-U7S22"
+    },
+    {
+      "from": "APWH-U7S14",
+      "to": "APWH-U7S23"
+    },
+    {
+      "from": "APWH-U7S23",
+      "to": "APWH-U7S24"
+    },
+    {
+      "from": "APWH-U7S23",
+      "to": "APWH-U7S25"
+    },
+    {
+      "from": "APWH-U7S26",
+      "to": "APWH-U7S27"
+    },
+    {
+      "from": "APWH-U7S27",
+      "to": "APWH-U7S28"
+    },
+    {
+      "from": "APWH-U7S26",
+      "to": "APWH-U7S29"
+    },
+    {
+      "from": "APWH-U7S30",
+      "to": "APWH-U7S31"
+    },
+    {
+      "from": "APWH-U7S30",
+      "to": "APWH-U7S32"
+    },
+    {
+      "from": "APWH-U7S32",
+      "to": "APWH-U7S33"
+    },
+    {
+      "from": "APWH-U7S30",
+      "to": "APWH-U7S34"
+    },
+    {
+      "from": "APWH-U7S30",
+      "to": "APWH-U7S35"
+    },
+    {
+      "from": "APWH-U7S30",
+      "to": "APWH-U7S36"
+    },
+    {
+      "from": "APWH-U7S30",
+      "to": "APWH-U7S37"
+    },
+    {
+      "from": "APWH-U7S37",
+      "to": "APWH-U7S38"
+    },
+    {
+      "from": "APWH-U7S39",
+      "to": "APWH-U7S40"
+    },
+    {
+      "from": "APWH-U7S39",
+      "to": "APWH-U7S41"
+    },
+    {
+      "from": "APWH-U7S39",
+      "to": "APWH-U7S42"
+    },
+    {
+      "from": "APWH-U7S39",
+      "to": "APWH-U7S43"
+    },
+    {
+      "from": "APWH-U7S44",
+      "to": "APWH-U7S45"
+    },
+    {
+      "from": "APWH-U7S44",
+      "to": "APWH-U7S46"
+    },
+    {
+      "from": "APWH-U7S44",
+      "to": "APWH-U7S47"
+    },
+    {
+      "from": "APWH-U7S44",
+      "to": "APWH-U7S48"
+    },
+    {
+      "from": "APWH-U7S44",
+      "to": "APWH-U7S49"
+    },
+    {
+      "from": "APWH-U7S50",
+      "to": "APWH-U7S51"
+    },
+    {
+      "from": "APWH-U7S50",
+      "to": "APWH-U7S52"
+    },
+    {
+      "from": "APWH-U7S50",
+      "to": "APWH-U7S53"
+    },
+    {
+      "from": "APWH-U7S50",
+      "to": "APWH-U7S54"
+    },
+    {
+      "from": "APWH-U7S50",
+      "to": "APWH-U7S55"
+    },
+    {
+      "from": "APWH-U7S50",
+      "to": "APWH-U7S56"
+    },
+    {
+      "from": "APWH-U8S1",
+      "to": "APWH-U8S2"
+    },
+    {
+      "from": "APWH-U8S1",
+      "to": "APWH-U8S3"
+    },
+    {
+      "from": "APWH-U8S3",
+      "to": "APWH-U8S4"
+    },
+    {
+      "from": "APWH-U8S1",
+      "to": "APWH-U8S5"
+    },
+    {
+      "from": "APWH-U8S1",
+      "to": "APWH-U8S6"
+    },
+    {
+      "from": "APWH-U8S1",
+      "to": "APWH-U8S7"
+    },
+    {
+      "from": "APWH-U8S8",
+      "to": "APWH-U8S9"
+    },
+    {
+      "from": "APWH-U8S8",
+      "to": "APWH-U8S10"
+    },
+    {
+      "from": "APWH-U8S8",
+      "to": "APWH-U8S11"
+    },
+    {
+      "from": "APWH-U8S8",
+      "to": "APWH-U8S12"
+    },
+    {
+      "from": "APWH-U8S8",
+      "to": "APWH-U8S13"
+    },
+    {
+      "from": "APWH-U8S8",
+      "to": "APWH-U8S14"
+    },
+    {
+      "from": "APWH-U8S8",
+      "to": "APWH-U8S15"
+    },
+    {
+      "from": "APWH-U8S16",
+      "to": "APWH-U8S17"
+    },
+    {
+      "from": "APWH-U8S16",
+      "to": "APWH-U8S18"
+    },
+    {
+      "from": "APWH-U8S16",
+      "to": "APWH-U8S19"
+    },
+    {
+      "from": "APWH-U8S16",
+      "to": "APWH-U8S20"
+    },
+    {
+      "from": "APWH-U8S20",
+      "to": "APWH-U8S21"
+    },
+    {
+      "from": "APWH-U8S22",
+      "to": "APWH-U8S23"
+    },
+    {
+      "from": "APWH-U8S23",
+      "to": "APWH-U8S24"
+    },
+    {
+      "from": "APWH-U8S22",
+      "to": "APWH-U8S25"
+    },
+    {
+      "from": "APWH-U8S22",
+      "to": "APWH-U8S26"
+    },
+    {
+      "from": "APWH-U8S22",
+      "to": "APWH-U8S27"
+    },
+    {
+      "from": "APWH-U8S28",
+      "to": "APWH-U8S29"
+    },
+    {
+      "from": "APWH-U8S29",
+      "to": "APWH-U8S30"
+    },
+    {
+      "from": "APWH-U8S28",
+      "to": "APWH-U8S31"
+    },
+    {
+      "from": "APWH-U8S31",
+      "to": "APWH-U8S32"
+    },
+    {
+      "from": "APWH-U8S31",
+      "to": "APWH-U8S33"
+    },
+    {
+      "from": "APWH-U8S28",
+      "to": "APWH-U8S34"
+    },
+    {
+      "from": "APWH-U8S28",
+      "to": "APWH-U8S35"
+    },
+    {
+      "from": "APWH-U8S28",
+      "to": "APWH-U8S36"
+    },
+    {
+      "from": "APWH-U8S28",
+      "to": "APWH-U8S37"
+    },
+    {
+      "from": "APWH-U8S38",
+      "to": "APWH-U8S39"
+    },
+    {
+      "from": "APWH-U8S39",
+      "to": "APWH-U8S40"
+    },
+    {
+      "from": "APWH-U8S38",
+      "to": "APWH-U8S41"
+    },
+    {
+      "from": "APWH-U8S38",
+      "to": "APWH-U8S42"
+    },
+    {
+      "from": "APWH-U8S38",
+      "to": "APWH-U8S43"
+    },
+    {
+      "from": "APWH-U8S38",
+      "to": "APWH-U8S44"
+    },
+    {
+      "from": "APWH-U9S1",
+      "to": "APWH-U9S2"
+    },
+    {
+      "from": "APWH-U9S1",
+      "to": "APWH-U9S3"
+    },
+    {
+      "from": "APWH-U9S1",
+      "to": "APWH-U9S4"
+    },
+    {
+      "from": "APWH-U9S1",
+      "to": "APWH-U9S5"
+    },
+    {
+      "from": "APWH-U9S1",
+      "to": "APWH-U9S6"
+    },
+    {
+      "from": "APWH-U9S7",
+      "to": "APWH-U9S8"
+    },
+    {
+      "from": "APWH-U9S7",
+      "to": "APWH-U9S9"
+    },
+    {
+      "from": "APWH-U9S7",
+      "to": "APWH-U9S10"
+    },
+    {
+      "from": "APWH-U9S7",
+      "to": "APWH-U9S11"
+    },
+    {
+      "from": "APWH-U9S7",
+      "to": "APWH-U9S12"
+    },
+    {
+      "from": "APWH-U9S13",
+      "to": "APWH-U9S14"
+    },
+    {
+      "from": "APWH-U9S13",
+      "to": "APWH-U9S15"
+    },
+    {
+      "from": "APWH-U9S13",
+      "to": "APWH-U9S16"
+    },
+    {
+      "from": "APWH-U9S13",
+      "to": "APWH-U9S17"
+    },
+    {
+      "from": "APWH-U9S13",
+      "to": "APWH-U9S18"
+    },
+    {
+      "from": "APWH-U9S18",
+      "to": "APWH-U9S19"
+    },
+    {
+      "from": "APWH-U9S13",
+      "to": "APWH-U9S20"
+    },
+    {
+      "from": "APWH-U9S13",
+      "to": "APWH-U9S21"
+    },
+    {
+      "from": "APWH-U9S13",
+      "to": "APWH-U9S22"
+    },
+    {
+      "from": "APWH-U9S23",
+      "to": "APWH-U9S24"
+    },
+    {
+      "from": "APWH-U9S23",
+      "to": "APWH-U9S25"
+    },
+    {
+      "from": "APWH-U9S25",
+      "to": "APWH-U9S26"
+    },
+    {
+      "from": "APWH-U9S23",
+      "to": "APWH-U9S27"
+    },
+    {
+      "from": "APWH-U9S27",
+      "to": "APWH-U9S28"
+    },
+    {
+      "from": "APWH-U9S23",
+      "to": "APWH-U9S29"
+    },
+    {
+      "from": "APWH-U9S30",
+      "to": "APWH-U9S31"
+    },
+    {
+      "from": "APWH-U9S30",
+      "to": "APWH-U9S32"
+    },
+    {
+      "from": "APWH-U9S30",
+      "to": "APWH-U9S33"
+    },
+    {
+      "from": "APWH-U9S30",
+      "to": "APWH-U9S34"
+    },
+    {
+      "from": "APWH-U9S30",
+      "to": "APWH-U9S35"
+    },
+    {
+      "from": "APWH-U9S30",
+      "to": "APWH-U9S36"
+    },
+    {
+      "from": "APWH-U9S37",
+      "to": "APWH-U9S38"
+    },
+    {
+      "from": "APWH-U9S38",
+      "to": "APWH-U9S39"
+    },
+    {
+      "from": "APWH-U9S37",
+      "to": "APWH-U9S40"
+    },
+    {
+      "from": "APWH-U9S37",
+      "to": "APWH-U9S41"
+    },
+    {
+      "from": "APWH-U9S41",
+      "to": "APWH-U9S42"
+    },
+    {
+      "from": "APWH-U9S41",
+      "to": "APWH-U9S43"
+    },
+    {
+      "from": "APWH-U9S37",
+      "to": "APWH-U9S44"
+    },
+    {
+      "from": "APWH-U9S37",
+      "to": "APWH-U9S45"
+    },
+    {
+      "from": "APWH-U9S37",
+      "to": "APWH-U9S46"
+    },
+    {
+      "from": "APWH-U1S2",
+      "to": "APWH-U2S6"
+    },
+    {
+      "from": "APWH-U1S3",
+      "to": "APWH-U2S1"
+    },
+    {
+      "from": "APWH-U1S7",
+      "to": "APWH-U2S1"
+    },
+    {
+      "from": "APWH-U1S35",
+      "to": "APWH-U2S1"
+    },
+    {
+      "from": "APWH-U1S35",
+      "to": "APWH-U2S34"
+    },
+    {
+      "from": "APWH-U1S37",
+      "to": "APWH-U2S3"
+    },
+    {
+      "from": "APWH-U1S68",
+      "to": "APWH-U2S25"
+    },
+    {
+      "from": "APWH-U1S73",
+      "to": "APWH-U2S33"
+    },
+    {
+      "from": "APWH-U1S75",
+      "to": "APWH-U2S33"
+    },
+    {
+      "from": "APWH-U1S77",
+      "to": "APWH-U2S37"
+    },
+    {
+      "from": "APWH-U1S68",
+      "to": "APWH-U2S34"
+    },
+    {
+      "from": "APWH-U1S88",
+      "to": "APWH-U2S1"
+    },
+    {
+      "from": "APWH-U1S82",
+      "to": "APWH-U2S7"
+    },
+    {
+      "from": "APWH-U2S6",
+      "to": "APWH-U3S9"
+    },
+    {
+      "from": "APWH-U2S6",
+      "to": "APWH-U3S15"
+    },
+    {
+      "from": "APWH-U2S6",
+      "to": "APWH-U3S22"
+    },
+    {
+      "from": "APWH-U2S23",
+      "to": "APWH-U3S1"
+    },
+    {
+      "from": "APWH-U2S12",
+      "to": "APWH-U3S1"
+    },
+    {
+      "from": "APWH-U2S13",
+      "to": "APWH-U3S23"
+    },
+    {
+      "from": "APWH-U2S14",
+      "to": "APWH-U3S28"
+    },
+    {
+      "from": "APWH-U2S48",
+      "to": "APWH-U1S95"
+    },
+    {
+      "from": "APWH-U2S17",
+      "to": "APWH-U4S7"
+    },
+    {
+      "from": "APWH-U1S2",
+      "to": "APWH-U4S1"
+    },
+    {
+      "from": "APWH-U1S2",
+      "to": "APWH-U4S2"
+    },
+    {
+      "from": "APWH-U2S6",
+      "to": "APWH-U4S1"
+    },
+    {
+      "from": "APWH-U3S3",
+      "to": "APWH-U4S7"
+    },
+    {
+      "from": "APWH-U3S2",
+      "to": "APWH-U4S7"
+    },
+    {
+      "from": "APWH-U2S1",
+      "to": "APWH-U4S7"
+    },
+    {
+      "from": "APWH-U3S1",
+      "to": "APWH-U4S23"
+    },
+    {
+      "from": "APWH-U3S28",
+      "to": "APWH-U4S23"
+    },
+    {
+      "from": "APWH-U3S34",
+      "to": "APWH-U4S47"
+    },
+    {
+      "from": "APWH-U4S18",
+      "to": "APWH-U4S25"
+    },
+    {
+      "from": "APWH-U4S22",
+      "to": "APWH-U4S46"
+    },
+    {
+      "from": "APWH-U4S36",
+      "to": "APWH-U4S32"
+    },
+    {
+      "from": "APWH-U4S41",
+      "to": "APWH-U5S6"
+    },
+    {
+      "from": "APWH-U4S48",
+      "to": "APWH-U5S1"
+    },
+    {
+      "from": "APWH-U1S91",
+      "to": "APWH-U5S1"
+    },
+    {
+      "from": "APWH-U1S33",
+      "to": "APWH-U5S1"
+    },
+    {
+      "from": "APWH-U4S57",
+      "to": "APWH-U5S24"
+    },
+    {
+      "from": "APWH-U4S61",
+      "to": "APWH-U5S51"
+    },
+    {
+      "from": "APWH-U4S42",
+      "to": "APWH-U5S35"
+    },
+    {
+      "from": "APWH-U5S8",
+      "to": "APWH-U5S9"
+    },
+    {
+      "from": "APWH-U5S8",
+      "to": "APWH-U5S13"
+    },
+    {
+      "from": "APWH-U5S8",
+      "to": "APWH-U5S20"
+    },
+    {
+      "from": "APWH-U5S8",
+      "to": "APWH-U5S24"
+    },
+    {
+      "from": "APWH-U5S19",
+      "to": "APWH-U5S29"
+    },
+    {
+      "from": "APWH-U5S35",
+      "to": "APWH-U6S1"
+    },
+    {
+      "from": "APWH-U5S35",
+      "to": "APWH-U6S5"
+    },
+    {
+      "from": "APWH-U5S40",
+      "to": "APWH-U6S5"
+    },
+    {
+      "from": "APWH-U5S29",
+      "to": "APWH-U6S6"
+    },
+    {
+      "from": "APWH-U5S41",
+      "to": "APWH-U6S37"
+    },
+    {
+      "from": "APWH-U5S57",
+      "to": "APWH-U7S22"
+    },
+    {
+      "from": "APWH-U5S58",
+      "to": "APWH-U8S22"
+    },
+    {
+      "from": "APWH-U6S2",
+      "to": "APWH-U6S7"
+    },
+    {
+      "from": "APWH-U6S3",
+      "to": "APWH-U6S7"
+    },
+    {
+      "from": "APWH-U6S5",
+      "to": "APWH-U6S7"
+    },
+    {
+      "from": "APWH-U6S8",
+      "to": "APWH-U6S20"
+    },
+    {
+      "from": "APWH-U6S10",
+      "to": "APWH-U6S21"
+    },
+    {
+      "from": "APWH-U6S13",
+      "to": "APWH-U6S22"
+    },
+    {
+      "from": "APWH-U6S7",
+      "to": "APWH-U6S33"
+    },
+    {
+      "from": "APWH-U6S47",
+      "to": "APWH-U6S51"
+    },
+    {
+      "from": "APWH-U6S32",
+      "to": "APWH-U7S5"
+    },
+    {
+      "from": "APWH-U6S7",
+      "to": "APWH-U7S8"
+    },
+    {
+      "from": "APWH-U6S11",
+      "to": "APWH-U7S8"
+    },
+    {
+      "from": "APWH-U6S6",
+      "to": "APWH-U7S12"
+    },
+    {
+      "from": "APWH-U6S14",
+      "to": "APWH-U7S2"
+    },
+    {
+      "from": "APWH-U7S23",
+      "to": "APWH-U7S30"
+    },
+    {
+      "from": "APWH-U7S27",
+      "to": "APWH-U7S30"
+    },
+    {
+      "from": "APWH-U7S30",
+      "to": "APWH-U7S39"
+    },
+    {
+      "from": "APWH-U7S22",
+      "to": "APWH-U7S37"
+    },
+    {
+      "from": "APWH-U7S22",
+      "to": "APWH-U8S1"
+    },
+    {
+      "from": "APWH-U7S44",
+      "to": "APWH-U8S1"
+    },
+    {
+      "from": "APWH-U7S23",
+      "to": "APWH-U8S28"
+    },
+    {
+      "from": "APWH-U7S44",
+      "to": "APWH-U8S36"
+    },
+    {
+      "from": "APWH-U7S50",
+      "to": "APWH-U9S32"
+    },
+    {
+      "from": "APWH-U8S21",
+      "to": "APWH-U9S13"
+    },
+    {
+      "from": "APWH-U8S18",
+      "to": "APWH-U8S38"
+    },
+    {
+      "from": "APWH-U8S38",
+      "to": "APWH-U9S13"
+    },
+    {
+      "from": "APWH-U8S20",
+      "to": "APWH-U9S13"
+    },
+    {
+      "from": "APWH-U8S23",
+      "to": "APWH-U9S20"
+    },
+    {
+      "from": "APWH-U8S43",
+      "to": "APWH-U9S32"
+    },
+    {
+      "from": "APWH-U7S48",
+      "to": "APWH-U9S1"
+    },
+    {
+      "from": "APWH-U9S1",
+      "to": "APWH-U9S13"
+    },
+    {
+      "from": "APWH-U9S1",
+      "to": "APWH-U9S7"
+    },
+    {
+      "from": "APWH-U9S13",
+      "to": "APWH-U9S23"
+    },
+    {
+      "from": "APWH-U9S13",
+      "to": "APWH-U9S30"
+    },
+    {
+      "from": "APWH-U9S22",
+      "to": "APWH-U9S23"
+    },
+    {
+      "from": "APWH-U9S30",
+      "to": "APWH-U9S37"
+    },
+    {
+      "from": "APWH-U9S13",
+      "to": "APWH-U9S37"
+    },
+    {
+      "from": "APWH-U5S59",
+      "to": "APWH-U9S38"
+    },
+    {
+      "from": "APWH-U7S18",
+      "to": "APWH-U9S38"
+    },
+    {
+      "from": "APWH-U8S29",
+      "to": "APWH-U9S32"
+    },
+    {
+      "from": "APWH-U6S39",
+      "to": "APWH-U9S4"
+    }
+  ]
+}

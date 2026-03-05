@@ -1,0 +1,2940 @@
+{
+  "meta": {
+    "generatedAt": "2026-02-28T17:04:31.730Z",
+    "sourceFile": "content/aphg/skill-tree.mmd",
+    "totalSkills": 413,
+    "totalEdges": 0,
+    "units": [
+      {
+        "id": "u1",
+        "name": "Unit 1: Thinking Geographically",
+        "skillCount": 49
+      },
+      {
+        "id": "u2",
+        "name": "Unit 2: Population and Migration",
+        "skillCount": 72
+      },
+      {
+        "id": "u3",
+        "name": "Unit 3: Cultural Patterns and Processes",
+        "skillCount": 55
+      },
+      {
+        "id": "u4",
+        "name": "Unit 4: Political Patterns and Processes",
+        "skillCount": 61
+      },
+      {
+        "id": "u5",
+        "name": "Unit 5: Agriculture and Rural Land-Use",
+        "skillCount": 52
+      },
+      {
+        "id": "u6",
+        "name": "Unit 6: Cities and Urban Land-Use",
+        "skillCount": 59
+      },
+      {
+        "id": "u7",
+        "name": "Unit 7: Industrial and Economic Development",
+        "skillCount": 65
+      }
+    ],
+    "maxLayerDepth": 10
+  },
+  "skills": [
+    {
+      "id": "APHG-U1S1",
+      "description": "Can define geography as the study of spatial patterns on Earth's surface",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S2",
+      "description": "Can explain the difference between physical geography and human geography",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S3",
+      "description": "Can identify what reference maps show (boundaries, roads, features)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S4",
+      "description": "Can identify what thematic maps show (specific data patterns)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S5",
+      "description": "Can identify choropleth maps (shading shows data by area)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S6",
+      "description": "Can identify dot distribution maps (dots show density)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S7",
+      "description": "Can identify graduated symbol maps (symbol size = quantity)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S8",
+      "description": "Can identify isoline maps (lines connect equal values)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S9",
+      "description": "Can identify cartograms (distorted areas represent data)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S10",
+      "description": "Can define absolute location using latitude and longitude",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S11",
+      "description": "Can define relative location (position compared to other places)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S12",
+      "description": "Can explain absolute vs. relative distance",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S13",
+      "description": "Can explain absolute vs. relative direction",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S14",
+      "description": "Can identify CLUSTERED spatial patterns on maps",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S15",
+      "description": "Can identify DISPERSED spatial patterns on maps",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S16",
+      "description": "Can identify LINEAR spatial patterns on maps",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S17",
+      "description": "Can define map scale (ratio of map distance to real distance)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S18",
+      "description": "Can explain large-scale vs. small-scale maps",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S19",
+      "description": "Can explain how map projections distort shape, area, distance, or direction",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S20",
+      "description": "Can identify Mercator projection (preserves shape, distorts area)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S21",
+      "description": "Can identify equal-area projections (preserves area, distorts shape)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S22",
+      "description": "Can define GIS (computer system for spatial data)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S23",
+      "description": "Can define GPS (satellite-based location system)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S24",
+      "description": "Can define remote sensing (data from satellites/aircraft)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S25",
+      "description": "Can explain quantitative vs. qualitative geographic data",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S26",
+      "description": "Can identify fieldwork methods (interviews, surveys, sketches)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S27",
+      "description": "Can explain how geospatial data influences government policy",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S28",
+      "description": "Can explain how businesses use geospatial data",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S29",
+      "description": "Can define SPACE (physical area between points)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S30",
+      "description": "Can define PLACE (specific location with unique characteristics)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S31",
+      "description": "Can define SITE (internal characteristics of a place)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S32",
+      "description": "Can define SITUATION (external location relative to other places)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S33",
+      "description": "Can define DISTANCE DECAY (less interaction with more distance)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S34",
+      "description": "Can define TIME-SPACE COMPRESSION (technology reduces travel time)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S35",
+      "description": "Can define SPATIAL INTERACTION (flow of people, goods, ideas)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S36",
+      "description": "Can define PATTERN (arrangement of features in space)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S37",
+      "description": "Can define SUSTAINABILITY (meeting present needs without harming future)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S38",
+      "description": "Can explain HUMAN-ENVIRONMENT INTERACTION",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S39",
+      "description": "Can define natural resources",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S40",
+      "description": "Can explain renewable vs. nonrenewable resources",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S41",
+      "description": "Can explain ENVIRONMENTAL DETERMINISM (environment controls humans)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S42",
+      "description": "Can explain POSSIBILISM (humans adapt to/modify environment)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S43",
+      "description": "Can distinguish local, national, regional, and global scales",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S44",
+      "description": "Can explain how patterns differ at different scales",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S45",
+      "description": "Can define FORMAL REGIONS (uniform characteristics)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S46",
+      "description": "Can define FUNCTIONAL REGIONS (organized around a central point)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S47",
+      "description": "Can define PERCEPTUAL/VERNACULAR REGIONS (based on perception)",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S48",
+      "description": "Can explain how regions are constructed by geographers",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U1S49",
+      "description": "Can explain how regional boundaries can overlap and change",
+      "unitId": "u1",
+      "unitName": "Unit 1: Thinking Geographically",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S1",
+      "description": "Can explain that population is unevenly distributed on Earth",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S2",
+      "description": "Can explain PHYSICAL factors affecting population distribution (climate, terrain, water)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S3",
+      "description": "Can explain HUMAN factors affecting population distribution (economy, history)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S4",
+      "description": "Can define ARITHMETIC DENSITY (people ÷ total land)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S5",
+      "description": "Can define PHYSIOLOGICAL DENSITY (people ÷ arable land)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S6",
+      "description": "Can define AGRICULTURAL DENSITY (farmers ÷ arable land)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S7",
+      "description": "Can explain what different density measures reveal",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S8",
+      "description": "Can define CARRYING CAPACITY (max population an area can support)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S9",
+      "description": "Can identify major population concentrations (East Asia, South Asia, Europe)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S10",
+      "description": "Can read and interpret POPULATION PYRAMIDS",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S11",
+      "description": "Can identify EXPANSIVE pyramids (wide base = high birth rate)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S12",
+      "description": "Can identify CONSTRICTIVE pyramids (narrow base = low birth rate)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S13",
+      "description": "Can identify STATIONARY pyramids (stable growth)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S14",
+      "description": "Can define DEPENDENCY RATIO (dependents ÷ working-age)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S15",
+      "description": "Can explain how sex ratios vary due to culture and migration",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S16",
+      "description": "Can define CRUDE BIRTH RATE (births per 1000 people)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S17",
+      "description": "Can define CRUDE DEATH RATE (deaths per 1000 people)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S18",
+      "description": "Can calculate RATE OF NATURAL INCREASE (CBR - CDR)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S19",
+      "description": "Can define TOTAL FERTILITY RATE (avg children per woman)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S20",
+      "description": "Can define INFANT MORTALITY RATE (infant deaths per 1000 births)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S21",
+      "description": "Can define LIFE EXPECTANCY",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S22",
+      "description": "Can calculate DOUBLING TIME (≈70 ÷ growth rate)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S23",
+      "description": "Can describe the DEMOGRAPHIC TRANSITION MODEL (DTM)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S24",
+      "description": "Can identify DTM Stage 1 (high birth & death, low growth)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S25",
+      "description": "Can identify DTM Stage 2 (high birth, falling death, HIGH growth)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S26",
+      "description": "Can identify DTM Stage 3 (falling birth, low death, moderate growth)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S27",
+      "description": "Can identify DTM Stage 4 (low birth & death, very low growth)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S28",
+      "description": "Can identify DTM Stage 5 (birth below death, population decline)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S29",
+      "description": "Can explain what causes the Stage 1→2 transition (healthcare)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S30",
+      "description": "Can explain what causes the Stage 2→3 transition (urbanization)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S31",
+      "description": "Can link the DTM to industrialization and development",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S32",
+      "description": "Can describe the EPIDEMIOLOGIC TRANSITION MODEL",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S33",
+      "description": "Can identify ETM stages (pestilence → degenerative → reemergence)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S34",
+      "description": "Can explain MALTHUSIAN THEORY (population outgrows food)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S35",
+      "description": "Can explain NEO-MALTHUSIAN concerns",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S36",
+      "description": "Can explain critiques of Malthus (technology, DTM)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S37",
+      "description": "Can explain BOSERUP THEORY (population drives innovation)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S38",
+      "description": "Can identify PRONATALIST policies (encourage births)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S39",
+      "description": "Can identify ANTINATALIST policies (reduce births)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S40",
+      "description": "Can identify China's one-child policy as antinatalist",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S41",
+      "description": "Can explain how women's education reduces fertility",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S42",
+      "description": "Can explain how healthcare access affects population",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S43",
+      "description": "Can identify challenges of AGING POPULATIONS",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S44",
+      "description": "Can explain how aging increases dependency ratios",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S45",
+      "description": "Can explain government responses to aging (immigration, retirement age)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S46",
+      "description": "Can define MIGRATION (permanent move to new location)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S47",
+      "description": "Can explain IMMIGRATION vs. EMIGRATION",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S48",
+      "description": "Can define NET MIGRATION (immigration - emigration)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S49",
+      "description": "Can explain PUSH vs. PULL factors",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S50",
+      "description": "Can identify ECONOMIC push-pull factors",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S51",
+      "description": "Can identify POLITICAL push-pull factors",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S52",
+      "description": "Can identify ENVIRONMENTAL push-pull factors",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S53",
+      "description": "Can identify DEMOGRAPHIC push-pull factors",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S54",
+      "description": "Can explain VOLUNTARY vs. FORCED migration",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S55",
+      "description": "Can define REFUGEES (flee due to persecution/conflict)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S56",
+      "description": "Can define INTERNALLY DISPLACED PERSONS (IDPs)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S57",
+      "description": "Can define ASYLUM SEEKERS",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S58",
+      "description": "Can explain RAVENSTEIN'S LAWS of migration",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S59",
+      "description": "Can explain that long-distance migrants go to major cities",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S60",
+      "description": "Can explain STEP MIGRATION (moving in stages)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S61",
+      "description": "Can explain the GRAVITY MODEL for migration",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S62",
+      "description": "Can define INTERVENING OBSTACLES (barriers to migration)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S63",
+      "description": "Can define INTERVENING OPPORTUNITIES (closer alternatives)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S64",
+      "description": "Can define CHAIN MIGRATION (family/friend networks)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S65",
+      "description": "Can define GUEST WORKERS (temporary labor migrants)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S66",
+      "description": "Can define TRANSHUMANCE (seasonal livestock movement)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S67",
+      "description": "Can define TRANSNATIONAL MIGRATION (ties to both places)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S68",
+      "description": "Can define REMITTANCES (money sent home by migrants)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S69",
+      "description": "Can explain effects of emigration (brain drain, labor loss)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S70",
+      "description": "Can explain effects of immigration (diversity, labor supply)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S71",
+      "description": "Can explain how migration changes demographics",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U2S72",
+      "description": "Can define DIASPORA (dispersed people from homeland)",
+      "unitId": "u2",
+      "unitName": "Unit 2: Population and Migration",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S1",
+      "description": "Can define CULTURE (shared practices, attitudes, behaviors)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S2",
+      "description": "Can define CULTURAL TRAITS (individual elements like food, clothing)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S3",
+      "description": "Can define CULTURAL COMPLEXES (related traits grouped together)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S4",
+      "description": "Can define CULTURAL HEARTHS (origin areas of culture)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S5",
+      "description": "Can identify early hearths (Mesopotamia, Nile, Indus, etc.)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S6",
+      "description": "Can explain FOLK CULTURE vs. POPULAR CULTURE",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S7",
+      "description": "Can explain that folk culture is clustered",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S8",
+      "description": "Can explain that popular culture spreads widely/quickly",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S9",
+      "description": "Can define CULTURAL LANDSCAPE (human impact on landscape)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S10",
+      "description": "Can identify examples of cultural landscapes",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S11",
+      "description": "Can explain how religion shapes cultural landscapes",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S12",
+      "description": "Can explain SEQUENT OCCUPANCE (successive cultural imprints)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S13",
+      "description": "Can define CULTURAL DIFFUSION (spread of culture)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S14",
+      "description": "Can define RELOCATION DIFFUSION (spread through movement)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S15",
+      "description": "Can define EXPANSION DIFFUSION (spreads outward from source)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S16",
+      "description": "Can define HIERARCHICAL DIFFUSION (spreads to major places first)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S17",
+      "description": "Can define CONTAGIOUS DIFFUSION (rapid, like a disease)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S18",
+      "description": "Can define STIMULUS DIFFUSION (idea spreads, not exact trait)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S19",
+      "description": "Can explain how colonialism spread European culture",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S20",
+      "description": "Can explain how trade routes spread culture (Silk Road)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S21",
+      "description": "Can explain how the internet accelerates diffusion",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S22",
+      "description": "Can explain how transportation increases diffusion",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S23",
+      "description": "Can define ACCULTURATION (adopting some traits of dominant culture)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S24",
+      "description": "Can define ASSIMILATION (complete integration into dominant culture)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S25",
+      "description": "Can define SYNCRETISM (blending of cultures/religions)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S26",
+      "description": "Can define MULTICULTURALISM (coexisting diverse cultures)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S27",
+      "description": "Can classify languages into families, branches, groups",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S28",
+      "description": "Can identify Indo-European as most spoken language family",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S29",
+      "description": "Can identify other major language families",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S30",
+      "description": "Can define LINGUA FRANCA (common language between groups)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S31",
+      "description": "Can identify English as a global lingua franca",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S32",
+      "description": "Can define PIDGIN languages (simplified communication)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S33",
+      "description": "Can define CREOLE languages (pidgins become native)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S34",
+      "description": "Can define DIALECTS (regional language variations)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S35",
+      "description": "Can define ISOGLOSSES (dialect boundaries)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S36",
+      "description": "Can explain how language shapes identity",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S37",
+      "description": "Can explain how languages become endangered/extinct",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S38",
+      "description": "Can explain UNIVERSALIZING vs. ETHNIC religions",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S39",
+      "description": "Can identify Christianity, Islam, Buddhism as universalizing",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S40",
+      "description": "Can identify Hinduism and Judaism as ethnic religions",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S41",
+      "description": "Can identify hearths of major world religions",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S42",
+      "description": "Can explain how universalizing religions spread",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S43",
+      "description": "Can explain why ethnic religions stay concentrated",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S44",
+      "description": "Can identify SYNCRETIC religions (blended traditions)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S45",
+      "description": "Can identify sacred sites and pilgrimage destinations",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S46",
+      "description": "Can explain how religion shapes cultural landscapes",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S47",
+      "description": "Can define ETHNOCENTRISM (judging others by own standards)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S48",
+      "description": "Can define CULTURAL RELATIVISM (evaluate by own standards)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S49",
+      "description": "Can explain CULTURAL CONVERGENCE (globalization spreads culture)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S50",
+      "description": "Can explain CULTURAL DIVERGENCE (groups resist globalization)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S51",
+      "description": "Can define PLACELESSNESS (loss of unique place identity)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S52",
+      "description": "Can explain how popular culture threatens folk culture",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S53",
+      "description": "Can explain media's role in cultural change",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S54",
+      "description": "Can explain how culture affects gender roles",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U3S55",
+      "description": "Can define NATIVISM (protecting native-born over immigrants)",
+      "unitId": "u3",
+      "unitName": "Unit 3: Cultural Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S1",
+      "description": "Can define STATE (territory, population, government, sovereignty)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S2",
+      "description": "Can define NATION (group with shared cultural identity)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S3",
+      "description": "Can define NATION-STATE (state = one nation)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S4",
+      "description": "Can identify examples of nation-states (Japan, Iceland)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S5",
+      "description": "Can define MULTINATIONAL STATE (state with multiple nations)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S6",
+      "description": "Can define MULTISTATE NATION (nation across multiple states)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S7",
+      "description": "Can define STATELESS NATION (nation without own state)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S8",
+      "description": "Can identify Kurds as a stateless nation",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S9",
+      "description": "Can define SOVEREIGNTY (supreme authority over territory)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S10",
+      "description": "Can explain SELF-DETERMINATION (right to choose government)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S11",
+      "description": "Can explain how COLONIALISM created modern boundaries",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S12",
+      "description": "Can explain DECOLONIZATION in the 20th century",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S13",
+      "description": "Can define NEOCOLONIALISM (economic control by former powers)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S14",
+      "description": "Can define POLITICAL BOUNDARY",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S15",
+      "description": "Can define ANTECEDENT boundaries (drawn before settlement)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S16",
+      "description": "Can define SUBSEQUENT boundaries (drawn after settlement)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S17",
+      "description": "Can define SUPERIMPOSED boundaries (forced by outside powers)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S18",
+      "description": "Can define RELIC boundaries (no longer function)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S19",
+      "description": "Can explain NATURAL vs. GEOMETRIC boundaries",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S20",
+      "description": "Can explain boundary processes (define, delimit, demarcate)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S21",
+      "description": "Can identify DEFINITIONAL disputes (treaty language)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S22",
+      "description": "Can identify LOCATIONAL disputes (where boundary goes)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S23",
+      "description": "Can identify OPERATIONAL disputes (how boundary functions)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S24",
+      "description": "Can identify ALLOCATIONAL disputes (resource distribution)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S25",
+      "description": "Can explain UNCLOS and Exclusive Economic Zones",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S26",
+      "description": "Can define TERRITORIAL WATERS (12 nautical miles)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S27",
+      "description": "Can define EEZ (200 nautical miles for resources)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S28",
+      "description": "Can explain GERRYMANDERING",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S29",
+      "description": "Can explain PACKING vs. CRACKING in gerrymandering",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S30",
+      "description": "Can explain REDISTRICTING (redraw districts after census)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S31",
+      "description": "Can explain REAPPORTIONMENT (redistribute legislative seats)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S32",
+      "description": "Can define FEDERAL state (power divided between levels)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S33",
+      "description": "Can define UNITARY state (power concentrated in central gov)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S34",
+      "description": "Can compare federal and unitary systems",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S35",
+      "description": "Can identify characteristics of DEMOCRACIES",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S36",
+      "description": "Can identify characteristics of AUTHORITARIAN systems",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S37",
+      "description": "Can define DEVOLUTION (power transfers to local government)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S38",
+      "description": "Can explain physical causes of devolution (distance, barriers)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S39",
+      "description": "Can explain ETHNIC SEPARATISM as cause of devolution",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S40",
+      "description": "Can explain ECONOMIC INEQUALITY as cause of devolution",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S41",
+      "description": "Can identify devolution examples (Scotland, Catalonia, Quebec)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S42",
+      "description": "Can define CENTRIPETAL forces (unify a state)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S43",
+      "description": "Can define CENTRIFUGAL forces (divide a state)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S44",
+      "description": "Can identify centripetal examples (nationalism, infrastructure)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S45",
+      "description": "Can identify centrifugal examples (ethnic conflict, inequality)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S46",
+      "description": "Can define IRREDENTISM (claim territory based on ethnicity)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S47",
+      "description": "Can define TERRORISM (nonstate violence for political goals)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S48",
+      "description": "Can explain SUPRANATIONAL organizations (UN, EU, NATO)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S49",
+      "description": "Can explain how supranational orgs affect sovereignty",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S50",
+      "description": "Can define AUTONOMOUS/SEMI-AUTONOMOUS regions",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S51",
+      "description": "Can identify state shapes (compact, elongated, fragmented, etc.)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S52",
+      "description": "Can explain how state shape affects governance",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S53",
+      "description": "Can define TERRITORIALITY (attempt to control area)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S54",
+      "description": "Can explain HEARTLAND THEORY (interior Eurasia = power)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S55",
+      "description": "Can explain RIMLAND THEORY (coastal Eurasia = power)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S56",
+      "description": "Can define CHOKE POINTS (strategic narrow waterways)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S57",
+      "description": "Can define BUFFER STATES (reduce conflict between powers)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S58",
+      "description": "Can define SHATTERBELT regions (unstable between powers)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S59",
+      "description": "Can identify ENCLAVES (territory surrounded by another state)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S60",
+      "description": "Can identify EXCLAVES (separated from main territory)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U4S61",
+      "description": "Can define FRONTIER (zone of no clear control)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Political Patterns and Processes",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S1",
+      "description": "Can define AGRICULTURE",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S2",
+      "description": "Can explain the FIRST AGRICULTURAL REVOLUTION (Neolithic)",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S3",
+      "description": "Can identify plant/animal domestication in First Ag Rev",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S4",
+      "description": "Can identify early agricultural hearths (Fertile Crescent, etc.)",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S5",
+      "description": "Can explain how agriculture diffused from hearths",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S6",
+      "description": "Can explain SECOND AGRICULTURAL REVOLUTION (Industrial era)",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S7",
+      "description": "Can explain innovations of Second Ag Rev (mechanization, etc.)",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S8",
+      "description": "Can explain the GREEN REVOLUTION (1960s-70s high-yield crops)",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S9",
+      "description": "Can identify POSITIVE effects of Green Revolution",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S10",
+      "description": "Can identify NEGATIVE effects of Green Revolution",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S11",
+      "description": "Can explain SUBSISTENCE vs. COMMERCIAL agriculture",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S12",
+      "description": "Can define SHIFTING CULTIVATION/SLASH-AND-BURN",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S13",
+      "description": "Can define PASTORAL NOMADISM",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S14",
+      "description": "Can define INTENSIVE SUBSISTENCE agriculture",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S15",
+      "description": "Can identify WET RICE PADDY farming",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S16",
+      "description": "Can define PLANTATION agriculture",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S17",
+      "description": "Can identify types of commercial agriculture",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S18",
+      "description": "Can explain MIXED CROP AND LIVESTOCK farming",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S19",
+      "description": "Can explain why DAIRY farming is near markets",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S20",
+      "description": "Can explain COMMERCIAL GRAIN farming",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S21",
+      "description": "Can explain RANCHING",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S22",
+      "description": "Can explain MEDITERRANEAN agriculture",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S23",
+      "description": "Can explain how climate/terrain/soil affect agriculture",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S24",
+      "description": "Can explain the VON THÜNEN MODEL",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S25",
+      "description": "Can identify zones in the Von Thünen Model",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S26",
+      "description": "Can explain transport cost/perishability in Von Thünen",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S27",
+      "description": "Can explain how transportation changes Von Thünen",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S28",
+      "description": "Can explain BOSERUP THEORY (population drives ag innovation)",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S29",
+      "description": "Can define AGRIBUSINESS",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S30",
+      "description": "Can explain COMMODITY CHAINS",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S31",
+      "description": "Can explain agricultural dependency in developing countries",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S32",
+      "description": "Can explain WTO, trade agreements, and agricultural subsidies",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S33",
+      "description": "Can define FOOD SECURITY",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S34",
+      "description": "Can define FOOD DESERTS",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S35",
+      "description": "Can explain DEFORESTATION from agriculture",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S36",
+      "description": "Can explain DESERTIFICATION from agriculture",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S37",
+      "description": "Can explain irrigation's effects (salinization, water depletion)",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S38",
+      "description": "Can explain environmental effects of fertilizers/pesticides",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S39",
+      "description": "Can define GMOs",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S40",
+      "description": "Can explain ORGANIC farming",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S41",
+      "description": "Can define AQUACULTURE",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S42",
+      "description": "Can explain FAIR TRADE",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S43",
+      "description": "Can explain core-periphery in global food system",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S44",
+      "description": "Can explain how dietary preferences affect production",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S45",
+      "description": "Can explain women's role in agriculture",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S46",
+      "description": "Can identify METES AND BOUNDS survey system",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S47",
+      "description": "Can identify TOWNSHIP AND RANGE survey system",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S48",
+      "description": "Can identify LONG LOT survey system",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S49",
+      "description": "Can identify rural settlement patterns (clustered, dispersed, linear)",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S50",
+      "description": "Can explain how land surveys influence settlement patterns",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S51",
+      "description": "Can explain VALUE-ADDED processing",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U5S52",
+      "description": "Can explain LUXURY CROPS vs. STAPLE CROPS",
+      "unitId": "u5",
+      "unitName": "Unit 5: Agriculture and Rural Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S1",
+      "description": "Can define URBANIZATION",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S2",
+      "description": "Can explain the FIRST URBAN REVOLUTION (agricultural surplus)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S3",
+      "description": "Can explain the SECOND URBAN REVOLUTION (Industrial)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S4",
+      "description": "Can explain how industrialization pulled rural people to cities",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S5",
+      "description": "Can define MEGACITY (10+ million people)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S6",
+      "description": "Can define MEGALOPOLIS (chain of metro areas)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S7",
+      "description": "Can explain most megacities are in developing countries",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S8",
+      "description": "Can define WORLD/GLOBAL CITIES (centers of finance, trade)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S9",
+      "description": "Can explain cities as nodes in global economy",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S10",
+      "description": "Can explain the RANK-SIZE RULE",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S11",
+      "description": "Can define PRIMATE CITY (disproportionately largest)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S12",
+      "description": "Can explain primate city vs. rank-size rule",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S13",
+      "description": "Can explain CENTRAL PLACE THEORY",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S14",
+      "description": "Can define THRESHOLD (min population for a service)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S15",
+      "description": "Can define RANGE (max distance to use a service)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S16",
+      "description": "Can explain higher-order services need larger thresholds",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S17",
+      "description": "Can explain GRAVITY MODEL for city interaction",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S18",
+      "description": "Can describe CONCENTRIC ZONE MODEL (Burgess)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S19",
+      "description": "Can identify zones in Concentric Zone Model",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S20",
+      "description": "Can describe SECTOR MODEL (Hoyt)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S21",
+      "description": "Can describe MULTIPLE NUCLEI MODEL (Harris & Ullman)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S22",
+      "description": "Can describe GALACTIC/PERIPHERAL MODEL (edge cities)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S23",
+      "description": "Can explain how each urban model reflects transportation",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S24",
+      "description": "Can describe LATIN AMERICAN CITY MODEL (Griffin-Ford)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S25",
+      "description": "Can describe AFRICAN CITY MODEL",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S26",
+      "description": "Can describe SOUTHEAST ASIAN CITY MODEL (McGee)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S27",
+      "description": "Can explain BID-RENT THEORY",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S28",
+      "description": "Can explain bid-rent curves for different land uses",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S29",
+      "description": "Can define CBD (Central Business District)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S30",
+      "description": "Can explain residential segregation by race/income",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S31",
+      "description": "Can define GENTRIFICATION",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S32",
+      "description": "Can explain how gentrification displaces residents",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S33",
+      "description": "Can define SUBURBANIZATION",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S34",
+      "description": "Can explain causes of suburbanization (highways, white flight)",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S35",
+      "description": "Can define SUBURBAN SPRAWL",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S36",
+      "description": "Can identify consequences of sprawl",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S37",
+      "description": "Can define EDGE CITIES",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S38",
+      "description": "Can define EXURBS",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S39",
+      "description": "Can define NEW URBANISM",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S40",
+      "description": "Can define SMART GROWTH",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S41",
+      "description": "Can define TRANSIT-ORIENTED DEVELOPMENT",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S42",
+      "description": "Can define ZONING",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S43",
+      "description": "Can explain how transportation infrastructure shapes cities",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S44",
+      "description": "Can explain how utilities influence urban growth",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S45",
+      "description": "Can define SQUATTER SETTLEMENTS/INFORMAL SETTLEMENTS",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S46",
+      "description": "Can explain challenges of squatter settlements",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S47",
+      "description": "Can define BROWNFIELDS",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S48",
+      "description": "Can explain URBAN HEAT ISLAND effect",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S49",
+      "description": "Can identify FOOD DESERTS in urban areas",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S50",
+      "description": "Can explain how census data is used in urban planning",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S51",
+      "description": "Can explain DEINDUSTRIALIZATION",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S52",
+      "description": "Can define REDLINING",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S53",
+      "description": "Can explain URBAN RENEWAL",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S54",
+      "description": "Can explain BLOCKBUSTING",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S55",
+      "description": "Can identify DISAMENITY ZONES",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S56",
+      "description": "Can explain urban sustainability challenges",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S57",
+      "description": "Can explain how colonial history shaped cities",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S58",
+      "description": "Can explain GATED COMMUNITIES and segregation",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U6S59",
+      "description": "Can explain MIXED-USE DEVELOPMENT",
+      "unitId": "u6",
+      "unitName": "Unit 6: Cities and Urban Land-Use",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S1",
+      "description": "Can identify Industrial Revolution origins (England, late 1700s)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S2",
+      "description": "Can explain how resources (coal, iron) affected industry location",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S3",
+      "description": "Can explain WEBER'S LEAST COST THEORY",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S4",
+      "description": "Can define WEIGHT-LOSING industries (near raw materials)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S5",
+      "description": "Can define WEIGHT-GAINING industries (near markets)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S6",
+      "description": "Can define AGGLOMERATION (industry clustering)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S7",
+      "description": "Can define DEGLOMERATION (industry dispersal)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S8",
+      "description": "Can define JUST-IN-TIME DELIVERY",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S9",
+      "description": "Can define FORDISM (mass production, assembly lines)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S10",
+      "description": "Can define POST-FORDISM (flexible, specialized production)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S11",
+      "description": "Can distinguish the 5 ECONOMIC SECTORS",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S12",
+      "description": "Can define PRIMARY sector (extraction)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S13",
+      "description": "Can define SECONDARY sector (manufacturing)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S14",
+      "description": "Can define TERTIARY sector (services)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S15",
+      "description": "Can define QUATERNARY sector (information, tech, research)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S16",
+      "description": "Can define QUINARY sector (highest-level decisions)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S17",
+      "description": "Can explain how sector employment indicates development",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S18",
+      "description": "Can define GDP",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S19",
+      "description": "Can define GNI",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S20",
+      "description": "Can define GDP PER CAPITA",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S21",
+      "description": "Can explain PURCHASING POWER PARITY (PPP)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S22",
+      "description": "Can define HUMAN DEVELOPMENT INDEX (HDI)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S23",
+      "description": "Can define GENDER INEQUALITY INDEX (GII)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S24",
+      "description": "Can identify literacy rate as development indicator",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S25",
+      "description": "Can explain infant mortality as development indicator",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S26",
+      "description": "Can define GINI COEFFICIENT (income inequality)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S27",
+      "description": "Can explain ROSTOW'S STAGES OF GROWTH MODEL",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S28",
+      "description": "Can identify Rostow Stage 1 (traditional society)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S29",
+      "description": "Can identify Rostow Stage 2 (preconditions for takeoff)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S30",
+      "description": "Can identify Rostow Stage 3 (takeoff)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S31",
+      "description": "Can identify Rostow Stage 4 (drive to maturity)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S32",
+      "description": "Can identify Rostow Stage 5 (high mass consumption)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S33",
+      "description": "Can explain WALLERSTEIN'S WORLD SYSTEMS THEORY",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S34",
+      "description": "Can identify CORE countries",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S35",
+      "description": "Can identify PERIPHERY countries",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S36",
+      "description": "Can identify SEMI-PERIPHERY countries",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S37",
+      "description": "Can explain DEPENDENCY THEORY",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S38",
+      "description": "Can explain commodity dependence in periphery",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S39",
+      "description": "Can define EXPORT-ORIENTED INDUSTRIALIZATION",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S40",
+      "description": "Can define IMPORT SUBSTITUTION INDUSTRIALIZATION",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S41",
+      "description": "Can define FREE TRADE ZONES / SPECIAL ECONOMIC ZONES",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S42",
+      "description": "Can explain the WORLD BANK's role",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S43",
+      "description": "Can explain the IMF's role",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S44",
+      "description": "Can explain the WTO's role",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S45",
+      "description": "Can define STRUCTURAL ADJUSTMENT PROGRAMS",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S46",
+      "description": "Can explain FOREIGN DIRECT INVESTMENT effects",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S47",
+      "description": "Can define MICROFINANCE",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S48",
+      "description": "Can explain how women's education promotes development",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S49",
+      "description": "Can define OUTSOURCING",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S50",
+      "description": "Can explain NEW INTERNATIONAL DIVISION OF LABOR",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S51",
+      "description": "Can explain FORMAL vs. INFORMAL sector",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S52",
+      "description": "Can explain informal sector is larger in developing countries",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S53",
+      "description": "Can define FAIR TRADE",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S54",
+      "description": "Can explain sustainability challenges (pollution, climate)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S55",
+      "description": "Can define ECOTOURISM",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S56",
+      "description": "Can explain how industrialization causes pollution",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S57",
+      "description": "Can explain renewable vs. nonrenewable energy",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S58",
+      "description": "Can explain SUSTAINABLE DEVELOPMENT",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S59",
+      "description": "Can explain trade agreements (USMCA, EU, ASEAN)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S60",
+      "description": "Can explain DEINDUSTRIALIZATION in developed countries",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S61",
+      "description": "Can explain TECHNOLOGY TRANSFER",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S62",
+      "description": "Can explain COMPARATIVE ADVANTAGE",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S63",
+      "description": "Can explain how REMITTANCES contribute to development",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S64",
+      "description": "Can explain BRAIN DRAIN effects",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    },
+    {
+      "id": "APHG-U7S65",
+      "description": "Can explain link between development and demographics",
+      "unitId": "u7",
+      "unitName": "Unit 7: Industrial and Economic Development",
+      "layerDepth": 0
+    }
+  ],
+  "edges": []
+}

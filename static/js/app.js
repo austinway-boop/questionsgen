@@ -7,12 +7,42 @@ let questionTypeMeta = {};
 let pipelineStatus = {};
 let currentSkillId = null;
 let genCounter = 0;
+let currentCourse = "APHG";
+
+function cq(url) {
+  const sep = url.includes("?") ? "&" : "?";
+  return `${url}${sep}course=${currentCourse}`;
+}
+
+async function loadCourses() {
+  try {
+    const res = await fetch("/api/courses");
+    const courses = await res.json();
+    const select = document.getElementById("course-select");
+    select.innerHTML = "";
+    for (const [cid, info] of Object.entries(courses)) {
+      const opt = document.createElement("option");
+      opt.value = cid;
+      opt.textContent = `${info.name} (${info.skills} skills)`;
+      if (cid === currentCourse) opt.selected = true;
+      select.appendChild(opt);
+    }
+  } catch (e) { /* silent */ }
+}
+
+function switchCourse(courseId) {
+  currentCourse = courseId;
+  currentSkillId = null;
+  document.getElementById("detail-empty").classList.remove("hidden");
+  document.getElementById("detail-content").classList.add("hidden");
+  initTree();
+}
 
 async function initTree() {
   const [treeRes, typesRes, statusRes] = await Promise.all([
-    fetch("/skill-tree"),
+    fetch(cq("/skill-tree")),
     fetch("/question-types"),
-    fetch("/pipeline-status"),
+    fetch(cq("/pipeline-status")),
   ]);
   treeData = await treeRes.json();
   questionTypeMeta = await typesRes.json();
@@ -22,7 +52,7 @@ async function initTree() {
 
 async function refreshPipelineStatus() {
   try {
-    const res = await fetch("/pipeline-status");
+    const res = await fetch(cq("/pipeline-status"));
     pipelineStatus = await res.json();
     renderTree();
   } catch (e) { /* silent */ }
@@ -127,7 +157,7 @@ function mapUnitTranscripts(unitNum, btn) {
   }
 
   return new Promise((resolve) => {
-    const es = new EventSource(`/unit/${unitNum}/map-transcripts`);
+    const es = new EventSource(cq(`/unit/${unitNum}/map-transcripts`));
 
     es.onmessage = function(event) {
       const data = JSON.parse(event.data);
@@ -184,7 +214,7 @@ const QUESTIONS_PER_DOK = 10;
 const BATCH_SIZE = 5;
 
 async function _postJSON(url, body) {
-  const res = await fetch(url, {
+  const res = await fetch(cq(url), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
@@ -201,7 +231,7 @@ async function _buildBankForSkill(sid, onProgress) {
     // Load existing bank to check what's already done
     let existingBank = {};
     try {
-      const bankRes = await fetch(`/skill/${sid}/question-bank`);
+      const bankRes = await fetch(cq(`/skill/${sid}/question-bank`));
       const bankJson = await bankRes.json();
       existingBank = bankJson.bank || {};
     } catch (e) { /* no existing bank */ }
@@ -360,7 +390,7 @@ function regenQuestionsByType(qtype, triggerBtn) {
   const label = qtype.replace(/_/g, " ");
   progress.innerHTML = `<strong>Regenerating ${label}...</strong> Connecting...`;
 
-  const es = new EventSource(`/regenerate-questions-by-type?qtype=${encodeURIComponent(qtype)}`);
+  const es = new EventSource(`/regenerate-questions-by-type?qtype=${encodeURIComponent(qtype)}&course=${currentCourse}`);
 
   es.onmessage = function(event) {
     const data = JSON.parse(event.data);
@@ -470,7 +500,7 @@ async function selectSkill(id, text) {
   populateTypeDropdown([]);
 
   try {
-    const res = await fetch(`/skill/${id}`);
+    const res = await fetch(cq(`/skill/${id}`));
     const data = await res.json();
 
     document.getElementById("lc-textarea").value = data.learning_content || "";
@@ -525,7 +555,7 @@ async function saveLearningContent() {
   status.style.color = "var(--text-muted)";
 
   try {
-    await fetch(`/skill/${currentSkillId}/learning-content`, {
+    await fetch(cq(`/skill/${currentSkillId}/learning-content`), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ learning_content: content }),
@@ -552,7 +582,7 @@ async function detectTypes() {
   chips.innerHTML = "";
 
   try {
-    const res = await fetch(`/skill/${currentSkillId}/detect-types`, {
+    const res = await fetch(cq(`/skill/${currentSkillId}/detect-types`), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     });
@@ -635,7 +665,7 @@ async function generateQuestion() {
 
   const results = await Promise.all(typesToGenerate.map(async (qtype) => {
     try {
-      const res = await fetch(`/skill/${currentSkillId}/generate`, {
+      const res = await fetch(cq(`/skill/${currentSkillId}/generate`), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question_type: qtype, dok_level: dokLevel }),
@@ -1360,7 +1390,7 @@ function updateOrAppendLog(container, key, text, cls) {
 async function loadQuestionBank() {
   if (!currentSkillId) return;
   try {
-    const res = await fetch(`/skill/${currentSkillId}/question-bank`);
+    const res = await fetch(cq(`/skill/${currentSkillId}/question-bank`));
     const data = await res.json();
     currentBankData = data;
     renderCoverage(data.coverage);
@@ -1531,7 +1561,7 @@ async function checkBankAnswer(num, qtype, questionId) {
 
   if (isCorrect && currentSkillId) {
     try {
-      await fetch(`/skill/${currentSkillId}/question-bank/mark`, {
+      await fetch(cq(`/skill/${currentSkillId}/question-bank/mark`), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question_type: qtype, question_id: questionId, met: true }),
@@ -1554,5 +1584,5 @@ async function checkBankAnswer(num, qtype, questionId) {
 /* ─── INIT ─── */
 
 document.addEventListener("DOMContentLoaded", () => {
-  initTree();
+  loadCourses().then(() => initTree());
 });

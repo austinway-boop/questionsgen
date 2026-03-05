@@ -1,0 +1,6122 @@
+{
+  "meta": {
+    "generatedAt": "2026-02-28T18:16:27.516Z",
+    "sourceFile": "content/apush/skill-tree.mmd",
+    "totalSkills": 538,
+    "totalEdges": 574,
+    "units": [
+      {
+        "id": "u1",
+        "name": "Unit 1: Period 1 - 1491 to 1607",
+        "skillCount": 31
+      },
+      {
+        "id": "u2",
+        "name": "Unit 2: Period 2 - 1607 to 1754",
+        "skillCount": 43
+      },
+      {
+        "id": "u3",
+        "name": "Unit 3: Period 3 - 1754 to 1800",
+        "skillCount": 67
+      },
+      {
+        "id": "u4",
+        "name": "Unit 4: Period 4 - 1800 to 1848",
+        "skillCount": 59
+      },
+      {
+        "id": "u5",
+        "name": "Unit 5: Period 5 - 1844 to 1877",
+        "skillCount": 63
+      },
+      {
+        "id": "u6",
+        "name": "Unit 6: Period 6 - 1865 to 1898",
+        "skillCount": 59
+      },
+      {
+        "id": "u7",
+        "name": "Unit 7: Period 7 - 1890 to 1945",
+        "skillCount": 90
+      },
+      {
+        "id": "u8",
+        "name": "Unit 8: Period 8 - 1945 to 1980",
+        "skillCount": 88
+      },
+      {
+        "id": "u9",
+        "name": "Unit 9: Period 9 - 1980 to the Present",
+        "skillCount": 38
+      }
+    ],
+    "maxLayerDepth": 46
+  },
+  "skills": [
+    {
+      "id": "APUSH-U1S1",
+      "description": "Many different Native American societies lived across North America before Columbus arrived",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U1S2",
+      "description": "Geography and the environment shaped how different Native American cultures developed",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U1S3",
+      "description": "The Pueblo peoples were settled farming societies in the American Southwest",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U1S4",
+      "description": "Cahokia and other mound-building societies in the Mississippi Valley were advanced civilizations",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U1S5",
+      "description": "Great Plains peoples were nomadic and depended on hunting to survive",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U1S6",
+      "description": "Eastern Woodland peoples survived by combining farming with hunting and fishing",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U1S7",
+      "description": "Pacific Northwest societies depended on fishing and had access to plentiful natural resources",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U1S8",
+      "description": "Native Americans had different types of government, from small bands to large confederacies",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U1S9",
+      "description": "The Haudenosaunee (Iroquois) Confederacy was an example of advanced Native political organization",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U1S10",
+      "description": "Native American spiritual beliefs focused on a deep connection to the natural world",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U1S11",
+      "description": "Europeans explored the Americas for wealth, to spread Christianity, and to compete with rival nations",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U1S12",
+      "description": "Spain's history of the Reconquista and Catholic missionary goals drove their exploration",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U1S13",
+      "description": "New technology like the caravel, compass, and joint-stock companies made exploration possible",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U1S14",
+      "description": "Cort\u00e9s conquered the Aztec Empire for Spain",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U1S15",
+      "description": "Pizarro conquered the Inca Empire for Spain",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U1S16",
+      "description": "Disease, better weapons, and Native allies helped Spain conquer these empires",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U1S17",
+      "description": "The Columbian Exchange was the transfer of plants, animals, and diseases between the Americas and Europe",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U1S18",
+      "description": "Old World diseases devastated Native American populations",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U1S19",
+      "description": "New World crops like corn and potatoes changed diets and boosted populations in Europe",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U1S20",
+      "description": "Europeans brought horses, cattle, and pigs to the Americas",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U1S21",
+      "description": "Horses completely changed the way Great Plains Native Americans lived",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U1S22",
+      "description": "The encomienda system was a form of forced Native labor under Spanish rule",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U1S23",
+      "description": "The casta system was a racial hierarchy in Spanish colonies",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U1S24",
+      "description": "As Native populations died off, colonizers brought more enslaved Africans to do the labor",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U1S25",
+      "description": "French colonization focused on the fur trade and building alliances with Native Americans",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U1S26",
+      "description": "Dutch colonization was centered on trade in the Hudson River Valley",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U1S27",
+      "description": "The French partnered with Natives for trade, which was very different from how Spain conquered them",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U1S28",
+      "description": "European colonization disrupted Native American societies and political systems",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U1S29",
+      "description": "Native Americans resisted European colonization and attempts to change their culture",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U1S30",
+      "description": "Europeans, Natives, and Africans all exchanged cultural practices and adapted to each other",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U1S31",
+      "description": "The Spanish mission system was used to convert Natives to Christianity and control them",
+      "unitId": "u1",
+      "unitName": "Unit 1: Period 1 - 1491 to 1607",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U2S1",
+      "description": "England colonized America for economic opportunity, religious freedom, and rivalry with other nations",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U2S2",
+      "description": "Jamestown (1607) was the first permanent English settlement in America",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U2S3",
+      "description": "Joint-stock companies like the Virginia Company funded English colonization",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U2S4",
+      "description": "Tobacco became Virginia's main cash crop and created a huge demand for labor",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U2S5",
+      "description": "The headright system gave land to people who paid for workers to come to Virginia",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 8
+    },
+    {
+      "id": "APUSH-U2S6",
+      "description": "The Chesapeake colonies gradually shifted from using indentured servants to enslaved Africans",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 8
+    },
+    {
+      "id": "APUSH-U2S7",
+      "description": "The Separatist Pilgrims founded Plymouth Colony in 1620",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U2S8",
+      "description": "The Puritans founded Massachusetts Bay Colony, aiming to build a 'city upon a hill'",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U2S9",
+      "description": "Puritan religious beliefs heavily influenced how New England was governed and organized",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U2S10",
+      "description": "The Mayflower Compact was an early example of colonists governing themselves",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 8
+    },
+    {
+      "id": "APUSH-U2S11",
+      "description": "Town meetings were a form of direct democracy in New England",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 8
+    },
+    {
+      "id": "APUSH-U2S12",
+      "description": "Roger Williams was kicked out of Massachusetts and founded Rhode Island with religious tolerance",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U2S13",
+      "description": "Anne Hutchinson challenged Puritan authority in the Antinomian Controversy",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U2S14",
+      "description": "The New England, Middle, and Southern colonies had major differences from each other",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U2S15",
+      "description": "New England's economy was based on trade, fishing, shipbuilding, and small farms",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U2S16",
+      "description": "The Middle Colonies were ethnically diverse, grew lots of grain, and had mixed economies",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U2S17",
+      "description": "The Southern Colonies' economy was built on cash crops and plantation farming",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U2S18",
+      "description": "William Penn founded Pennsylvania as a Quaker colony with religious tolerance",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U2S19",
+      "description": "Plantation farming in the South created an ever-growing demand for labor",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U2S20",
+      "description": "Race-based chattel slavery developed in the British colonies, treating enslaved people as property",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 10
+    },
+    {
+      "id": "APUSH-U2S21",
+      "description": "The Middle Passage was the brutal forced transport of enslaved Africans across the Atlantic",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 11
+    },
+    {
+      "id": "APUSH-U2S22",
+      "description": "Slave codes were laws that defined enslaved people as property and took away their rights",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 11
+    },
+    {
+      "id": "APUSH-U2S23",
+      "description": "Enslaved Africans kept their cultural traditions alive and formed their own communities",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 11
+    },
+    {
+      "id": "APUSH-U2S24",
+      "description": "Enslaved people resisted through work slowdowns, running away, and outright rebellion",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 12
+    },
+    {
+      "id": "APUSH-U2S25",
+      "description": "The Stono Rebellion (1739) was a major slave uprising in South Carolina",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 13
+    },
+    {
+      "id": "APUSH-U2S26",
+      "description": "Bacon's Rebellion (1676) changed labor systems and deepened racial divisions in Virginia",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 9
+    },
+    {
+      "id": "APUSH-U2S27",
+      "description": "Mercantilism was the economic system that governed British colonial trade",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U2S28",
+      "description": "The Navigation Acts were British laws that restricted who the colonies could trade with",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U2S29",
+      "description": "The triangular trade connected Europe, Africa, and the Americas in a trading network",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U2S30",
+      "description": "English colonists and Native Americans had many interactions and conflicts",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U2S31",
+      "description": "The Anglo-Powhatan Wars were early conflicts between colonists and Natives in Virginia",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U2S32",
+      "description": "The Pequot War was a colonial-Native conflict in New England in the 1630s",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U2S33",
+      "description": "King Philip's War (Metacom's War) was a devastating war between colonists and Natives",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U2S34",
+      "description": "Colonial expansion increasingly pushed Native Americans off their land and to the margins",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U2S35",
+      "description": "Colonial society and culture developed in unique ways in British North America",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U2S36",
+      "description": "The First Great Awakening was a religious revival that challenged established church authority",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U2S37",
+      "description": "Jonathan Edwards and George Whitefield were key figures in the Great Awakening",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U2S38",
+      "description": "The Great Awakening encouraged individual thinking and questioning traditional authority",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U2S39",
+      "description": "Enlightenment ideas spread through an Atlantic intellectual community connecting America and Europe",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U2S40",
+      "description": "Key Enlightenment ideas included natural rights, reason, and the social contract",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U2S41",
+      "description": "Salutary neglect was Britain's practice of loosely enforcing colonial rules",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U2S42",
+      "description": "Because Britain didn't enforce rules strictly, the colonies developed traditions of self-government",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U2S43",
+      "description": "Colonial assemblies like the Virginia House of Burgesses were important self-governing institutions",
+      "unitId": "u2",
+      "unitName": "Unit 2: Period 2 - 1607 to 1754",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U3S1",
+      "description": "The Seven Years' War started because of rivalry between empires and disputes over colonial land",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U3S2",
+      "description": "The British and colonists fought against the French and their Native American allies",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U3S3",
+      "description": "Benjamin Franklin proposed the Albany Plan of Union to get the colonies to cooperate",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U3S4",
+      "description": "Britain won the Seven Years' War, and the Treaty of Paris (1763) confirmed it",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U3S5",
+      "description": "The Proclamation of 1763 banned colonial settlement west of the Appalachian Mountains",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U3S6",
+      "description": "Britain's massive war debt led them to start taxing the colonies",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U3S7",
+      "description": "The Stamp Act (1765) was a direct tax on printed materials in the colonies",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U3S8",
+      "description": "The Townshend Acts put taxes on imported goods like tea and glass",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U3S9",
+      "description": "Colonists argued there should be 'no taxation without representation' in Parliament",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U3S10",
+      "description": "Colonists resisted through boycotts, petitions, the Stamp Act Congress, and groups like the Sons of Liberty",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U3S11",
+      "description": "The Boston Massacre (1770) was used as anti-British propaganda",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U3S12",
+      "description": "The Boston Tea Party (1773) was a protest against the Tea Act",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U3S13",
+      "description": "The Intolerable (Coercive) Acts were Britain's punishment of Massachusetts",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 8
+    },
+    {
+      "id": "APUSH-U3S14",
+      "description": "The First Continental Congress (1774) organized the colonies' response to British actions",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 9
+    },
+    {
+      "id": "APUSH-U3S15",
+      "description": "Enlightenment philosophy influenced American revolutionary thinking",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U3S16",
+      "description": "John Locke's philosophy centered on natural rights: life, liberty, and property",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U3S17",
+      "description": "The social contract theory says government gets its authority from the consent of the people",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U3S18",
+      "description": "Montesquieu came up with the idea of separation of powers between branches of government",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U3S19",
+      "description": "Thomas Paine's 'Common Sense' convinced many colonists to support independence",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U3S20",
+      "description": "The first shots of the Revolution were fired at Lexington and Concord in April 1775",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 10
+    },
+    {
+      "id": "APUSH-U3S21",
+      "description": "The Second Continental Congress acted as the wartime government during the Revolution",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 11
+    },
+    {
+      "id": "APUSH-U3S22",
+      "description": "The Declaration of Independence laid out principles of natural rights and self-governance",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U3S23",
+      "description": "Thomas Jefferson was the main author of the Declaration of Independence",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U3S24",
+      "description": "I know the key military events of the American Revolution",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 11
+    },
+    {
+      "id": "APUSH-U3S25",
+      "description": "The Battle of Saratoga was the turning point that convinced France to ally with America",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 12
+    },
+    {
+      "id": "APUSH-U3S26",
+      "description": "The French alliance was critical in helping America win the Revolution",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 12
+    },
+    {
+      "id": "APUSH-U3S27",
+      "description": "George Washington commanded the Continental Army",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 12
+    },
+    {
+      "id": "APUSH-U3S28",
+      "description": "The British surrendered at the Battle of Yorktown in 1781",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 13
+    },
+    {
+      "id": "APUSH-U3S29",
+      "description": "The Treaty of Paris (1783) officially recognized American independence",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 14
+    },
+    {
+      "id": "APUSH-U3S30",
+      "description": "Revolutionary ideals sparked debates about equality and who deserved rights",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U3S31",
+      "description": "People debated the morality and future of slavery during the Revolution",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 8
+    },
+    {
+      "id": "APUSH-U3S32",
+      "description": "The Revolution expanded some roles for women but also kept many limits in place",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 8
+    },
+    {
+      "id": "APUSH-U3S33",
+      "description": "Republican Motherhood was the idea that women served the nation by raising good citizens",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 9
+    },
+    {
+      "id": "APUSH-U3S34",
+      "description": "Northern states passed gradual emancipation laws after the Revolution",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 8
+    },
+    {
+      "id": "APUSH-U3S35",
+      "description": "Some states expanded voting rights by lowering property requirements",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 8
+    },
+    {
+      "id": "APUSH-U3S36",
+      "description": "The Articles of Confederation were America's first attempt at a national government",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 15
+    },
+    {
+      "id": "APUSH-U3S37",
+      "description": "The Articles were weak \u2014 no power to tax, no executive branch, and amendments needed unanimous approval",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 16
+    },
+    {
+      "id": "APUSH-U3S38",
+      "description": "Shays' Rebellion (1786-87) showed how weak the Articles of Confederation were",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 17
+    },
+    {
+      "id": "APUSH-U3S39",
+      "description": "The Northwest Ordinance set up rules for governing new territories and admitting new states",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 16
+    },
+    {
+      "id": "APUSH-U3S40",
+      "description": "The Constitutional Convention was called in Philadelphia in 1787 to fix the government",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 18
+    },
+    {
+      "id": "APUSH-U3S41",
+      "description": "The Virginia Plan favored big states by basing representation on population",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 19
+    },
+    {
+      "id": "APUSH-U3S42",
+      "description": "The New Jersey Plan favored small states by giving every state equal representation",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 19
+    },
+    {
+      "id": "APUSH-U3S43",
+      "description": "The Great Compromise created a two-house legislature \u2014 the Senate and the House",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 20
+    },
+    {
+      "id": "APUSH-U3S44",
+      "description": "The Three-Fifths Compromise counted enslaved people as 3/5 of a person for representation and taxes",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 19
+    },
+    {
+      "id": "APUSH-U3S45",
+      "description": "The Electoral College is the system used to elect the president",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 19
+    },
+    {
+      "id": "APUSH-U3S46",
+      "description": "Federalism divides power between the national government and state governments",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 21
+    },
+    {
+      "id": "APUSH-U3S47",
+      "description": "The Constitution separates power among three branches: legislative, executive, and judicial",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U3S48",
+      "description": "Checks and balances prevent any one branch of government from becoming too powerful",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U3S49",
+      "description": "Federalists and Anti-Federalists debated whether to ratify the Constitution",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 22
+    },
+    {
+      "id": "APUSH-U3S50",
+      "description": "Federalists argued for a strong national government in The Federalist Papers",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 23
+    },
+    {
+      "id": "APUSH-U3S51",
+      "description": "James Madison, Alexander Hamilton, and John Jay wrote The Federalist Papers",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 24
+    },
+    {
+      "id": "APUSH-U3S52",
+      "description": "Anti-Federalists worried the Constitution would create a tyrannical central government without a Bill of Rights",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 23
+    },
+    {
+      "id": "APUSH-U3S53",
+      "description": "The Bill of Rights was added to protect individual freedoms and convince people to ratify the Constitution",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 24
+    },
+    {
+      "id": "APUSH-U3S54",
+      "description": "The Bill of Rights protects freedom of speech, religion, press, the right to bear arms, and due process",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 25
+    },
+    {
+      "id": "APUSH-U3S55",
+      "description": "George Washington's presidency set many important precedents for future presidents",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 15
+    },
+    {
+      "id": "APUSH-U3S56",
+      "description": "Washington's Farewell Address warned against political parties and foreign alliances",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 16
+    },
+    {
+      "id": "APUSH-U3S57",
+      "description": "The first two political parties were the Federalists and the Democratic-Republicans",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 16
+    },
+    {
+      "id": "APUSH-U3S58",
+      "description": "Alexander Hamilton led the Federalists and favored industry, tariffs, and a national bank",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 17
+    },
+    {
+      "id": "APUSH-U3S59",
+      "description": "Thomas Jefferson led the Democratic-Republicans and favored farming and a strict reading of the Constitution",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 17
+    },
+    {
+      "id": "APUSH-U3S60",
+      "description": "Hamilton's financial plan included a national bank, taking on state debts, and excise taxes",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 18
+    },
+    {
+      "id": "APUSH-U3S61",
+      "description": "People debated whether the national bank was constitutional \u2014 strict vs. loose interpretation",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 19
+    },
+    {
+      "id": "APUSH-U3S62",
+      "description": "McCulloch v. Maryland upheld the national bank and established that federal law is supreme",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 20
+    },
+    {
+      "id": "APUSH-U3S63",
+      "description": "The Whiskey Rebellion happened, and Washington sent troops to enforce federal law",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 16
+    },
+    {
+      "id": "APUSH-U3S64",
+      "description": "The Jay Treaty (Britain) and Pinckney Treaty (Spain) were early foreign policy deals",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 16
+    },
+    {
+      "id": "APUSH-U3S65",
+      "description": "The Alien and Sedition Acts under John Adams restricted free speech and immigration",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 17
+    },
+    {
+      "id": "APUSH-U3S66",
+      "description": "The Virginia and Kentucky Resolutions argued states could nullify federal laws they saw as unconstitutional",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 18
+    },
+    {
+      "id": "APUSH-U3S67",
+      "description": "The XYZ Affair led to an undeclared 'quasi-war' with France",
+      "unitId": "u3",
+      "unitName": "Unit 3: Period 3 - 1754 to 1800",
+      "layerDepth": 17
+    },
+    {
+      "id": "APUSH-U4S1",
+      "description": "The Election of 1800 was a peaceful transfer of power between opposing political parties",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 17
+    },
+    {
+      "id": "APUSH-U4S2",
+      "description": "Jefferson's presidency focused on an agrarian republic with limited government",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 18
+    },
+    {
+      "id": "APUSH-U4S3",
+      "description": "The Louisiana Purchase (1803) doubled the size of the United States",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 19
+    },
+    {
+      "id": "APUSH-U4S4",
+      "description": "People debated whether Jefferson even had the constitutional power to buy Louisiana",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 20
+    },
+    {
+      "id": "APUSH-U4S5",
+      "description": "Lewis and Clark explored the new western territory from the Louisiana Purchase",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 20
+    },
+    {
+      "id": "APUSH-U4S6",
+      "description": "Marbury v. Madison (1803) established judicial review \u2014 courts can strike down unconstitutional laws",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 21
+    },
+    {
+      "id": "APUSH-U4S7",
+      "description": "I know the causes and outcomes of the War of 1812",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U4S8",
+      "description": "British impressment (forcing American sailors into the British navy) was a major cause of the War of 1812",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S9",
+      "description": "Americans also wanted to expand into Canada and stop Native American resistance on the frontier",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S10",
+      "description": "Tecumseh built a Native American confederacy to resist American westward expansion",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S11",
+      "description": "The Hartford Convention was where Federalists met to oppose the War of 1812",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S12",
+      "description": "The Federalist Party collapsed after the War of 1812",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U4S13",
+      "description": "The Treaty of Ghent ended the War of 1812 with no territory changing hands",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S14",
+      "description": "American nationalism and economic independence grew after the War of 1812",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U4S15",
+      "description": "The Era of Good Feelings under President Monroe was a period of national unity",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U4S16",
+      "description": "The Monroe Doctrine (1823) told European nations to stay out of the Western Hemisphere",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U4S17",
+      "description": "Henry Clay's American System included protective tariffs, a national bank, and roads/canals",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 18
+    },
+    {
+      "id": "APUSH-U4S18",
+      "description": "The Missouri Compromise (1820) kept the balance between free and slave states",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 19
+    },
+    {
+      "id": "APUSH-U4S19",
+      "description": "The 36\u00b030' line divided future territories into free (north) and slave (south)",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 20
+    },
+    {
+      "id": "APUSH-U4S20",
+      "description": "The Market Revolution transformed the American economy in the early 1800s",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U4S21",
+      "description": "The factory system started at Lowell, Massachusetts",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S22",
+      "description": "New transportation \u2014 turnpikes, canals, steamboats, and railroads \u2014 changed the economy",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S23",
+      "description": "The Erie Canal was a game-changer, connecting the Great Lakes to the Atlantic Ocean",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U4S24",
+      "description": "The cotton gin made cotton production explode, which increased the demand for slave labor",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S25",
+      "description": "A wage-labor economy grew in the North",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S26",
+      "description": "The Lowell mill system relied on young women as factory workers",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U4S27",
+      "description": "The Market Revolution made the economic differences between North and South even bigger",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S28",
+      "description": "The Market Revolution caused major social and cultural changes",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S29",
+      "description": "A middle class emerged along with the idea of 'separate spheres' \u2014 men in public life, women at home",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U4S30",
+      "description": "Immigration from Ireland and Germany increased heavily in the 1830s and 1840s",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U4S31",
+      "description": "Nativists opposed Catholic immigrants, leading to groups like the Know-Nothing Party",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U4S32",
+      "description": "Democratic participation expanded during the Jacksonian era",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U4S33",
+      "description": "Dropping property requirements allowed more white men to vote",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S34",
+      "description": "Mass party politics and popular campaigning techniques rose during this era",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S35",
+      "description": "Andrew Jackson was seen as a champion of the common man against wealthy elites",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S36",
+      "description": "Jackson vetoed the recharter of the Second Bank of the United States",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 20
+    },
+    {
+      "id": "APUSH-U4S37",
+      "description": "The Nullification Crisis was a showdown over federal tariffs \u2014 South Carolina tried to reject them",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 19
+    },
+    {
+      "id": "APUSH-U4S38",
+      "description": "John C. Calhoun was the leading voice for nullification and Southern states' rights",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 20
+    },
+    {
+      "id": "APUSH-U4S39",
+      "description": "Jackson forcefully shut down nullification, preserving federal authority",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 20
+    },
+    {
+      "id": "APUSH-U4S40",
+      "description": "The Indian Removal Act (1830) led to the Trail of Tears \u2014 forced removal of Native Americans",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U4S41",
+      "description": "Worcester v. Georgia ruled in favor of Cherokee sovereignty, but Jackson ignored the ruling",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U4S42",
+      "description": "The Cherokee, Creek, Choctaw, and other nations were forcibly relocated from the Southeast",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U4S43",
+      "description": "The Second Great Awakening was a massive religious revival movement",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U4S44",
+      "description": "Revivalism promoted personal salvation and inspired people to push for social reforms",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U4S45",
+      "description": "The abolitionist movement demanded an immediate end to slavery",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 9
+    },
+    {
+      "id": "APUSH-U4S46",
+      "description": "William Lloyd Garrison published The Liberator, calling for the immediate end of slavery",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 10
+    },
+    {
+      "id": "APUSH-U4S47",
+      "description": "Frederick Douglass was a formerly enslaved person who became a leading abolitionist",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 10
+    },
+    {
+      "id": "APUSH-U4S48",
+      "description": "The Underground Railroad was a secret network that helped enslaved people escape to freedom",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 10
+    },
+    {
+      "id": "APUSH-U4S49",
+      "description": "The women's rights movement held the Seneca Falls Convention in 1848",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U4S50",
+      "description": "The Declaration of Sentiments was modeled after the Declaration of Independence",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U4S51",
+      "description": "The temperance movement tried to reduce or ban alcohol",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U4S52",
+      "description": "Horace Mann led the common school movement to expand public education",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U4S53",
+      "description": "Utopian communities were experiments in creating ideal alternative societies",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U4S54",
+      "description": "Transcendentalists like Emerson and Thoreau emphasized individualism and self-reliance",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U4S55",
+      "description": "The plantation system in the South completely depended on enslaved labor",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 9
+    },
+    {
+      "id": "APUSH-U4S56",
+      "description": "Enslaved people resisted through revolts, escapes, working slowly, and keeping their culture alive",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 10
+    },
+    {
+      "id": "APUSH-U4S57",
+      "description": "Nat Turner's Rebellion (1831) was a major slave uprising in Virginia",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 11
+    },
+    {
+      "id": "APUSH-U4S58",
+      "description": "Proslavery advocates defended slavery as a 'positive good' and even used the Bible to justify it",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 10
+    },
+    {
+      "id": "APUSH-U4S59",
+      "description": "Slavery shaped the South's social structure, economy, and political power",
+      "unitId": "u4",
+      "unitName": "Unit 4: Period 4 - 1800 to 1848",
+      "layerDepth": 10
+    },
+    {
+      "id": "APUSH-U5S1",
+      "description": "Manifest Destiny was the belief that America was destined to expand across the entire continent",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U5S2",
+      "description": "Texas was annexed (added to the US) in 1845 as part of westward expansion",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U5S3",
+      "description": "The Oregon Treaty with Britain set the northern US border at the 49th parallel",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U5S4",
+      "description": "Americans migrated west on the Oregon, California, and Santa Fe trails",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U5S5",
+      "description": "I know the causes of the Mexican-American War (1846-1848)",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U5S6",
+      "description": "The Treaty of Guadalupe Hidalgo gave a huge chunk of Mexican territory to the US",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U5S7",
+      "description": "The Wilmot Proviso proposed banning slavery in any territory taken from Mexico",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U5S8",
+      "description": "Gaining territory from Mexico reignited the fight over whether slavery would expand",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 21
+    },
+    {
+      "id": "APUSH-U5S9",
+      "description": "The Compromise of 1850 tried to settle the slavery debate with several provisions",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 22
+    },
+    {
+      "id": "APUSH-U5S10",
+      "description": "California was admitted as a free state under the Compromise of 1850",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 23
+    },
+    {
+      "id": "APUSH-U5S11",
+      "description": "The Fugitive Slave Act required Northerners to help return escaped enslaved people",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 23
+    },
+    {
+      "id": "APUSH-U5S12",
+      "description": "Popular sovereignty let territories like Utah and New Mexico vote on whether to allow slavery",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 23
+    },
+    {
+      "id": "APUSH-U5S13",
+      "description": "The Fugitive Slave Act made Northerners even more opposed to slavery",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 24
+    },
+    {
+      "id": "APUSH-U5S14",
+      "description": "Harriet Beecher Stowe's 'Uncle Tom's Cabin' turned public opinion against slavery",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 25
+    },
+    {
+      "id": "APUSH-U5S15",
+      "description": "The North and South were growing further apart on major issues",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 10
+    },
+    {
+      "id": "APUSH-U5S16",
+      "description": "The Northern economy was based on industry, free labor, and diverse farming",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 11
+    },
+    {
+      "id": "APUSH-U5S17",
+      "description": "The Southern economy was based on plantations and enslaved labor",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 11
+    },
+    {
+      "id": "APUSH-U5S18",
+      "description": "The North and South disagreed on tariffs, government-funded projects, and slavery expansion",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 11
+    },
+    {
+      "id": "APUSH-U5S19",
+      "description": "The Kansas-Nebraska Act (1854) let new territories vote on slavery through popular sovereignty",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 24
+    },
+    {
+      "id": "APUSH-U5S20",
+      "description": "The Kansas-Nebraska Act basically canceled the Missouri Compromise",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 25
+    },
+    {
+      "id": "APUSH-U5S21",
+      "description": "Bleeding Kansas was a violent conflict between pro-slavery and anti-slavery settlers",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 25
+    },
+    {
+      "id": "APUSH-U5S22",
+      "description": "The Republican Party formed to oppose the expansion of slavery",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 25
+    },
+    {
+      "id": "APUSH-U5S23",
+      "description": "The Dred Scott decision said African Americans could not be citizens",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 26
+    },
+    {
+      "id": "APUSH-U5S24",
+      "description": "Dred Scott also declared the Missouri Compromise unconstitutional",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 27
+    },
+    {
+      "id": "APUSH-U5S25",
+      "description": "The Lincoln-Douglas debates focused on slavery, popular sovereignty, and the future of the Union",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 26
+    },
+    {
+      "id": "APUSH-U5S26",
+      "description": "John Brown raided the federal arsenal at Harpers Ferry in 1859",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 26
+    },
+    {
+      "id": "APUSH-U5S27",
+      "description": "Brown's raid deepened fears on both sides and pushed the country closer to war",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 27
+    },
+    {
+      "id": "APUSH-U5S28",
+      "description": "Abraham Lincoln won the Election of 1860 on a platform against slavery's expansion",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 26
+    },
+    {
+      "id": "APUSH-U5S29",
+      "description": "Lincoln's election caused Southern states to secede from the Union",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 27
+    },
+    {
+      "id": "APUSH-U5S30",
+      "description": "Southern states formed the Confederate States of America",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 28
+    },
+    {
+      "id": "APUSH-U5S31",
+      "description": "Jefferson Davis was the president of the Confederacy",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 29
+    },
+    {
+      "id": "APUSH-U5S32",
+      "description": "I know the main events of the Civil War (1861-1865)",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 29
+    },
+    {
+      "id": "APUSH-U5S33",
+      "description": "The North had advantages: more people, more factories, better railroads, and a stronger navy",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 30
+    },
+    {
+      "id": "APUSH-U5S34",
+      "description": "The South had advantages: fighting on home turf, strong military leaders, and interior defensive lines",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 30
+    },
+    {
+      "id": "APUSH-U5S35",
+      "description": "I know the key Civil War battles: Bull Run, Antietam, Gettysburg, Vicksburg, and Sherman's March",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 30
+    },
+    {
+      "id": "APUSH-U5S36",
+      "description": "The Battle of Gettysburg was a major turning point of the Civil War",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 31
+    },
+    {
+      "id": "APUSH-U5S37",
+      "description": "Grant's strategy was total war and wearing down the Confederacy through attrition",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 30
+    },
+    {
+      "id": "APUSH-U5S38",
+      "description": "Lee surrendered to Grant at Appomattox Court House in April 1865, ending the war",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 31
+    },
+    {
+      "id": "APUSH-U5S39",
+      "description": "The Emancipation Proclamation was issued in January 1863",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 30
+    },
+    {
+      "id": "APUSH-U5S40",
+      "description": "The Emancipation Proclamation changed the purpose of the war to include ending slavery",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 31
+    },
+    {
+      "id": "APUSH-U5S41",
+      "description": "African Americans served in the Union Army, including the famous 54th Massachusetts regiment",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 31
+    },
+    {
+      "id": "APUSH-U5S42",
+      "description": "The government expanded during the war: military draft, income tax, Homestead Act, Morrill Act",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 30
+    },
+    {
+      "id": "APUSH-U5S43",
+      "description": "Lincoln suspended habeas corpus (the right to a trial) during the Civil War",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 30
+    },
+    {
+      "id": "APUSH-U5S44",
+      "description": "The Gettysburg Address redefined the war as a fight for equality and democracy",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 30
+    },
+    {
+      "id": "APUSH-U5S45",
+      "description": "The 13th Amendment abolished slavery throughout the United States",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 32
+    },
+    {
+      "id": "APUSH-U5S46",
+      "description": "Presidential Reconstruction under Lincoln and Johnson was relatively lenient toward the South",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 33
+    },
+    {
+      "id": "APUSH-U5S47",
+      "description": "Lincoln's Ten Percent Plan made it easy for Southern states to rejoin the Union",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 34
+    },
+    {
+      "id": "APUSH-U5S48",
+      "description": "Andrew Johnson continued lenient Reconstruction and pardoned many former Confederates",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 34
+    },
+    {
+      "id": "APUSH-U5S49",
+      "description": "Radical Republicans opposed Johnson's soft approach to Reconstruction",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 35
+    },
+    {
+      "id": "APUSH-U5S50",
+      "description": "Congressional Reconstruction put the South under military rule with the Reconstruction Acts",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 36
+    },
+    {
+      "id": "APUSH-U5S51",
+      "description": "The 14th Amendment granted citizenship and guaranteed equal protection under the law",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 37
+    },
+    {
+      "id": "APUSH-U5S52",
+      "description": "The 15th Amendment said voting rights can't be denied based on race",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 37
+    },
+    {
+      "id": "APUSH-U5S53",
+      "description": "The Freedmen's Bureau provided education, food, and legal help to formerly enslaved people",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 37
+    },
+    {
+      "id": "APUSH-U5S54",
+      "description": "African Americans participated in politics during Reconstruction",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 37
+    },
+    {
+      "id": "APUSH-U5S55",
+      "description": "Black elected officials served in state and federal government during Reconstruction",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 38
+    },
+    {
+      "id": "APUSH-U5S56",
+      "description": "The House of Representatives impeached President Andrew Johnson",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 37
+    },
+    {
+      "id": "APUSH-U5S57",
+      "description": "White Southerners resisted Reconstruction through violence, intimidation, and restrictive laws",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 38
+    },
+    {
+      "id": "APUSH-U5S58",
+      "description": "Black Codes were Southern laws designed to restrict the rights of formerly enslaved people",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 39
+    },
+    {
+      "id": "APUSH-U5S59",
+      "description": "The KKK used terror and violence to stop Black people from participating in politics",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 39
+    },
+    {
+      "id": "APUSH-U5S60",
+      "description": "Sharecropping and the crop-lien system trapped formerly enslaved people in cycles of debt",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 39
+    },
+    {
+      "id": "APUSH-U5S61",
+      "description": "The Compromise of 1877 settled the disputed election and ended Reconstruction",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 40
+    },
+    {
+      "id": "APUSH-U5S62",
+      "description": "Federal troops were pulled out of the South after Reconstruction ended",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 41
+    },
+    {
+      "id": "APUSH-U5S63",
+      "description": "Jim Crow segregation and racial oppression took over the South after Reconstruction",
+      "unitId": "u5",
+      "unitName": "Unit 5: Period 5 - 1844 to 1877",
+      "layerDepth": 42
+    },
+    {
+      "id": "APUSH-U6S1",
+      "description": "Westward expansion and economic development accelerated after the Civil War",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 32
+    },
+    {
+      "id": "APUSH-U6S2",
+      "description": "The Transcontinental Railroad was completed in 1869, connecting the East and West coasts",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 33
+    },
+    {
+      "id": "APUSH-U6S3",
+      "description": "The Homestead Act encouraged settlement out West by offering free land",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 33
+    },
+    {
+      "id": "APUSH-U6S4",
+      "description": "Railroads connected national markets and sped up economic growth",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 34
+    },
+    {
+      "id": "APUSH-U6S5",
+      "description": "The cattle industry and ranching became a major part of the Great Plains economy",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 33
+    },
+    {
+      "id": "APUSH-U6S6",
+      "description": "Mining booms in the West drew waves of new settlers",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 33
+    },
+    {
+      "id": "APUSH-U6S7",
+      "description": "American settlers and Native Americans clashed violently in the West",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 33
+    },
+    {
+      "id": "APUSH-U6S8",
+      "description": "The destruction of the buffalo herds devastated Plains Indian ways of life",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 34
+    },
+    {
+      "id": "APUSH-U6S9",
+      "description": "The Indian Wars included the Battle of Little Bighorn and the Wounded Knee Massacre",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 34
+    },
+    {
+      "id": "APUSH-U6S10",
+      "description": "The reservation system forced Native Americans onto restricted pieces of land",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 34
+    },
+    {
+      "id": "APUSH-U6S11",
+      "description": "The Dawes Act (1887) broke up tribal lands into individual plots",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 35
+    },
+    {
+      "id": "APUSH-U6S12",
+      "description": "The Dawes Act tried to force assimilation while destroying Native communal land traditions",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 36
+    },
+    {
+      "id": "APUSH-U6S13",
+      "description": "The 'New South' promoted industrialization, but progress was limited",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 42
+    },
+    {
+      "id": "APUSH-U6S14",
+      "description": "Sharecropping and tenant farming continued to dominate the Southern economy after the war",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 43
+    },
+    {
+      "id": "APUSH-U6S15",
+      "description": "The South had some industrial growth, like textile mills and tobacco processing, but it was limited",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 43
+    },
+    {
+      "id": "APUSH-U6S16",
+      "description": "Jim Crow laws required racial segregation across the South",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 43
+    },
+    {
+      "id": "APUSH-U6S17",
+      "description": "Plessy v. Ferguson (1896) upheld 'separate but equal' segregation as constitutional",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 44
+    },
+    {
+      "id": "APUSH-U6S18",
+      "description": "Black voters were kept from voting through poll taxes, literacy tests, and grandfather clauses",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 44
+    },
+    {
+      "id": "APUSH-U6S19",
+      "description": "Lynching and racial violence were used as tools of terror against Black people in the South",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 44
+    },
+    {
+      "id": "APUSH-U6S20",
+      "description": "Ida B. Wells was a leading journalist and activist who fought against lynching",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 45
+    },
+    {
+      "id": "APUSH-U6S21",
+      "description": "Technological innovations drove the massive industrialization after the Civil War",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U6S22",
+      "description": "Key inventions included the telephone, electric light, and the Bessemer steel process",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U6S23",
+      "description": "New technologies transformed how businesses operated and how people lived daily life",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U6S24",
+      "description": "Big business and industrial capitalism rose to dominate the Gilded Age economy",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U6S25",
+      "description": "Carnegie (steel), Rockefeller (oil), and JP Morgan (finance) were major industrialists",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U6S26",
+      "description": "Vertical and horizontal integration were strategies companies used to dominate industries",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U6S27",
+      "description": "Trusts and monopolies formed to control entire industries",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U6S28",
+      "description": "The Sherman Antitrust Act (1890) was the first federal attempt to regulate monopolies",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U6S29",
+      "description": "The Gospel of Wealth and Social Darwinism were used to justify inequality",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U6S30",
+      "description": "Laissez-faire economics and limited government defined Gilded Age policy",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U6S31",
+      "description": "Industrial workers faced terrible conditions: long hours, low pay, and dangerous workplaces",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U6S32",
+      "description": "Labor unions grew as workers organized to fight for better conditions",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U6S33",
+      "description": "The Knights of Labor welcomed all workers, including unskilled laborers",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U6S34",
+      "description": "The AFL under Samuel Gompers focused on skilled craft workers",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U6S35",
+      "description": "Major strikes included the Great Railroad Strike (1877), Haymarket, Homestead, and Pullman",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U6S36",
+      "description": "Government and business used courts, troops, and legal orders to crush labor unions",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U6S37",
+      "description": "Mass immigration defined the Gilded Age",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U6S38",
+      "description": "Immigration shifted from Northern/Western Europe to Southern/Eastern Europe",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U6S39",
+      "description": "Chinese immigrants contributed significant labor, including building the Transcontinental Railroad",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U6S40",
+      "description": "Immigrants in cities lived in ethnic neighborhoods and tenement housing while preserving their cultures",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U6S41",
+      "description": "The Chinese Exclusion Act (1882) was the first major federal law restricting immigration",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U6S42",
+      "description": "Nativist movements opposed immigration based on race, religion, and economic fears",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U6S43",
+      "description": "American cities grew explosively during the Gilded Age",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U6S44",
+      "description": "Cities faced overcrowding, poor sanitation, poverty, and political corruption",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U6S45",
+      "description": "Political machines like Tammany Hall traded services for votes",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U6S46",
+      "description": "Consumer culture and an urban middle class were growing",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U6S47",
+      "description": "Public education, libraries, and new forms of entertainment expanded",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U6S48",
+      "description": "Reform movements arose to tackle Gilded Age social and economic problems",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U6S49",
+      "description": "The Social Gospel movement applied Christian values to fight urban poverty and inequality",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U6S50",
+      "description": "Settlement houses like Jane Addams' Hull House served immigrant communities",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U6S51",
+      "description": "The Populist movement represented farmers fighting against corporate power",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U6S52",
+      "description": "Populists demanded free silver coinage, a graduated income tax, and railroad regulation",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U6S53",
+      "description": "The People's Party and William Jennings Bryan ran for president on populist platforms",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U6S54",
+      "description": "Bryan's 'Cross of Gold' speech called for silver currency and challenged the gold standard",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 8
+    },
+    {
+      "id": "APUSH-U6S55",
+      "description": "Gilded Age politics were marked by corruption, patronage, and limited federal action",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U6S56",
+      "description": "The spoils system was corrupt, and people pushed for civil service reform",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U6S57",
+      "description": "The Pendleton Act (1883) established hiring federal workers based on merit instead of political connections",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U6S58",
+      "description": "Tariff policy was a major ongoing debate during the Gilded Age",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U6S59",
+      "description": "The gold standard debate was connected to bigger fights over monetary policy",
+      "unitId": "u6",
+      "unitName": "Unit 6: Period 6 - 1865 to 1898",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U7S1",
+      "description": "Americans debated whether the US should become an imperial power in the 1890s",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 35
+    },
+    {
+      "id": "APUSH-U7S2",
+      "description": "Arguments for expansion included new markets, Social Darwinism, naval strategy, and a 'civilizing mission'",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 36
+    },
+    {
+      "id": "APUSH-U7S3",
+      "description": "Anti-imperialists said expansion violated democratic ideals and the Constitution",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 36
+    },
+    {
+      "id": "APUSH-U7S4",
+      "description": "Alfred Thayer Mahan's book argued that sea power was the key to national greatness",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 37
+    },
+    {
+      "id": "APUSH-U7S5",
+      "description": "I know the causes and events of the Spanish-American War (1898)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 37
+    },
+    {
+      "id": "APUSH-U7S6",
+      "description": "Yellow journalism (sensationalized news) helped build public support for war with Spain",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 38
+    },
+    {
+      "id": "APUSH-U7S7",
+      "description": "After winning, the US took control of the Philippines, Puerto Rico, and Guam",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 38
+    },
+    {
+      "id": "APUSH-U7S8",
+      "description": "The Platt Amendment gave the US the right to intervene in Cuba",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 38
+    },
+    {
+      "id": "APUSH-U7S9",
+      "description": "The Philippine-American War was fought when Filipinos resisted US colonial rule",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 39
+    },
+    {
+      "id": "APUSH-U7S10",
+      "description": "The Open Door Policy tried to ensure equal trading access for all nations in China",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 37
+    },
+    {
+      "id": "APUSH-U7S11",
+      "description": "Teddy Roosevelt used 'Big Stick' diplomacy and built the Panama Canal",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 37
+    },
+    {
+      "id": "APUSH-U7S12",
+      "description": "The Roosevelt Corollary said the US could act as a 'police force' in Latin America",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 38
+    },
+    {
+      "id": "APUSH-U7S13",
+      "description": "The Progressive movement was a response to Gilded Age problems",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 37
+    },
+    {
+      "id": "APUSH-U7S14",
+      "description": "Progressives wanted to regulate business, reduce corruption, expand democracy, and protect workers",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 38
+    },
+    {
+      "id": "APUSH-U7S15",
+      "description": "Muckraking journalists exposed corruption, dangerous conditions, and social injustice",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 39
+    },
+    {
+      "id": "APUSH-U7S16",
+      "description": "Key muckrakers: Upton Sinclair (The Jungle), Ida Tarbell (Standard Oil), and Jacob Riis",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 40
+    },
+    {
+      "id": "APUSH-U7S17",
+      "description": "Teddy Roosevelt's Square Deal focused on trust-busting, consumer protection, and conservation",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 39
+    },
+    {
+      "id": "APUSH-U7S18",
+      "description": "The Hepburn Act regulated railroads and the Pure Food and Drug Act protected consumers",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 40
+    },
+    {
+      "id": "APUSH-U7S19",
+      "description": "Roosevelt was a conservationist who established national parks and forests",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 40
+    },
+    {
+      "id": "APUSH-U7S20",
+      "description": "Woodrow Wilson's 'New Freedom' program focused on economic reform",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 39
+    },
+    {
+      "id": "APUSH-U7S21",
+      "description": "The Federal Reserve Act (1913) created America's central banking system",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 40
+    },
+    {
+      "id": "APUSH-U7S22",
+      "description": "The Clayton Antitrust Act gave the government more power to break up monopolies",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 40
+    },
+    {
+      "id": "APUSH-U7S23",
+      "description": "The 16th Amendment allowed an income tax; the 17th allowed direct election of senators",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 39
+    },
+    {
+      "id": "APUSH-U7S24",
+      "description": "Progressive reforms at the state level included the initiative, referendum, recall, and direct primary",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 39
+    },
+    {
+      "id": "APUSH-U7S25",
+      "description": "The women's suffrage movement won the right to vote with the 19th Amendment (1920)",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 39
+    },
+    {
+      "id": "APUSH-U7S26",
+      "description": "Progressivism largely failed to address racial equality for African Americans",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 45
+    },
+    {
+      "id": "APUSH-U7S27",
+      "description": "Booker T. Washington pushed for vocational education and gradual economic progress for Black Americans",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 46
+    },
+    {
+      "id": "APUSH-U7S28",
+      "description": "W.E.B. Du Bois pushed for immediate full civil rights and co-founded the NAACP",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 46
+    },
+    {
+      "id": "APUSH-U7S29",
+      "description": "The 18th Amendment established Prohibition \u2014 banning alcohol",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 39
+    },
+    {
+      "id": "APUSH-U7S30",
+      "description": "I know the causes of US entry into World War I",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U7S31",
+      "description": "German submarine warfare and the Zimmermann Telegram pushed the US toward war",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U7S32",
+      "description": "The US entered World War I in April 1917",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U7S33",
+      "description": "American troops helped the Allies win on the Western Front",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U7S34",
+      "description": "The WWI home front involved propaganda, food conservation, war bonds, and expanded government power",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U7S35",
+      "description": "The Espionage Act, Sedition Act, and Schenck v. US restricted civil liberties during WWI",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U7S36",
+      "description": "The Great Migration was the mass movement of Black Americans from the rural South to Northern cities",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U7S37",
+      "description": "Women gained new job opportunities during World War I",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U7S38",
+      "description": "Wilson's Fourteen Points laid out his vision for a fair and lasting peace",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U7S39",
+      "description": "The Treaty of Versailles punished Germany harshly and created the League of Nations",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U7S40",
+      "description": "The US Senate rejected the Treaty of Versailles and refused to join the League of Nations",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U7S41",
+      "description": "1920s immigration was restricted by the Emergency Quota Act and National Origins Act",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U7S42",
+      "description": "Nativism, racism, and eugenics influenced 1920s immigration policy",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 8
+    },
+    {
+      "id": "APUSH-U7S43",
+      "description": "The KKK surged again in the 1920s, targeting immigrants, Catholics, and Jews",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 9
+    },
+    {
+      "id": "APUSH-U7S44",
+      "description": "The 1920s were full of cultural and political tensions",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U7S45",
+      "description": "The First Red Scare (1919-1920) and Palmer Raids targeted suspected radicals",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U7S46",
+      "description": "The Scopes Trial (1925) showed the tension between modern science and religious fundamentalism",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U7S47",
+      "description": "Prohibition led to bootlegging, speakeasies, and organized crime",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U7S48",
+      "description": "The Harlem Renaissance was a flourishing of Black arts, literature, and music",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U7S49",
+      "description": "Key Harlem Renaissance figures: Langston Hughes, Zora Neale Hurston, Louis Armstrong, Duke Ellington",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U7S50",
+      "description": "The 1920s saw the rise of consumer culture, car ownership, and mass media",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U7S51",
+      "description": "Radio, movies, and advertising created a shared national popular culture",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U7S52",
+      "description": "Gender roles changed in the 1920s \u2014 flappers, more women in the workforce",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U7S53",
+      "description": "Marcus Garvey and the UNIA promoted Black nationalism and pride",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U7S54",
+      "description": "I know the causes of the Great Depression",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U7S55",
+      "description": "Stock market speculation and the crash of October 1929 triggered the Depression",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U7S56",
+      "description": "Overproduction in farming and industry were underlying economic weaknesses",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U7S57",
+      "description": "Wealth was distributed very unequally in the 1920s, limiting most people's buying power",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U7S58",
+      "description": "Weaknesses in the banking system led to widespread bank failures",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U7S59",
+      "description": "The Great Depression caused mass unemployment, poverty, and homelessness",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U7S60",
+      "description": "The Dust Bowl was an environmental disaster that made the Depression even worse on the Plains",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U7S61",
+      "description": "President Hoover's response to the Depression was limited \u2014 he believed in voluntary cooperation",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 3
+    },
+    {
+      "id": "APUSH-U7S62",
+      "description": "FDR won the 1932 election promising a 'New Deal' for Americans",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 4
+    },
+    {
+      "id": "APUSH-U7S63",
+      "description": "Key New Deal programs included the CCC, TVA, WPA, AAA, FDIC, SEC, and Social Security",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U7S64",
+      "description": "The Social Security Act (1935) created a safety net for the elderly, unemployed, and disabled",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U7S65",
+      "description": "The Wagner Act protected workers' right to organize unions and bargain collectively",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U7S66",
+      "description": "FDR's court-packing plan \u2014 trying to add justices to the Supreme Court \u2014 was controversial",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U7S67",
+      "description": "New Deal critics included Huey Long (from the left), the Liberty League (from the right), and Father Coughlin",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U7S68",
+      "description": "The New Deal permanently expanded the role and size of the federal government",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U7S69",
+      "description": "The New Deal coalition brought together unions, Black voters, ethnic minorities, Southerners, and city voters",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U7S70",
+      "description": "The New Deal didn't do enough for African Americans, women, and other marginalized groups",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 5
+    },
+    {
+      "id": "APUSH-U7S71",
+      "description": "US foreign policy between the world wars was mostly isolationist",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U7S72",
+      "description": "The Neutrality Acts of the 1930s tried to keep the US out of foreign wars",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 8
+    },
+    {
+      "id": "APUSH-U7S73",
+      "description": "Fascism rose in Germany and Italy, and Japan became increasingly militaristic",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 9
+    },
+    {
+      "id": "APUSH-U7S74",
+      "description": "The US gradually shifted from isolation to getting involved as WWII spread",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 10
+    },
+    {
+      "id": "APUSH-U7S75",
+      "description": "The Lend-Lease Act sent military supplies to Britain and the Allies before the US officially entered the war",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 11
+    },
+    {
+      "id": "APUSH-U7S76",
+      "description": "Japan attacked Pearl Harbor on December 7, 1941, bringing the US into WWII",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 11
+    },
+    {
+      "id": "APUSH-U7S77",
+      "description": "I know how the US mobilized for World War II",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 12
+    },
+    {
+      "id": "APUSH-U7S78",
+      "description": "The economy shifted from making consumer goods to producing war materials",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 13
+    },
+    {
+      "id": "APUSH-U7S79",
+      "description": "Women entered the workforce in large numbers \u2014 symbolized by 'Rosie the Riveter'",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 13
+    },
+    {
+      "id": "APUSH-U7S80",
+      "description": "The Double V Campaign called for victory over fascism abroad and racism at home",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 13
+    },
+    {
+      "id": "APUSH-U7S81",
+      "description": "Japanese Americans were forced into internment camps during WWII \u2014 a major civil liberties violation",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 13
+    },
+    {
+      "id": "APUSH-U7S82",
+      "description": "Korematsu v. US was the Supreme Court case that upheld Japanese American internment",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 14
+    },
+    {
+      "id": "APUSH-U7S83",
+      "description": "I know the major military events and strategy of World War II",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 13
+    },
+    {
+      "id": "APUSH-U7S84",
+      "description": "The Allied strategy in Europe went from North Africa to Italy to D-Day to defeating Nazi Germany",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 14
+    },
+    {
+      "id": "APUSH-U7S85",
+      "description": "In the Pacific, the US used an island-hopping strategy to get closer to Japan",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 14
+    },
+    {
+      "id": "APUSH-U7S86",
+      "description": "The US dropped atomic bombs on Hiroshima and Nagasaki in August 1945",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 15
+    },
+    {
+      "id": "APUSH-U7S87",
+      "description": "People debated whether using atomic bombs was moral or necessary",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 16
+    },
+    {
+      "id": "APUSH-U7S88",
+      "description": "Key wartime diplomacy included the Atlantic Charter, Yalta Conference, and Potsdam Conference",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 15
+    },
+    {
+      "id": "APUSH-U7S89",
+      "description": "The United Nations was created as an international peacekeeping organization",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 16
+    },
+    {
+      "id": "APUSH-U7S90",
+      "description": "Tensions between the US and Soviet Union at Yalta and Potsdam foreshadowed the Cold War",
+      "unitId": "u7",
+      "unitName": "Unit 7: Period 7 - 1890 to 1945",
+      "layerDepth": 16
+    },
+    {
+      "id": "APUSH-U8S1",
+      "description": "I know the origins of the Cold War between the US and the Soviet Union",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 17
+    },
+    {
+      "id": "APUSH-U8S2",
+      "description": "The Truman Doctrine committed the US to stopping the spread of communism",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 18
+    },
+    {
+      "id": "APUSH-U8S3",
+      "description": "The Marshall Plan gave massive economic aid to rebuild Western Europe",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 18
+    },
+    {
+      "id": "APUSH-U8S4",
+      "description": "The Berlin Blockade led to the Berlin Airlift (1948-1949) to keep West Berlin supplied",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 18
+    },
+    {
+      "id": "APUSH-U8S5",
+      "description": "NATO was formed as a military alliance to defend against Soviet expansion",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 18
+    },
+    {
+      "id": "APUSH-U8S6",
+      "description": "Containment \u2014 stopping communism from spreading \u2014 was the foundation of US Cold War strategy",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 19
+    },
+    {
+      "id": "APUSH-U8S7",
+      "description": "The Korean War (1950-1953) was the first major military conflict of the Cold War",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 20
+    },
+    {
+      "id": "APUSH-U8S8",
+      "description": "The US and Soviet Union engaged in a nuclear arms race based on mutually assured destruction",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 20
+    },
+    {
+      "id": "APUSH-U8S9",
+      "description": "The Cuban Missile Crisis (1962) was the closest the world came to nuclear war",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 21
+    },
+    {
+      "id": "APUSH-U8S10",
+      "description": "The Space Race included Sputnik and the Apollo Moon landing",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 20
+    },
+    {
+      "id": "APUSH-U8S11",
+      "description": "The Second Red Scare fueled anti-communist fears in postwar America",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U8S12",
+      "description": "HUAC investigated suspected communists and created the Hollywood blacklist",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U8S13",
+      "description": "Senator Joseph McCarthy led an aggressive anti-communist crusade in the early 1950s",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U8S14",
+      "description": "McCarthyism restricted civil liberties through loyalty oaths and political investigations",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U8S15",
+      "description": "The Army-McCarthy hearings led to McCarthy's downfall and censure",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U8S16",
+      "description": "There was a massive postwar economic boom and unprecedented prosperity",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 14
+    },
+    {
+      "id": "APUSH-U8S17",
+      "description": "Suburbs grew thanks to the GI Bill, FHA loans, and car culture",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 15
+    },
+    {
+      "id": "APUSH-U8S18",
+      "description": "Levittown symbolized mass-produced suburban development",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 16
+    },
+    {
+      "id": "APUSH-U8S19",
+      "description": "The baby boom and consumer culture defined the 1950s",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 15
+    },
+    {
+      "id": "APUSH-U8S20",
+      "description": "Television became the dominant medium shaping American culture",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 16
+    },
+    {
+      "id": "APUSH-U8S21",
+      "description": "The Interstate Highway Act (1956) transformed transportation and development across America",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 15
+    },
+    {
+      "id": "APUSH-U8S22",
+      "description": "The Sunbelt migration shifted population and political power to the South and West",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 15
+    },
+    {
+      "id": "APUSH-U8S23",
+      "description": "Suburban growth reinforced racial segregation and 'white flight' from cities",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 16
+    },
+    {
+      "id": "APUSH-U8S24",
+      "description": "Early civil rights efforts began in the postwar era",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 14
+    },
+    {
+      "id": "APUSH-U8S25",
+      "description": "President Truman desegregated the US military in 1948",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 15
+    },
+    {
+      "id": "APUSH-U8S26",
+      "description": "The NAACP's strategy was to challenge segregation through lawsuits in the courts",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 15
+    },
+    {
+      "id": "APUSH-U8S27",
+      "description": "Brown v. Board of Education (1954) ruled that school segregation was unconstitutional",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 16
+    },
+    {
+      "id": "APUSH-U8S28",
+      "description": "There was massive resistance to desegregation, including the Little Rock Nine crisis (1957)",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 17
+    },
+    {
+      "id": "APUSH-U8S29",
+      "description": "Cold War foreign policy continued to develop through the 1950s and 1960s",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 20
+    },
+    {
+      "id": "APUSH-U8S30",
+      "description": "Eisenhower's foreign policies included massive retaliation, CIA covert ops, and the Eisenhower Doctrine",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 21
+    },
+    {
+      "id": "APUSH-U8S31",
+      "description": "Kennedy's foreign policy included the Bay of Pigs, Cuban Missile Crisis, and Peace Corps",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 22
+    },
+    {
+      "id": "APUSH-U8S32",
+      "description": "US involvement in Vietnam started gradually and then escalated",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 21
+    },
+    {
+      "id": "APUSH-U8S33",
+      "description": "The domino theory said if one country fell to communism, its neighbors would follow",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 22
+    },
+    {
+      "id": "APUSH-U8S34",
+      "description": "The Gulf of Tonkin Resolution gave the president broad war powers in Vietnam",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 22
+    },
+    {
+      "id": "APUSH-U8S35",
+      "description": "The Vietnam War escalated under Presidents Johnson and Nixon",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 23
+    },
+    {
+      "id": "APUSH-U8S36",
+      "description": "The Tet Offensive (1968) destroyed American public support for the Vietnam War",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 24
+    },
+    {
+      "id": "APUSH-U8S37",
+      "description": "The antiwar movement grew through protests, draft resistance, and teach-ins",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 25
+    },
+    {
+      "id": "APUSH-U8S38",
+      "description": "The Kent State shootings (1970) intensified antiwar sentiment",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 26
+    },
+    {
+      "id": "APUSH-U8S39",
+      "description": "Nixon's Vietnamization policy gradually shifted combat responsibility to South Vietnamese forces",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 24
+    },
+    {
+      "id": "APUSH-U8S40",
+      "description": "The Paris Peace Accords (1973) led to US withdrawal from Vietnam",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 25
+    },
+    {
+      "id": "APUSH-U8S41",
+      "description": "Saigon fell in 1975, ending the Vietnam War",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 26
+    },
+    {
+      "id": "APUSH-U8S42",
+      "description": "Vietnam had lasting impacts on US foreign policy, public trust, and led to the War Powers Act",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 27
+    },
+    {
+      "id": "APUSH-U8S43",
+      "description": "President Johnson's Great Society programs expanded the federal government's domestic role",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 6
+    },
+    {
+      "id": "APUSH-U8S44",
+      "description": "Medicare and Medicaid provided health insurance for elderly and low-income Americans",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U8S45",
+      "description": "The War on Poverty included programs like Head Start, Job Corps, VISTA, and food stamps",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U8S46",
+      "description": "The Immigration Act of 1965 abolished the old national origins quota system",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U8S47",
+      "description": "The Civil Rights Act of 1964 and Voting Rights Act of 1965 were major Great Society achievements",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 7
+    },
+    {
+      "id": "APUSH-U8S48",
+      "description": "The Montgomery Bus Boycott (1955-1956) was an early mass civil rights action",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 17
+    },
+    {
+      "id": "APUSH-U8S49",
+      "description": "Martin Luther King Jr. led the nonviolent civil rights movement",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 18
+    },
+    {
+      "id": "APUSH-U8S50",
+      "description": "Sit-ins, Freedom Rides, and other nonviolent direct actions were key civil rights tactics",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 19
+    },
+    {
+      "id": "APUSH-U8S51",
+      "description": "The March on Washington (1963) featured King's 'I Have a Dream' speech",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 19
+    },
+    {
+      "id": "APUSH-U8S52",
+      "description": "The Birmingham Campaign (1963) confronted Bull Connor's brutal tactics",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 20
+    },
+    {
+      "id": "APUSH-U8S53",
+      "description": "The Civil Rights Act of 1964 banned discrimination in public places and employment",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 20
+    },
+    {
+      "id": "APUSH-U8S54",
+      "description": "The Voting Rights Act of 1965 outlawed discriminatory voting practices like literacy tests",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 21
+    },
+    {
+      "id": "APUSH-U8S55",
+      "description": "The 24th Amendment abolished the poll tax in federal elections",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 22
+    },
+    {
+      "id": "APUSH-U8S56",
+      "description": "The movement shifted toward Black Power and more assertive approaches to racial justice",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 22
+    },
+    {
+      "id": "APUSH-U8S57",
+      "description": "Malcolm X and the Nation of Islam advocated for Black self-determination",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 23
+    },
+    {
+      "id": "APUSH-U8S58",
+      "description": "The Black Panther Party pushed for armed self-defense and ran community programs",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 23
+    },
+    {
+      "id": "APUSH-U8S59",
+      "description": "Urban riots in Watts, Detroit, and Newark reflected deep frustration with systemic racism",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 23
+    },
+    {
+      "id": "APUSH-U8S60",
+      "description": "Martin Luther King Jr. was assassinated in April 1968",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 19
+    },
+    {
+      "id": "APUSH-U8S61",
+      "description": "The civil rights movement inspired other social justice movements",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U8S62",
+      "description": "The feminist/women's liberation movement and the National Organization for Women pushed for equality",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 40
+    },
+    {
+      "id": "APUSH-U8S63",
+      "description": "The Equal Rights Amendment campaign ultimately failed to get ratified",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 41
+    },
+    {
+      "id": "APUSH-U8S64",
+      "description": "Betty Friedan's 'The Feminine Mystique' helped launch the second-wave feminist movement",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 41
+    },
+    {
+      "id": "APUSH-U8S65",
+      "description": "Title IX banned sex discrimination in federally funded education programs",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 41
+    },
+    {
+      "id": "APUSH-U8S66",
+      "description": "Roe v. Wade (1973) established the constitutional right to abortion",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 41
+    },
+    {
+      "id": "APUSH-U8S67",
+      "description": "The Chicano movement fought for Mexican American civil rights",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U8S68",
+      "description": "C\u00e9sar Ch\u00e1vez and the United Farm Workers organized migrant farm laborers",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 2
+    },
+    {
+      "id": "APUSH-U8S69",
+      "description": "The American Indian Movement fought for Native American rights and sovereignty",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U8S70",
+      "description": "The Stonewall Riots (1969) sparked the modern gay rights movement",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U8S71",
+      "description": "The Asian American movement fought for civil rights and cultural recognition",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U8S72",
+      "description": "1960s youth counterculture rejected mainstream American values",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 26
+    },
+    {
+      "id": "APUSH-U8S73",
+      "description": "The counterculture emphasized personal freedom, experimentation, and anti-establishment views",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 27
+    },
+    {
+      "id": "APUSH-U8S74",
+      "description": "Rock music, Woodstock, and the hippie movement had a big cultural impact",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 27
+    },
+    {
+      "id": "APUSH-U8S75",
+      "description": "The environmental movement emerged in the 1960s and 1970s",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U8S76",
+      "description": "Rachel Carson's 'Silent Spring' sparked modern environmental awareness",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U8S77",
+      "description": "Nixon created the Environmental Protection Agency (EPA) in 1970",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U8S78",
+      "description": "Key environmental laws included the Clean Air Act, Clean Water Act, and Endangered Species Act",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U8S79",
+      "description": "The first Earth Day (1970) showed growing public concern for the environment",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U8S80",
+      "description": "Americans experienced a crisis of confidence in government during the 1970s",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 28
+    },
+    {
+      "id": "APUSH-U8S81",
+      "description": "The Watergate scandal forced President Nixon to resign in August 1974",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 29
+    },
+    {
+      "id": "APUSH-U8S82",
+      "description": "Watergate damaged public trust in government and presidential power",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 30
+    },
+    {
+      "id": "APUSH-U8S83",
+      "description": "Stagflation meant the economy was stagnant with high inflation and unemployment at the same time",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 29
+    },
+    {
+      "id": "APUSH-U8S84",
+      "description": "The 1973 OPEC oil embargo caused an energy crisis and economic disruption",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 30
+    },
+    {
+      "id": "APUSH-U8S85",
+      "description": "Nixon achieved d\u00e9tente with the Soviet Union and opened relations with China",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 29
+    },
+    {
+      "id": "APUSH-U8S86",
+      "description": "SALT treaties were arms control agreements that limited nuclear weapons",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 30
+    },
+    {
+      "id": "APUSH-U8S87",
+      "description": "Carter's presidency included the Camp David Accords, human rights focus, Iran Hostage Crisis, and energy crisis",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 29
+    },
+    {
+      "id": "APUSH-U8S88",
+      "description": "The Iran Hostage Crisis (1979-1981) symbolized American weakness and fueled the rise of conservatism",
+      "unitId": "u8",
+      "unitName": "Unit 8: Period 8 - 1945 to 1980",
+      "layerDepth": 30
+    },
+    {
+      "id": "APUSH-U9S1",
+      "description": "The modern conservative movement rose to power in the late 20th century",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 31
+    },
+    {
+      "id": "APUSH-U9S2",
+      "description": "The Moral Majority and the Religious Right became powerful political forces",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 32
+    },
+    {
+      "id": "APUSH-U9S3",
+      "description": "Conservatives opposed the Great Society, high taxes, government regulation, and social liberalism",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 42
+    },
+    {
+      "id": "APUSH-U9S4",
+      "description": "Reagan's election in 1980 was a major shift toward conservative politics",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 32
+    },
+    {
+      "id": "APUSH-U9S5",
+      "description": "Reaganomics meant supply-side tax cuts, deregulation, and cutting domestic spending",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 33
+    },
+    {
+      "id": "APUSH-U9S6",
+      "description": "Supply-side economics argued that cutting taxes for the wealthy would benefit everyone",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 34
+    },
+    {
+      "id": "APUSH-U9S7",
+      "description": "The national debt increased significantly under Reagan",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 34
+    },
+    {
+      "id": "APUSH-U9S8",
+      "description": "Reagan massively built up the military and used tough anti-Soviet rhetoric",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 33
+    },
+    {
+      "id": "APUSH-U9S9",
+      "description": "The Strategic Defense Initiative (SDI or 'Star Wars') was a proposed missile defense system",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 34
+    },
+    {
+      "id": "APUSH-U9S10",
+      "description": "Conservative judicial appointments shifted federal courts to the right",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 33
+    },
+    {
+      "id": "APUSH-U9S11",
+      "description": "I know how and why the Cold War ended",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 34
+    },
+    {
+      "id": "APUSH-U9S12",
+      "description": "Gorbachev's reforms (glasnost and perestroika) weakened Soviet control",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 35
+    },
+    {
+      "id": "APUSH-U9S13",
+      "description": "The Berlin Wall fell in November 1989, symbolizing the end of the Cold War",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 36
+    },
+    {
+      "id": "APUSH-U9S14",
+      "description": "The Soviet Union dissolved in December 1991",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 37
+    },
+    {
+      "id": "APUSH-U9S15",
+      "description": "The US became the world's sole superpower after the Cold War ended",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 38
+    },
+    {
+      "id": "APUSH-U9S16",
+      "description": "The US faced new foreign policy challenges after the Cold War",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 39
+    },
+    {
+      "id": "APUSH-U9S17",
+      "description": "The Persian Gulf War (1991) pushed Iraq out of Kuwait",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 40
+    },
+    {
+      "id": "APUSH-U9S18",
+      "description": "The US intervened in Somalia, Bosnia, and Kosovo for humanitarian and military reasons",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 40
+    },
+    {
+      "id": "APUSH-U9S19",
+      "description": "Major economic transformations happened in the late 20th and early 21st centuries",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 0
+    },
+    {
+      "id": "APUSH-U9S20",
+      "description": "Globalization and free trade agreements like NAFTA had significant effects on the economy",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U9S21",
+      "description": "The internet and technology revolution transformed the American economy",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U9S22",
+      "description": "The economy shifted from manufacturing to service and information-based industries",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U9S23",
+      "description": "Income inequality grew and people debated economic policy and taxation",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U9S24",
+      "description": "The 2008 financial crisis caused the Great Recession, and the government stepped in to respond",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 1
+    },
+    {
+      "id": "APUSH-U9S25",
+      "description": "Immigration and demographics in America have changed a lot since 1980",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 8
+    },
+    {
+      "id": "APUSH-U9S26",
+      "description": "Immigration from Latin America and Asia reshaped American demographics",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 9
+    },
+    {
+      "id": "APUSH-U9S27",
+      "description": "Debates continue over immigration policy, border security, and undocumented immigration",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 10
+    },
+    {
+      "id": "APUSH-U9S28",
+      "description": "The US has become more racially and ethnically diverse",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 9
+    },
+    {
+      "id": "APUSH-U9S29",
+      "description": "There are ongoing debates about national identity, multiculturalism, and cultural change",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 10
+    },
+    {
+      "id": "APUSH-U9S30",
+      "description": "The September 11, 2001 terrorist attacks hit the United States",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 39
+    },
+    {
+      "id": "APUSH-U9S31",
+      "description": "The War on Terror led to the US invasion of Afghanistan in 2001",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 40
+    },
+    {
+      "id": "APUSH-U9S32",
+      "description": "The Iraq War began in 2003, and its justification was heavily debated",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 40
+    },
+    {
+      "id": "APUSH-U9S33",
+      "description": "The USA PATRIOT Act raised debates about balancing civil liberties with national security",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 40
+    },
+    {
+      "id": "APUSH-U9S34",
+      "description": "The Department of Homeland Security was created after 9/11",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 40
+    },
+    {
+      "id": "APUSH-U9S35",
+      "description": "Political polarization and partisan division have been increasing in American politics",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 32
+    },
+    {
+      "id": "APUSH-U9S36",
+      "description": "Debates continue over the government's role in healthcare, the environment, and the economy",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 33
+    },
+    {
+      "id": "APUSH-U9S37",
+      "description": "The 'culture wars' involve fights over abortion, gun control, and LGBTQ+ rights",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 42
+    },
+    {
+      "id": "APUSH-U9S38",
+      "description": "The Iran-Contra Affair was a foreign policy scandal during the Reagan era",
+      "unitId": "u9",
+      "unitName": "Unit 9: Period 9 - 1980 to the Present",
+      "layerDepth": 33
+    }
+  ],
+  "edges": [
+    {
+      "from": "APUSH-U1S1",
+      "to": "APUSH-U1S2"
+    },
+    {
+      "from": "APUSH-U1S2",
+      "to": "APUSH-U1S3"
+    },
+    {
+      "from": "APUSH-U1S2",
+      "to": "APUSH-U1S4"
+    },
+    {
+      "from": "APUSH-U1S2",
+      "to": "APUSH-U1S5"
+    },
+    {
+      "from": "APUSH-U1S2",
+      "to": "APUSH-U1S6"
+    },
+    {
+      "from": "APUSH-U1S2",
+      "to": "APUSH-U1S7"
+    },
+    {
+      "from": "APUSH-U1S1",
+      "to": "APUSH-U1S8"
+    },
+    {
+      "from": "APUSH-U1S8",
+      "to": "APUSH-U1S9"
+    },
+    {
+      "from": "APUSH-U1S1",
+      "to": "APUSH-U1S10"
+    },
+    {
+      "from": "APUSH-U1S11",
+      "to": "APUSH-U1S12"
+    },
+    {
+      "from": "APUSH-U1S11",
+      "to": "APUSH-U1S13"
+    },
+    {
+      "from": "APUSH-U1S12",
+      "to": "APUSH-U1S14"
+    },
+    {
+      "from": "APUSH-U1S12",
+      "to": "APUSH-U1S15"
+    },
+    {
+      "from": "APUSH-U1S14",
+      "to": "APUSH-U1S16"
+    },
+    {
+      "from": "APUSH-U1S15",
+      "to": "APUSH-U1S16"
+    },
+    {
+      "from": "APUSH-U1S16",
+      "to": "APUSH-U1S17"
+    },
+    {
+      "from": "APUSH-U1S17",
+      "to": "APUSH-U1S18"
+    },
+    {
+      "from": "APUSH-U1S17",
+      "to": "APUSH-U1S19"
+    },
+    {
+      "from": "APUSH-U1S17",
+      "to": "APUSH-U1S20"
+    },
+    {
+      "from": "APUSH-U1S20",
+      "to": "APUSH-U1S21"
+    },
+    {
+      "from": "APUSH-U1S16",
+      "to": "APUSH-U1S22"
+    },
+    {
+      "from": "APUSH-U1S22",
+      "to": "APUSH-U1S23"
+    },
+    {
+      "from": "APUSH-U1S18",
+      "to": "APUSH-U1S24"
+    },
+    {
+      "from": "APUSH-U1S22",
+      "to": "APUSH-U1S24"
+    },
+    {
+      "from": "APUSH-U1S11",
+      "to": "APUSH-U1S25"
+    },
+    {
+      "from": "APUSH-U1S11",
+      "to": "APUSH-U1S26"
+    },
+    {
+      "from": "APUSH-U1S25",
+      "to": "APUSH-U1S27"
+    },
+    {
+      "from": "APUSH-U1S18",
+      "to": "APUSH-U1S28"
+    },
+    {
+      "from": "APUSH-U1S28",
+      "to": "APUSH-U1S29"
+    },
+    {
+      "from": "APUSH-U1S28",
+      "to": "APUSH-U1S30"
+    },
+    {
+      "from": "APUSH-U1S12",
+      "to": "APUSH-U1S31"
+    },
+    {
+      "from": "APUSH-U2S1",
+      "to": "APUSH-U2S2"
+    },
+    {
+      "from": "APUSH-U2S1",
+      "to": "APUSH-U2S3"
+    },
+    {
+      "from": "APUSH-U2S2",
+      "to": "APUSH-U2S4"
+    },
+    {
+      "from": "APUSH-U2S4",
+      "to": "APUSH-U2S5"
+    },
+    {
+      "from": "APUSH-U2S4",
+      "to": "APUSH-U2S6"
+    },
+    {
+      "from": "APUSH-U2S1",
+      "to": "APUSH-U2S7"
+    },
+    {
+      "from": "APUSH-U2S1",
+      "to": "APUSH-U2S8"
+    },
+    {
+      "from": "APUSH-U2S8",
+      "to": "APUSH-U2S9"
+    },
+    {
+      "from": "APUSH-U2S9",
+      "to": "APUSH-U2S10"
+    },
+    {
+      "from": "APUSH-U2S9",
+      "to": "APUSH-U2S11"
+    },
+    {
+      "from": "APUSH-U2S8",
+      "to": "APUSH-U2S12"
+    },
+    {
+      "from": "APUSH-U2S8",
+      "to": "APUSH-U2S13"
+    },
+    {
+      "from": "APUSH-U2S14",
+      "to": "APUSH-U2S15"
+    },
+    {
+      "from": "APUSH-U2S14",
+      "to": "APUSH-U2S16"
+    },
+    {
+      "from": "APUSH-U2S14",
+      "to": "APUSH-U2S17"
+    },
+    {
+      "from": "APUSH-U2S16",
+      "to": "APUSH-U2S18"
+    },
+    {
+      "from": "APUSH-U2S17",
+      "to": "APUSH-U2S19"
+    },
+    {
+      "from": "APUSH-U2S19",
+      "to": "APUSH-U2S20"
+    },
+    {
+      "from": "APUSH-U2S20",
+      "to": "APUSH-U2S21"
+    },
+    {
+      "from": "APUSH-U2S20",
+      "to": "APUSH-U2S22"
+    },
+    {
+      "from": "APUSH-U2S20",
+      "to": "APUSH-U2S23"
+    },
+    {
+      "from": "APUSH-U2S23",
+      "to": "APUSH-U2S24"
+    },
+    {
+      "from": "APUSH-U2S24",
+      "to": "APUSH-U2S25"
+    },
+    {
+      "from": "APUSH-U2S6",
+      "to": "APUSH-U2S26"
+    },
+    {
+      "from": "APUSH-U2S26",
+      "to": "APUSH-U2S20"
+    },
+    {
+      "from": "APUSH-U2S27",
+      "to": "APUSH-U2S28"
+    },
+    {
+      "from": "APUSH-U2S27",
+      "to": "APUSH-U2S29"
+    },
+    {
+      "from": "APUSH-U2S29",
+      "to": "APUSH-U2S21"
+    },
+    {
+      "from": "APUSH-U2S30",
+      "to": "APUSH-U2S31"
+    },
+    {
+      "from": "APUSH-U2S30",
+      "to": "APUSH-U2S32"
+    },
+    {
+      "from": "APUSH-U2S30",
+      "to": "APUSH-U2S33"
+    },
+    {
+      "from": "APUSH-U2S33",
+      "to": "APUSH-U2S34"
+    },
+    {
+      "from": "APUSH-U2S35",
+      "to": "APUSH-U2S36"
+    },
+    {
+      "from": "APUSH-U2S36",
+      "to": "APUSH-U2S37"
+    },
+    {
+      "from": "APUSH-U2S36",
+      "to": "APUSH-U2S38"
+    },
+    {
+      "from": "APUSH-U2S35",
+      "to": "APUSH-U2S39"
+    },
+    {
+      "from": "APUSH-U2S39",
+      "to": "APUSH-U2S40"
+    },
+    {
+      "from": "APUSH-U2S35",
+      "to": "APUSH-U2S41"
+    },
+    {
+      "from": "APUSH-U2S41",
+      "to": "APUSH-U2S42"
+    },
+    {
+      "from": "APUSH-U2S42",
+      "to": "APUSH-U2S43"
+    },
+    {
+      "from": "APUSH-U3S1",
+      "to": "APUSH-U3S2"
+    },
+    {
+      "from": "APUSH-U3S1",
+      "to": "APUSH-U3S3"
+    },
+    {
+      "from": "APUSH-U3S2",
+      "to": "APUSH-U3S4"
+    },
+    {
+      "from": "APUSH-U3S4",
+      "to": "APUSH-U3S5"
+    },
+    {
+      "from": "APUSH-U3S4",
+      "to": "APUSH-U3S6"
+    },
+    {
+      "from": "APUSH-U3S6",
+      "to": "APUSH-U3S7"
+    },
+    {
+      "from": "APUSH-U3S6",
+      "to": "APUSH-U3S8"
+    },
+    {
+      "from": "APUSH-U3S7",
+      "to": "APUSH-U3S9"
+    },
+    {
+      "from": "APUSH-U3S9",
+      "to": "APUSH-U3S10"
+    },
+    {
+      "from": "APUSH-U3S8",
+      "to": "APUSH-U3S10"
+    },
+    {
+      "from": "APUSH-U3S10",
+      "to": "APUSH-U3S11"
+    },
+    {
+      "from": "APUSH-U3S10",
+      "to": "APUSH-U3S12"
+    },
+    {
+      "from": "APUSH-U3S12",
+      "to": "APUSH-U3S13"
+    },
+    {
+      "from": "APUSH-U3S13",
+      "to": "APUSH-U3S14"
+    },
+    {
+      "from": "APUSH-U3S15",
+      "to": "APUSH-U3S16"
+    },
+    {
+      "from": "APUSH-U3S15",
+      "to": "APUSH-U3S17"
+    },
+    {
+      "from": "APUSH-U3S15",
+      "to": "APUSH-U3S18"
+    },
+    {
+      "from": "APUSH-U3S16",
+      "to": "APUSH-U3S19"
+    },
+    {
+      "from": "APUSH-U3S17",
+      "to": "APUSH-U3S19"
+    },
+    {
+      "from": "APUSH-U3S14",
+      "to": "APUSH-U3S20"
+    },
+    {
+      "from": "APUSH-U3S20",
+      "to": "APUSH-U3S21"
+    },
+    {
+      "from": "APUSH-U3S19",
+      "to": "APUSH-U3S22"
+    },
+    {
+      "from": "APUSH-U3S16",
+      "to": "APUSH-U3S22"
+    },
+    {
+      "from": "APUSH-U3S22",
+      "to": "APUSH-U3S23"
+    },
+    {
+      "from": "APUSH-U3S20",
+      "to": "APUSH-U3S24"
+    },
+    {
+      "from": "APUSH-U3S24",
+      "to": "APUSH-U3S25"
+    },
+    {
+      "from": "APUSH-U3S24",
+      "to": "APUSH-U3S26"
+    },
+    {
+      "from": "APUSH-U3S24",
+      "to": "APUSH-U3S27"
+    },
+    {
+      "from": "APUSH-U3S26",
+      "to": "APUSH-U3S28"
+    },
+    {
+      "from": "APUSH-U3S28",
+      "to": "APUSH-U3S29"
+    },
+    {
+      "from": "APUSH-U3S22",
+      "to": "APUSH-U3S30"
+    },
+    {
+      "from": "APUSH-U3S30",
+      "to": "APUSH-U3S31"
+    },
+    {
+      "from": "APUSH-U3S30",
+      "to": "APUSH-U3S32"
+    },
+    {
+      "from": "APUSH-U3S32",
+      "to": "APUSH-U3S33"
+    },
+    {
+      "from": "APUSH-U3S30",
+      "to": "APUSH-U3S34"
+    },
+    {
+      "from": "APUSH-U3S30",
+      "to": "APUSH-U3S35"
+    },
+    {
+      "from": "APUSH-U3S29",
+      "to": "APUSH-U3S36"
+    },
+    {
+      "from": "APUSH-U3S36",
+      "to": "APUSH-U3S37"
+    },
+    {
+      "from": "APUSH-U3S37",
+      "to": "APUSH-U3S38"
+    },
+    {
+      "from": "APUSH-U3S36",
+      "to": "APUSH-U3S39"
+    },
+    {
+      "from": "APUSH-U3S38",
+      "to": "APUSH-U3S40"
+    },
+    {
+      "from": "APUSH-U3S40",
+      "to": "APUSH-U3S41"
+    },
+    {
+      "from": "APUSH-U3S40",
+      "to": "APUSH-U3S42"
+    },
+    {
+      "from": "APUSH-U3S41",
+      "to": "APUSH-U3S43"
+    },
+    {
+      "from": "APUSH-U3S42",
+      "to": "APUSH-U3S43"
+    },
+    {
+      "from": "APUSH-U3S40",
+      "to": "APUSH-U3S44"
+    },
+    {
+      "from": "APUSH-U3S40",
+      "to": "APUSH-U3S45"
+    },
+    {
+      "from": "APUSH-U3S43",
+      "to": "APUSH-U3S46"
+    },
+    {
+      "from": "APUSH-U3S18",
+      "to": "APUSH-U3S47"
+    },
+    {
+      "from": "APUSH-U3S47",
+      "to": "APUSH-U3S48"
+    },
+    {
+      "from": "APUSH-U3S46",
+      "to": "APUSH-U3S49"
+    },
+    {
+      "from": "APUSH-U3S49",
+      "to": "APUSH-U3S50"
+    },
+    {
+      "from": "APUSH-U3S50",
+      "to": "APUSH-U3S51"
+    },
+    {
+      "from": "APUSH-U3S49",
+      "to": "APUSH-U3S52"
+    },
+    {
+      "from": "APUSH-U3S52",
+      "to": "APUSH-U3S53"
+    },
+    {
+      "from": "APUSH-U3S53",
+      "to": "APUSH-U3S54"
+    },
+    {
+      "from": "APUSH-U3S29",
+      "to": "APUSH-U3S55"
+    },
+    {
+      "from": "APUSH-U3S55",
+      "to": "APUSH-U3S56"
+    },
+    {
+      "from": "APUSH-U3S55",
+      "to": "APUSH-U3S57"
+    },
+    {
+      "from": "APUSH-U3S57",
+      "to": "APUSH-U3S58"
+    },
+    {
+      "from": "APUSH-U3S57",
+      "to": "APUSH-U3S59"
+    },
+    {
+      "from": "APUSH-U3S58",
+      "to": "APUSH-U3S60"
+    },
+    {
+      "from": "APUSH-U3S60",
+      "to": "APUSH-U3S61"
+    },
+    {
+      "from": "APUSH-U3S61",
+      "to": "APUSH-U3S62"
+    },
+    {
+      "from": "APUSH-U3S55",
+      "to": "APUSH-U3S63"
+    },
+    {
+      "from": "APUSH-U3S55",
+      "to": "APUSH-U3S64"
+    },
+    {
+      "from": "APUSH-U3S57",
+      "to": "APUSH-U3S65"
+    },
+    {
+      "from": "APUSH-U3S65",
+      "to": "APUSH-U3S66"
+    },
+    {
+      "from": "APUSH-U3S57",
+      "to": "APUSH-U3S67"
+    },
+    {
+      "from": "APUSH-U4S1",
+      "to": "APUSH-U4S2"
+    },
+    {
+      "from": "APUSH-U4S2",
+      "to": "APUSH-U4S3"
+    },
+    {
+      "from": "APUSH-U4S3",
+      "to": "APUSH-U4S4"
+    },
+    {
+      "from": "APUSH-U4S3",
+      "to": "APUSH-U4S5"
+    },
+    {
+      "from": "APUSH-U4S2",
+      "to": "APUSH-U4S6"
+    },
+    {
+      "from": "APUSH-U4S7",
+      "to": "APUSH-U4S8"
+    },
+    {
+      "from": "APUSH-U4S7",
+      "to": "APUSH-U4S9"
+    },
+    {
+      "from": "APUSH-U4S7",
+      "to": "APUSH-U4S10"
+    },
+    {
+      "from": "APUSH-U4S7",
+      "to": "APUSH-U4S11"
+    },
+    {
+      "from": "APUSH-U4S11",
+      "to": "APUSH-U4S12"
+    },
+    {
+      "from": "APUSH-U4S7",
+      "to": "APUSH-U4S13"
+    },
+    {
+      "from": "APUSH-U4S13",
+      "to": "APUSH-U4S14"
+    },
+    {
+      "from": "APUSH-U4S14",
+      "to": "APUSH-U4S15"
+    },
+    {
+      "from": "APUSH-U4S14",
+      "to": "APUSH-U4S16"
+    },
+    {
+      "from": "APUSH-U4S14",
+      "to": "APUSH-U4S17"
+    },
+    {
+      "from": "APUSH-U4S17",
+      "to": "APUSH-U4S18"
+    },
+    {
+      "from": "APUSH-U4S18",
+      "to": "APUSH-U4S19"
+    },
+    {
+      "from": "APUSH-U4S20",
+      "to": "APUSH-U4S21"
+    },
+    {
+      "from": "APUSH-U4S20",
+      "to": "APUSH-U4S22"
+    },
+    {
+      "from": "APUSH-U4S22",
+      "to": "APUSH-U4S23"
+    },
+    {
+      "from": "APUSH-U4S20",
+      "to": "APUSH-U4S24"
+    },
+    {
+      "from": "APUSH-U4S20",
+      "to": "APUSH-U4S25"
+    },
+    {
+      "from": "APUSH-U4S21",
+      "to": "APUSH-U4S26"
+    },
+    {
+      "from": "APUSH-U4S20",
+      "to": "APUSH-U4S27"
+    },
+    {
+      "from": "APUSH-U4S20",
+      "to": "APUSH-U4S28"
+    },
+    {
+      "from": "APUSH-U4S28",
+      "to": "APUSH-U4S29"
+    },
+    {
+      "from": "APUSH-U4S28",
+      "to": "APUSH-U4S30"
+    },
+    {
+      "from": "APUSH-U4S30",
+      "to": "APUSH-U4S31"
+    },
+    {
+      "from": "APUSH-U4S32",
+      "to": "APUSH-U4S33"
+    },
+    {
+      "from": "APUSH-U4S32",
+      "to": "APUSH-U4S34"
+    },
+    {
+      "from": "APUSH-U4S32",
+      "to": "APUSH-U4S35"
+    },
+    {
+      "from": "APUSH-U4S35",
+      "to": "APUSH-U4S36"
+    },
+    {
+      "from": "APUSH-U4S35",
+      "to": "APUSH-U4S37"
+    },
+    {
+      "from": "APUSH-U4S37",
+      "to": "APUSH-U4S38"
+    },
+    {
+      "from": "APUSH-U4S37",
+      "to": "APUSH-U4S39"
+    },
+    {
+      "from": "APUSH-U4S35",
+      "to": "APUSH-U4S40"
+    },
+    {
+      "from": "APUSH-U4S40",
+      "to": "APUSH-U4S41"
+    },
+    {
+      "from": "APUSH-U4S40",
+      "to": "APUSH-U4S42"
+    },
+    {
+      "from": "APUSH-U4S43",
+      "to": "APUSH-U4S44"
+    },
+    {
+      "from": "APUSH-U4S44",
+      "to": "APUSH-U4S45"
+    },
+    {
+      "from": "APUSH-U4S45",
+      "to": "APUSH-U4S46"
+    },
+    {
+      "from": "APUSH-U4S45",
+      "to": "APUSH-U4S47"
+    },
+    {
+      "from": "APUSH-U4S45",
+      "to": "APUSH-U4S48"
+    },
+    {
+      "from": "APUSH-U4S44",
+      "to": "APUSH-U4S49"
+    },
+    {
+      "from": "APUSH-U4S49",
+      "to": "APUSH-U4S50"
+    },
+    {
+      "from": "APUSH-U4S44",
+      "to": "APUSH-U4S51"
+    },
+    {
+      "from": "APUSH-U4S44",
+      "to": "APUSH-U4S52"
+    },
+    {
+      "from": "APUSH-U4S44",
+      "to": "APUSH-U4S53"
+    },
+    {
+      "from": "APUSH-U4S44",
+      "to": "APUSH-U4S54"
+    },
+    {
+      "from": "APUSH-U4S24",
+      "to": "APUSH-U4S55"
+    },
+    {
+      "from": "APUSH-U4S55",
+      "to": "APUSH-U4S56"
+    },
+    {
+      "from": "APUSH-U4S56",
+      "to": "APUSH-U4S57"
+    },
+    {
+      "from": "APUSH-U4S55",
+      "to": "APUSH-U4S58"
+    },
+    {
+      "from": "APUSH-U4S55",
+      "to": "APUSH-U4S59"
+    },
+    {
+      "from": "APUSH-U5S1",
+      "to": "APUSH-U5S2"
+    },
+    {
+      "from": "APUSH-U5S1",
+      "to": "APUSH-U5S3"
+    },
+    {
+      "from": "APUSH-U5S1",
+      "to": "APUSH-U5S4"
+    },
+    {
+      "from": "APUSH-U5S2",
+      "to": "APUSH-U5S5"
+    },
+    {
+      "from": "APUSH-U5S5",
+      "to": "APUSH-U5S6"
+    },
+    {
+      "from": "APUSH-U5S5",
+      "to": "APUSH-U5S7"
+    },
+    {
+      "from": "APUSH-U5S7",
+      "to": "APUSH-U5S8"
+    },
+    {
+      "from": "APUSH-U5S8",
+      "to": "APUSH-U5S9"
+    },
+    {
+      "from": "APUSH-U5S9",
+      "to": "APUSH-U5S10"
+    },
+    {
+      "from": "APUSH-U5S9",
+      "to": "APUSH-U5S11"
+    },
+    {
+      "from": "APUSH-U5S9",
+      "to": "APUSH-U5S12"
+    },
+    {
+      "from": "APUSH-U5S11",
+      "to": "APUSH-U5S13"
+    },
+    {
+      "from": "APUSH-U5S13",
+      "to": "APUSH-U5S14"
+    },
+    {
+      "from": "APUSH-U5S15",
+      "to": "APUSH-U5S16"
+    },
+    {
+      "from": "APUSH-U5S15",
+      "to": "APUSH-U5S17"
+    },
+    {
+      "from": "APUSH-U5S15",
+      "to": "APUSH-U5S18"
+    },
+    {
+      "from": "APUSH-U5S12",
+      "to": "APUSH-U5S19"
+    },
+    {
+      "from": "APUSH-U5S19",
+      "to": "APUSH-U5S20"
+    },
+    {
+      "from": "APUSH-U5S19",
+      "to": "APUSH-U5S21"
+    },
+    {
+      "from": "APUSH-U5S19",
+      "to": "APUSH-U5S22"
+    },
+    {
+      "from": "APUSH-U5S22",
+      "to": "APUSH-U5S23"
+    },
+    {
+      "from": "APUSH-U5S23",
+      "to": "APUSH-U5S24"
+    },
+    {
+      "from": "APUSH-U5S22",
+      "to": "APUSH-U5S25"
+    },
+    {
+      "from": "APUSH-U5S21",
+      "to": "APUSH-U5S26"
+    },
+    {
+      "from": "APUSH-U5S26",
+      "to": "APUSH-U5S27"
+    },
+    {
+      "from": "APUSH-U5S22",
+      "to": "APUSH-U5S28"
+    },
+    {
+      "from": "APUSH-U5S28",
+      "to": "APUSH-U5S29"
+    },
+    {
+      "from": "APUSH-U5S29",
+      "to": "APUSH-U5S30"
+    },
+    {
+      "from": "APUSH-U5S30",
+      "to": "APUSH-U5S31"
+    },
+    {
+      "from": "APUSH-U5S30",
+      "to": "APUSH-U5S32"
+    },
+    {
+      "from": "APUSH-U5S32",
+      "to": "APUSH-U5S33"
+    },
+    {
+      "from": "APUSH-U5S32",
+      "to": "APUSH-U5S34"
+    },
+    {
+      "from": "APUSH-U5S32",
+      "to": "APUSH-U5S35"
+    },
+    {
+      "from": "APUSH-U5S35",
+      "to": "APUSH-U5S36"
+    },
+    {
+      "from": "APUSH-U5S32",
+      "to": "APUSH-U5S37"
+    },
+    {
+      "from": "APUSH-U5S37",
+      "to": "APUSH-U5S38"
+    },
+    {
+      "from": "APUSH-U5S32",
+      "to": "APUSH-U5S39"
+    },
+    {
+      "from": "APUSH-U5S39",
+      "to": "APUSH-U5S40"
+    },
+    {
+      "from": "APUSH-U5S39",
+      "to": "APUSH-U5S41"
+    },
+    {
+      "from": "APUSH-U5S32",
+      "to": "APUSH-U5S42"
+    },
+    {
+      "from": "APUSH-U5S32",
+      "to": "APUSH-U5S43"
+    },
+    {
+      "from": "APUSH-U5S32",
+      "to": "APUSH-U5S44"
+    },
+    {
+      "from": "APUSH-U5S38",
+      "to": "APUSH-U5S45"
+    },
+    {
+      "from": "APUSH-U5S45",
+      "to": "APUSH-U5S46"
+    },
+    {
+      "from": "APUSH-U5S46",
+      "to": "APUSH-U5S47"
+    },
+    {
+      "from": "APUSH-U5S46",
+      "to": "APUSH-U5S48"
+    },
+    {
+      "from": "APUSH-U5S48",
+      "to": "APUSH-U5S49"
+    },
+    {
+      "from": "APUSH-U5S49",
+      "to": "APUSH-U5S50"
+    },
+    {
+      "from": "APUSH-U5S45",
+      "to": "APUSH-U5S51"
+    },
+    {
+      "from": "APUSH-U5S50",
+      "to": "APUSH-U5S51"
+    },
+    {
+      "from": "APUSH-U5S50",
+      "to": "APUSH-U5S52"
+    },
+    {
+      "from": "APUSH-U5S50",
+      "to": "APUSH-U5S53"
+    },
+    {
+      "from": "APUSH-U5S50",
+      "to": "APUSH-U5S54"
+    },
+    {
+      "from": "APUSH-U5S54",
+      "to": "APUSH-U5S55"
+    },
+    {
+      "from": "APUSH-U5S50",
+      "to": "APUSH-U5S56"
+    },
+    {
+      "from": "APUSH-U5S54",
+      "to": "APUSH-U5S57"
+    },
+    {
+      "from": "APUSH-U5S57",
+      "to": "APUSH-U5S58"
+    },
+    {
+      "from": "APUSH-U5S57",
+      "to": "APUSH-U5S59"
+    },
+    {
+      "from": "APUSH-U5S57",
+      "to": "APUSH-U5S60"
+    },
+    {
+      "from": "APUSH-U5S60",
+      "to": "APUSH-U5S61"
+    },
+    {
+      "from": "APUSH-U5S61",
+      "to": "APUSH-U5S62"
+    },
+    {
+      "from": "APUSH-U5S62",
+      "to": "APUSH-U5S63"
+    },
+    {
+      "from": "APUSH-U6S1",
+      "to": "APUSH-U6S2"
+    },
+    {
+      "from": "APUSH-U6S1",
+      "to": "APUSH-U6S3"
+    },
+    {
+      "from": "APUSH-U6S2",
+      "to": "APUSH-U6S4"
+    },
+    {
+      "from": "APUSH-U6S1",
+      "to": "APUSH-U6S5"
+    },
+    {
+      "from": "APUSH-U6S1",
+      "to": "APUSH-U6S6"
+    },
+    {
+      "from": "APUSH-U6S1",
+      "to": "APUSH-U6S7"
+    },
+    {
+      "from": "APUSH-U6S7",
+      "to": "APUSH-U6S8"
+    },
+    {
+      "from": "APUSH-U6S7",
+      "to": "APUSH-U6S9"
+    },
+    {
+      "from": "APUSH-U6S7",
+      "to": "APUSH-U6S10"
+    },
+    {
+      "from": "APUSH-U6S10",
+      "to": "APUSH-U6S11"
+    },
+    {
+      "from": "APUSH-U6S11",
+      "to": "APUSH-U6S12"
+    },
+    {
+      "from": "APUSH-U6S13",
+      "to": "APUSH-U6S14"
+    },
+    {
+      "from": "APUSH-U6S13",
+      "to": "APUSH-U6S15"
+    },
+    {
+      "from": "APUSH-U6S13",
+      "to": "APUSH-U6S16"
+    },
+    {
+      "from": "APUSH-U6S16",
+      "to": "APUSH-U6S17"
+    },
+    {
+      "from": "APUSH-U6S16",
+      "to": "APUSH-U6S18"
+    },
+    {
+      "from": "APUSH-U6S16",
+      "to": "APUSH-U6S19"
+    },
+    {
+      "from": "APUSH-U6S19",
+      "to": "APUSH-U6S20"
+    },
+    {
+      "from": "APUSH-U6S21",
+      "to": "APUSH-U6S22"
+    },
+    {
+      "from": "APUSH-U6S21",
+      "to": "APUSH-U6S23"
+    },
+    {
+      "from": "APUSH-U6S23",
+      "to": "APUSH-U6S24"
+    },
+    {
+      "from": "APUSH-U6S24",
+      "to": "APUSH-U6S25"
+    },
+    {
+      "from": "APUSH-U6S24",
+      "to": "APUSH-U6S26"
+    },
+    {
+      "from": "APUSH-U6S24",
+      "to": "APUSH-U6S27"
+    },
+    {
+      "from": "APUSH-U6S27",
+      "to": "APUSH-U6S28"
+    },
+    {
+      "from": "APUSH-U6S24",
+      "to": "APUSH-U6S29"
+    },
+    {
+      "from": "APUSH-U6S29",
+      "to": "APUSH-U6S30"
+    },
+    {
+      "from": "APUSH-U6S24",
+      "to": "APUSH-U6S31"
+    },
+    {
+      "from": "APUSH-U6S31",
+      "to": "APUSH-U6S32"
+    },
+    {
+      "from": "APUSH-U6S32",
+      "to": "APUSH-U6S33"
+    },
+    {
+      "from": "APUSH-U6S32",
+      "to": "APUSH-U6S34"
+    },
+    {
+      "from": "APUSH-U6S32",
+      "to": "APUSH-U6S35"
+    },
+    {
+      "from": "APUSH-U6S35",
+      "to": "APUSH-U6S36"
+    },
+    {
+      "from": "APUSH-U6S37",
+      "to": "APUSH-U6S38"
+    },
+    {
+      "from": "APUSH-U6S37",
+      "to": "APUSH-U6S39"
+    },
+    {
+      "from": "APUSH-U6S38",
+      "to": "APUSH-U6S40"
+    },
+    {
+      "from": "APUSH-U6S39",
+      "to": "APUSH-U6S41"
+    },
+    {
+      "from": "APUSH-U6S38",
+      "to": "APUSH-U6S42"
+    },
+    {
+      "from": "APUSH-U6S40",
+      "to": "APUSH-U6S43"
+    },
+    {
+      "from": "APUSH-U6S43",
+      "to": "APUSH-U6S44"
+    },
+    {
+      "from": "APUSH-U6S44",
+      "to": "APUSH-U6S45"
+    },
+    {
+      "from": "APUSH-U6S43",
+      "to": "APUSH-U6S46"
+    },
+    {
+      "from": "APUSH-U6S46",
+      "to": "APUSH-U6S47"
+    },
+    {
+      "from": "APUSH-U6S44",
+      "to": "APUSH-U6S48"
+    },
+    {
+      "from": "APUSH-U6S48",
+      "to": "APUSH-U6S49"
+    },
+    {
+      "from": "APUSH-U6S48",
+      "to": "APUSH-U6S50"
+    },
+    {
+      "from": "APUSH-U6S48",
+      "to": "APUSH-U6S51"
+    },
+    {
+      "from": "APUSH-U6S51",
+      "to": "APUSH-U6S52"
+    },
+    {
+      "from": "APUSH-U6S51",
+      "to": "APUSH-U6S53"
+    },
+    {
+      "from": "APUSH-U6S53",
+      "to": "APUSH-U6S54"
+    },
+    {
+      "from": "APUSH-U6S30",
+      "to": "APUSH-U6S55"
+    },
+    {
+      "from": "APUSH-U6S55",
+      "to": "APUSH-U6S56"
+    },
+    {
+      "from": "APUSH-U6S56",
+      "to": "APUSH-U6S57"
+    },
+    {
+      "from": "APUSH-U6S55",
+      "to": "APUSH-U6S58"
+    },
+    {
+      "from": "APUSH-U6S55",
+      "to": "APUSH-U6S59"
+    },
+    {
+      "from": "APUSH-U7S1",
+      "to": "APUSH-U7S2"
+    },
+    {
+      "from": "APUSH-U7S1",
+      "to": "APUSH-U7S3"
+    },
+    {
+      "from": "APUSH-U7S2",
+      "to": "APUSH-U7S4"
+    },
+    {
+      "from": "APUSH-U7S2",
+      "to": "APUSH-U7S5"
+    },
+    {
+      "from": "APUSH-U7S5",
+      "to": "APUSH-U7S6"
+    },
+    {
+      "from": "APUSH-U7S5",
+      "to": "APUSH-U7S7"
+    },
+    {
+      "from": "APUSH-U7S5",
+      "to": "APUSH-U7S8"
+    },
+    {
+      "from": "APUSH-U7S7",
+      "to": "APUSH-U7S9"
+    },
+    {
+      "from": "APUSH-U7S2",
+      "to": "APUSH-U7S10"
+    },
+    {
+      "from": "APUSH-U7S2",
+      "to": "APUSH-U7S11"
+    },
+    {
+      "from": "APUSH-U7S11",
+      "to": "APUSH-U7S12"
+    },
+    {
+      "from": "APUSH-U7S2",
+      "to": "APUSH-U7S13"
+    },
+    {
+      "from": "APUSH-U7S2",
+      "to": "APUSH-U7S13"
+    },
+    {
+      "from": "APUSH-U7S13",
+      "to": "APUSH-U7S14"
+    },
+    {
+      "from": "APUSH-U7S14",
+      "to": "APUSH-U7S15"
+    },
+    {
+      "from": "APUSH-U7S15",
+      "to": "APUSH-U7S16"
+    },
+    {
+      "from": "APUSH-U7S14",
+      "to": "APUSH-U7S17"
+    },
+    {
+      "from": "APUSH-U7S17",
+      "to": "APUSH-U7S18"
+    },
+    {
+      "from": "APUSH-U7S17",
+      "to": "APUSH-U7S19"
+    },
+    {
+      "from": "APUSH-U7S14",
+      "to": "APUSH-U7S20"
+    },
+    {
+      "from": "APUSH-U7S20",
+      "to": "APUSH-U7S21"
+    },
+    {
+      "from": "APUSH-U7S20",
+      "to": "APUSH-U7S22"
+    },
+    {
+      "from": "APUSH-U7S14",
+      "to": "APUSH-U7S23"
+    },
+    {
+      "from": "APUSH-U7S14",
+      "to": "APUSH-U7S24"
+    },
+    {
+      "from": "APUSH-U7S14",
+      "to": "APUSH-U7S25"
+    },
+    {
+      "from": "APUSH-U7S14",
+      "to": "APUSH-U7S26"
+    },
+    {
+      "from": "APUSH-U7S26",
+      "to": "APUSH-U7S27"
+    },
+    {
+      "from": "APUSH-U7S26",
+      "to": "APUSH-U7S28"
+    },
+    {
+      "from": "APUSH-U7S14",
+      "to": "APUSH-U7S29"
+    },
+    {
+      "from": "APUSH-U7S30",
+      "to": "APUSH-U7S31"
+    },
+    {
+      "from": "APUSH-U7S31",
+      "to": "APUSH-U7S32"
+    },
+    {
+      "from": "APUSH-U7S32",
+      "to": "APUSH-U7S33"
+    },
+    {
+      "from": "APUSH-U7S32",
+      "to": "APUSH-U7S34"
+    },
+    {
+      "from": "APUSH-U7S34",
+      "to": "APUSH-U7S35"
+    },
+    {
+      "from": "APUSH-U7S34",
+      "to": "APUSH-U7S36"
+    },
+    {
+      "from": "APUSH-U7S34",
+      "to": "APUSH-U7S37"
+    },
+    {
+      "from": "APUSH-U7S33",
+      "to": "APUSH-U7S38"
+    },
+    {
+      "from": "APUSH-U7S38",
+      "to": "APUSH-U7S39"
+    },
+    {
+      "from": "APUSH-U7S39",
+      "to": "APUSH-U7S40"
+    },
+    {
+      "from": "APUSH-U7S40",
+      "to": "APUSH-U7S41"
+    },
+    {
+      "from": "APUSH-U7S41",
+      "to": "APUSH-U7S42"
+    },
+    {
+      "from": "APUSH-U7S42",
+      "to": "APUSH-U7S43"
+    },
+    {
+      "from": "APUSH-U7S44",
+      "to": "APUSH-U7S45"
+    },
+    {
+      "from": "APUSH-U7S44",
+      "to": "APUSH-U7S46"
+    },
+    {
+      "from": "APUSH-U7S44",
+      "to": "APUSH-U7S47"
+    },
+    {
+      "from": "APUSH-U7S44",
+      "to": "APUSH-U7S48"
+    },
+    {
+      "from": "APUSH-U7S48",
+      "to": "APUSH-U7S49"
+    },
+    {
+      "from": "APUSH-U7S44",
+      "to": "APUSH-U7S50"
+    },
+    {
+      "from": "APUSH-U7S50",
+      "to": "APUSH-U7S51"
+    },
+    {
+      "from": "APUSH-U7S44",
+      "to": "APUSH-U7S52"
+    },
+    {
+      "from": "APUSH-U7S44",
+      "to": "APUSH-U7S53"
+    },
+    {
+      "from": "APUSH-U7S54",
+      "to": "APUSH-U7S55"
+    },
+    {
+      "from": "APUSH-U7S54",
+      "to": "APUSH-U7S56"
+    },
+    {
+      "from": "APUSH-U7S54",
+      "to": "APUSH-U7S57"
+    },
+    {
+      "from": "APUSH-U7S54",
+      "to": "APUSH-U7S58"
+    },
+    {
+      "from": "APUSH-U7S55",
+      "to": "APUSH-U7S59"
+    },
+    {
+      "from": "APUSH-U7S59",
+      "to": "APUSH-U7S60"
+    },
+    {
+      "from": "APUSH-U7S59",
+      "to": "APUSH-U7S61"
+    },
+    {
+      "from": "APUSH-U7S61",
+      "to": "APUSH-U7S62"
+    },
+    {
+      "from": "APUSH-U7S62",
+      "to": "APUSH-U7S63"
+    },
+    {
+      "from": "APUSH-U7S63",
+      "to": "APUSH-U7S64"
+    },
+    {
+      "from": "APUSH-U7S63",
+      "to": "APUSH-U7S65"
+    },
+    {
+      "from": "APUSH-U7S62",
+      "to": "APUSH-U7S66"
+    },
+    {
+      "from": "APUSH-U7S62",
+      "to": "APUSH-U7S67"
+    },
+    {
+      "from": "APUSH-U7S62",
+      "to": "APUSH-U7S68"
+    },
+    {
+      "from": "APUSH-U7S68",
+      "to": "APUSH-U7S69"
+    },
+    {
+      "from": "APUSH-U7S62",
+      "to": "APUSH-U7S70"
+    },
+    {
+      "from": "APUSH-U7S40",
+      "to": "APUSH-U7S71"
+    },
+    {
+      "from": "APUSH-U7S71",
+      "to": "APUSH-U7S72"
+    },
+    {
+      "from": "APUSH-U7S72",
+      "to": "APUSH-U7S73"
+    },
+    {
+      "from": "APUSH-U7S73",
+      "to": "APUSH-U7S74"
+    },
+    {
+      "from": "APUSH-U7S74",
+      "to": "APUSH-U7S75"
+    },
+    {
+      "from": "APUSH-U7S74",
+      "to": "APUSH-U7S76"
+    },
+    {
+      "from": "APUSH-U7S76",
+      "to": "APUSH-U7S77"
+    },
+    {
+      "from": "APUSH-U7S77",
+      "to": "APUSH-U7S78"
+    },
+    {
+      "from": "APUSH-U7S77",
+      "to": "APUSH-U7S79"
+    },
+    {
+      "from": "APUSH-U7S77",
+      "to": "APUSH-U7S80"
+    },
+    {
+      "from": "APUSH-U7S77",
+      "to": "APUSH-U7S81"
+    },
+    {
+      "from": "APUSH-U7S81",
+      "to": "APUSH-U7S82"
+    },
+    {
+      "from": "APUSH-U7S77",
+      "to": "APUSH-U7S83"
+    },
+    {
+      "from": "APUSH-U7S76",
+      "to": "APUSH-U7S83"
+    },
+    {
+      "from": "APUSH-U7S83",
+      "to": "APUSH-U7S84"
+    },
+    {
+      "from": "APUSH-U7S83",
+      "to": "APUSH-U7S85"
+    },
+    {
+      "from": "APUSH-U7S85",
+      "to": "APUSH-U7S86"
+    },
+    {
+      "from": "APUSH-U7S86",
+      "to": "APUSH-U7S87"
+    },
+    {
+      "from": "APUSH-U7S84",
+      "to": "APUSH-U7S88"
+    },
+    {
+      "from": "APUSH-U7S88",
+      "to": "APUSH-U7S89"
+    },
+    {
+      "from": "APUSH-U7S88",
+      "to": "APUSH-U7S90"
+    },
+    {
+      "from": "APUSH-U8S1",
+      "to": "APUSH-U8S2"
+    },
+    {
+      "from": "APUSH-U8S1",
+      "to": "APUSH-U8S3"
+    },
+    {
+      "from": "APUSH-U8S1",
+      "to": "APUSH-U8S4"
+    },
+    {
+      "from": "APUSH-U8S1",
+      "to": "APUSH-U8S5"
+    },
+    {
+      "from": "APUSH-U8S2",
+      "to": "APUSH-U8S6"
+    },
+    {
+      "from": "APUSH-U8S6",
+      "to": "APUSH-U8S7"
+    },
+    {
+      "from": "APUSH-U8S6",
+      "to": "APUSH-U8S8"
+    },
+    {
+      "from": "APUSH-U8S8",
+      "to": "APUSH-U8S9"
+    },
+    {
+      "from": "APUSH-U8S6",
+      "to": "APUSH-U8S10"
+    },
+    {
+      "from": "APUSH-U8S11",
+      "to": "APUSH-U8S12"
+    },
+    {
+      "from": "APUSH-U8S11",
+      "to": "APUSH-U8S13"
+    },
+    {
+      "from": "APUSH-U8S11",
+      "to": "APUSH-U8S14"
+    },
+    {
+      "from": "APUSH-U8S13",
+      "to": "APUSH-U8S15"
+    },
+    {
+      "from": "APUSH-U8S16",
+      "to": "APUSH-U8S17"
+    },
+    {
+      "from": "APUSH-U8S17",
+      "to": "APUSH-U8S18"
+    },
+    {
+      "from": "APUSH-U8S16",
+      "to": "APUSH-U8S19"
+    },
+    {
+      "from": "APUSH-U8S19",
+      "to": "APUSH-U8S20"
+    },
+    {
+      "from": "APUSH-U8S16",
+      "to": "APUSH-U8S21"
+    },
+    {
+      "from": "APUSH-U8S16",
+      "to": "APUSH-U8S22"
+    },
+    {
+      "from": "APUSH-U8S17",
+      "to": "APUSH-U8S23"
+    },
+    {
+      "from": "APUSH-U8S24",
+      "to": "APUSH-U8S25"
+    },
+    {
+      "from": "APUSH-U8S24",
+      "to": "APUSH-U8S26"
+    },
+    {
+      "from": "APUSH-U8S26",
+      "to": "APUSH-U8S27"
+    },
+    {
+      "from": "APUSH-U8S27",
+      "to": "APUSH-U8S28"
+    },
+    {
+      "from": "APUSH-U8S6",
+      "to": "APUSH-U8S29"
+    },
+    {
+      "from": "APUSH-U8S29",
+      "to": "APUSH-U8S30"
+    },
+    {
+      "from": "APUSH-U8S29",
+      "to": "APUSH-U8S31"
+    },
+    {
+      "from": "APUSH-U8S9",
+      "to": "APUSH-U8S31"
+    },
+    {
+      "from": "APUSH-U8S29",
+      "to": "APUSH-U8S32"
+    },
+    {
+      "from": "APUSH-U8S32",
+      "to": "APUSH-U8S33"
+    },
+    {
+      "from": "APUSH-U8S32",
+      "to": "APUSH-U8S34"
+    },
+    {
+      "from": "APUSH-U8S34",
+      "to": "APUSH-U8S35"
+    },
+    {
+      "from": "APUSH-U8S35",
+      "to": "APUSH-U8S36"
+    },
+    {
+      "from": "APUSH-U8S36",
+      "to": "APUSH-U8S37"
+    },
+    {
+      "from": "APUSH-U8S37",
+      "to": "APUSH-U8S38"
+    },
+    {
+      "from": "APUSH-U8S35",
+      "to": "APUSH-U8S39"
+    },
+    {
+      "from": "APUSH-U8S39",
+      "to": "APUSH-U8S40"
+    },
+    {
+      "from": "APUSH-U8S40",
+      "to": "APUSH-U8S41"
+    },
+    {
+      "from": "APUSH-U8S41",
+      "to": "APUSH-U8S42"
+    },
+    {
+      "from": "APUSH-U8S43",
+      "to": "APUSH-U8S44"
+    },
+    {
+      "from": "APUSH-U8S43",
+      "to": "APUSH-U8S45"
+    },
+    {
+      "from": "APUSH-U8S43",
+      "to": "APUSH-U8S46"
+    },
+    {
+      "from": "APUSH-U8S43",
+      "to": "APUSH-U8S47"
+    },
+    {
+      "from": "APUSH-U8S27",
+      "to": "APUSH-U8S48"
+    },
+    {
+      "from": "APUSH-U8S48",
+      "to": "APUSH-U8S49"
+    },
+    {
+      "from": "APUSH-U8S49",
+      "to": "APUSH-U8S50"
+    },
+    {
+      "from": "APUSH-U8S49",
+      "to": "APUSH-U8S51"
+    },
+    {
+      "from": "APUSH-U8S50",
+      "to": "APUSH-U8S52"
+    },
+    {
+      "from": "APUSH-U8S51",
+      "to": "APUSH-U8S53"
+    },
+    {
+      "from": "APUSH-U8S53",
+      "to": "APUSH-U8S54"
+    },
+    {
+      "from": "APUSH-U8S54",
+      "to": "APUSH-U8S55"
+    },
+    {
+      "from": "APUSH-U8S54",
+      "to": "APUSH-U8S56"
+    },
+    {
+      "from": "APUSH-U8S56",
+      "to": "APUSH-U8S57"
+    },
+    {
+      "from": "APUSH-U8S56",
+      "to": "APUSH-U8S58"
+    },
+    {
+      "from": "APUSH-U8S56",
+      "to": "APUSH-U8S59"
+    },
+    {
+      "from": "APUSH-U8S49",
+      "to": "APUSH-U8S60"
+    },
+    {
+      "from": "APUSH-U8S61",
+      "to": "APUSH-U8S62"
+    },
+    {
+      "from": "APUSH-U8S62",
+      "to": "APUSH-U8S63"
+    },
+    {
+      "from": "APUSH-U8S62",
+      "to": "APUSH-U8S64"
+    },
+    {
+      "from": "APUSH-U8S62",
+      "to": "APUSH-U8S65"
+    },
+    {
+      "from": "APUSH-U8S62",
+      "to": "APUSH-U8S66"
+    },
+    {
+      "from": "APUSH-U8S61",
+      "to": "APUSH-U8S67"
+    },
+    {
+      "from": "APUSH-U8S67",
+      "to": "APUSH-U8S68"
+    },
+    {
+      "from": "APUSH-U8S61",
+      "to": "APUSH-U8S69"
+    },
+    {
+      "from": "APUSH-U8S61",
+      "to": "APUSH-U8S70"
+    },
+    {
+      "from": "APUSH-U8S61",
+      "to": "APUSH-U8S71"
+    },
+    {
+      "from": "APUSH-U8S37",
+      "to": "APUSH-U8S72"
+    },
+    {
+      "from": "APUSH-U8S72",
+      "to": "APUSH-U8S73"
+    },
+    {
+      "from": "APUSH-U8S72",
+      "to": "APUSH-U8S74"
+    },
+    {
+      "from": "APUSH-U8S75",
+      "to": "APUSH-U8S76"
+    },
+    {
+      "from": "APUSH-U8S75",
+      "to": "APUSH-U8S77"
+    },
+    {
+      "from": "APUSH-U8S75",
+      "to": "APUSH-U8S78"
+    },
+    {
+      "from": "APUSH-U8S75",
+      "to": "APUSH-U8S79"
+    },
+    {
+      "from": "APUSH-U8S42",
+      "to": "APUSH-U8S80"
+    },
+    {
+      "from": "APUSH-U8S80",
+      "to": "APUSH-U8S81"
+    },
+    {
+      "from": "APUSH-U8S81",
+      "to": "APUSH-U8S82"
+    },
+    {
+      "from": "APUSH-U8S80",
+      "to": "APUSH-U8S83"
+    },
+    {
+      "from": "APUSH-U8S83",
+      "to": "APUSH-U8S84"
+    },
+    {
+      "from": "APUSH-U8S80",
+      "to": "APUSH-U8S85"
+    },
+    {
+      "from": "APUSH-U8S85",
+      "to": "APUSH-U8S86"
+    },
+    {
+      "from": "APUSH-U8S80",
+      "to": "APUSH-U8S87"
+    },
+    {
+      "from": "APUSH-U8S87",
+      "to": "APUSH-U8S88"
+    },
+    {
+      "from": "APUSH-U9S1",
+      "to": "APUSH-U9S2"
+    },
+    {
+      "from": "APUSH-U9S1",
+      "to": "APUSH-U9S3"
+    },
+    {
+      "from": "APUSH-U9S1",
+      "to": "APUSH-U9S4"
+    },
+    {
+      "from": "APUSH-U9S4",
+      "to": "APUSH-U9S5"
+    },
+    {
+      "from": "APUSH-U9S5",
+      "to": "APUSH-U9S6"
+    },
+    {
+      "from": "APUSH-U9S5",
+      "to": "APUSH-U9S7"
+    },
+    {
+      "from": "APUSH-U9S4",
+      "to": "APUSH-U9S8"
+    },
+    {
+      "from": "APUSH-U9S8",
+      "to": "APUSH-U9S9"
+    },
+    {
+      "from": "APUSH-U9S4",
+      "to": "APUSH-U9S10"
+    },
+    {
+      "from": "APUSH-U9S8",
+      "to": "APUSH-U9S11"
+    },
+    {
+      "from": "APUSH-U9S11",
+      "to": "APUSH-U9S12"
+    },
+    {
+      "from": "APUSH-U9S12",
+      "to": "APUSH-U9S13"
+    },
+    {
+      "from": "APUSH-U9S13",
+      "to": "APUSH-U9S14"
+    },
+    {
+      "from": "APUSH-U9S14",
+      "to": "APUSH-U9S15"
+    },
+    {
+      "from": "APUSH-U9S15",
+      "to": "APUSH-U9S16"
+    },
+    {
+      "from": "APUSH-U9S16",
+      "to": "APUSH-U9S17"
+    },
+    {
+      "from": "APUSH-U9S16",
+      "to": "APUSH-U9S18"
+    },
+    {
+      "from": "APUSH-U9S19",
+      "to": "APUSH-U9S20"
+    },
+    {
+      "from": "APUSH-U9S19",
+      "to": "APUSH-U9S21"
+    },
+    {
+      "from": "APUSH-U9S19",
+      "to": "APUSH-U9S22"
+    },
+    {
+      "from": "APUSH-U9S19",
+      "to": "APUSH-U9S23"
+    },
+    {
+      "from": "APUSH-U9S19",
+      "to": "APUSH-U9S24"
+    },
+    {
+      "from": "APUSH-U9S25",
+      "to": "APUSH-U9S26"
+    },
+    {
+      "from": "APUSH-U9S26",
+      "to": "APUSH-U9S27"
+    },
+    {
+      "from": "APUSH-U9S25",
+      "to": "APUSH-U9S28"
+    },
+    {
+      "from": "APUSH-U9S28",
+      "to": "APUSH-U9S29"
+    },
+    {
+      "from": "APUSH-U9S15",
+      "to": "APUSH-U9S30"
+    },
+    {
+      "from": "APUSH-U9S30",
+      "to": "APUSH-U9S31"
+    },
+    {
+      "from": "APUSH-U9S30",
+      "to": "APUSH-U9S32"
+    },
+    {
+      "from": "APUSH-U9S30",
+      "to": "APUSH-U9S33"
+    },
+    {
+      "from": "APUSH-U9S30",
+      "to": "APUSH-U9S34"
+    },
+    {
+      "from": "APUSH-U9S1",
+      "to": "APUSH-U9S35"
+    },
+    {
+      "from": "APUSH-U9S35",
+      "to": "APUSH-U9S36"
+    },
+    {
+      "from": "APUSH-U9S35",
+      "to": "APUSH-U9S37"
+    },
+    {
+      "from": "APUSH-U9S4",
+      "to": "APUSH-U9S38"
+    },
+    {
+      "from": "APUSH-U1S22",
+      "to": "APUSH-U2S6"
+    },
+    {
+      "from": "APUSH-U1S24",
+      "to": "APUSH-U2S20"
+    },
+    {
+      "from": "APUSH-U1S25",
+      "to": "APUSH-U2S30"
+    },
+    {
+      "from": "APUSH-U1S17",
+      "to": "APUSH-U2S1"
+    },
+    {
+      "from": "APUSH-U1S27",
+      "to": "APUSH-U2S30"
+    },
+    {
+      "from": "APUSH-U2S42",
+      "to": "APUSH-U3S9"
+    },
+    {
+      "from": "APUSH-U2S43",
+      "to": "APUSH-U3S14"
+    },
+    {
+      "from": "APUSH-U2S40",
+      "to": "APUSH-U3S15"
+    },
+    {
+      "from": "APUSH-U2S28",
+      "to": "APUSH-U3S6"
+    },
+    {
+      "from": "APUSH-U2S34",
+      "to": "APUSH-U3S5"
+    },
+    {
+      "from": "APUSH-U2S38",
+      "to": "APUSH-U3S15"
+    },
+    {
+      "from": "APUSH-U3S66",
+      "to": "APUSH-U4S37"
+    },
+    {
+      "from": "APUSH-U3S57",
+      "to": "APUSH-U4S1"
+    },
+    {
+      "from": "APUSH-U3S59",
+      "to": "APUSH-U4S2"
+    },
+    {
+      "from": "APUSH-U3S58",
+      "to": "APUSH-U4S17"
+    },
+    {
+      "from": "APUSH-U3S61",
+      "to": "APUSH-U4S36"
+    },
+    {
+      "from": "APUSH-U3S62",
+      "to": "APUSH-U4S6"
+    },
+    {
+      "from": "APUSH-U3S31",
+      "to": "APUSH-U4S55"
+    },
+    {
+      "from": "APUSH-U3S34",
+      "to": "APUSH-U4S45"
+    },
+    {
+      "from": "APUSH-U3S22",
+      "to": "APUSH-U4S50"
+    },
+    {
+      "from": "APUSH-U4S19",
+      "to": "APUSH-U5S8"
+    },
+    {
+      "from": "APUSH-U4S55",
+      "to": "APUSH-U5S15"
+    },
+    {
+      "from": "APUSH-U4S45",
+      "to": "APUSH-U5S13"
+    },
+    {
+      "from": "APUSH-U4S59",
+      "to": "APUSH-U5S17"
+    },
+    {
+      "from": "APUSH-U4S27",
+      "to": "APUSH-U5S15"
+    },
+    {
+      "from": "APUSH-U4S38",
+      "to": "APUSH-U5S29"
+    },
+    {
+      "from": "APUSH-U5S63",
+      "to": "APUSH-U6S16"
+    },
+    {
+      "from": "APUSH-U5S62",
+      "to": "APUSH-U6S13"
+    },
+    {
+      "from": "APUSH-U5S60",
+      "to": "APUSH-U6S14"
+    },
+    {
+      "from": "APUSH-U5S38",
+      "to": "APUSH-U6S1"
+    },
+    {
+      "from": "APUSH-U5S42",
+      "to": "APUSH-U6S3"
+    },
+    {
+      "from": "APUSH-U5S51",
+      "to": "APUSH-U6S18"
+    },
+    {
+      "from": "APUSH-U6S29",
+      "to": "APUSH-U7S13"
+    },
+    {
+      "from": "APUSH-U6S51",
+      "to": "APUSH-U7S13"
+    },
+    {
+      "from": "APUSH-U6S27",
+      "to": "APUSH-U7S17"
+    },
+    {
+      "from": "APUSH-U6S35",
+      "to": "APUSH-U7S65"
+    },
+    {
+      "from": "APUSH-U6S41",
+      "to": "APUSH-U7S41"
+    },
+    {
+      "from": "APUSH-U6S17",
+      "to": "APUSH-U7S26"
+    },
+    {
+      "from": "APUSH-U6S4",
+      "to": "APUSH-U7S1"
+    },
+    {
+      "from": "APUSH-U6S50",
+      "to": "APUSH-U7S14"
+    },
+    {
+      "from": "APUSH-U7S90",
+      "to": "APUSH-U8S1"
+    },
+    {
+      "from": "APUSH-U7S68",
+      "to": "APUSH-U8S43"
+    },
+    {
+      "from": "APUSH-U7S36",
+      "to": "APUSH-U8S24"
+    },
+    {
+      "from": "APUSH-U7S80",
+      "to": "APUSH-U8S24"
+    },
+    {
+      "from": "APUSH-U7S78",
+      "to": "APUSH-U8S16"
+    },
+    {
+      "from": "APUSH-U7S25",
+      "to": "APUSH-U8S62"
+    },
+    {
+      "from": "APUSH-U7S70",
+      "to": "APUSH-U8S48"
+    },
+    {
+      "from": "APUSH-U7S87",
+      "to": "APUSH-U8S8"
+    },
+    {
+      "from": "APUSH-U7S69",
+      "to": "APUSH-U8S16"
+    },
+    {
+      "from": "APUSH-U8S88",
+      "to": "APUSH-U9S1"
+    },
+    {
+      "from": "APUSH-U8S42",
+      "to": "APUSH-U9S1"
+    },
+    {
+      "from": "APUSH-U8S82",
+      "to": "APUSH-U9S1"
+    },
+    {
+      "from": "APUSH-U8S86",
+      "to": "APUSH-U9S11"
+    },
+    {
+      "from": "APUSH-U8S83",
+      "to": "APUSH-U9S5"
+    },
+    {
+      "from": "APUSH-U8S46",
+      "to": "APUSH-U9S25"
+    },
+    {
+      "from": "APUSH-U8S53",
+      "to": "APUSH-U9S35"
+    },
+    {
+      "from": "APUSH-U8S63",
+      "to": "APUSH-U9S3"
+    },
+    {
+      "from": "APUSH-U8S66",
+      "to": "APUSH-U9S37"
+    }
+  ]
+}

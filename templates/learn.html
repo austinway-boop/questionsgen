@@ -15,7 +15,9 @@
       <div class="topbar-left">
         <a href="/" class="topbar-back">&larr; Skill Tree</a>
         <h1 class="topbar-title">Learning Simulation</h1>
-        <span class="topbar-subtitle">AP Human Geography</span>
+        <select id="learn-course-select" class="course-select" onchange="switchLearnCourse(this.value)" style="padding:0.25rem 0.4rem;font-size:0.78rem;border:1px solid #e2e8f0;border-radius:6px;">
+          <option value="APHG">Loading...</option>
+        </select>
       </div>
       <div class="topbar-stats">
         <div class="stat-pill">

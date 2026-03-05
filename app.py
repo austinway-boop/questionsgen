@@ -80,15 +80,18 @@ def graph():
 def graph_data():
     """Return the skill tree as a flat mermaid graph with unit class assignments."""
     tree = _get_tree()
-    lines = ["graph LR"]
+    direction = request.args.get("dir", "TD")
+    compact = request.args.get("compact", "0") == "1"
+    lines = [f"graph {direction}"]
     unit_skills = {}
     for unit in tree["units"]:
         uid = unit["id"]
         unit_skills[uid] = {"title": unit["title"], "skills": []}
         for skill in unit["skills"]:
             sid = skill["id"]
-            label = skill["text"].replace('"', "'")
-            lines.append(f'    {sid}["{sid}"]')
+            num = sid.replace(uid, "")
+            label = num if compact else sid
+            lines.append(f"    {sid}(({label}))" if compact else f'    {sid}["{sid}"]')
             unit_skills[uid]["skills"].append(sid)
         for edge in unit["edges"]:
             lines.append(f"    {edge[0]} --> {edge[1]}")

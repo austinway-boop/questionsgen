@@ -163,6 +163,7 @@
       <button onclick="zoomIn()" title="Zoom in">+</button>
       <button onclick="zoomOut()" title="Zoom out">&minus;</button>
       <button onclick="fitToScreen()" title="Fit to screen" style="font-size:0.7rem;width:auto;padding:0 8px;">Fit</button>
+      <button onclick="toggleMode()" id="mode-btn" title="Toggle compact/detail" style="font-size:0.65rem;width:auto;padding:0 8px;">Detail</button>
     </div>
   </div>
 
@@ -193,34 +194,43 @@
     let dragging = false, lastX = 0, lastY = 0;
     let svgNaturalW = 0, svgNaturalH = 0;
 
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: "base",
-      maxTextSize: 500000,
-      themeVariables: {
-        background: "#ffffff",
-        primaryColor: "#dbeafe",
-        primaryBorderColor: "#94a3b8",
-        primaryTextColor: "#1e293b",
-        lineColor: "#cbd5e1",
-        fontSize: "10px",
-        fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif",
-      },
-      flowchart: {
-        curve: "basis",
-        nodeSpacing: 20,
-        rankSpacing: 40,
-        useMaxWidth: false,
-        htmlLabels: true,
-      },
-      securityLevel: "loose",
-    });
+    let compactMode = true;
+
+    function initMermaid(compact) {
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: "base",
+        maxTextSize: 500000,
+        themeVariables: {
+          background: "#ffffff",
+          primaryColor: "#dbeafe",
+          primaryBorderColor: "#94a3b8",
+          primaryTextColor: "#1e293b",
+          lineColor: "#cbd5e1",
+          fontSize: compact ? "7px" : "10px",
+          fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif",
+        },
+        flowchart: {
+          curve: "basis",
+          nodeSpacing: compact ? 8 : 20,
+          rankSpacing: compact ? 20 : 40,
+          useMaxWidth: false,
+          htmlLabels: true,
+        },
+        securityLevel: "loose",
+      });
+    }
+
+    initMermaid(true);
 
     async function loadGraph() {
-      const res = await fetch("/graph-data");
+      document.getElementById("loading").style.display = "block";
+      const params = compactMode ? "?compact=1&dir=TD" : "?dir=LR";
+      const res = await fetch("/graph-data" + params);
       const data = await res.json();
       const mmdText = data.mermaid;
       const units = data.units;
+      document.getElementById("mode-btn").textContent = compactMode ? "Detail" : "Compact";
 
       const lines = mmdText.split("\n");
       const nodeCount = lines.filter(l => l.includes('["')).length;
@@ -233,8 +243,10 @@
 
       const wrapper = document.getElementById("svg-wrapper");
 
+      initMermaid(compactMode);
+      const renderId = "graph-svg-" + Date.now();
       try {
-        const { svg } = await mermaid.render("graph-svg", mmdText);
+        const { svg } = await mermaid.render(renderId, mmdText);
         wrapper.innerHTML = svg;
 
         const svgEl = wrapper.querySelector("svg");
@@ -373,6 +385,11 @@
       const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
       zoomAt(e.clientX, e.clientY - 42, factor);
     }, { passive: false });
+
+    function toggleMode() {
+      compactMode = !compactMode;
+      loadGraph();
+    }
 
     loadGraph();
   </script>

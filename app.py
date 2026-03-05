@@ -80,7 +80,7 @@ def graph():
 def graph_data():
     """Return the skill tree as a flat mermaid graph (no subgraph boxes)."""
     tree = _get_tree()
-    lines = ["graph TD"]
+    lines = ["graph LR"]
     for unit in tree["units"]:
         for skill in unit["skills"]:
             sid = skill["id"]

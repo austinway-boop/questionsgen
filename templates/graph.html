@@ -79,18 +79,23 @@
 
     #graph-container {
       width: 100vw;
-      height: 100vh;
+      height: calc(100vh - 46px);
+      margin-top: 46px;
       overflow: auto;
-      padding-top: 50px;
       cursor: grab;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(67, 56, 202, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(129, 140, 248, 0.03) 0%, transparent 50%);
     }
     #graph-container:active { cursor: grabbing; }
 
     #graph-container .mermaid {
       padding: 2rem;
-      min-width: 100%;
-      display: flex;
-      justify-content: center;
+      display: inline-block;
+    }
+
+    #graph-container .mermaid svg {
+      display: block;
     }
 
     #loading {
@@ -223,6 +228,14 @@
       try {
         const { svg } = await mermaid.render("graph-svg", mmdText);
         target.innerHTML = svg;
+
+        const svgEl = target.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("height");
+          svgEl.style.width = "auto";
+          svgEl.style.height = "auto";
+          svgEl.style.maxWidth = "none";
+        }
       } catch (e) {
         target.innerHTML = `<pre style="color:#f87171;padding:2rem;">Render error: ${e.message}</pre>`;
       }
